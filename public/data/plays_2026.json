@@ -1,0 +1,247 @@
+[
+  {
+    "id": "CHI_DEN_W1_001",
+    "week": 1,
+    "game_id": "CHI_vs_DEN_2026_09_09",
+    "quarter": 1,
+    "time": "13:45",
+    "down": 1,
+    "yards_to_go": 10,
+    "yard_line": 20,
+    "offense_team": "CHI",
+    "defense_team": "DEN",
+    "play_type": "pass",
+    "result": "success",
+    "yards_gained": 12,
+    "qb": {
+      "name": "Caleb Williams",
+      "number": 18,
+      "position": "QB"
+    },
+    "receiver": {
+      "name": "Rome Odunze",
+      "number": 15,
+      "position": "WR"
+    },
+    "description": "4 Verts concept, Odunze breaks vertically up the seam, Williams hits him in stride for 12 yards",
+    "route_concept": "4 Verts",
+    "formation": "3WR 1TE",
+    "diagram_type": "FourVerticalsDiagram",
+    "analysis": {
+      "concept": "4 Verts",
+      "success": true,
+      "reason": "Perfect coverage mismatch — TE running vertical seam against linebacker in coverage",
+      "defensive_coverage": "Cover 2"
+    }
+  },
+  {
+    "id": "CHI_DEN_W1_002",
+    "week": 1,
+    "game_id": "CHI_vs_DEN_2026_09_09",
+    "quarter": 1,
+    "time": "13:22",
+    "down": 2,
+    "yards_to_go": 8,
+    "yard_line": 32,
+    "offense_team": "CHI",
+    "defense_team": "DEN",
+    "play_type": "pass",
+    "result": "incomplete",
+    "yards_gained": 0,
+    "qb": {
+      "name": "Caleb Williams",
+      "number": 18,
+      "position": "QB"
+    },
+    "receiver": {
+      "name": "Luther Burden III",
+      "number": 10,
+      "position": "WR"
+    },
+    "description": "Mesh concept with crossing WRs, safety over top deflects the pass intended for Burden",
+    "route_concept": "Mesh",
+    "formation": "3WR 1TE",
+    "diagram_type": "MeshDiagram",
+    "analysis": {
+      "concept": "Mesh",
+      "success": false,
+      "reason": "Safety rotation too quick, deflected at high point",
+      "defensive_coverage": "Cover 2 Tampa"
+    }
+  },
+  {
+    "id": "CHI_DEN_W1_003",
+    "week": 1,
+    "game_id": "CHI_vs_DEN_2026_09_09",
+    "quarter": 2,
+    "time": "08:15",
+    "down": 1,
+    "yards_to_go": 10,
+    "yard_line": 45,
+    "offense_team": "CHI",
+    "defense_team": "DEN",
+    "play_type": "pass",
+    "result": "success",
+    "yards_gained": 18,
+    "qb": {
+      "name": "Caleb Williams",
+      "number": 18,
+      "position": "QB"
+    },
+    "receiver": {
+      "name": "Rome Odunze",
+      "number": 15,
+      "position": "WR"
+    },
+    "description": "Smash concept on the right side — hitch draws safety, corner route beats the corner for big gain",
+    "route_concept": "Smash",
+    "formation": "2WR 1TE",
+    "diagram_type": "SmashDiagram",
+    "analysis": {
+      "concept": "Smash",
+      "success": true,
+      "reason": "High-low read — CB indecisive between defending hitch and corner",
+      "defensive_coverage": "Cover 1"
+    }
+  },
+  {
+    "id": "DEN_CHI_W1_001",
+    "week": 1,
+    "game_id": "CHI_vs_DEN_2026_09_09",
+    "quarter": 3,
+    "time": "01:30",
+    "down": 1,
+    "yards_to_go": 10,
+    "yard_line": 25,
+    "offense_team": "DEN",
+    "defense_team": "CHI",
+    "play_type": "pass",
+    "result": "success",
+    "yards_gained": 14,
+    "qb": {
+      "name": "Bo Nix",
+      "number": 8,
+      "position": "QB"
+    },
+    "receiver": {
+      "name": "Marvin Harrison Jr.",
+      "number": 11,
+      "position": "WR"
+    },
+    "description": "Flood concept left — three receivers on the same side create numbers advantage, Harrison beats coverage underneath",
+    "route_concept": "Flood",
+    "formation": "3WR 1TE",
+    "diagram_type": "FloodDiagram",
+    "analysis": {
+      "concept": "Flood",
+      "success": true,
+      "reason": "Three-level concept guarantees one receiver open at either deep, intermediate or flat",
+      "defensive_coverage": "Cover 3"
+    }
+  },
+  {
+    "id": "DEN_CHI_W1_002",
+    "week": 1,
+    "game_id": "CHI_vs_DEN_2026_09_09",
+    "quarter": 3,
+    "time": "14:05",
+    "down": 2,
+    "yards_to_go": 6,
+    "yard_line": 39,
+    "offense_team": "DEN",
+    "defense_team": "CHI",
+    "play_type": "pass",
+    "result": "incomplete",
+    "yards_gained": 0,
+    "qb": {
+      "name": "Bo Nix",
+      "number": 8,
+      "position": "QB"
+    },
+    "receiver": {
+      "name": "Quentin Johnston",
+      "number": 2,
+      "position": "WR"
+    },
+    "description": "Spacing concept against man coverage — five receivers in short routes, linebacker jam disrupts timing",
+    "route_concept": "Spacing",
+    "formation": "5WR",
+    "diagram_type": "SpacingDiagram",
+    "analysis": {
+      "concept": "Spacing",
+      "success": false,
+      "reason": "Man coverage with physical jam at line of scrimmage — breaks timing on slant route",
+      "defensive_coverage": "Cover 1 Man"
+    }
+  },
+  {
+    "id": "CHI_DEN_W1_004",
+    "week": 1,
+    "game_id": "CHI_vs_DEN_2026_09_09",
+    "quarter": 4,
+    "time": "05:22",
+    "down": 2,
+    "yards_to_go": 7,
+    "yard_line": 38,
+    "offense_team": "CHI",
+    "defense_team": "DEN",
+    "play_type": "pass",
+    "result": "success",
+    "yards_gained": 9,
+    "qb": {
+      "name": "Caleb Williams",
+      "number": 18,
+      "position": "QB"
+    },
+    "receiver": {
+      "name": "Cole Kmet",
+      "number": 85,
+      "position": "TE"
+    },
+    "description": "Curl-Flat concept — TE curls up at 8 yards, RB flats out, LB caught in high-low conflict",
+    "route_concept": "Curl-Flat",
+    "formation": "2WR 1TE 1RB",
+    "diagram_type": "CurlFlatDiagram",
+    "analysis": {
+      "concept": "Curl-Flat",
+      "success": true,
+      "reason": "LB cannot defend both curl and flat simultaneously — classic high-low progression",
+      "defensive_coverage": "Cover 3"
+    }
+  },
+  {
+    "id": "DEN_CHI_W1_003",
+    "week": 1,
+    "game_id": "CHI_vs_DEN_2026_09_09",
+    "quarter": 4,
+    "time": "02:10",
+    "down": 1,
+    "yards_to_go": 10,
+    "yard_line": 15,
+    "offense_team": "DEN",
+    "defense_team": "CHI",
+    "play_type": "pass",
+    "result": "success",
+    "yards_gained": 11,
+    "qb": {
+      "name": "Bo Nix",
+      "number": 8,
+      "position": "QB"
+    },
+    "receiver": {
+      "name": "Marvin Harrison Jr.",
+      "number": 11,
+      "position": "WR"
+    },
+    "description": "Sail concept — three levels on the right side, fade and out routes clear the deep help, RB catches flat",
+    "route_concept": "Sail",
+    "formation": "2WR 1TE 1RB",
+    "diagram_type": "SailDiagram",
+    "analysis": {
+      "concept": "Sail",
+      "success": true,
+      "reason": "Numbers game — three levels occupy three defenders, RB open in space",
+      "defensive_coverage": "Cover 2"
+    }
+  }
+]

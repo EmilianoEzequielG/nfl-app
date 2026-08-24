@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node test-xos.js)",
+      "Bash(curl -s http://localhost:3000/data/plays_2026.json)",
+      "Bash(taskkill /PID 33684 /F)",
+      "PowerShell(Get-Process node -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Force)",
+      "Bash(npx tsc *)",
+      "Bash(git checkout *)",
+      "Bash(pkill -f \"npm run dev\")",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:3000/api/power-ranking)",
+      "Bash(npm list *)",
+      "Bash(curl -s \"http://localhost:3000/api/power-ranking\")",
+      "Read(//c/Users/emiez/AppData/Local/Temp/**)",
+      "Bash(netstat -tuln)",
+      "Bash(curl -I http://localhost:3000)",
+      "Bash(netstat -ano)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\emiez\\Downloads"
+    ]
+  }
+}

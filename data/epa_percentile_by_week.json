@@ -1,0 +1,5114 @@
+[
+  {
+    "team": "ARI",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 1.349,
+    "percentil_ofensivo": 51.6,
+    "epa_total_allowed": -2.423,
+    "percentil_defensivo": 71
+  },
+  {
+    "team": "ARI",
+    "season": 2025,
+    "week": 2,
+    "epa_total": 4.5231,
+    "percentil_ofensivo": 61.3,
+    "epa_total_allowed": -1.2409,
+    "percentil_defensivo": 54.8
+  },
+  {
+    "team": "ARI",
+    "season": 2025,
+    "week": 3,
+    "epa_total": 4.1379,
+    "percentil_ofensivo": 61.3,
+    "epa_total_allowed": -1.8007,
+    "percentil_defensivo": 54.8
+  },
+  {
+    "team": "ARI",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 1.2411,
+    "percentil_ofensivo": 48.4,
+    "epa_total_allowed": -1.1732,
+    "percentil_defensivo": 51.6
+  },
+  {
+    "team": "ARI",
+    "season": 2025,
+    "week": 5,
+    "epa_total": -0.9923,
+    "percentil_ofensivo": 37,
+    "epa_total_allowed": -2.6949,
+    "percentil_defensivo": 70.4
+  },
+  {
+    "team": "ARI",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 3.087,
+    "percentil_ofensivo": 48.3,
+    "epa_total_allowed": 1.4062,
+    "percentil_defensivo": 55.2
+  },
+  {
+    "team": "ARI",
+    "season": 2025,
+    "week": 7,
+    "epa_total": 1.6032,
+    "percentil_ofensivo": 44.8,
+    "epa_total_allowed": 4.8251,
+    "percentil_defensivo": 37.9
+  },
+  {
+    "team": "ARI",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 5.3104,
+    "percentil_ofensivo": 40.7,
+    "epa_total_allowed": 3.0821,
+    "percentil_defensivo": 51.9
+  },
+  {
+    "team": "ARI",
+    "season": 2025,
+    "week": 10,
+    "epa_total": -3.9934,
+    "percentil_ofensivo": 29.6,
+    "epa_total_allowed": 3.8511,
+    "percentil_defensivo": 37
+  },
+  {
+    "team": "ARI",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 2.9907,
+    "percentil_ofensivo": 41.4,
+    "epa_total_allowed": 7.0748,
+    "percentil_defensivo": 37.9
+  },
+  {
+    "team": "ARI",
+    "season": 2025,
+    "week": 12,
+    "epa_total": -4.4685,
+    "percentil_ofensivo": 40.7,
+    "epa_total_allowed": 1.2977,
+    "percentil_defensivo": 33.3
+  },
+  {
+    "team": "ARI",
+    "season": 2025,
+    "week": 13,
+    "epa_total": -2.7899,
+    "percentil_ofensivo": 38.7,
+    "epa_total_allowed": 0.979,
+    "percentil_defensivo": 45.2
+  },
+  {
+    "team": "ARI",
+    "season": 2025,
+    "week": 14,
+    "epa_total": -5.4056,
+    "percentil_ofensivo": 37,
+    "epa_total_allowed": 14.9028,
+    "percentil_defensivo": 18.5
+  },
+  {
+    "team": "ARI",
+    "season": 2025,
+    "week": 15,
+    "epa_total": -5.716,
+    "percentil_ofensivo": 32.3,
+    "epa_total_allowed": 21.9923,
+    "percentil_defensivo": 25.8
+  },
+  {
+    "team": "ARI",
+    "season": 2025,
+    "week": 16,
+    "epa_total": -6.1534,
+    "percentil_ofensivo": 29,
+    "epa_total_allowed": 23.7507,
+    "percentil_defensivo": 29
+  },
+  {
+    "team": "ARI",
+    "season": 2025,
+    "week": 17,
+    "epa_total": -7.159,
+    "percentil_ofensivo": 32.3,
+    "epa_total_allowed": 35.7933,
+    "percentil_defensivo": 19.4
+  },
+  {
+    "team": "ARI",
+    "season": 2025,
+    "week": 18,
+    "epa_total": -6.0721,
+    "percentil_ofensivo": 38.7,
+    "epa_total_allowed": 44.7569,
+    "percentil_defensivo": 16.1
+  },
+  {
+    "team": "ATL",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 3.4679,
+    "percentil_ofensivo": 58.1,
+    "epa_total_allowed": 3.5569,
+    "percentil_defensivo": 38.7
+  },
+  {
+    "team": "ATL",
+    "season": 2025,
+    "week": 2,
+    "epa_total": 6.3129,
+    "percentil_ofensivo": 64.5,
+    "epa_total_allowed": -7.1027,
+    "percentil_defensivo": 90.3
+  },
+  {
+    "team": "ATL",
+    "season": 2025,
+    "week": 3,
+    "epa_total": -8.0748,
+    "percentil_ofensivo": 16.1,
+    "epa_total_allowed": -7.0755,
+    "percentil_defensivo": 77.4
+  },
+  {
+    "team": "ATL",
+    "season": 2025,
+    "week": 4,
+    "epa_total": -2.6862,
+    "percentil_ofensivo": 35.5,
+    "epa_total_allowed": -4.9481,
+    "percentil_defensivo": 67.7
+  },
+  {
+    "team": "ATL",
+    "season": 2025,
+    "week": 6,
+    "epa_total": -0.5153,
+    "percentil_ofensivo": 31,
+    "epa_total_allowed": -8.3163,
+    "percentil_defensivo": 82.8
+  },
+  {
+    "team": "ATL",
+    "season": 2025,
+    "week": 7,
+    "epa_total": -4.9998,
+    "percentil_ofensivo": 34.5,
+    "epa_total_allowed": -8.5801,
+    "percentil_defensivo": 75.9
+  },
+  {
+    "team": "ATL",
+    "season": 2025,
+    "week": 8,
+    "epa_total": -12.4897,
+    "percentil_ofensivo": 16,
+    "epa_total_allowed": -4.1974,
+    "percentil_defensivo": 68
+  },
+  {
+    "team": "ATL",
+    "season": 2025,
+    "week": 9,
+    "epa_total": -9.8632,
+    "percentil_ofensivo": 14.8,
+    "epa_total_allowed": -3.7605,
+    "percentil_defensivo": 66.7
+  },
+  {
+    "team": "ATL",
+    "season": 2025,
+    "week": 10,
+    "epa_total": -11.7449,
+    "percentil_ofensivo": 22.2,
+    "epa_total_allowed": 3.6122,
+    "percentil_defensivo": 40.7
+  },
+  {
+    "team": "ATL",
+    "season": 2025,
+    "week": 11,
+    "epa_total": -7.9364,
+    "percentil_ofensivo": 20.7,
+    "epa_total_allowed": 11.0881,
+    "percentil_defensivo": 34.5
+  },
+  {
+    "team": "ATL",
+    "season": 2025,
+    "week": 12,
+    "epa_total": -10.6116,
+    "percentil_ofensivo": 29.6,
+    "epa_total_allowed": -1.3489,
+    "percentil_defensivo": 48.1
+  },
+  {
+    "team": "ATL",
+    "season": 2025,
+    "week": 13,
+    "epa_total": -4.7747,
+    "percentil_ofensivo": 35.5,
+    "epa_total_allowed": -1.1626,
+    "percentil_defensivo": 54.8
+  },
+  {
+    "team": "ATL",
+    "season": 2025,
+    "week": 14,
+    "epa_total": -15.7244,
+    "percentil_ofensivo": 25.9,
+    "epa_total_allowed": 3.6911,
+    "percentil_defensivo": 44.4
+  },
+  {
+    "team": "ATL",
+    "season": 2025,
+    "week": 15,
+    "epa_total": -3.2693,
+    "percentil_ofensivo": 38.7,
+    "epa_total_allowed": 5.9954,
+    "percentil_defensivo": 45.2
+  },
+  {
+    "team": "ATL",
+    "season": 2025,
+    "week": 16,
+    "epa_total": -1.5109,
+    "percentil_ofensivo": 38.7,
+    "epa_total_allowed": 5.5579,
+    "percentil_defensivo": 51.6
+  },
+  {
+    "team": "ATL",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 1.1076,
+    "percentil_ofensivo": 38.7,
+    "epa_total_allowed": 2.5293,
+    "percentil_defensivo": 54.8
+  },
+  {
+    "team": "ATL",
+    "season": 2025,
+    "week": 18,
+    "epa_total": -6.5147,
+    "percentil_ofensivo": 35.5,
+    "epa_total_allowed": 1.3427,
+    "percentil_defensivo": 51.6
+  },
+  {
+    "team": "BAL",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 9.8113,
+    "percentil_ofensivo": 96.8,
+    "epa_total_allowed": 9.3353,
+    "percentil_defensivo": 6.5
+  },
+  {
+    "team": "BAL",
+    "season": 2025,
+    "week": 2,
+    "epa_total": 13.9292,
+    "percentil_ofensivo": 96.8,
+    "epa_total_allowed": -5.394,
+    "percentil_defensivo": 80.6
+  },
+  {
+    "team": "BAL",
+    "season": 2025,
+    "week": 3,
+    "epa_total": 17.543,
+    "percentil_ofensivo": 90.3,
+    "epa_total_allowed": 6.0904,
+    "percentil_defensivo": 19.4
+  },
+  {
+    "team": "BAL",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 12.8743,
+    "percentil_ofensivo": 80.6,
+    "epa_total_allowed": 14.5988,
+    "percentil_defensivo": 6.5
+  },
+  {
+    "team": "BAL",
+    "season": 2025,
+    "week": 5,
+    "epa_total": 6.1358,
+    "percentil_ofensivo": 48.1,
+    "epa_total_allowed": 25.3049,
+    "percentil_defensivo": 7.4
+  },
+  {
+    "team": "BAL",
+    "season": 2025,
+    "week": 6,
+    "epa_total": -2.9709,
+    "percentil_ofensivo": 24.1,
+    "epa_total_allowed": 23.9638,
+    "percentil_defensivo": 6.9
+  },
+  {
+    "team": "BAL",
+    "season": 2025,
+    "week": 8,
+    "epa_total": 3.5982,
+    "percentil_ofensivo": 48,
+    "epa_total_allowed": 24.8027,
+    "percentil_defensivo": 16
+  },
+  {
+    "team": "BAL",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 7.5325,
+    "percentil_ofensivo": 48.1,
+    "epa_total_allowed": 23.9971,
+    "percentil_defensivo": 18.5
+  },
+  {
+    "team": "BAL",
+    "season": 2025,
+    "week": 10,
+    "epa_total": 6.7349,
+    "percentil_ofensivo": 59.3,
+    "epa_total_allowed": 17.0536,
+    "percentil_defensivo": 22.2
+  },
+  {
+    "team": "BAL",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 5.202,
+    "percentil_ofensivo": 55.2,
+    "epa_total_allowed": 5.8887,
+    "percentil_defensivo": 44.8
+  },
+  {
+    "team": "BAL",
+    "season": 2025,
+    "week": 12,
+    "epa_total": 3.5517,
+    "percentil_ofensivo": 48.1,
+    "epa_total_allowed": 1.264,
+    "percentil_defensivo": 37
+  },
+  {
+    "team": "BAL",
+    "season": 2025,
+    "week": 13,
+    "epa_total": -1.6186,
+    "percentil_ofensivo": 48.4,
+    "epa_total_allowed": 2.168,
+    "percentil_defensivo": 38.7
+  },
+  {
+    "team": "BAL",
+    "season": 2025,
+    "week": 14,
+    "epa_total": -0.9649,
+    "percentil_ofensivo": 51.9,
+    "epa_total_allowed": 10.1964,
+    "percentil_defensivo": 25.9
+  },
+  {
+    "team": "BAL",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 2.5358,
+    "percentil_ofensivo": 41.9,
+    "epa_total_allowed": -1.1654,
+    "percentil_defensivo": 51.6
+  },
+  {
+    "team": "BAL",
+    "season": 2025,
+    "week": 16,
+    "epa_total": 6.335,
+    "percentil_ofensivo": 51.6,
+    "epa_total_allowed": 6.3734,
+    "percentil_defensivo": 48.4
+  },
+  {
+    "team": "BAL",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 22.1624,
+    "percentil_ofensivo": 64.5,
+    "epa_total_allowed": 10.5491,
+    "percentil_defensivo": 41.9
+  },
+  {
+    "team": "BAL",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 24.5381,
+    "percentil_ofensivo": 67.7,
+    "epa_total_allowed": 14.3852,
+    "percentil_defensivo": 38.7
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 9.3353,
+    "percentil_ofensivo": 93.5,
+    "epa_total_allowed": 9.8113,
+    "percentil_defensivo": 3.2
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 2,
+    "epa_total": 15.374,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": 2.9274,
+    "percentil_defensivo": 32.3
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 3,
+    "epa_total": 23.3313,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": 4.2777,
+    "percentil_defensivo": 29
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 27.4868,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": 2.0804,
+    "percentil_defensivo": 35.5
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 5,
+    "epa_total": 31.1107,
+    "percentil_ofensivo": 96.3,
+    "epa_total_allowed": 7.3426,
+    "percentil_defensivo": 33.3
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 27.7425,
+    "percentil_ofensivo": 93.1,
+    "epa_total_allowed": 9.5134,
+    "percentil_defensivo": 27.6
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 8,
+    "epa_total": 38.436,
+    "percentil_ofensivo": 84,
+    "epa_total_allowed": -0.4434,
+    "percentil_defensivo": 56
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 45.4002,
+    "percentil_ofensivo": 96.3,
+    "epa_total_allowed": -0.1217,
+    "percentil_defensivo": 63
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 10,
+    "epa_total": 44.955,
+    "percentil_ofensivo": 96.3,
+    "epa_total_allowed": 7.6337,
+    "percentil_defensivo": 29.6
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 52.3494,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": 11.2243,
+    "percentil_defensivo": 31
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 12,
+    "epa_total": 49.1258,
+    "percentil_ofensivo": 96.3,
+    "epa_total_allowed": 9.0903,
+    "percentil_defensivo": 25.9
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 13,
+    "epa_total": 52.1836,
+    "percentil_ofensivo": 93.5,
+    "epa_total_allowed": -0.4155,
+    "percentil_defensivo": 51.6
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 14,
+    "epa_total": 59.3896,
+    "percentil_ofensivo": 96.3,
+    "epa_total_allowed": 4.4091,
+    "percentil_defensivo": 37
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 65.4234,
+    "percentil_ofensivo": 96.8,
+    "epa_total_allowed": 11.0241,
+    "percentil_defensivo": 38.7
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 16,
+    "epa_total": 67.7961,
+    "percentil_ofensivo": 96.8,
+    "epa_total_allowed": 8.1922,
+    "percentil_defensivo": 41.9
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 63.2896,
+    "percentil_ofensivo": 90.3,
+    "epa_total_allowed": 4.7933,
+    "percentil_defensivo": 51.6
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 71.5698,
+    "percentil_ofensivo": 93.5,
+    "epa_total_allowed": -1.2118,
+    "percentil_defensivo": 54.8
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 19,
+    "epa_total": 78.5136,
+    "percentil_ofensivo": 90.9,
+    "epa_total_allowed": -0.4704,
+    "percentil_defensivo": 45.5
+  },
+  {
+    "team": "BUF",
+    "season": 2025,
+    "week": 20,
+    "epa_total": 81.8519,
+    "percentil_ofensivo": 85.7,
+    "epa_total_allowed": 0.8528,
+    "percentil_defensivo": 28.6
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 1,
+    "epa_total": -8.9252,
+    "percentil_ofensivo": 6.5,
+    "epa_total_allowed": 4.0003,
+    "percentil_defensivo": 32.3
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 2,
+    "epa_total": -7.7431,
+    "percentil_ofensivo": 12.9,
+    "epa_total_allowed": 7.1744,
+    "percentil_defensivo": 25.8
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 3,
+    "epa_total": -7.7159,
+    "percentil_ofensivo": 19.4,
+    "epa_total_allowed": -7.2133,
+    "percentil_defensivo": 80.6
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 4,
+    "epa_total": -8.2947,
+    "percentil_ofensivo": 22.6,
+    "epa_total_allowed": -0.6961,
+    "percentil_defensivo": 48.4
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 5,
+    "epa_total": -3.2355,
+    "percentil_ofensivo": 29.6,
+    "epa_total_allowed": 5.7712,
+    "percentil_defensivo": 37
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 1.684,
+    "percentil_ofensivo": 37.9,
+    "epa_total_allowed": 14.1022,
+    "percentil_defensivo": 20.7
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 7,
+    "epa_total": -1.9428,
+    "percentil_ofensivo": 41.4,
+    "epa_total_allowed": 4.9144,
+    "percentil_defensivo": 34.5
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 8,
+    "epa_total": -11.8996,
+    "percentil_ofensivo": 20,
+    "epa_total_allowed": 15.6079,
+    "percentil_defensivo": 36
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 9,
+    "epa_total": -7.9379,
+    "percentil_ofensivo": 18.5,
+    "epa_total_allowed": 17.8595,
+    "percentil_defensivo": 29.6
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 10,
+    "epa_total": -18.464,
+    "percentil_ofensivo": 14.8,
+    "epa_total_allowed": 19.3359,
+    "percentil_defensivo": 18.5
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 11,
+    "epa_total": -10.9881,
+    "percentil_ofensivo": 17.2,
+    "epa_total_allowed": 23.1444,
+    "percentil_defensivo": 24.1
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 12,
+    "epa_total": -17.5222,
+    "percentil_ofensivo": 22.2,
+    "epa_total_allowed": 22.5415,
+    "percentil_defensivo": 22.2
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 13,
+    "epa_total": -12.9776,
+    "percentil_ofensivo": 19.4,
+    "epa_total_allowed": 25.0559,
+    "percentil_defensivo": 25.8
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 15,
+    "epa_total": -10.44,
+    "percentil_ofensivo": 29,
+    "epa_total_allowed": 29.0256,
+    "percentil_defensivo": 22.6
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 16,
+    "epa_total": -7.4854,
+    "percentil_ofensivo": 25.8,
+    "epa_total_allowed": 32.275,
+    "percentil_defensivo": 16.1
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 17,
+    "epa_total": -21.6019,
+    "percentil_ofensivo": 19.4,
+    "epa_total_allowed": 29.2218,
+    "percentil_defensivo": 29
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 18,
+    "epa_total": -19.1818,
+    "percentil_ofensivo": 22.6,
+    "epa_total_allowed": 27.3135,
+    "percentil_defensivo": 29
+  },
+  {
+    "team": "CAR",
+    "season": 2025,
+    "week": 19,
+    "epa_total": -23.2264,
+    "percentil_ofensivo": 9.1,
+    "epa_total_allowed": 30.7131,
+    "percentil_defensivo": 9.1
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 1,
+    "epa_total": -2.8949,
+    "percentil_ofensivo": 22.6,
+    "epa_total_allowed": -3.7678,
+    "percentil_defensivo": 80.6
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 2,
+    "epa_total": -7.6815,
+    "percentil_ofensivo": 16.1,
+    "epa_total_allowed": 7.6183,
+    "percentil_defensivo": 22.6
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 3,
+    "epa_total": 0.4221,
+    "percentil_ofensivo": 48.4,
+    "epa_total_allowed": 5.7886,
+    "percentil_defensivo": 22.6
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 4,
+    "epa_total": -2.9435,
+    "percentil_ofensivo": 29,
+    "epa_total_allowed": 1.7142,
+    "percentil_defensivo": 38.7
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 1.59,
+    "percentil_ofensivo": 34.5,
+    "epa_total_allowed": -0.8301,
+    "percentil_defensivo": 69
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 7,
+    "epa_total": 2.775,
+    "percentil_ofensivo": 51.7,
+    "epa_total_allowed": -10.0077,
+    "percentil_defensivo": 82.8
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 8,
+    "epa_total": 3.6138,
+    "percentil_ofensivo": 52,
+    "epa_total_allowed": -3.4386,
+    "percentil_defensivo": 64
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 21.0597,
+    "percentil_ofensivo": 70.4,
+    "epa_total_allowed": 8.8634,
+    "percentil_defensivo": 40.7
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 10,
+    "epa_total": 20.1533,
+    "percentil_ofensivo": 74.1,
+    "epa_total_allowed": 9.0983,
+    "percentil_defensivo": 25.9
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 18.3377,
+    "percentil_ofensivo": 72.4,
+    "epa_total_allowed": 2.4845,
+    "percentil_defensivo": 51.7
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 12,
+    "epa_total": 18.7583,
+    "percentil_ofensivo": 66.7,
+    "epa_total_allowed": 2.9891,
+    "percentil_defensivo": 29.6
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 13,
+    "epa_total": 21.6106,
+    "percentil_ofensivo": 71,
+    "epa_total_allowed": 3.0307,
+    "percentil_defensivo": 32.3
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 14,
+    "epa_total": 25.1831,
+    "percentil_ofensivo": 74.1,
+    "epa_total_allowed": 9.1085,
+    "percentil_defensivo": 29.6
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 26.6918,
+    "percentil_ofensivo": 67.7,
+    "epa_total_allowed": -7.702,
+    "percentil_defensivo": 58.1
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 16,
+    "epa_total": 30.0905,
+    "percentil_ofensivo": 71,
+    "epa_total_allowed": -7.3028,
+    "percentil_defensivo": 67.7
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 43.4876,
+    "percentil_ofensivo": 80.6,
+    "epa_total_allowed": 2.325,
+    "percentil_defensivo": 58.1
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 42.6887,
+    "percentil_ofensivo": 77.4,
+    "epa_total_allowed": 8.4887,
+    "percentil_defensivo": 45.2
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 19,
+    "epa_total": 48.8716,
+    "percentil_ofensivo": 54.5,
+    "epa_total_allowed": 19.6355,
+    "percentil_defensivo": 27.3
+  },
+  {
+    "team": "CHI",
+    "season": 2025,
+    "week": 20,
+    "epa_total": 47.5461,
+    "percentil_ofensivo": 57.1,
+    "epa_total_allowed": 21.0943,
+    "percentil_defensivo": 14.3
+  },
+  {
+    "team": "CIN",
+    "season": 2025,
+    "week": 1,
+    "epa_total": -2.6673,
+    "percentil_ofensivo": 25.8,
+    "epa_total_allowed": -1.825,
+    "percentil_defensivo": 67.7
+  },
+  {
+    "team": "CIN",
+    "season": 2025,
+    "week": 2,
+    "epa_total": -3.634,
+    "percentil_ofensivo": 22.6,
+    "epa_total_allowed": 1.8134,
+    "percentil_defensivo": 38.7
+  },
+  {
+    "team": "CIN",
+    "season": 2025,
+    "week": 3,
+    "epa_total": -17.5862,
+    "percentil_ofensivo": 6.5,
+    "epa_total_allowed": 5.0709,
+    "percentil_defensivo": 25.8
+  },
+  {
+    "team": "CIN",
+    "season": 2025,
+    "week": 4,
+    "epa_total": -24.1629,
+    "percentil_ofensivo": 6.5,
+    "epa_total_allowed": 13.8719,
+    "percentil_defensivo": 16.1
+  },
+  {
+    "team": "CIN",
+    "season": 2025,
+    "week": 5,
+    "epa_total": -29.8643,
+    "percentil_ofensivo": 7.4,
+    "epa_total_allowed": 17.1463,
+    "percentil_defensivo": 14.8
+  },
+  {
+    "team": "CIN",
+    "season": 2025,
+    "week": 6,
+    "epa_total": -25.2749,
+    "percentil_ofensivo": 10.3,
+    "epa_total_allowed": 23.1369,
+    "percentil_defensivo": 10.3
+  },
+  {
+    "team": "CIN",
+    "season": 2025,
+    "week": 7,
+    "epa_total": -13.3259,
+    "percentil_ofensivo": 17.2,
+    "epa_total_allowed": 33.8884,
+    "percentil_defensivo": 6.9
+  },
+  {
+    "team": "CIN",
+    "season": 2025,
+    "week": 8,
+    "epa_total": -6.552,
+    "percentil_ofensivo": 28,
+    "epa_total_allowed": 44.4641,
+    "percentil_defensivo": 4
+  },
+  {
+    "team": "CIN",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 5.75,
+    "percentil_ofensivo": 44.4,
+    "epa_total_allowed": 61.91,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "CIN",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 0.5332,
+    "percentil_ofensivo": 34.5,
+    "epa_total_allowed": 68.1535,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "CIN",
+    "season": 2025,
+    "week": 12,
+    "epa_total": -7.2954,
+    "percentil_ofensivo": 37,
+    "epa_total_allowed": 68.6706,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "CIN",
+    "season": 2025,
+    "week": 13,
+    "epa_total": -6.3914,
+    "percentil_ofensivo": 29,
+    "epa_total_allowed": 63.5003,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "CIN",
+    "season": 2025,
+    "week": 14,
+    "epa_total": -1.5668,
+    "percentil_ofensivo": 48.1,
+    "epa_total_allowed": 70.7064,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "CIN",
+    "season": 2025,
+    "week": 15,
+    "epa_total": -12.9285,
+    "percentil_ofensivo": 25.8,
+    "epa_total_allowed": 74.207,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "CIN",
+    "season": 2025,
+    "week": 16,
+    "epa_total": -0.588,
+    "percentil_ofensivo": 41.9,
+    "epa_total_allowed": 74.3791,
+    "percentil_defensivo": 3.2
+  },
+  {
+    "team": "CIN",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 11.4547,
+    "percentil_ofensivo": 51.6,
+    "epa_total_allowed": 73.3735,
+    "percentil_defensivo": 6.5
+  },
+  {
+    "team": "CIN",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 11.2651,
+    "percentil_ofensivo": 48.4,
+    "epa_total_allowed": 70.3706,
+    "percentil_defensivo": 6.5
+  },
+  {
+    "team": "CLE",
+    "season": 2025,
+    "week": 1,
+    "epa_total": -1.825,
+    "percentil_ofensivo": 32.3,
+    "epa_total_allowed": -2.6673,
+    "percentil_defensivo": 74.2
+  },
+  {
+    "team": "CLE",
+    "season": 2025,
+    "week": 2,
+    "epa_total": -16.5543,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": 1.4506,
+    "percentil_defensivo": 48.4
+  },
+  {
+    "team": "CLE",
+    "season": 2025,
+    "week": 3,
+    "epa_total": -21.9763,
+    "percentil_ofensivo": 3.2,
+    "epa_total_allowed": -1.0633,
+    "percentil_defensivo": 48.4
+  },
+  {
+    "team": "CLE",
+    "season": 2025,
+    "week": 4,
+    "epa_total": -34.7388,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": -4.6111,
+    "percentil_defensivo": 64.5
+  },
+  {
+    "team": "CLE",
+    "season": 2025,
+    "week": 5,
+    "epa_total": -35.1839,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": -1.3436,
+    "percentil_defensivo": 59.3
+  },
+  {
+    "team": "CLE",
+    "season": 2025,
+    "week": 6,
+    "epa_total": -45.5983,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": 2.4764,
+    "percentil_defensivo": 51.7
+  },
+  {
+    "team": "CLE",
+    "season": 2025,
+    "week": 7,
+    "epa_total": -49.8913,
+    "percentil_ofensivo": 3.4,
+    "epa_total_allowed": -15.1346,
+    "percentil_defensivo": 89.7
+  },
+  {
+    "team": "CLE",
+    "season": 2025,
+    "week": 8,
+    "epa_total": -63.1663,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": -16.1415,
+    "percentil_defensivo": 88
+  },
+  {
+    "team": "CLE",
+    "season": 2025,
+    "week": 10,
+    "epa_total": -66.0501,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": -22.0975,
+    "percentil_defensivo": 85.2
+  },
+  {
+    "team": "CLE",
+    "season": 2025,
+    "week": 11,
+    "epa_total": -77.215,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": -23.6304,
+    "percentil_defensivo": 89.7
+  },
+  {
+    "team": "CLE",
+    "season": 2025,
+    "week": 12,
+    "epa_total": -80.7154,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": -40.0719,
+    "percentil_defensivo": 96.3
+  },
+  {
+    "team": "CLE",
+    "season": 2025,
+    "week": 13,
+    "epa_total": -86.7905,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": -40.2926,
+    "percentil_defensivo": 96.8
+  },
+  {
+    "team": "CLE",
+    "season": 2025,
+    "week": 14,
+    "epa_total": -83.8292,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": -42.5614,
+    "percentil_defensivo": 92.6
+  },
+  {
+    "team": "CLE",
+    "season": 2025,
+    "week": 15,
+    "epa_total": -100.6397,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": -41.0526,
+    "percentil_defensivo": 87.1
+  },
+  {
+    "team": "CLE",
+    "season": 2025,
+    "week": 16,
+    "epa_total": -103.4716,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": -38.6799,
+    "percentil_defensivo": 83.9
+  },
+  {
+    "team": "CLE",
+    "season": 2025,
+    "week": 17,
+    "epa_total": -109.2052,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": -46.4741,
+    "percentil_defensivo": 90.3
+  },
+  {
+    "team": "CLE",
+    "season": 2025,
+    "week": 18,
+    "epa_total": -112.2081,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": -46.6636,
+    "percentil_defensivo": 80.6
+  },
+  {
+    "team": "DAL",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 1.3044,
+    "percentil_ofensivo": 48.4,
+    "epa_total_allowed": 4.3523,
+    "percentil_defensivo": 29
+  },
+  {
+    "team": "DAL",
+    "season": 2025,
+    "week": 2,
+    "epa_total": 8.2178,
+    "percentil_ofensivo": 83.9,
+    "epa_total_allowed": 14.715,
+    "percentil_defensivo": 3.2
+  },
+  {
+    "team": "DAL",
+    "season": 2025,
+    "week": 3,
+    "epa_total": 6.3881,
+    "percentil_ofensivo": 80.6,
+    "epa_total_allowed": 22.8186,
+    "percentil_defensivo": 3.2
+  },
+  {
+    "team": "DAL",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 20.6791,
+    "percentil_ofensivo": 93.5,
+    "epa_total_allowed": 36.9444,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "DAL",
+    "season": 2025,
+    "week": 5,
+    "epa_total": 30.0194,
+    "percentil_ofensivo": 92.6,
+    "epa_total_allowed": 38.4837,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "DAL",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 38.3505,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": 43.4032,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "DAL",
+    "season": 2025,
+    "week": 7,
+    "epa_total": 41.2106,
+    "percentil_ofensivo": 96.6,
+    "epa_total_allowed": 35.5488,
+    "percentil_defensivo": 3.4
+  },
+  {
+    "team": "DAL",
+    "season": 2025,
+    "week": 8,
+    "epa_total": 43.1034,
+    "percentil_ofensivo": 96,
+    "epa_total_allowed": 45.8801,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "DAL",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 41.3604,
+    "percentil_ofensivo": 85.2,
+    "epa_total_allowed": 49.5873,
+    "percentil_defensivo": 3.7
+  },
+  {
+    "team": "DAL",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 42.7151,
+    "percentil_ofensivo": 89.7,
+    "epa_total_allowed": 38.8896,
+    "percentil_defensivo": 10.3
+  },
+  {
+    "team": "DAL",
+    "season": 2025,
+    "week": 12,
+    "epa_total": 41.8938,
+    "percentil_ofensivo": 81.5,
+    "epa_total_allowed": 44.2027,
+    "percentil_defensivo": 3.7
+  },
+  {
+    "team": "DAL",
+    "season": 2025,
+    "week": 13,
+    "epa_total": 49.835,
+    "percentil_ofensivo": 87.1,
+    "epa_total_allowed": 53.0331,
+    "percentil_defensivo": 3.2
+  },
+  {
+    "team": "DAL",
+    "season": 2025,
+    "week": 14,
+    "epa_total": 50.629,
+    "percentil_ofensivo": 88.9,
+    "epa_total_allowed": 62.8648,
+    "percentil_defensivo": 3.7
+  },
+  {
+    "team": "DAL",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 54.0656,
+    "percentil_ofensivo": 90.3,
+    "epa_total_allowed": 67.5336,
+    "percentil_defensivo": 3.2
+  },
+  {
+    "team": "DAL",
+    "season": 2025,
+    "week": 16,
+    "epa_total": 57.0479,
+    "percentil_ofensivo": 93.5,
+    "epa_total_allowed": 78.9861,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "DAL",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 66.1054,
+    "percentil_ofensivo": 96.8,
+    "epa_total_allowed": 82.3897,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "DAL",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 63.0055,
+    "percentil_ofensivo": 90.3,
+    "epa_total_allowed": 90.094,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 1,
+    "epa_total": -6.2982,
+    "percentil_ofensivo": 12.9,
+    "epa_total_allowed": -11.578,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 2,
+    "epa_total": -0.7391,
+    "percentil_ofensivo": 41.9,
+    "epa_total_allowed": -6.3118,
+    "percentil_defensivo": 87.1
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 3,
+    "epa_total": -1.8598,
+    "percentil_ofensivo": 38.7,
+    "epa_total_allowed": -8.0784,
+    "percentil_defensivo": 83.9
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 6.9411,
+    "percentil_ofensivo": 67.7,
+    "epa_total_allowed": -14.6551,
+    "percentil_defensivo": 96.8
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 5,
+    "epa_total": 9.7187,
+    "percentil_ofensivo": 59.3,
+    "epa_total_allowed": -14.3348,
+    "percentil_defensivo": 88.9
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 9.4907,
+    "percentil_ofensivo": 62.1,
+    "epa_total_allowed": -23.7039,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 7,
+    "epa_total": 11.2245,
+    "percentil_ofensivo": 72.4,
+    "epa_total_allowed": -19.3266,
+    "percentil_defensivo": 93.1
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 8,
+    "epa_total": 21.5558,
+    "percentil_ofensivo": 76,
+    "epa_total_allowed": -17.4338,
+    "percentil_defensivo": 92
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 18.5953,
+    "percentil_ofensivo": 66.7,
+    "epa_total_allowed": -22.3137,
+    "percentil_defensivo": 92.6
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 10,
+    "epa_total": 9.8461,
+    "percentil_ofensivo": 63,
+    "epa_total_allowed": -33.865,
+    "percentil_defensivo": 96.3
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 11.6505,
+    "percentil_ofensivo": 69,
+    "epa_total_allowed": -32.5914,
+    "percentil_defensivo": 93.1
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 13,
+    "epa_total": 19.1022,
+    "percentil_ofensivo": 67.7,
+    "epa_total_allowed": -30.1867,
+    "percentil_defensivo": 87.1
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 14,
+    "epa_total": 24.7227,
+    "percentil_ofensivo": 70.4,
+    "epa_total_allowed": -31.3058,
+    "percentil_defensivo": 77.8
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 29.6563,
+    "percentil_ofensivo": 71,
+    "epa_total_allowed": -31.0221,
+    "percentil_defensivo": 80.6
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 16,
+    "epa_total": 29.2102,
+    "percentil_ofensivo": 67.7,
+    "epa_total_allowed": -27.1739,
+    "percentil_defensivo": 77.4
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 32.5532,
+    "percentil_ofensivo": 71,
+    "epa_total_allowed": -31.6949,
+    "percentil_defensivo": 74.2
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 27.4612,
+    "percentil_ofensivo": 71,
+    "epa_total_allowed": -52.0432,
+    "percentil_defensivo": 90.3
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 20,
+    "epa_total": 28.7843,
+    "percentil_ofensivo": 28.6,
+    "epa_total_allowed": -48.7049,
+    "percentil_defensivo": 71.4
+  },
+  {
+    "team": "DEN",
+    "season": 2025,
+    "week": 21,
+    "epa_total": 18.9383,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": -51.9345,
+    "percentil_defensivo": 33.3
+  },
+  {
+    "team": "DET",
+    "season": 2025,
+    "week": 1,
+    "epa_total": -1.0501,
+    "percentil_ofensivo": 41.9,
+    "epa_total_allowed": 3.4477,
+    "percentil_defensivo": 45.2
+  },
+  {
+    "team": "DET",
+    "season": 2025,
+    "week": 2,
+    "epa_total": 10.336,
+    "percentil_ofensivo": 90.3,
+    "epa_total_allowed": -1.339,
+    "percentil_defensivo": 58.1
+  },
+  {
+    "team": "DET",
+    "season": 2025,
+    "week": 3,
+    "epa_total": 21.8204,
+    "percentil_ofensivo": 96.8,
+    "epa_total_allowed": 2.2748,
+    "percentil_defensivo": 41.9
+  },
+  {
+    "team": "DET",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 18.2726,
+    "percentil_ofensivo": 87.1,
+    "epa_total_allowed": -10.4877,
+    "percentil_defensivo": 87.1
+  },
+  {
+    "team": "DET",
+    "season": 2025,
+    "week": 5,
+    "epa_total": 21.5471,
+    "percentil_ofensivo": 88.9,
+    "epa_total_allowed": -16.1891,
+    "percentil_defensivo": 96.3
+  },
+  {
+    "team": "DET",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 24.9721,
+    "percentil_ofensivo": 82.8,
+    "epa_total_allowed": -9.0728,
+    "percentil_defensivo": 93.1
+  },
+  {
+    "team": "DET",
+    "season": 2025,
+    "week": 7,
+    "epa_total": 21.2509,
+    "percentil_ofensivo": 79.3,
+    "epa_total_allowed": -29.0644,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "DET",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 22.336,
+    "percentil_ofensivo": 74.1,
+    "epa_total_allowed": -29.1103,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "DET",
+    "season": 2025,
+    "week": 10,
+    "epa_total": 39.161,
+    "percentil_ofensivo": 88.9,
+    "epa_total_allowed": -25.2499,
+    "percentil_defensivo": 92.6
+  },
+  {
+    "team": "DET",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 26.655,
+    "percentil_ofensivo": 75.9,
+    "epa_total_allowed": -33.4858,
+    "percentil_defensivo": 96.6
+  },
+  {
+    "team": "DET",
+    "season": 2025,
+    "week": 12,
+    "epa_total": 26.958,
+    "percentil_ofensivo": 70.4,
+    "epa_total_allowed": -29.2384,
+    "percentil_defensivo": 88.9
+  },
+  {
+    "team": "DET",
+    "season": 2025,
+    "week": 13,
+    "epa_total": 27.6451,
+    "percentil_ofensivo": 77.4,
+    "epa_total_allowed": -22.3382,
+    "percentil_defensivo": 77.4
+  },
+  {
+    "team": "DET",
+    "season": 2025,
+    "week": 14,
+    "epa_total": 37.4768,
+    "percentil_ofensivo": 77.8,
+    "epa_total_allowed": -21.5441,
+    "percentil_defensivo": 70.4
+  },
+  {
+    "team": "DET",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 45.0207,
+    "percentil_ofensivo": 80.6,
+    "epa_total_allowed": -14.539,
+    "percentil_defensivo": 71
+  },
+  {
+    "team": "DET",
+    "season": 2025,
+    "week": 16,
+    "epa_total": 53.2059,
+    "percentil_ofensivo": 83.9,
+    "epa_total_allowed": -4.4315,
+    "percentil_defensivo": 61.3
+  },
+  {
+    "team": "DET",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 38.229,
+    "percentil_ofensivo": 77.4,
+    "epa_total_allowed": -8.5679,
+    "percentil_defensivo": 64.5
+  },
+  {
+    "team": "DET",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 44.3928,
+    "percentil_ofensivo": 80.6,
+    "epa_total_allowed": -9.3668,
+    "percentil_defensivo": 61.3
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 3.4477,
+    "percentil_ofensivo": 54.8,
+    "epa_total_allowed": -1.0501,
+    "percentil_defensivo": 58.1
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 2,
+    "epa_total": 7.4543,
+    "percentil_ofensivo": 71,
+    "epa_total_allowed": -7.4538,
+    "percentil_defensivo": 93.5
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 3,
+    "epa_total": 4.9404,
+    "percentil_ofensivo": 67.7,
+    "epa_total_allowed": -12.8758,
+    "percentil_defensivo": 93.5
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 19.0661,
+    "percentil_ofensivo": 90.3,
+    "epa_total_allowed": 1.4152,
+    "percentil_defensivo": 41.9
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 25.0567,
+    "percentil_ofensivo": 86.2,
+    "epa_total_allowed": 6.0046,
+    "percentil_defensivo": 31
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 7,
+    "epa_total": 28.4756,
+    "percentil_ofensivo": 89.7,
+    "epa_total_allowed": 4.5207,
+    "percentil_defensivo": 41.4
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 8,
+    "epa_total": 40.2782,
+    "percentil_ofensivo": 88,
+    "epa_total_allowed": 1.3929,
+    "percentil_defensivo": 48
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 42.5298,
+    "percentil_ofensivo": 88.9,
+    "epa_total_allowed": 5.3546,
+    "percentil_defensivo": 48.1
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 10,
+    "epa_total": 36.5201,
+    "percentil_ofensivo": 85.2,
+    "epa_total_allowed": 1.4906,
+    "percentil_defensivo": 55.6
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 45.8135,
+    "percentil_ofensivo": 96.6,
+    "epa_total_allowed": 6.4801,
+    "percentil_defensivo": 41.4
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 12,
+    "epa_total": 43.2809,
+    "percentil_ofensivo": 85.2,
+    "epa_total_allowed": -2.8259,
+    "percentil_defensivo": 59.3
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 13,
+    "epa_total": 50.1811,
+    "percentil_ofensivo": 90.3,
+    "epa_total_allowed": -2.1388,
+    "percentil_defensivo": 58.1
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 14,
+    "epa_total": 56.2589,
+    "percentil_ofensivo": 92.6,
+    "epa_total_allowed": 1.4336,
+    "percentil_defensivo": 48.1
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 56.5425,
+    "percentil_ofensivo": 93.5,
+    "epa_total_allowed": 6.3671,
+    "percentil_defensivo": 41.9
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 16,
+    "epa_total": 56.9418,
+    "percentil_ofensivo": 90.3,
+    "epa_total_allowed": 9.7658,
+    "percentil_defensivo": 38.7
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 61.1174,
+    "percentil_ofensivo": 87.1,
+    "epa_total_allowed": 25.5933,
+    "percentil_defensivo": 32.3
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 55.7163,
+    "percentil_ofensivo": 87.1,
+    "epa_total_allowed": 24.226,
+    "percentil_defensivo": 32.3
+  },
+  {
+    "team": "GB",
+    "season": 2025,
+    "week": 19,
+    "epa_total": 66.863,
+    "percentil_ofensivo": 72.7,
+    "epa_total_allowed": 30.4088,
+    "percentil_defensivo": 18.2
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 1,
+    "epa_total": -1.5066,
+    "percentil_ofensivo": 35.5,
+    "epa_total_allowed": 0.3986,
+    "percentil_defensivo": 54.8
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 2,
+    "epa_total": -3.3679,
+    "percentil_ofensivo": 25.8,
+    "epa_total_allowed": 4.6459,
+    "percentil_defensivo": 29
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 3,
+    "epa_total": -7.2916,
+    "percentil_ofensivo": 22.6,
+    "epa_total_allowed": -1.6779,
+    "percentil_defensivo": 51.6
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 4,
+    "epa_total": -2.7341,
+    "percentil_ofensivo": 32.3,
+    "epa_total_allowed": -10.9989,
+    "percentil_defensivo": 90.3
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 5,
+    "epa_total": 7.9721,
+    "percentil_ofensivo": 55.6,
+    "epa_total_allowed": -17.7374,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 7,
+    "epa_total": -4.1625,
+    "percentil_ofensivo": 37.9,
+    "epa_total_allowed": -23.7313,
+    "percentil_defensivo": 96.6
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 8,
+    "epa_total": 4.9531,
+    "percentil_ofensivo": 56,
+    "epa_total_allowed": -25.6155,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 0.0732,
+    "percentil_ofensivo": 33.3,
+    "epa_total_allowed": -28.5759,
+    "percentil_defensivo": 96.3
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 10,
+    "epa_total": 2.0786,
+    "percentil_ofensivo": 48.1,
+    "epa_total_allowed": -35.1162,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 0.3852,
+    "percentil_ofensivo": 31,
+    "epa_total_allowed": -38.2654,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 12,
+    "epa_total": -1.7488,
+    "percentil_ofensivo": 44.4,
+    "epa_total_allowed": -41.4891,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 13,
+    "epa_total": -1.2109,
+    "percentil_ofensivo": 51.6,
+    "epa_total_allowed": -44.1685,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 14,
+    "epa_total": -3.6615,
+    "percentil_ofensivo": 44.4,
+    "epa_total_allowed": -54.1881,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 3.428,
+    "percentil_ofensivo": 48.4,
+    "epa_total_allowed": -54.4984,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 16,
+    "epa_total": -1.8142,
+    "percentil_ofensivo": 35.5,
+    "epa_total_allowed": -55.847,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 17,
+    "epa_total": -7.3947,
+    "percentil_ofensivo": 29,
+    "epa_total_allowed": -62.6566,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 18,
+    "epa_total": -8.0735,
+    "percentil_ofensivo": 29,
+    "epa_total_allowed": -60.9965,
+    "percentil_defensivo": 93.5
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 19,
+    "epa_total": -5.2094,
+    "percentil_ofensivo": 18.2,
+    "epa_total_allowed": -79.2647,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "HOU",
+    "season": 2025,
+    "week": 20,
+    "epa_total": -23.0438,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": -88.7296,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "IND",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 8.6618,
+    "percentil_ofensivo": 90.3,
+    "epa_total_allowed": -10.4825,
+    "percentil_defensivo": 96.8
+  },
+  {
+    "team": "IND",
+    "season": 2025,
+    "week": 2,
+    "epa_total": 13.928,
+    "percentil_ofensivo": 93.5,
+    "epa_total_allowed": -4.9234,
+    "percentil_defensivo": 74.2
+  },
+  {
+    "team": "IND",
+    "season": 2025,
+    "week": 3,
+    "epa_total": 21.5267,
+    "percentil_ofensivo": 93.5,
+    "epa_total_allowed": -12.1889,
+    "percentil_defensivo": 87.1
+  },
+  {
+    "team": "IND",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 23.4736,
+    "percentil_ofensivo": 96.8,
+    "epa_total_allowed": -7.8908,
+    "percentil_defensivo": 74.2
+  },
+  {
+    "team": "IND",
+    "season": 2025,
+    "week": 5,
+    "epa_total": 32.1857,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": -15.5247,
+    "percentil_defensivo": 92.6
+  },
+  {
+    "team": "IND",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 36.2868,
+    "percentil_ofensivo": 96.6,
+    "epa_total_allowed": -11.4454,
+    "percentil_defensivo": 96.6
+  },
+  {
+    "team": "IND",
+    "season": 2025,
+    "week": 7,
+    "epa_total": 48.0598,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": -6.8147,
+    "percentil_defensivo": 69
+  },
+  {
+    "team": "IND",
+    "season": 2025,
+    "week": 8,
+    "epa_total": 58.4497,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": -10.5185,
+    "percentil_defensivo": 80
+  },
+  {
+    "team": "IND",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 48.7976,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": -11.9214,
+    "percentil_defensivo": 81.5
+  },
+  {
+    "team": "IND",
+    "season": 2025,
+    "week": 10,
+    "epa_total": 56.1703,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": -13.803,
+    "percentil_defensivo": 77.8
+  },
+  {
+    "team": "IND",
+    "season": 2025,
+    "week": 12,
+    "epa_total": 56.4343,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": -12.6893,
+    "percentil_defensivo": 70.4
+  },
+  {
+    "team": "IND",
+    "season": 2025,
+    "week": 13,
+    "epa_total": 53.7549,
+    "percentil_ofensivo": 96.8,
+    "epa_total_allowed": -12.1514,
+    "percentil_defensivo": 67.7
+  },
+  {
+    "team": "IND",
+    "season": 2025,
+    "week": 14,
+    "epa_total": 47.8902,
+    "percentil_ofensivo": 85.2,
+    "epa_total_allowed": -9.5723,
+    "percentil_defensivo": 59.3
+  },
+  {
+    "team": "IND",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 45.0298,
+    "percentil_ofensivo": 83.9,
+    "epa_total_allowed": -9.3929,
+    "percentil_defensivo": 61.3
+  },
+  {
+    "team": "IND",
+    "season": 2025,
+    "week": 16,
+    "epa_total": 44.1569,
+    "percentil_ofensivo": 77.4,
+    "epa_total_allowed": 2.1463,
+    "percentil_defensivo": 54.8
+  },
+  {
+    "team": "IND",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 37.5709,
+    "percentil_ofensivo": 74.2,
+    "epa_total_allowed": 5.4781,
+    "percentil_defensivo": 48.4
+  },
+  {
+    "team": "IND",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 39.2311,
+    "percentil_ofensivo": 74.2,
+    "epa_total_allowed": 4.7994,
+    "percentil_defensivo": 48.4
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 4.0003,
+    "percentil_ofensivo": 67.7,
+    "epa_total_allowed": -8.9252,
+    "percentil_defensivo": 93.5
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 2,
+    "epa_total": 7.6388,
+    "percentil_ofensivo": 74.2,
+    "epa_total_allowed": -9.8919,
+    "percentil_defensivo": 96.8
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 3,
+    "epa_total": 1.315,
+    "percentil_ofensivo": 51.6,
+    "epa_total_allowed": -13.8157,
+    "percentil_defensivo": 96.8
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 2.7987,
+    "percentil_ofensivo": 58.1,
+    "epa_total_allowed": -12.7889,
+    "percentil_defensivo": 93.5
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 5,
+    "epa_total": 3.5928,
+    "percentil_ofensivo": 44.4,
+    "epa_total_allowed": -7.8222,
+    "percentil_defensivo": 77.8
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 2.9853,
+    "percentil_ofensivo": 44.8,
+    "epa_total_allowed": -8.8982,
+    "percentil_defensivo": 89.7
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 7,
+    "epa_total": -6.4645,
+    "percentil_ofensivo": 31,
+    "epa_total_allowed": -5.0751,
+    "percentil_defensivo": 65.5
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 0.2567,
+    "percentil_ofensivo": 37,
+    "epa_total_allowed": 1.5958,
+    "percentil_defensivo": 59.3
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 10,
+    "epa_total": -6.2835,
+    "percentil_ofensivo": 25.9,
+    "epa_total_allowed": 3.6012,
+    "percentil_defensivo": 44.4
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 11,
+    "epa_total": -3.4086,
+    "percentil_ofensivo": 27.6,
+    "epa_total_allowed": -10.3497,
+    "percentil_defensivo": 72.4
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 12,
+    "epa_total": -9.1857,
+    "percentil_ofensivo": 33.3,
+    "epa_total_allowed": -17.8089,
+    "percentil_defensivo": 77.8
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 13,
+    "epa_total": -10.0584,
+    "percentil_ofensivo": 25.8,
+    "epa_total_allowed": -32.3694,
+    "percentil_defensivo": 90.3
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 14,
+    "epa_total": -7.4793,
+    "percentil_ofensivo": 33.3,
+    "epa_total_allowed": -38.2341,
+    "percentil_defensivo": 85.2
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 2.8551,
+    "percentil_ofensivo": 45.2,
+    "epa_total_allowed": -43.6156,
+    "percentil_defensivo": 93.5
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 16,
+    "epa_total": 6.7033,
+    "percentil_ofensivo": 54.8,
+    "epa_total_allowed": -44.0617,
+    "percentil_defensivo": 96.8
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 10.0352,
+    "percentil_ofensivo": 48.4,
+    "epa_total_allowed": -50.6476,
+    "percentil_defensivo": 93.5
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 17.1178,
+    "percentil_ofensivo": 61.3,
+    "epa_total_allowed": -62.5766,
+    "percentil_defensivo": 96.8
+  },
+  {
+    "team": "JAX",
+    "season": 2025,
+    "week": 19,
+    "epa_total": 17.8592,
+    "percentil_ofensivo": 45.5,
+    "epa_total_allowed": -55.6328,
+    "percentil_defensivo": 90.9
+  },
+  {
+    "team": "KC",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 5.0859,
+    "percentil_ofensivo": 80.6,
+    "epa_total_allowed": 10.0918,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "KC",
+    "season": 2025,
+    "week": 2,
+    "epa_total": 1.0322,
+    "percentil_ofensivo": 48.4,
+    "epa_total_allowed": 9.6823,
+    "percentil_defensivo": 16.1
+  },
+  {
+    "team": "KC",
+    "season": 2025,
+    "week": 3,
+    "epa_total": 5.8365,
+    "percentil_ofensivo": 74.2,
+    "epa_total_allowed": 1.4914,
+    "percentil_defensivo": 45.2
+  },
+  {
+    "team": "KC",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 14.3449,
+    "percentil_ofensivo": 83.9,
+    "epa_total_allowed": -3.1773,
+    "percentil_defensivo": 54.8
+  },
+  {
+    "team": "KC",
+    "season": 2025,
+    "week": 5,
+    "epa_total": 19.3116,
+    "percentil_ofensivo": 81.5,
+    "epa_total_allowed": -2.3832,
+    "percentil_defensivo": 66.7
+  },
+  {
+    "team": "KC",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 26.4279,
+    "percentil_ofensivo": 89.7,
+    "epa_total_allowed": 1.0418,
+    "percentil_defensivo": 62.1
+  },
+  {
+    "team": "KC",
+    "season": 2025,
+    "week": 7,
+    "epa_total": 33.823,
+    "percentil_ofensivo": 93.1,
+    "epa_total_allowed": -9.0926,
+    "percentil_defensivo": 79.3
+  },
+  {
+    "team": "KC",
+    "season": 2025,
+    "week": 8,
+    "epa_total": 42.4257,
+    "percentil_ofensivo": 92,
+    "epa_total_allowed": -14.3394,
+    "percentil_defensivo": 84
+  },
+  {
+    "team": "KC",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 42.7474,
+    "percentil_ofensivo": 92.6,
+    "epa_total_allowed": -7.3752,
+    "percentil_defensivo": 74.1
+  },
+  {
+    "team": "KC",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 44.0209,
+    "percentil_ofensivo": 93.1,
+    "epa_total_allowed": -5.5708,
+    "percentil_defensivo": 65.5
+  },
+  {
+    "team": "KC",
+    "season": 2025,
+    "week": 12,
+    "epa_total": 45.1347,
+    "percentil_ofensivo": 88.9,
+    "epa_total_allowed": -5.3068,
+    "percentil_defensivo": 63
+  },
+  {
+    "team": "KC",
+    "season": 2025,
+    "week": 13,
+    "epa_total": 53.9651,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": 2.6343,
+    "percentil_defensivo": 35.5
+  },
+  {
+    "team": "KC",
+    "season": 2025,
+    "week": 14,
+    "epa_total": 43.9455,
+    "percentil_ofensivo": 81.5,
+    "epa_total_allowed": 0.1838,
+    "percentil_defensivo": 51.9
+  },
+  {
+    "team": "KC",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 40.4918,
+    "percentil_ofensivo": 77.4,
+    "epa_total_allowed": -1.1936,
+    "percentil_defensivo": 54.8
+  },
+  {
+    "team": "KC",
+    "season": 2025,
+    "week": 16,
+    "epa_total": 32.7139,
+    "percentil_ofensivo": 74.2,
+    "epa_total_allowed": -1.3455,
+    "percentil_defensivo": 58.1
+  },
+  {
+    "team": "KC",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 28.1929,
+    "percentil_ofensivo": 67.7,
+    "epa_total_allowed": 1.9974,
+    "percentil_defensivo": 61.3
+  },
+  {
+    "team": "KC",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 12.5439,
+    "percentil_ofensivo": 51.6,
+    "epa_total_allowed": -12.7802,
+    "percentil_defensivo": 64.5
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 0.3986,
+    "percentil_ofensivo": 45.2,
+    "epa_total_allowed": -1.5066,
+    "percentil_defensivo": 64.5
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 2,
+    "epa_total": 8.7428,
+    "percentil_ofensivo": 87.1,
+    "epa_total_allowed": -5.7983,
+    "percentil_defensivo": 83.9
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 3,
+    "epa_total": 7.5569,
+    "percentil_ofensivo": 83.9,
+    "epa_total_allowed": -5.3331,
+    "percentil_defensivo": 71
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 11.8551,
+    "percentil_ofensivo": 77.4,
+    "epa_total_allowed": -3.3862,
+    "percentil_defensivo": 58.1
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 5,
+    "epa_total": 20.4946,
+    "percentil_ofensivo": 85.2,
+    "epa_total_allowed": 3.5131,
+    "percentil_defensivo": 51.9
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 19.1535,
+    "percentil_ofensivo": 75.9,
+    "epa_total_allowed": -5.5936,
+    "percentil_defensivo": 79.3
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 7,
+    "epa_total": 22.9766,
+    "percentil_ofensivo": 82.8,
+    "epa_total_allowed": -15.0435,
+    "percentil_defensivo": 86.2
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 30.5966,
+    "percentil_ofensivo": 81.5,
+    "epa_total_allowed": -19.8448,
+    "percentil_defensivo": 88.9
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 10,
+    "epa_total": 43.2573,
+    "percentil_ofensivo": 92.6,
+    "epa_total_allowed": -9.4096,
+    "percentil_defensivo": 70.4
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 41.3273,
+    "percentil_ofensivo": 86.2,
+    "epa_total_allowed": -17.926,
+    "percentil_defensivo": 75.9
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 12,
+    "epa_total": 45.6336,
+    "percentil_ofensivo": 92.6,
+    "epa_total_allowed": -33.6349,
+    "percentil_defensivo": 92.6
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 13,
+    "epa_total": 48.148,
+    "percentil_ofensivo": 83.9,
+    "epa_total_allowed": -29.0902,
+    "percentil_defensivo": 83.9
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 14,
+    "epa_total": 62.0718,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": -31.7059,
+    "percentil_defensivo": 81.5
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 69.0769,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": -24.162,
+    "percentil_defensivo": 77.4
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 16,
+    "epa_total": 81.6543,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": -21.8586,
+    "percentil_defensivo": 74.2
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 78.6258,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": -19.2402,
+    "percentil_defensivo": 71
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 87.5893,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": -18.1533,
+    "percentil_defensivo": 67.7
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 19,
+    "epa_total": 90.9889,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": -22.1979,
+    "percentil_defensivo": 54.5
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 20,
+    "epa_total": 92.4478,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": -23.5234,
+    "percentil_defensivo": 42.9
+  },
+  {
+    "team": "LA",
+    "season": 2025,
+    "week": 21,
+    "epa_total": 103.0859,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": -15.2315,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 10.0918,
+    "percentil_ofensivo": 100,
+    "epa_total_allowed": 5.0859,
+    "percentil_defensivo": 19.4
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 2,
+    "epa_total": 7.6603,
+    "percentil_ofensivo": 77.4,
+    "epa_total_allowed": -11.5763,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 3,
+    "epa_total": 5.8937,
+    "percentil_ofensivo": 77.4,
+    "epa_total_allowed": -12.6971,
+    "percentil_defensivo": 90.3
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 4,
+    "epa_total": -7.3744,
+    "percentil_ofensivo": 25.8,
+    "epa_total_allowed": -17.2321,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 5,
+    "epa_total": -9.549,
+    "percentil_ofensivo": 18.5,
+    "epa_total_allowed": -10.5088,
+    "percentil_defensivo": 85.2
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 6,
+    "epa_total": -2.0762,
+    "percentil_ofensivo": 27.6,
+    "epa_total_allowed": -8.6589,
+    "percentil_defensivo": 86.2
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 7,
+    "epa_total": 2.5546,
+    "percentil_ofensivo": 48.3,
+    "epa_total_allowed": 3.1142,
+    "percentil_defensivo": 48.3
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 8,
+    "epa_total": 8.519,
+    "percentil_ofensivo": 64,
+    "epa_total_allowed": -8.1904,
+    "percentil_defensivo": 76
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 10.2814,
+    "percentil_ofensivo": 51.9,
+    "epa_total_allowed": -12.0014,
+    "percentil_defensivo": 85.2
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 10,
+    "epa_total": 6.3267,
+    "percentil_ofensivo": 55.6,
+    "epa_total_allowed": -24.1925,
+    "percentil_defensivo": 88.9
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 11,
+    "epa_total": -7.6242,
+    "percentil_ofensivo": 24.1,
+    "epa_total_allowed": -21.3176,
+    "percentil_defensivo": 86.2
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 13,
+    "epa_total": -5.8166,
+    "percentil_ofensivo": 32.3,
+    "epa_total_allowed": -28.1393,
+    "percentil_defensivo": 80.6
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 14,
+    "epa_total": -14.4189,
+    "percentil_ofensivo": 29.6,
+    "epa_total_allowed": -38.5319,
+    "percentil_defensivo": 88.9
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 15,
+    "epa_total": -15.7963,
+    "percentil_ofensivo": 22.6,
+    "epa_total_allowed": -41.9856,
+    "percentil_defensivo": 90.3
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 16,
+    "epa_total": -4.3438,
+    "percentil_ofensivo": 32.3,
+    "epa_total_allowed": -39.0033,
+    "percentil_defensivo": 87.1
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 17,
+    "epa_total": -11.1534,
+    "percentil_ofensivo": 25.8,
+    "epa_total_allowed": -44.5839,
+    "percentil_defensivo": 87.1
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 18,
+    "epa_total": -31.5018,
+    "percentil_ofensivo": 19.4,
+    "epa_total_allowed": -49.6758,
+    "percentil_defensivo": 87.1
+  },
+  {
+    "team": "LAC",
+    "season": 2025,
+    "week": 19,
+    "epa_total": -39.9281,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": -50.9028,
+    "percentil_defensivo": 81.8
+  },
+  {
+    "team": "LV",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 5.7969,
+    "percentil_ofensivo": 83.9,
+    "epa_total_allowed": -1.4014,
+    "percentil_defensivo": 61.3
+  },
+  {
+    "team": "LV",
+    "season": 2025,
+    "week": 2,
+    "epa_total": -10.8653,
+    "percentil_ofensivo": 9.7,
+    "epa_total_allowed": -3.8329,
+    "percentil_defensivo": 67.7
+  },
+  {
+    "team": "LV",
+    "season": 2025,
+    "week": 3,
+    "epa_total": -9.2095,
+    "percentil_ofensivo": 12.9,
+    "epa_total_allowed": 2.887,
+    "percentil_defensivo": 35.5
+  },
+  {
+    "team": "LV",
+    "season": 2025,
+    "week": 4,
+    "epa_total": -13.2839,
+    "percentil_ofensivo": 9.7,
+    "epa_total_allowed": -0.4786,
+    "percentil_defensivo": 45.2
+  },
+  {
+    "team": "LV",
+    "season": 2025,
+    "week": 5,
+    "epa_total": -20.9179,
+    "percentil_ofensivo": 11.1,
+    "epa_total_allowed": 8.2335,
+    "percentil_defensivo": 25.9
+  },
+  {
+    "team": "LV",
+    "season": 2025,
+    "week": 6,
+    "epa_total": -27.8201,
+    "percentil_ofensivo": 6.9,
+    "epa_total_allowed": -3.2344,
+    "percentil_defensivo": 72.4
+  },
+  {
+    "team": "LV",
+    "season": 2025,
+    "week": 7,
+    "epa_total": -37.9545,
+    "percentil_ofensivo": 6.9,
+    "epa_total_allowed": 4.1607,
+    "percentil_defensivo": 44.8
+  },
+  {
+    "team": "LV",
+    "season": 2025,
+    "week": 9,
+    "epa_total": -31.2836,
+    "percentil_ofensivo": 7.4,
+    "epa_total_allowed": 10.882,
+    "percentil_defensivo": 33.3
+  },
+  {
+    "team": "LV",
+    "season": 2025,
+    "week": 10,
+    "epa_total": -42.8349,
+    "percentil_ofensivo": 3.7,
+    "epa_total_allowed": 2.1327,
+    "percentil_defensivo": 48.1
+  },
+  {
+    "team": "LV",
+    "season": 2025,
+    "week": 11,
+    "epa_total": -53.5326,
+    "percentil_ofensivo": 6.9,
+    "epa_total_allowed": 3.4874,
+    "percentil_defensivo": 48.3
+  },
+  {
+    "team": "LV",
+    "season": 2025,
+    "week": 12,
+    "epa_total": -69.9741,
+    "percentil_ofensivo": 3.7,
+    "epa_total_allowed": -0.013,
+    "percentil_defensivo": 44.4
+  },
+  {
+    "team": "LV",
+    "season": 2025,
+    "week": 13,
+    "epa_total": -76.7958,
+    "percentil_ofensivo": 6.5,
+    "epa_total_allowed": 1.7946,
+    "percentil_defensivo": 41.9
+  },
+  {
+    "team": "LV",
+    "season": 2025,
+    "week": 14,
+    "epa_total": -77.9149,
+    "percentil_ofensivo": 7.4,
+    "epa_total_allowed": 7.4151,
+    "percentil_defensivo": 33.3
+  },
+  {
+    "team": "LV",
+    "season": 2025,
+    "week": 15,
+    "epa_total": -89.1256,
+    "percentil_ofensivo": 3.2,
+    "epa_total_allowed": 11.8696,
+    "percentil_defensivo": 32.3
+  },
+  {
+    "team": "LV",
+    "season": 2025,
+    "week": 16,
+    "epa_total": -90.4741,
+    "percentil_ofensivo": 3.2,
+    "epa_total_allowed": 6.6274,
+    "percentil_defensivo": 45.2
+  },
+  {
+    "team": "LV",
+    "season": 2025,
+    "week": 17,
+    "epa_total": -96.3407,
+    "percentil_ofensivo": 3.2,
+    "epa_total_allowed": 13.888,
+    "percentil_defensivo": 38.7
+  },
+  {
+    "team": "LV",
+    "season": 2025,
+    "week": 18,
+    "epa_total": -111.1184,
+    "percentil_ofensivo": 3.2,
+    "epa_total_allowed": -1.761,
+    "percentil_defensivo": 58.1
+  },
+  {
+    "team": "MIA",
+    "season": 2025,
+    "week": 1,
+    "epa_total": -10.4825,
+    "percentil_ofensivo": 3.2,
+    "epa_total_allowed": 8.6618,
+    "percentil_defensivo": 9.7
+  },
+  {
+    "team": "MIA",
+    "season": 2025,
+    "week": 2,
+    "epa_total": -4.0801,
+    "percentil_ofensivo": 19.4,
+    "epa_total_allowed": 17.0706,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "MIA",
+    "season": 2025,
+    "week": 3,
+    "epa_total": -2.7298,
+    "percentil_ofensivo": 35.5,
+    "epa_total_allowed": 25.028,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "MIA",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 0.2268,
+    "percentil_ofensivo": 45.2,
+    "epa_total_allowed": 29.6142,
+    "percentil_defensivo": 3.2
+  },
+  {
+    "team": "MIA",
+    "season": 2025,
+    "week": 5,
+    "epa_total": 6.6941,
+    "percentil_ofensivo": 51.9,
+    "epa_total_allowed": 34.6735,
+    "percentil_defensivo": 3.7
+  },
+  {
+    "team": "MIA",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 8.5441,
+    "percentil_ofensivo": 58.6,
+    "epa_total_allowed": 42.1463,
+    "percentil_defensivo": 3.4
+  },
+  {
+    "team": "MIA",
+    "season": 2025,
+    "week": 7,
+    "epa_total": -9.0669,
+    "percentil_ofensivo": 20.7,
+    "epa_total_allowed": 37.8533,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "MIA",
+    "season": 2025,
+    "week": 8,
+    "epa_total": -4.6842,
+    "percentil_ofensivo": 36,
+    "epa_total_allowed": 30.3634,
+    "percentil_defensivo": 8
+  },
+  {
+    "team": "MIA",
+    "season": 2025,
+    "week": 9,
+    "epa_total": -5.4897,
+    "percentil_ofensivo": 22.2,
+    "epa_total_allowed": 34.2977,
+    "percentil_defensivo": 7.4
+  },
+  {
+    "team": "MIA",
+    "season": 2025,
+    "week": 10,
+    "epa_total": 2.2657,
+    "percentil_ofensivo": 51.9,
+    "epa_total_allowed": 33.8526,
+    "percentil_defensivo": 3.7
+  },
+  {
+    "team": "MIA",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 1.1803,
+    "percentil_ofensivo": 37.9,
+    "epa_total_allowed": 36.041,
+    "percentil_defensivo": 13.8
+  },
+  {
+    "team": "MIA",
+    "season": 2025,
+    "week": 13,
+    "epa_total": -1.7441,
+    "percentil_ofensivo": 45.2,
+    "epa_total_allowed": 29.34,
+    "percentil_defensivo": 16.1
+  },
+  {
+    "team": "MIA",
+    "season": 2025,
+    "week": 14,
+    "epa_total": 6.0476,
+    "percentil_ofensivo": 63,
+    "epa_total_allowed": 12.6097,
+    "percentil_defensivo": 22.2
+  },
+  {
+    "team": "MIA",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 6.062,
+    "percentil_ofensivo": 54.8,
+    "epa_total_allowed": 19.1931,
+    "percentil_defensivo": 29
+  },
+  {
+    "team": "MIA",
+    "season": 2025,
+    "week": 16,
+    "epa_total": 6.234,
+    "percentil_ofensivo": 48.4,
+    "epa_total_allowed": 31.5336,
+    "percentil_defensivo": 19.4
+  },
+  {
+    "team": "MIA",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 7.9372,
+    "percentil_ofensivo": 45.2,
+    "epa_total_allowed": 32.933,
+    "percentil_defensivo": 22.6
+  },
+  {
+    "team": "MIA",
+    "season": 2025,
+    "week": 18,
+    "epa_total": -1.3533,
+    "percentil_ofensivo": 41.9,
+    "epa_total_allowed": 40.5014,
+    "percentil_defensivo": 22.6
+  },
+  {
+    "team": "MIN",
+    "season": 2025,
+    "week": 1,
+    "epa_total": -3.7678,
+    "percentil_ofensivo": 19.4,
+    "epa_total_allowed": -2.8949,
+    "percentil_defensivo": 77.4
+  },
+  {
+    "team": "MIN",
+    "season": 2025,
+    "week": 2,
+    "epa_total": -14.4274,
+    "percentil_ofensivo": 6.5,
+    "epa_total_allowed": -0.0498,
+    "percentil_defensivo": 51.6
+  },
+  {
+    "team": "MIN",
+    "season": 2025,
+    "week": 3,
+    "epa_total": -11.1699,
+    "percentil_ofensivo": 9.7,
+    "epa_total_allowed": -14.0021,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "MIN",
+    "season": 2025,
+    "week": 4,
+    "epa_total": -8.9657,
+    "percentil_ofensivo": 16.1,
+    "epa_total_allowed": -9.5477,
+    "percentil_defensivo": 83.9
+  },
+  {
+    "team": "MIN",
+    "season": 2025,
+    "week": 5,
+    "epa_total": -5.6983,
+    "percentil_ofensivo": 25.9,
+    "epa_total_allowed": -9.9929,
+    "percentil_defensivo": 81.5
+  },
+  {
+    "team": "MIN",
+    "season": 2025,
+    "week": 7,
+    "epa_total": -8.4666,
+    "percentil_ofensivo": 24.1,
+    "epa_total_allowed": -4.132,
+    "percentil_defensivo": 62.1
+  },
+  {
+    "team": "MIN",
+    "season": 2025,
+    "week": 8,
+    "epa_total": -19.7712,
+    "percentil_ofensivo": 12,
+    "epa_total_allowed": 1.8325,
+    "percentil_defensivo": 44
+  },
+  {
+    "team": "MIN",
+    "season": 2025,
+    "week": 9,
+    "epa_total": -19.817,
+    "percentil_ofensivo": 11.1,
+    "epa_total_allowed": 2.9176,
+    "percentil_defensivo": 55.6
+  },
+  {
+    "team": "MIN",
+    "season": 2025,
+    "week": 10,
+    "epa_total": -26.7606,
+    "percentil_ofensivo": 11.1,
+    "epa_total_allowed": 2.1199,
+    "percentil_defensivo": 51.9
+  },
+  {
+    "team": "MIN",
+    "season": 2025,
+    "week": 11,
+    "epa_total": -33.3744,
+    "percentil_ofensivo": 10.3,
+    "epa_total_allowed": 0.3043,
+    "percentil_defensivo": 55.2
+  },
+  {
+    "team": "MIN",
+    "season": 2025,
+    "week": 12,
+    "epa_total": -42.6804,
+    "percentil_ofensivo": 14.8,
+    "epa_total_allowed": -2.2284,
+    "percentil_defensivo": 55.6
+  },
+  {
+    "team": "MIN",
+    "season": 2025,
+    "week": 13,
+    "epa_total": -62.7693,
+    "percentil_ofensivo": 9.7,
+    "epa_total_allowed": -7.4427,
+    "percentil_defensivo": 61.3
+  },
+  {
+    "team": "MIN",
+    "season": 2025,
+    "week": 14,
+    "epa_total": -56.4662,
+    "percentil_ofensivo": 11.1,
+    "epa_total_allowed": -18.1607,
+    "percentil_defensivo": 66.7
+  },
+  {
+    "team": "MIN",
+    "season": 2025,
+    "week": 15,
+    "epa_total": -51.7973,
+    "percentil_ofensivo": 12.9,
+    "epa_total_allowed": -14.7241,
+    "percentil_defensivo": 74.2
+  },
+  {
+    "team": "MIN",
+    "season": 2025,
+    "week": 16,
+    "epa_total": -53.4288,
+    "percentil_ofensivo": 12.9,
+    "epa_total_allowed": -20.6368,
+    "percentil_defensivo": 71
+  },
+  {
+    "team": "MIN",
+    "season": 2025,
+    "week": 17,
+    "epa_total": -57.5652,
+    "percentil_ofensivo": 12.9,
+    "epa_total_allowed": -35.6137,
+    "percentil_defensivo": 80.6
+  },
+  {
+    "team": "MIN",
+    "season": 2025,
+    "week": 18,
+    "epa_total": -58.9325,
+    "percentil_ofensivo": 12.9,
+    "epa_total_allowed": -41.0149,
+    "percentil_defensivo": 74.2
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 1,
+    "epa_total": -1.4014,
+    "percentil_ofensivo": 38.7,
+    "epa_total_allowed": 5.7969,
+    "percentil_defensivo": 16.1
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 2,
+    "epa_total": 7.0074,
+    "percentil_ofensivo": 67.7,
+    "epa_total_allowed": 12.1994,
+    "percentil_defensivo": 6.5
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 3,
+    "epa_total": 2.2578,
+    "percentil_ofensivo": 54.8,
+    "epa_total_allowed": 10.9177,
+    "percentil_defensivo": 12.9
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 8.7749,
+    "percentil_ofensivo": 74.2,
+    "epa_total_allowed": 10.3389,
+    "percentil_defensivo": 19.4
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 5,
+    "epa_total": 14.0371,
+    "percentil_ofensivo": 74.1,
+    "epa_total_allowed": 13.9628,
+    "percentil_defensivo": 18.5
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 16.6198,
+    "percentil_ofensivo": 72.4,
+    "epa_total_allowed": 15.7254,
+    "percentil_defensivo": 17.2
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 7,
+    "epa_total": 23.2009,
+    "percentil_ofensivo": 86.2,
+    "epa_total_allowed": 6.3206,
+    "percentil_defensivo": 27.6
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 8,
+    "epa_total": 22.1941,
+    "percentil_ofensivo": 80,
+    "epa_total_allowed": -6.9544,
+    "percentil_defensivo": 72
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 22.6309,
+    "percentil_ofensivo": 77.8,
+    "epa_total_allowed": -4.3279,
+    "percentil_defensivo": 70.4
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 10,
+    "epa_total": 27.4245,
+    "percentil_ofensivo": 81.5,
+    "epa_total_allowed": -3.0184,
+    "percentil_defensivo": 59.3
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 33.2991,
+    "percentil_ofensivo": 82.8,
+    "epa_total_allowed": -5.3275,
+    "percentil_defensivo": 62.1
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 12,
+    "epa_total": 33.8162,
+    "percentil_ofensivo": 77.8,
+    "epa_total_allowed": -13.1561,
+    "percentil_defensivo": 74.1
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 13,
+    "epa_total": 39.2264,
+    "percentil_ofensivo": 80.6,
+    "epa_total_allowed": -15.9632,
+    "percentil_defensivo": 71
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 45.8414,
+    "percentil_ofensivo": 87.1,
+    "epa_total_allowed": -9.9294,
+    "percentil_defensivo": 64.5
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 16,
+    "epa_total": 53.3802,
+    "percentil_ofensivo": 87.1,
+    "epa_total_allowed": -6.1302,
+    "percentil_defensivo": 64.5
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 65.5816,
+    "percentil_ofensivo": 93.5,
+    "epa_total_allowed": -12.9822,
+    "percentil_defensivo": 67.7
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 73.1501,
+    "percentil_ofensivo": 96.8,
+    "epa_total_allowed": -22.2727,
+    "percentil_defensivo": 71
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 19,
+    "epa_total": 71.9231,
+    "percentil_ofensivo": 81.8,
+    "epa_total_allowed": -30.699,
+    "percentil_defensivo": 63.6
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 20,
+    "epa_total": 62.4582,
+    "percentil_ofensivo": 71.4,
+    "epa_total_allowed": -48.5334,
+    "percentil_defensivo": 57.1
+  },
+  {
+    "team": "NE",
+    "season": 2025,
+    "week": 21,
+    "epa_total": 59.2286,
+    "percentil_ofensivo": 66.7,
+    "epa_total_allowed": -58.3795,
+    "percentil_defensivo": 66.7
+  },
+  {
+    "team": "NO",
+    "season": 2025,
+    "week": 1,
+    "epa_total": -2.423,
+    "percentil_ofensivo": 29,
+    "epa_total_allowed": 1.349,
+    "percentil_defensivo": 48.4
+  },
+  {
+    "team": "NO",
+    "season": 2025,
+    "week": 2,
+    "epa_total": -2.8575,
+    "percentil_ofensivo": 29,
+    "epa_total_allowed": 1.5783,
+    "percentil_defensivo": 45.2
+  },
+  {
+    "team": "NO",
+    "season": 2025,
+    "week": 3,
+    "epa_total": -6.2599,
+    "percentil_ofensivo": 29,
+    "epa_total_allowed": 2.6065,
+    "percentil_defensivo": 38.7
+  },
+  {
+    "team": "NO",
+    "season": 2025,
+    "week": 4,
+    "epa_total": -8.4573,
+    "percentil_ofensivo": 19.4,
+    "epa_total_allowed": 6.762,
+    "percentil_defensivo": 22.6
+  },
+  {
+    "team": "NO",
+    "season": 2025,
+    "week": 5,
+    "epa_total": -6.6675,
+    "percentil_ofensivo": 22.2,
+    "epa_total_allowed": -1.3787,
+    "percentil_defensivo": 63
+  },
+  {
+    "team": "NO",
+    "season": 2025,
+    "week": 6,
+    "epa_total": -4.9049,
+    "percentil_ofensivo": 20.7,
+    "epa_total_allowed": 1.204,
+    "percentil_defensivo": 58.6
+  },
+  {
+    "team": "NO",
+    "season": 2025,
+    "week": 7,
+    "epa_total": -14.0825,
+    "percentil_ofensivo": 13.8,
+    "epa_total_allowed": 2.389,
+    "percentil_defensivo": 51.7
+  },
+  {
+    "team": "NO",
+    "season": 2025,
+    "week": 8,
+    "epa_total": -32.5341,
+    "percentil_ofensivo": 8,
+    "epa_total_allowed": -1.9909,
+    "percentil_defensivo": 60
+  },
+  {
+    "team": "NO",
+    "season": 2025,
+    "week": 9,
+    "epa_total": -37.3354,
+    "percentil_ofensivo": 3.7,
+    "epa_total_allowed": 5.6291,
+    "percentil_defensivo": 44.4
+  },
+  {
+    "team": "NO",
+    "season": 2025,
+    "week": 10,
+    "epa_total": -35.859,
+    "percentil_ofensivo": 7.4,
+    "epa_total_allowed": -4.897,
+    "percentil_defensivo": 63
+  },
+  {
+    "team": "NO",
+    "season": 2025,
+    "week": 12,
+    "epa_total": -48.2959,
+    "percentil_ofensivo": 11.1,
+    "epa_total_allowed": -7.5722,
+    "percentil_defensivo": 66.7
+  },
+  {
+    "team": "NO",
+    "season": 2025,
+    "week": 13,
+    "epa_total": -54.9969,
+    "percentil_ofensivo": 12.9,
+    "epa_total_allowed": -10.4966,
+    "percentil_defensivo": 64.5
+  },
+  {
+    "team": "NO",
+    "season": 2025,
+    "week": 14,
+    "epa_total": -56.05,
+    "percentil_ofensivo": 14.8,
+    "epa_total_allowed": -16.1368,
+    "percentil_defensivo": 63
+  },
+  {
+    "team": "NO",
+    "season": 2025,
+    "week": 15,
+    "epa_total": -52.0803,
+    "percentil_ofensivo": 9.7,
+    "epa_total_allowed": -13.5992,
+    "percentil_defensivo": 67.7
+  },
+  {
+    "team": "NO",
+    "season": 2025,
+    "week": 16,
+    "epa_total": -49.2538,
+    "percentil_ofensivo": 16.1,
+    "epa_total_allowed": -27.6453,
+    "percentil_defensivo": 80.6
+  },
+  {
+    "team": "NO",
+    "season": 2025,
+    "week": 17,
+    "epa_total": -38.8828,
+    "percentil_ofensivo": 16.1,
+    "epa_total_allowed": -34.5277,
+    "percentil_defensivo": 77.4
+  },
+  {
+    "team": "NO",
+    "season": 2025,
+    "week": 18,
+    "epa_total": -40.0694,
+    "percentil_ofensivo": 16.1,
+    "epa_total_allowed": -42.1499,
+    "percentil_defensivo": 77.4
+  },
+  {
+    "team": "NYG",
+    "season": 2025,
+    "week": 1,
+    "epa_total": -8.4154,
+    "percentil_ofensivo": 9.7,
+    "epa_total_allowed": 4.7288,
+    "percentil_defensivo": 25.8
+  },
+  {
+    "team": "NYG",
+    "season": 2025,
+    "week": 2,
+    "epa_total": 1.9473,
+    "percentil_ofensivo": 51.6,
+    "epa_total_allowed": 11.6422,
+    "percentil_defensivo": 9.7
+  },
+  {
+    "team": "NYG",
+    "season": 2025,
+    "week": 3,
+    "epa_total": -6.2436,
+    "percentil_ofensivo": 32.3,
+    "epa_total_allowed": 16.4466,
+    "percentil_defensivo": 6.5
+  },
+  {
+    "team": "NYG",
+    "season": 2025,
+    "week": 4,
+    "epa_total": -10.7786,
+    "percentil_ofensivo": 12.9,
+    "epa_total_allowed": 3.1784,
+    "percentil_defensivo": 29
+  },
+  {
+    "team": "NYG",
+    "season": 2025,
+    "week": 5,
+    "epa_total": -18.9192,
+    "percentil_ofensivo": 14.8,
+    "epa_total_allowed": 4.9682,
+    "percentil_defensivo": 44.4
+  },
+  {
+    "team": "NYG",
+    "season": 2025,
+    "week": 6,
+    "epa_total": -12.3441,
+    "percentil_ofensivo": 13.8,
+    "epa_total_allowed": 5.3888,
+    "percentil_defensivo": 34.5
+  },
+  {
+    "team": "NYG",
+    "season": 2025,
+    "week": 7,
+    "epa_total": -7.9668,
+    "percentil_ofensivo": 27.6,
+    "epa_total_allowed": 7.1226,
+    "percentil_defensivo": 24.1
+  },
+  {
+    "team": "NYG",
+    "season": 2025,
+    "week": 8,
+    "epa_total": -5.6885,
+    "percentil_ofensivo": 32,
+    "epa_total_allowed": 18.2183,
+    "percentil_defensivo": 28
+  },
+  {
+    "team": "NYG",
+    "season": 2025,
+    "week": 9,
+    "epa_total": -1.5962,
+    "percentil_ofensivo": 29.6,
+    "epa_total_allowed": 26.4277,
+    "percentil_defensivo": 14.8
+  },
+  {
+    "team": "NYG",
+    "season": 2025,
+    "week": 10,
+    "epa_total": -1.3613,
+    "percentil_ofensivo": 33.3,
+    "epa_total_allowed": 25.5214,
+    "percentil_defensivo": 11.1
+  },
+  {
+    "team": "NYG",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 3.6282,
+    "percentil_ofensivo": 48.3,
+    "epa_total_allowed": 34.8148,
+    "percentil_defensivo": 17.2
+  },
+  {
+    "team": "NYG",
+    "season": 2025,
+    "week": 12,
+    "epa_total": 7.8756,
+    "percentil_ofensivo": 55.6,
+    "epa_total_allowed": 35.1177,
+    "percentil_defensivo": 7.4
+  },
+  {
+    "team": "NYG",
+    "season": 2025,
+    "week": 13,
+    "epa_total": 5.0685,
+    "percentil_ofensivo": 54.8,
+    "epa_total_allowed": 40.528,
+    "percentil_defensivo": 9.7
+  },
+  {
+    "team": "NYG",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 5.6363,
+    "percentil_ofensivo": 51.6,
+    "epa_total_allowed": 40.1379,
+    "percentil_defensivo": 12.9
+  },
+  {
+    "team": "NYG",
+    "season": 2025,
+    "week": 16,
+    "epa_total": -0.2764,
+    "percentil_ofensivo": 45.2,
+    "epa_total_allowed": 38.5065,
+    "percentil_defensivo": 12.9
+  },
+  {
+    "team": "NYG",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 6.9841,
+    "percentil_ofensivo": 41.9,
+    "epa_total_allowed": 32.6398,
+    "percentil_defensivo": 25.8
+  },
+  {
+    "team": "NYG",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 14.6884,
+    "percentil_ofensivo": 54.8,
+    "epa_total_allowed": 29.5399,
+    "percentil_defensivo": 25.8
+  },
+  {
+    "team": "NYJ",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 5.8674,
+    "percentil_ofensivo": 87.1,
+    "epa_total_allowed": 4.9025,
+    "percentil_defensivo": 22.6
+  },
+  {
+    "team": "NYJ",
+    "season": 2025,
+    "week": 2,
+    "epa_total": -1.0165,
+    "percentil_ofensivo": 38.7,
+    "epa_total_allowed": 10.9412,
+    "percentil_defensivo": 12.9
+  },
+  {
+    "team": "NYJ",
+    "season": 2025,
+    "week": 3,
+    "epa_total": -7.2075,
+    "percentil_ofensivo": 25.8,
+    "epa_total_allowed": 11.011,
+    "percentil_defensivo": 9.7
+  },
+  {
+    "team": "NYJ",
+    "season": 2025,
+    "week": 4,
+    "epa_total": -2.6212,
+    "percentil_ofensivo": 38.7,
+    "epa_total_allowed": 13.9676,
+    "percentil_defensivo": 12.9
+  },
+  {
+    "team": "NYJ",
+    "season": 2025,
+    "week": 5,
+    "epa_total": -1.0819,
+    "percentil_ofensivo": 33.3,
+    "epa_total_allowed": 23.3079,
+    "percentil_defensivo": 11.1
+  },
+  {
+    "team": "NYJ",
+    "season": 2025,
+    "week": 6,
+    "epa_total": -10.451,
+    "percentil_ofensivo": 17.2,
+    "epa_total_allowed": 23.0799,
+    "percentil_defensivo": 13.8
+  },
+  {
+    "team": "NYJ",
+    "season": 2025,
+    "week": 7,
+    "epa_total": -19.6388,
+    "percentil_ofensivo": 10.3,
+    "epa_total_allowed": 19.4532,
+    "percentil_defensivo": 10.3
+  },
+  {
+    "team": "NYJ",
+    "season": 2025,
+    "week": 8,
+    "epa_total": -9.0631,
+    "percentil_ofensivo": 24,
+    "epa_total_allowed": 26.2271,
+    "percentil_defensivo": 12
+  },
+  {
+    "team": "NYJ",
+    "season": 2025,
+    "week": 10,
+    "epa_total": -15.019,
+    "percentil_ofensivo": 18.5,
+    "epa_total_allowed": 23.3433,
+    "percentil_defensivo": 14.8
+  },
+  {
+    "team": "NYJ",
+    "season": 2025,
+    "week": 11,
+    "epa_total": -17.3282,
+    "percentil_ofensivo": 13.8,
+    "epa_total_allowed": 29.2179,
+    "percentil_defensivo": 20.7
+  },
+  {
+    "team": "NYJ",
+    "season": 2025,
+    "week": 12,
+    "epa_total": -21.9528,
+    "percentil_ofensivo": 18.5,
+    "epa_total_allowed": 27.5676,
+    "percentil_defensivo": 18.5
+  },
+  {
+    "team": "NYJ",
+    "season": 2025,
+    "week": 13,
+    "epa_total": -21.7666,
+    "percentil_ofensivo": 16.1,
+    "epa_total_allowed": 33.4045,
+    "percentil_defensivo": 12.9
+  },
+  {
+    "team": "NYJ",
+    "season": 2025,
+    "week": 14,
+    "epa_total": -38.4969,
+    "percentil_ofensivo": 18.5,
+    "epa_total_allowed": 41.1962,
+    "percentil_defensivo": 11.1
+  },
+  {
+    "team": "NYJ",
+    "season": 2025,
+    "week": 15,
+    "epa_total": -43.8785,
+    "percentil_ofensivo": 16.1,
+    "epa_total_allowed": 51.5305,
+    "percentil_defensivo": 9.7
+  },
+  {
+    "team": "NYJ",
+    "season": 2025,
+    "week": 16,
+    "epa_total": -57.9246,
+    "percentil_ofensivo": 9.7,
+    "epa_total_allowed": 54.357,
+    "percentil_defensivo": 9.7
+  },
+  {
+    "team": "NYJ",
+    "season": 2025,
+    "week": 17,
+    "epa_total": -64.7765,
+    "percentil_ofensivo": 9.7,
+    "epa_total_allowed": 66.5585,
+    "percentil_defensivo": 9.7
+  },
+  {
+    "team": "NYJ",
+    "season": 2025,
+    "week": 18,
+    "epa_total": -70.7816,
+    "percentil_ofensivo": 9.7,
+    "epa_total_allowed": 74.8387,
+    "percentil_defensivo": 3.2
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 4.3523,
+    "percentil_ofensivo": 71,
+    "epa_total_allowed": 1.3044,
+    "percentil_defensivo": 51.6
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 2,
+    "epa_total": 3.9428,
+    "percentil_ofensivo": 54.8,
+    "epa_total_allowed": -2.7494,
+    "percentil_defensivo": 64.5
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 3,
+    "epa_total": 4.408,
+    "percentil_ofensivo": 64.5,
+    "epa_total_allowed": -3.9353,
+    "percentil_defensivo": 61.3
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 2.1463,
+    "percentil_ofensivo": 51.6,
+    "epa_total_allowed": -9.0105,
+    "percentil_defensivo": 80.6
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 5,
+    "epa_total": 2.4667,
+    "percentil_ofensivo": 40.7,
+    "epa_total_allowed": -6.2329,
+    "percentil_defensivo": 74.1
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 2.8872,
+    "percentil_ofensivo": 41.4,
+    "epa_total_allowed": 0.3423,
+    "percentil_defensivo": 65.5
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 7,
+    "epa_total": 8.7481,
+    "percentil_ofensivo": 69,
+    "epa_total_allowed": -2.426,
+    "percentil_defensivo": 58.6
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 8,
+    "epa_total": 19.8439,
+    "percentil_ofensivo": 72,
+    "epa_total_allowed": -0.1477,
+    "percentil_defensivo": 52
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 10,
+    "epa_total": 15.9798,
+    "percentil_ofensivo": 66.7,
+    "epa_total_allowed": -6.1574,
+    "percentil_defensivo": 66.7
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 7.744,
+    "percentil_ofensivo": 62.1,
+    "epa_total_allowed": -18.6634,
+    "percentil_defensivo": 79.3
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 12,
+    "epa_total": 13.057,
+    "percentil_ofensivo": 59.3,
+    "epa_total_allowed": -19.4847,
+    "percentil_defensivo": 85.2
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 13,
+    "epa_total": 13.0986,
+    "percentil_ofensivo": 64.5,
+    "epa_total_allowed": -16.6323,
+    "percentil_defensivo": 74.2
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 14,
+    "epa_total": 2.7061,
+    "percentil_ofensivo": 55.6,
+    "epa_total_allowed": -25.2346,
+    "percentil_defensivo": 74.1
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 7.1606,
+    "percentil_ofensivo": 58.1,
+    "epa_total_allowed": -36.4453,
+    "percentil_defensivo": 83.9
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 16,
+    "epa_total": 15.4062,
+    "percentil_ofensivo": 58.1,
+    "epa_total_allowed": -39.3476,
+    "percentil_defensivo": 90.3
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 12.0073,
+    "percentil_ofensivo": 54.8,
+    "epa_total_allowed": -43.8542,
+    "percentil_defensivo": 83.9
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 7.7488,
+    "percentil_ofensivo": 45.2,
+    "epa_total_allowed": -47.2846,
+    "percentil_defensivo": 83.9
+  },
+  {
+    "team": "PHI",
+    "season": 2025,
+    "week": 19,
+    "epa_total": 6.3074,
+    "percentil_ofensivo": 36.4,
+    "epa_total_allowed": -43.8087,
+    "percentil_defensivo": 72.7
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 4.9025,
+    "percentil_ofensivo": 77.4,
+    "epa_total_allowed": 5.8674,
+    "percentil_defensivo": 12.9
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 2,
+    "epa_total": -0.5757,
+    "percentil_ofensivo": 45.2,
+    "epa_total_allowed": 8.2723,
+    "percentil_defensivo": 19.4
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 3,
+    "epa_total": -1.8574,
+    "percentil_ofensivo": 41.9,
+    "epa_total_allowed": 3.5227,
+    "percentil_defensivo": 32.3
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 2.5969,
+    "percentil_ofensivo": 54.8,
+    "epa_total_allowed": 5.7268,
+    "percentil_defensivo": 25.8
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 6.417,
+    "percentil_ofensivo": 51.7,
+    "epa_total_allowed": -4.6875,
+    "percentil_defensivo": 75.9
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 7,
+    "epa_total": 17.1685,
+    "percentil_ofensivo": 75.9,
+    "epa_total_allowed": 7.2615,
+    "percentil_defensivo": 20.7
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 8,
+    "epa_total": 14.0407,
+    "percentil_ofensivo": 68,
+    "epa_total_allowed": 19.0641,
+    "percentil_defensivo": 24
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 12.6378,
+    "percentil_ofensivo": 55.6,
+    "epa_total_allowed": 9.412,
+    "percentil_defensivo": 37
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 10,
+    "epa_total": 0.4467,
+    "percentil_ofensivo": 40.7,
+    "epa_total_allowed": 5.4573,
+    "percentil_defensivo": 33.3
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 6.6902,
+    "percentil_ofensivo": 58.6,
+    "epa_total_allowed": 0.2405,
+    "percentil_defensivo": 58.6
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 12,
+    "epa_total": 7.1948,
+    "percentil_ofensivo": 51.9,
+    "epa_total_allowed": 0.6611,
+    "percentil_defensivo": 40.7
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 13,
+    "epa_total": -2.311,
+    "percentil_ofensivo": 41.9,
+    "epa_total_allowed": 3.7189,
+    "percentil_defensivo": 29
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 14,
+    "epa_total": 5.7174,
+    "percentil_ofensivo": 59.3,
+    "epa_total_allowed": 4.3726,
+    "percentil_defensivo": 40.7
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 12.3008,
+    "percentil_ofensivo": 61.3,
+    "epa_total_allowed": 4.3871,
+    "percentil_defensivo": 48.4
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 16,
+    "epa_total": 22.4083,
+    "percentil_ofensivo": 64.5,
+    "epa_total_allowed": 12.5723,
+    "percentil_defensivo": 35.5
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 14.6142,
+    "percentil_ofensivo": 58.1,
+    "epa_total_allowed": 6.8387,
+    "percentil_defensivo": 45.2
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 18.4503,
+    "percentil_ofensivo": 64.5,
+    "epa_total_allowed": 9.2143,
+    "percentil_defensivo": 41.9
+  },
+  {
+    "team": "PIT",
+    "season": 2025,
+    "week": 19,
+    "epa_total": 0.1821,
+    "percentil_ofensivo": 27.3,
+    "epa_total_allowed": 12.0784,
+    "percentil_defensivo": 36.4
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 1,
+    "epa_total": -4.7865,
+    "percentil_ofensivo": 16.1,
+    "epa_total_allowed": 3.7476,
+    "percentil_defensivo": 35.5
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 2,
+    "epa_total": -2.3816,
+    "percentil_ofensivo": 32.3,
+    "epa_total_allowed": -1.7306,
+    "percentil_defensivo": 61.3
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 3,
+    "epa_total": -1.3535,
+    "percentil_ofensivo": 45.2,
+    "epa_total_allowed": -5.1331,
+    "percentil_defensivo": 67.7
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 4,
+    "epa_total": -0.726,
+    "percentil_ofensivo": 41.9,
+    "epa_total_allowed": -8.0299,
+    "percentil_defensivo": 77.4
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 5,
+    "epa_total": 13.4662,
+    "percentil_ofensivo": 66.7,
+    "epa_total_allowed": 5.7408,
+    "percentil_defensivo": 40.7
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 12.3902,
+    "percentil_ofensivo": 69,
+    "epa_total_allowed": 5.1333,
+    "percentil_defensivo": 37.9
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 7,
+    "epa_total": 6.3963,
+    "percentil_ofensivo": 62.1,
+    "epa_total_allowed": -7.0014,
+    "percentil_defensivo": 72.4
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 17.1583,
+    "percentil_ofensivo": 63,
+    "epa_total_allowed": -7.4381,
+    "percentil_defensivo": 77.8
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 10,
+    "epa_total": 17.9273,
+    "percentil_ofensivo": 70.4,
+    "epa_total_allowed": -16.7419,
+    "percentil_defensivo": 81.5
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 9.4109,
+    "percentil_ofensivo": 65.5,
+    "epa_total_allowed": -18.672,
+    "percentil_defensivo": 82.8
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 12,
+    "epa_total": 15.7999,
+    "percentil_ofensivo": 63,
+    "epa_total_allowed": -18.1159,
+    "percentil_defensivo": 81.5
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 13,
+    "epa_total": 10.5855,
+    "percentil_ofensivo": 61.3,
+    "epa_total_allowed": -38.2048,
+    "percentil_defensivo": 93.5
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 14,
+    "epa_total": 15.4392,
+    "percentil_ofensivo": 66.7,
+    "epa_total_allowed": -49.1545,
+    "percentil_defensivo": 96.3
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 15.6186,
+    "percentil_ofensivo": 64.5,
+    "epa_total_allowed": -52.0149,
+    "percentil_defensivo": 96.8
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 16,
+    "epa_total": 17.922,
+    "percentil_ofensivo": 61.3,
+    "epa_total_allowed": -39.4375,
+    "percentil_defensivo": 93.5
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 14.8688,
+    "percentil_ofensivo": 61.3,
+    "epa_total_allowed": -53.5539,
+    "percentil_defensivo": 96.8
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 15.2366,
+    "percentil_ofensivo": 58.1,
+    "epa_total_allowed": -63.3805,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 20,
+    "epa_total": 20.8337,
+    "percentil_ofensivo": 14.3,
+    "epa_total_allowed": -74.4752,
+    "percentil_defensivo": 85.7
+  },
+  {
+    "team": "SEA",
+    "season": 2025,
+    "week": 21,
+    "epa_total": 29.1256,
+    "percentil_ofensivo": 33.3,
+    "epa_total_allowed": -63.8371,
+    "percentil_defensivo": 100
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 3.7476,
+    "percentil_ofensivo": 64.5,
+    "epa_total_allowed": -4.7865,
+    "percentil_defensivo": 83.9
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 2,
+    "epa_total": 3.977,
+    "percentil_ofensivo": 58.1,
+    "epa_total_allowed": -5.2209,
+    "percentil_defensivo": 77.4
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 3,
+    "epa_total": 3.4172,
+    "percentil_ofensivo": 58.1,
+    "epa_total_allowed": -5.6061,
+    "percentil_defensivo": 74.2
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 4.444,
+    "percentil_ofensivo": 64.5,
+    "epa_total_allowed": -4.1223,
+    "percentil_defensivo": 61.3
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 5,
+    "epa_total": 11.3432,
+    "percentil_ofensivo": 63,
+    "epa_total_allowed": 4.5172,
+    "percentil_defensivo": 48.1
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 8.0457,
+    "percentil_ofensivo": 55.2,
+    "epa_total_allowed": 10.7313,
+    "percentil_defensivo": 24.1
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 7,
+    "epa_total": 7.7819,
+    "percentil_ofensivo": 65.5,
+    "epa_total_allowed": 6.2469,
+    "percentil_defensivo": 31
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 8,
+    "epa_total": 5.8977,
+    "percentil_ofensivo": 60,
+    "epa_total_allowed": 15.3625,
+    "percentil_defensivo": 40
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 9,
+    "epa_total": 14.1071,
+    "percentil_ofensivo": 59.3,
+    "epa_total_allowed": 19.4548,
+    "percentil_defensivo": 25.9
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 10,
+    "epa_total": 24.5423,
+    "percentil_ofensivo": 77.8,
+    "epa_total_allowed": 32.1155,
+    "percentil_defensivo": 7.4
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 27.766,
+    "percentil_ofensivo": 79.3,
+    "epa_total_allowed": 39.0996,
+    "percentil_defensivo": 6.9
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 12,
+    "epa_total": 27.1631,
+    "percentil_ofensivo": 74.1,
+    "epa_total_allowed": 32.5655,
+    "percentil_defensivo": 11.1
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 13,
+    "epa_total": 26.9423,
+    "percentil_ofensivo": 74.2,
+    "epa_total_allowed": 26.4903,
+    "percentil_defensivo": 22.6
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 15,
+    "epa_total": 34.5165,
+    "percentil_ofensivo": 74.2,
+    "epa_total_allowed": 31.4693,
+    "percentil_defensivo": 19.4
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 16,
+    "epa_total": 46.0557,
+    "percentil_ofensivo": 80.6,
+    "epa_total_allowed": 30.5964,
+    "percentil_defensivo": 22.6
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 17,
+    "epa_total": 55.6834,
+    "percentil_ofensivo": 83.9,
+    "epa_total_allowed": 43.9935,
+    "percentil_defensivo": 12.9
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 18,
+    "epa_total": 45.8569,
+    "percentil_ofensivo": 83.9,
+    "epa_total_allowed": 44.3613,
+    "percentil_defensivo": 19.4
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 19,
+    "epa_total": 49.3329,
+    "percentil_ofensivo": 63.6,
+    "epa_total_allowed": 42.9199,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "SF",
+    "season": 2025,
+    "week": 20,
+    "epa_total": 38.2381,
+    "percentil_ofensivo": 42.9,
+    "epa_total_allowed": 48.517,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "TB",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 3.5569,
+    "percentil_ofensivo": 61.3,
+    "epa_total_allowed": 3.4679,
+    "percentil_defensivo": 41.9
+  },
+  {
+    "team": "TB",
+    "season": 2025,
+    "week": 2,
+    "epa_total": 7.8042,
+    "percentil_ofensivo": 80.6,
+    "epa_total_allowed": 1.6066,
+    "percentil_defensivo": 41.9
+  },
+  {
+    "team": "TB",
+    "season": 2025,
+    "week": 3,
+    "epa_total": 7.8741,
+    "percentil_ofensivo": 87.1,
+    "epa_total_allowed": -4.5844,
+    "percentil_defensivo": 64.5
+  },
+  {
+    "team": "TB",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 2.7989,
+    "percentil_ofensivo": 61.3,
+    "epa_total_allowed": -6.8461,
+    "percentil_defensivo": 71
+  },
+  {
+    "team": "TB",
+    "season": 2025,
+    "week": 5,
+    "epa_total": 16.5696,
+    "percentil_ofensivo": 77.8,
+    "epa_total_allowed": 7.346,
+    "percentil_defensivo": 29.6
+  },
+  {
+    "team": "TB",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 22.7838,
+    "percentil_ofensivo": 79.3,
+    "epa_total_allowed": 4.0485,
+    "percentil_defensivo": 48.3
+  },
+  {
+    "team": "TB",
+    "season": 2025,
+    "week": 7,
+    "epa_total": 2.7921,
+    "percentil_ofensivo": 55.2,
+    "epa_total_allowed": 0.3274,
+    "percentil_defensivo": 55.2
+  },
+  {
+    "team": "TB",
+    "season": 2025,
+    "week": 8,
+    "epa_total": -1.5877,
+    "percentil_ofensivo": 44,
+    "epa_total_allowed": -18.1241,
+    "percentil_defensivo": 96
+  },
+  {
+    "team": "TB",
+    "season": 2025,
+    "week": 10,
+    "epa_total": -0.2782,
+    "percentil_ofensivo": 37,
+    "epa_total_allowed": -13.3306,
+    "percentil_defensivo": 74.1
+  },
+  {
+    "team": "TB",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 3.3124,
+    "percentil_ofensivo": 44.8,
+    "epa_total_allowed": -5.9362,
+    "percentil_defensivo": 69
+  },
+  {
+    "team": "TB",
+    "season": 2025,
+    "week": 12,
+    "epa_total": -12.3964,
+    "percentil_ofensivo": 25.9,
+    "epa_total_allowed": -1.6299,
+    "percentil_defensivo": 51.9
+  },
+  {
+    "team": "TB",
+    "season": 2025,
+    "week": 13,
+    "epa_total": -12.7151,
+    "percentil_ofensivo": 22.6,
+    "epa_total_allowed": 0.0487,
+    "percentil_defensivo": 48.4
+  },
+  {
+    "team": "TB",
+    "season": 2025,
+    "week": 14,
+    "epa_total": -18.3553,
+    "percentil_ofensivo": 22.2,
+    "epa_total_allowed": -1.0044,
+    "percentil_defensivo": 55.6
+  },
+  {
+    "team": "TB",
+    "season": 2025,
+    "week": 15,
+    "epa_total": -16.0511,
+    "percentil_ofensivo": 19.4,
+    "epa_total_allowed": 11.4507,
+    "percentil_defensivo": 35.5
+  },
+  {
+    "team": "TB",
+    "season": 2025,
+    "week": 16,
+    "epa_total": -12.8016,
+    "percentil_ofensivo": 19.4,
+    "epa_total_allowed": 14.4053,
+    "percentil_defensivo": 32.3
+  },
+  {
+    "team": "TB",
+    "season": 2025,
+    "week": 17,
+    "epa_total": -11.4023,
+    "percentil_ofensivo": 22.6,
+    "epa_total_allowed": 16.1084,
+    "percentil_defensivo": 35.5
+  },
+  {
+    "team": "TB",
+    "season": 2025,
+    "week": 18,
+    "epa_total": -13.3106,
+    "percentil_ofensivo": 25.8,
+    "epa_total_allowed": 18.5285,
+    "percentil_defensivo": 35.5
+  },
+  {
+    "team": "TEN",
+    "season": 2025,
+    "week": 1,
+    "epa_total": -11.578,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": -6.2982,
+    "percentil_defensivo": 87.1
+  },
+  {
+    "team": "TEN",
+    "season": 2025,
+    "week": 2,
+    "epa_total": -15.8698,
+    "percentil_ofensivo": 3.2,
+    "epa_total_allowed": 2.0461,
+    "percentil_defensivo": 35.5
+  },
+  {
+    "team": "TEN",
+    "season": 2025,
+    "week": 3,
+    "epa_total": -23.1353,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": 9.6448,
+    "percentil_defensivo": 16.1
+  },
+  {
+    "team": "TEN",
+    "season": 2025,
+    "week": 4,
+    "epa_total": -32.4563,
+    "percentil_ofensivo": 3.2,
+    "epa_total_allowed": 14.2024,
+    "percentil_defensivo": 9.7
+  },
+  {
+    "team": "TEN",
+    "season": 2025,
+    "week": 5,
+    "epa_total": -33.978,
+    "percentil_ofensivo": 3.7,
+    "epa_total_allowed": 11.9689,
+    "percentil_defensivo": 22.2
+  },
+  {
+    "team": "TEN",
+    "season": 2025,
+    "week": 6,
+    "epa_total": -45.4459,
+    "percentil_ofensivo": 3.4,
+    "epa_total_allowed": 5.0668,
+    "percentil_defensivo": 41.4
+  },
+  {
+    "team": "TEN",
+    "season": 2025,
+    "week": 7,
+    "epa_total": -54.8507,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": 11.6479,
+    "percentil_defensivo": 13.8
+  },
+  {
+    "team": "TEN",
+    "season": 2025,
+    "week": 8,
+    "epa_total": -58.5546,
+    "percentil_ofensivo": 4,
+    "epa_total_allowed": 22.0378,
+    "percentil_defensivo": 20
+  },
+  {
+    "team": "TEN",
+    "season": 2025,
+    "week": 9,
+    "epa_total": -62.3656,
+    "percentil_ofensivo": 0,
+    "epa_total_allowed": 23.8001,
+    "percentil_defensivo": 22.2
+  },
+  {
+    "team": "TEN",
+    "season": 2025,
+    "week": 11,
+    "epa_total": -65.5149,
+    "percentil_ofensivo": 3.4,
+    "epa_total_allowed": 22.1068,
+    "percentil_defensivo": 27.6
+  },
+  {
+    "team": "TEN",
+    "season": 2025,
+    "week": 12,
+    "epa_total": -64.9588,
+    "percentil_ofensivo": 7.4,
+    "epa_total_allowed": 28.4958,
+    "percentil_defensivo": 14.8
+  },
+  {
+    "team": "TEN",
+    "season": 2025,
+    "week": 13,
+    "epa_total": -79.5193,
+    "percentil_ofensivo": 3.2,
+    "epa_total_allowed": 27.6231,
+    "percentil_defensivo": 19.4
+  },
+  {
+    "team": "TEN",
+    "season": 2025,
+    "week": 14,
+    "epa_total": -81.7881,
+    "percentil_ofensivo": 3.7,
+    "epa_total_allowed": 30.5844,
+    "percentil_defensivo": 14.8
+  },
+  {
+    "team": "TEN",
+    "season": 2025,
+    "week": 15,
+    "epa_total": -76.809,
+    "percentil_ofensivo": 6.5,
+    "epa_total_allowed": 38.1586,
+    "percentil_defensivo": 16.1
+  },
+  {
+    "team": "TEN",
+    "season": 2025,
+    "week": 16,
+    "epa_total": -76.9609,
+    "percentil_ofensivo": 6.5,
+    "epa_total_allowed": 30.3807,
+    "percentil_defensivo": 25.8
+  },
+  {
+    "team": "TEN",
+    "season": 2025,
+    "week": 17,
+    "epa_total": -83.8433,
+    "percentil_ofensivo": 6.5,
+    "epa_total_allowed": 40.7518,
+    "percentil_defensivo": 16.1
+  },
+  {
+    "team": "TEN",
+    "season": 2025,
+    "week": 18,
+    "epa_total": -95.7723,
+    "percentil_ofensivo": 6.5,
+    "epa_total_allowed": 47.8344,
+    "percentil_defensivo": 12.9
+  },
+  {
+    "team": "WAS",
+    "season": 2025,
+    "week": 1,
+    "epa_total": 4.7288,
+    "percentil_ofensivo": 74.2,
+    "epa_total_allowed": -8.4154,
+    "percentil_defensivo": 90.3
+  },
+  {
+    "team": "WAS",
+    "season": 2025,
+    "week": 2,
+    "epa_total": -1.675,
+    "percentil_ofensivo": 35.5,
+    "epa_total_allowed": -4.4088,
+    "percentil_defensivo": 71
+  },
+  {
+    "team": "WAS",
+    "season": 2025,
+    "week": 3,
+    "epa_total": 5.0449,
+    "percentil_ofensivo": 71,
+    "epa_total_allowed": -2.753,
+    "percentil_defensivo": 58.1
+  },
+  {
+    "team": "WAS",
+    "season": 2025,
+    "week": 4,
+    "epa_total": 7.1723,
+    "percentil_ofensivo": 71,
+    "epa_total_allowed": 2.6356,
+    "percentil_defensivo": 32.3
+  },
+  {
+    "team": "WAS",
+    "season": 2025,
+    "week": 5,
+    "epa_total": 13.8956,
+    "percentil_ofensivo": 70.4,
+    "epa_total_allowed": 0.4611,
+    "percentil_defensivo": 55.6
+  },
+  {
+    "team": "WAS",
+    "season": 2025,
+    "week": 6,
+    "epa_total": 11.3514,
+    "percentil_ofensivo": 65.5,
+    "epa_total_allowed": 4.9945,
+    "percentil_defensivo": 44.8
+  },
+  {
+    "team": "WAS",
+    "season": 2025,
+    "week": 7,
+    "epa_total": 3.497,
+    "percentil_ofensivo": 58.6,
+    "epa_total_allowed": 7.8547,
+    "percentil_defensivo": 17.2
+  },
+  {
+    "team": "WAS",
+    "season": 2025,
+    "week": 8,
+    "epa_total": -1.7498,
+    "percentil_ofensivo": 40,
+    "epa_total_allowed": 16.4574,
+    "percentil_defensivo": 32
+  },
+  {
+    "team": "WAS",
+    "season": 2025,
+    "week": 9,
+    "epa_total": -2.1865,
+    "percentil_ofensivo": 25.9,
+    "epa_total_allowed": 27.2194,
+    "percentil_defensivo": 11.1
+  },
+  {
+    "team": "WAS",
+    "season": 2025,
+    "week": 10,
+    "epa_total": 1.6739,
+    "percentil_ofensivo": 44.4,
+    "epa_total_allowed": 44.0443,
+    "percentil_defensivo": 0
+  },
+  {
+    "team": "WAS",
+    "season": 2025,
+    "week": 11,
+    "epa_total": 3.8622,
+    "percentil_ofensivo": 51.7,
+    "epa_total_allowed": 42.959,
+    "percentil_defensivo": 3.4
+  },
+  {
+    "team": "WAS",
+    "season": 2025,
+    "week": 13,
+    "epa_total": 6.2669,
+    "percentil_ofensivo": 58.1,
+    "epa_total_allowed": 50.4107,
+    "percentil_defensivo": 6.5
+  },
+  {
+    "team": "WAS",
+    "season": 2025,
+    "week": 14,
+    "epa_total": -4.451,
+    "percentil_ofensivo": 40.7,
+    "epa_total_allowed": 56.7139,
+    "percentil_defensivo": 7.4
+  },
+  {
+    "team": "WAS",
+    "season": 2025,
+    "week": 15,
+    "epa_total": -4.8411,
+    "percentil_ofensivo": 35.5,
+    "epa_total_allowed": 57.2816,
+    "percentil_defensivo": 6.5
+  },
+  {
+    "team": "WAS",
+    "season": 2025,
+    "week": 16,
+    "epa_total": -7.7434,
+    "percentil_ofensivo": 22.6,
+    "epa_total_allowed": 65.5272,
+    "percentil_defensivo": 6.5
+  },
+  {
+    "team": "WAS",
+    "season": 2025,
+    "week": 17,
+    "epa_total": -4.3398,
+    "percentil_ofensivo": 35.5,
+    "epa_total_allowed": 74.5847,
+    "percentil_defensivo": 3.2
+  },
+  {
+    "team": "WAS",
+    "season": 2025,
+    "week": 18,
+    "epa_total": -7.7703,
+    "percentil_ofensivo": 32.3,
+    "epa_total_allowed": 70.3262,
+    "percentil_defensivo": 9.7
+  }
+]
