@@ -7,7 +7,7 @@ const DEFAULT_RANKINGS = [
   { teamId: "SF", calculatedRank: 3, epa: 7.6 },
   { teamId: "PHI", calculatedRank: 4, epa: 7.4 },
   { teamId: "BAL", calculatedRank: 5, epa: 7.1 },
-  { teamId: "LAR", calculatedRank: 6, epa: 6.8 },
+  { teamId: "LA", calculatedRank: 6, epa: 6.8 },
   { teamId: "DEN", calculatedRank: 7, epa: 6.5 },
   { teamId: "GB", calculatedRank: 8, epa: 6.2 },
   { teamId: "HOU", calculatedRank: 9, epa: 5.9 },
@@ -32,8 +32,8 @@ const DEFAULT_RANKINGS = [
   { teamId: "NYJ", calculatedRank: 28, epa: 0.2 },
   { teamId: "JAX", calculatedRank: 29, epa: -0.1 },
   { teamId: "LV", calculatedRank: 30, epa: -0.4 },
-  { teamId: "IND", calculatedRank: 31, epa: -0.7 },
-  { teamId: "PHI", calculatedRank: 32, epa: -1.0 },
+  { teamId: "CLE", calculatedRank: 31, epa: -0.7 },
+  { teamId: "HOU", calculatedRank: 32, epa: -1.0 },
 ];
 
 // Simulación de base de datos local (en producción usar Postgres)
@@ -64,7 +64,7 @@ const TEAM_DATA: Record<
   SF: { name: "San Francisco 49ers", record: "10-4", color: "#AA0000", abbr: "SF" },
   PHI: { name: "Philadelphia Eagles", record: "10-4", color: "#004687", abbr: "PHI" },
   BAL: { name: "Baltimore Ravens", record: "9-5", color: "#241773", abbr: "BAL" },
-  LAR: { name: "Los Angeles Rams", record: "9-5", color: "#003594", abbr: "LAR" },
+  LA: { name: "Los Angeles Rams", record: "9-5", color: "#003594", abbr: "LA" },
   DEN: { name: "Denver Broncos", record: "9-5", color: "#FB4F14", abbr: "DEN" },
   GB: { name: "Green Bay Packers", record: "9-5", color: "#203731", abbr: "GB" },
   HOU: { name: "Houston Texans", record: "9-5", color: "#03202F", abbr: "HOU" },
@@ -89,6 +89,7 @@ const TEAM_DATA: Record<
   NYJ: { name: "New York Jets", record: "3-11", color: "#125740", abbr: "NYJ" },
   JAX: { name: "Jacksonville Jaguars", record: "2-12", color: "#006687", abbr: "JAX" },
   LV: { name: "Las Vegas Raiders", record: "2-12", color: "#000000", abbr: "LV" },
+  CLE: { name: "Cleveland Browns", record: "3-11", color: "#311D00", abbr: "CLE" },
 };
 
 export async function GET() {
@@ -97,6 +98,16 @@ export async function GET() {
     const rankings = DEFAULT_RANKINGS.map((calc) => {
       const note = powerRankingNotes[calc.teamId];
       const team = TEAM_DATA[calc.teamId];
+
+      // Mock metrics based on EPA ranking
+      const rankNumber = calc.calculatedRank;
+      const metrics = {
+        fgDriveRateOffense: 0.35 + (32 - rankNumber) * 0.015,
+        puntDriveRateOffense: 0.25 + (32 - rankNumber) * 0.01,
+        penaltiesCommittedCount: Math.max(3, 12 - Math.floor(rankNumber / 4)),
+        rankFgRate: rankNumber,
+        rankEpaOffense: rankNumber,
+      };
 
       return {
         id: calc.teamId,
@@ -109,6 +120,7 @@ export async function GET() {
         isAdjusted: !!note?.rankingPosition,
         summary: note?.summary,
         epa: calc.epa,
+        metrics,
       };
     });
 
