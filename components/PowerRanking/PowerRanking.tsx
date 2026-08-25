@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { ChevronDown, Lock, Unlock, Trophy, ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
+import { MetricsSingleTeamFull } from "@/components/GameModal/MetricsSingleTeamFull";
+import { TeamComparison } from "@/components/GameModal/TeamComparison";
 
 interface TeamRanking {
   id: string;
@@ -16,11 +18,14 @@ interface TeamRanking {
   summary?: string;
   epa?: number;
   metrics?: {
-    fgDriveRateOffense?: number;
-    puntDriveRateOffense?: number;
-    penaltiesCommittedCount?: number;
-    rankFgRate?: number;
-    rankEpaOffense?: number;
+    epaOffensePercentile?: number;
+    epaDefensePercentile?: number;
+    epaOffense?: number;
+    epaDefense?: number;
+    turnoverDriveRateOffense?: number;
+    turnoverDriveRateDefense?: number;
+    sacksAllowed?: number;
+    sacksGenerated?: number;
   };
 }
 
@@ -33,11 +38,24 @@ interface EditState {
 export function PowerRanking() {
   const [rankings, setRankings] = useState<TeamRanking[]>([]);
   const [selectedTeam, setSelectedTeam] = useState<TeamRanking | null>(null);
+  const [comparisonTeams, setComparisonTeams] = useState<[TeamRanking | null, TeamRanking | null]>([null, null]);
   const [adminMode, setAdminMode] = useState(false);
   const [editState, setEditState] = useState<EditState | null>(null);
   const [loading, setLoading] = useState(true);
   const [currentWeek, setCurrentWeek] = useState(1);
   const TOTAL_WEEKS = 18;
+
+  const addToComparison = (team: TeamRanking) => {
+    if (comparisonTeams[0] === null) {
+      setComparisonTeams([team, null]);
+    } else if (comparisonTeams[1] === null && team.id !== comparisonTeams[0]?.id) {
+      setComparisonTeams([comparisonTeams[0], team]);
+    }
+  };
+
+  const clearComparison = () => {
+    setComparisonTeams([null, null]);
+  };
 
   useEffect(() => {
     loadRankings();
@@ -255,20 +273,52 @@ export function PowerRanking() {
 
             {/* Content */}
             <div style={{ padding: "24px" }}>
-              {/* Wordmark */}
-              <div style={{ textAlign: "center", marginBottom: "24px" }}>
+              {/* Wordmark - Bauhaus Frame */}
+              <div
+                style={{
+                  textAlign: "center",
+                  marginBottom: "32px",
+                  padding: "24px",
+                  backgroundColor: "#F5F5F5",
+                  border: "4px solid #121212",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: "16px",
+                }}
+              >
                 <Image
-                  src={`/helmets/${selectedTeam.id}.png`}
+                  src={`/wordmarks/${selectedTeam.id}.png`}
                   alt={selectedTeam.name}
-                  width={120}
-                  height={120}
+                  width={200}
+                  height={200}
                   unoptimized={true}
-                  style={{ margin: "0 auto 16px", display: "block" }}
+                  style={{
+                    display: "block",
+                    objectFit: "contain",
+                    maxHeight: "180px",
+                  }}
+                  onError={(e) => {
+                    (e.target as any).src = `/helmets/${selectedTeam.id}.png`;
+                  }}
                 />
-                <p style={{ fontWeight: "bold", fontSize: "18px", marginBottom: "8px" }}>
-                  #{selectedTeam.adjustedRank || selectedTeam.calculatedRank} - {selectedTeam.name}
-                </p>
-                <p style={{ fontSize: "14px", color: "#666" }}>{selectedTeam.record}</p>
+                <div style={{ width: "100%", borderTop: "2px solid #121212", paddingTop: "16px" }}>
+                  <p
+                    style={{
+                      fontWeight: "900",
+                      fontSize: "20px",
+                      marginBottom: "4px",
+                      color: selectedTeam.color,
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    #{selectedTeam.adjustedRank || selectedTeam.calculatedRank}
+                  </p>
+                  <p style={{ fontWeight: "bold", fontSize: "16px", marginBottom: "8px", color: "#121212" }}>
+                    {selectedTeam.name}
+                  </p>
+                  <p style={{ fontSize: "13px", color: "#666", fontWeight: "600" }}>{selectedTeam.record}</p>
+                </div>
               </div>
 
               {/* Summary */}
@@ -289,44 +339,49 @@ export function PowerRanking() {
 
               {/* Metrics */}
               {selectedTeam.metrics && (
-                <div>
-                  <p style={{ fontSize: "12px", fontWeight: "900", textTransform: "uppercase", marginBottom: "12px", color: "#0066CC" }}>
-                    📊 Métricas
-                  </p>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
-                    {selectedTeam.metrics.fgDriveRateOffense !== undefined && (
-                      <div style={{ border: "2px solid #121212", padding: "12px" }}>
-                        <p style={{ fontSize: "12px", color: "#666", marginBottom: "4px" }}>FG Drive Rate</p>
-                        <p style={{ fontSize: "18px", fontWeight: "900" }}>
-                          {(selectedTeam.metrics.fgDriveRateOffense * 100).toFixed(1)}%
-                        </p>
-                      </div>
-                    )}
-                    {selectedTeam.metrics.puntDriveRateOffense !== undefined && (
-                      <div style={{ border: "2px solid #121212", padding: "12px" }}>
-                        <p style={{ fontSize: "12px", color: "#666", marginBottom: "4px" }}>Punt Drive Rate</p>
-                        <p style={{ fontSize: "18px", fontWeight: "900" }}>
-                          {(selectedTeam.metrics.puntDriveRateOffense * 100).toFixed(1)}%
-                        </p>
-                      </div>
-                    )}
-                    {selectedTeam.metrics.rankEpaOffense !== undefined && (
-                      <div style={{ border: "2px solid #121212", padding: "12px" }}>
-                        <p style={{ fontSize: "12px", color: "#666", marginBottom: "4px" }}>EPA Ofensiva Rank</p>
-                        <p style={{ fontSize: "18px", fontWeight: "900" }}>#{selectedTeam.metrics.rankEpaOffense}</p>
-                      </div>
-                    )}
-                    {selectedTeam.metrics.penaltiesCommittedCount !== undefined && (
-                      <div style={{ border: "2px solid #121212", padding: "12px" }}>
-                        <p style={{ fontSize: "12px", color: "#666", marginBottom: "4px" }}>Penalidades</p>
-                        <p style={{ fontSize: "18px", fontWeight: "900" }}>{selectedTeam.metrics.penaltiesCommittedCount}</p>
-                      </div>
-                    )}
-                  </div>
-                </div>
+                <MetricsSingleTeamFull
+                  teamName={selectedTeam.name}
+                  teamId={selectedTeam.id}
+                  teamColor={selectedTeam.color}
+                  metrics={selectedTeam.metrics}
+                />
               )}
             </div>
           </div>
+        </div>
+      )}
+
+      {/* COMPARISON MODAL */}
+      {comparisonTeams[0] && comparisonTeams[1] && (
+        <TeamComparison
+          team1={comparisonTeams[0]}
+          team2={comparisonTeams[1]}
+          onClose={clearComparison}
+        />
+      )}
+
+      {/* COMPARISON INDICATOR */}
+      {(comparisonTeams[0] || comparisonTeams[1]) && !(comparisonTeams[0] && comparisonTeams[1]) && (
+        <div style={{ position: "fixed", bottom: "20px", right: "20px", zIndex: 9998, backgroundColor: "#FFE135", border: "4px solid #121212", padding: "16px", borderRadius: "0" }}>
+          <div style={{ fontSize: "12px", fontWeight: "900", marginBottom: "8px" }}>
+            COMPARACIÓN
+          </div>
+          <div style={{ fontSize: "11px", fontWeight: "600", marginBottom: "8px" }}>
+            {comparisonTeams[0]?.abbr || "—"} vs {comparisonTeams[1]?.abbr || "—"}
+          </div>
+          <button
+            onClick={clearComparison}
+            style={{
+              width: "100%",
+              padding: "8px",
+              backgroundColor: "white",
+              border: "2px solid #121212",
+              fontWeight: "bold",
+              cursor: "pointer",
+            }}
+          >
+            Limpiar
+          </button>
         </div>
       )}
 
@@ -389,9 +444,9 @@ export function PowerRanking() {
           {sortedRankings.map((team, idx) => {
             return (
               <div key={`${team.id}-${currentWeek}`}>
-                <button
+                <div
                   onClick={() => setSelectedTeam(team)}
-                  className={`w-full bg-white text-bauhaus-black border-4 border-bauhaus-black p-4 sm:p-6 text-left font-black shadow-geo-lg transition-transform hover:shadow-geo-xl active:translate-x-1 active:translate-y-1 active:shadow-geo-md`}
+                  className={`w-full bg-white text-bauhaus-black border-4 border-bauhaus-black p-4 sm:p-6 text-left font-black shadow-geo-lg transition-transform hover:shadow-geo-xl active:translate-x-1 active:translate-y-1 active:shadow-geo-md cursor-pointer`}
                 >
                   <div className="flex items-center justify-between gap-3 sm:gap-4">
                     {/* RANK */}
@@ -422,19 +477,39 @@ export function PowerRanking() {
                     </div>
 
                     {/* ACTIONS */}
-                    {adminMode && (
+                    <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
-                          handleEditClick(team);
+                          addToComparison(team);
                         }}
-                        className="px-2 py-1 sm:px-3 sm:py-2 bg-white text-bauhaus-black border-2 border-current font-black text-xs uppercase shadow-geo-sm"
+                        style={{
+                          padding: "6px 12px",
+                          backgroundColor: comparisonTeams.some(t => t?.id === team.id) ? "#FFE135" : "white",
+                          border: "2px solid #121212",
+                          fontWeight: "bold",
+                          fontSize: "11px",
+                          textTransform: "uppercase",
+                          cursor: "pointer",
+                          borderRadius: "0",
+                        }}
                       >
-                        Editar
+                        {comparisonTeams.some(t => t?.id === team.id) ? "✓" : "Comp."}
                       </button>
-                    )}
+                      {adminMode && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleEditClick(team);
+                          }}
+                          className="px-2 py-1 sm:px-3 sm:py-2 bg-white text-bauhaus-black border-2 border-current font-black text-xs uppercase shadow-geo-sm"
+                        >
+                          Editar
+                        </button>
+                      )}
+                    </div>
                   </div>
-                </button>
+                </div>
               </div>
             );
           })}

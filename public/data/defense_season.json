@@ -123,7 +123,10 @@
     "rank_fg_rate_allowed": 5,
     "rank_punt_rate_forced": 2,
     "rank_turnover_rate_forced": 11,
-    "rank_points_allowed": 2
+    "rank_points_allowed": 2,
+    "passing_yards_allowed": 4198,
+    "rushing_yards_allowed": 1773,
+    "total_yards_allowed": 5971
   },
   {
     "team": "SEA",
@@ -249,7 +252,10 @@
     "rank_fg_rate_allowed": 6,
     "rank_punt_rate_forced": 7,
     "rank_turnover_rate_forced": 4,
-    "rank_points_allowed": 1
+    "rank_points_allowed": 1,
+    "passing_yards_allowed": 4651,
+    "rushing_yards_allowed": 1845,
+    "total_yards_allowed": 6496
   },
   {
     "team": "JAX",
@@ -375,7 +381,10 @@
     "rank_fg_rate_allowed": 1,
     "rank_punt_rate_forced": 19,
     "rank_turnover_rate_forced": 1,
-    "rank_points_allowed": 8
+    "rank_points_allowed": 8,
+    "passing_yards_allowed": 4795,
+    "rushing_yards_allowed": 1611,
+    "total_yards_allowed": 6406
   },
   {
     "team": "MIN",
@@ -501,7 +510,10 @@
     "rank_fg_rate_allowed": 31,
     "rank_punt_rate_forced": 5,
     "rank_turnover_rate_forced": 23,
-    "rank_points_allowed": 7
+    "rank_points_allowed": 7,
+    "passing_yards_allowed": 3564,
+    "rushing_yards_allowed": 2345,
+    "total_yards_allowed": 5909
   },
   {
     "team": "CLE",
@@ -627,7 +639,10 @@
     "rank_fg_rate_allowed": 8,
     "rank_punt_rate_forced": 3,
     "rank_turnover_rate_forced": 28,
-    "rank_points_allowed": 14
+    "rank_points_allowed": 14,
+    "passing_yards_allowed": 3874,
+    "rushing_yards_allowed": 2043,
+    "total_yards_allowed": 5917
   },
   {
     "team": "DEN",
@@ -753,7 +768,10 @@
     "rank_fg_rate_allowed": 23,
     "rank_punt_rate_forced": 1,
     "rank_turnover_rate_forced": 26,
-    "rank_points_allowed": 3
+    "rank_points_allowed": 3,
+    "passing_yards_allowed": 4723,
+    "rushing_yards_allowed": 1787,
+    "total_yards_allowed": 6510
   },
   {
     "team": "PHI",
@@ -879,7 +897,10 @@
     "rank_fg_rate_allowed": 14,
     "rank_punt_rate_forced": 9,
     "rank_turnover_rate_forced": 6,
-    "rank_points_allowed": 5
+    "rank_points_allowed": 5,
+    "passing_yards_allowed": 4176,
+    "rushing_yards_allowed": 2174,
+    "total_yards_allowed": 6350
   },
   {
     "team": "LAC",
@@ -1005,7 +1026,10 @@
     "rank_fg_rate_allowed": 20,
     "rank_punt_rate_forced": 17,
     "rank_turnover_rate_forced": 8,
-    "rank_points_allowed": 9
+    "rank_points_allowed": 9,
+    "passing_yards_allowed": 3938,
+    "rushing_yards_allowed": 1823,
+    "total_yards_allowed": 5761
   },
   {
     "team": "LA",
@@ -1131,7 +1155,10 @@
     "rank_fg_rate_allowed": 12,
     "rank_punt_rate_forced": 13,
     "rank_turnover_rate_forced": 2,
-    "rank_points_allowed": 10
+    "rank_points_allowed": 10,
+    "passing_yards_allowed": 4550,
+    "rushing_yards_allowed": 1940,
+    "total_yards_allowed": 6490
   },
   {
     "team": "NO",
@@ -1257,7 +1284,10 @@
     "rank_fg_rate_allowed": 26,
     "rank_punt_rate_forced": 24,
     "rank_turnover_rate_forced": 12,
-    "rank_points_allowed": 16
+    "rank_points_allowed": 16,
+    "passing_yards_allowed": 3823,
+    "rushing_yards_allowed": 2232,
+    "total_yards_allowed": 6055
   },
   {
     "team": "NE",
@@ -1383,7 +1413,10 @@
     "rank_fg_rate_allowed": 3,
     "rank_punt_rate_forced": 6,
     "rank_turnover_rate_forced": 5,
-    "rank_points_allowed": 4
+    "rank_points_allowed": 4,
+    "passing_yards_allowed": 4032,
+    "rushing_yards_allowed": 1814,
+    "total_yards_allowed": 5846
   },
   {
     "team": "KC",
@@ -1509,7 +1542,10 @@
     "rank_fg_rate_allowed": 17,
     "rank_punt_rate_forced": 8,
     "rank_turnover_rate_forced": 14,
-    "rank_points_allowed": 6
+    "rank_points_allowed": 6,
+    "passing_yards_allowed": 3917,
+    "rushing_yards_allowed": 1949,
+    "total_yards_allowed": 5866
   },
   {
     "team": "BUF",
@@ -1635,7 +1671,10 @@
     "rank_fg_rate_allowed": 4,
     "rank_punt_rate_forced": 4,
     "rank_turnover_rate_forced": 18,
-    "rank_points_allowed": 12
+    "rank_points_allowed": 12,
+    "passing_yards_allowed": 3600,
+    "rushing_yards_allowed": 1998,
+    "total_yards_allowed": 5598
   },
   {
     "team": "DET",
@@ -1761,7 +1800,10 @@
     "rank_fg_rate_allowed": 6,
     "rank_punt_rate_forced": 10,
     "rank_turnover_rate_forced": 17,
-    "rank_points_allowed": 22
+    "rank_points_allowed": 22,
+    "passing_yards_allowed": 4349,
+    "rushing_yards_allowed": 1931,
+    "total_yards_allowed": 6280
   },
   {
     "team": "ATL",
@@ -1887,7 +1929,10 @@
     "rank_fg_rate_allowed": 30,
     "rank_punt_rate_forced": 21,
     "rank_turnover_rate_forced": 15,
-    "rank_points_allowed": 19
+    "rank_points_allowed": 19,
+    "passing_yards_allowed": 4212,
+    "rushing_yards_allowed": 2057,
+    "total_yards_allowed": 6269
   },
   {
     "team": "IND",
@@ -2013,7 +2058,10 @@
     "rank_fg_rate_allowed": 32,
     "rank_punt_rate_forced": 29,
     "rank_turnover_rate_forced": 9,
-    "rank_points_allowed": 21
+    "rank_points_allowed": 21,
+    "passing_yards_allowed": 4759,
+    "rushing_yards_allowed": 1967,
+    "total_yards_allowed": 6726
   },
   {
     "team": "TB",
@@ -2139,7 +2187,10 @@
     "rank_fg_rate_allowed": 8,
     "rank_punt_rate_forced": 20,
     "rank_turnover_rate_forced": 10,
-    "rank_points_allowed": 20
+    "rank_points_allowed": 20,
+    "passing_yards_allowed": 4320,
+    "rushing_yards_allowed": 1737,
+    "total_yards_allowed": 6057
   },
   {
     "team": "CHI",
@@ -2265,7 +2316,10 @@
     "rank_fg_rate_allowed": 10,
     "rank_punt_rate_forced": 28,
     "rank_turnover_rate_forced": 3,
-    "rank_points_allowed": 23
+    "rank_points_allowed": 23,
+    "passing_yards_allowed": 4068,
+    "rushing_yards_allowed": 2034,
+    "total_yards_allowed": 6102
   },
   {
     "team": "PIT",
@@ -2391,7 +2445,10 @@
     "rank_fg_rate_allowed": 22,
     "rank_punt_rate_forced": 23,
     "rank_turnover_rate_forced": 13,
-    "rank_points_allowed": 17
+    "rank_points_allowed": 17,
+    "passing_yards_allowed": 4723,
+    "rushing_yards_allowed": 1985,
+    "total_yards_allowed": 6708
   },
   {
     "team": "LV",
@@ -2517,7 +2574,10 @@
     "rank_fg_rate_allowed": 13,
     "rank_punt_rate_forced": 14,
     "rank_turnover_rate_forced": 24,
-    "rank_points_allowed": 25
+    "rank_points_allowed": 25,
+    "passing_yards_allowed": 4018,
+    "rushing_yards_allowed": 2210,
+    "total_yards_allowed": 6228
   },
   {
     "team": "BAL",
@@ -2643,7 +2703,10 @@
     "rank_fg_rate_allowed": 29,
     "rank_punt_rate_forced": 29,
     "rank_turnover_rate_forced": 7,
-    "rank_points_allowed": 18
+    "rank_points_allowed": 18,
+    "passing_yards_allowed": 4702,
+    "rushing_yards_allowed": 1886,
+    "total_yards_allowed": 6588
   },
   {
     "team": "GB",
@@ -2769,7 +2832,10 @@
     "rank_fg_rate_allowed": 21,
     "rank_punt_rate_forced": 10,
     "rank_turnover_rate_forced": 16,
-    "rank_points_allowed": 11
+    "rank_points_allowed": 11,
+    "passing_yards_allowed": 4183,
+    "rushing_yards_allowed": 2120,
+    "total_yards_allowed": 6303
   },
   {
     "team": "CAR",
@@ -2895,7 +2961,10 @@
     "rank_fg_rate_allowed": 17,
     "rank_punt_rate_forced": 25,
     "rank_turnover_rate_forced": 18,
-    "rank_points_allowed": 15
+    "rank_points_allowed": 15,
+    "passing_yards_allowed": 3852,
+    "rushing_yards_allowed": 2084,
+    "total_yards_allowed": 5936
   },
   {
     "team": "SF",
@@ -3021,7 +3090,10 @@
     "rank_fg_rate_allowed": 17,
     "rank_punt_rate_forced": 16,
     "rank_turnover_rate_forced": 25,
-    "rank_points_allowed": 13
+    "rank_points_allowed": 13,
+    "passing_yards_allowed": 4320,
+    "rushing_yards_allowed": 1859,
+    "total_yards_allowed": 6179
   },
   {
     "team": "NYG",
@@ -3147,7 +3219,10 @@
     "rank_fg_rate_allowed": 23,
     "rank_punt_rate_forced": 22,
     "rank_turnover_rate_forced": 29,
-    "rank_points_allowed": 26
+    "rank_points_allowed": 26,
+    "passing_yards_allowed": 4219,
+    "rushing_yards_allowed": 1989,
+    "total_yards_allowed": 6208
   },
   {
     "team": "MIA",
@@ -3273,7 +3348,10 @@
     "rank_fg_rate_allowed": 11,
     "rank_punt_rate_forced": 17,
     "rank_turnover_rate_forced": 21,
-    "rank_points_allowed": 24
+    "rank_points_allowed": 24,
+    "passing_yards_allowed": 3982,
+    "rushing_yards_allowed": 2061,
+    "total_yards_allowed": 6043
   },
   {
     "team": "ARI",
@@ -3399,7 +3477,10 @@
     "rank_fg_rate_allowed": 28,
     "rank_punt_rate_forced": 32,
     "rank_turnover_rate_forced": 22,
-    "rank_points_allowed": 29
+    "rank_points_allowed": 29,
+    "passing_yards_allowed": 4291,
+    "rushing_yards_allowed": 2043,
+    "total_yards_allowed": 6334
   },
   {
     "team": "TEN",
@@ -3525,7 +3606,10 @@
     "rank_fg_rate_allowed": 15,
     "rank_punt_rate_forced": 15,
     "rank_turnover_rate_forced": 31,
-    "rank_points_allowed": 28
+    "rank_points_allowed": 28,
+    "passing_yards_allowed": 4003,
+    "rushing_yards_allowed": 1944,
+    "total_yards_allowed": 5947
   },
   {
     "team": "CIN",
@@ -3651,7 +3735,10 @@
     "rank_fg_rate_allowed": 2,
     "rank_punt_rate_forced": 26,
     "rank_turnover_rate_forced": 20,
-    "rank_points_allowed": 30
+    "rank_points_allowed": 30,
+    "passing_yards_allowed": 4090,
+    "rushing_yards_allowed": 2084,
+    "total_yards_allowed": 6174
   },
   {
     "team": "WAS",
@@ -3777,7 +3864,10 @@
     "rank_fg_rate_allowed": 27,
     "rank_punt_rate_forced": 31,
     "rank_turnover_rate_forced": 27,
-    "rank_points_allowed": 27
+    "rank_points_allowed": 27,
+    "passing_yards_allowed": 4183,
+    "rushing_yards_allowed": 2192,
+    "total_yards_allowed": 6375
   },
   {
     "team": "NYJ",
@@ -3903,7 +3993,10 @@
     "rank_fg_rate_allowed": 25,
     "rank_punt_rate_forced": 12,
     "rank_turnover_rate_forced": 32,
-    "rank_points_allowed": 31
+    "rank_points_allowed": 31,
+    "passing_yards_allowed": 3888,
+    "rushing_yards_allowed": 2300,
+    "total_yards_allowed": 6188
   },
   {
     "team": "DAL",
@@ -4029,6 +4122,9 @@
     "rank_fg_rate_allowed": 16,
     "rank_punt_rate_forced": 26,
     "rank_turnover_rate_forced": 30,
-    "rank_points_allowed": 32
+    "rank_points_allowed": 32,
+    "passing_yards_allowed": 4241,
+    "rushing_yards_allowed": 1949,
+    "total_yards_allowed": 6190
   }
 ]
