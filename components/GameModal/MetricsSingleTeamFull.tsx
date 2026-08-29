@@ -1,7 +1,5 @@
 "use client";
 
-import { TeamTrendChart } from "./TeamTrendChart";
-
 interface MetricsSingleTeamFullProps {
   teamName: string;
   teamColor: string;
@@ -558,8 +556,6 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
         </div>
       </div>
 
-      {/* Trend Chart */}
-      <TeamTrendChart teamId={teamId} teamName={teamName} />
     </div>
   );
 }
