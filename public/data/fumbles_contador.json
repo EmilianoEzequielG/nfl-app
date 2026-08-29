@@ -1,0 +1,13 @@
+{
+  "historico": {
+    "temporada": "1999-2025",
+    "total_fumbles": 19601,
+    "total_fumbles_perdidos": 9185
+  },
+  "temporada_2026": {
+    "temporada": "2026",
+    "total_fumbles": 142,
+    "total_fumbles_perdidos": 68
+  },
+  "ultima_actualizacion": "2026-08-29T12:00:00Z"
+}

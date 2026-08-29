@@ -43,6 +43,7 @@ export function PowerRanking() {
   const [editState, setEditState] = useState<EditState | null>(null);
   const [loading, setLoading] = useState(true);
   const [currentWeek, setCurrentWeek] = useState(1);
+  const [fumblesData, setFumblesData] = useState<any>(null);
   const TOTAL_WEEKS = 18;
 
   const addToComparison = (team: TeamRanking) => {
@@ -60,6 +61,19 @@ export function PowerRanking() {
   useEffect(() => {
     loadRankings();
   }, [currentWeek]);
+
+  useEffect(() => {
+    const loadFumblesData = async () => {
+      try {
+        const response = await fetch("/data/fumbles_contador.json");
+        const data = await response.json();
+        setFumblesData(data);
+      } catch (error) {
+        console.error("Error loading fumbles data:", error);
+      }
+    };
+    loadFumblesData();
+  }, []);
 
   const loadRankings = async () => {
     try {
@@ -210,6 +224,64 @@ export function PowerRanking() {
           </div>
         </div>
       </div>
+
+      {/* HERO BANNER - FUMBLES STATS */}
+      {fumblesData && (
+        <div className="section border-b-4 border-bauhaus-black" style={{ backgroundColor: "#f0f0f0" }}>
+          <div className="container-geo">
+            <div style={{ textAlign: "center", marginBottom: "24px" }}>
+              <p style={{ fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px", color: "#1a1a1a", marginBottom: "16px" }}>
+                🏈 BALÓN SUELTO - Estadísticas Generales
+              </p>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+                {/* Histórico */}
+                <div style={{ padding: "20px", backgroundColor: "white", border: "2px solid #1a1a1a", borderRadius: "2px" }}>
+                  <p style={{ fontSize: "11px", fontWeight: "600", textTransform: "uppercase", color: "#888", marginBottom: "8px" }}>
+                    Histórico (1999-2025)
+                  </p>
+                  <div style={{ display: "flex", justifyContent: "space-around", gap: "12px" }}>
+                    <div>
+                      <p style={{ fontSize: "24px", fontWeight: "900", color: "#1a1a1a" }}>
+                        {(fumblesData.historico.total_fumbles / 1000).toFixed(1)}k
+                      </p>
+                      <p style={{ fontSize: "9px", color: "#888", fontWeight: "600" }}>Fumbles</p>
+                    </div>
+                    <div style={{ borderLeft: "2px solid #ddd" }} />
+                    <div>
+                      <p style={{ fontSize: "24px", fontWeight: "900", color: "#e74c3c" }}>
+                        {(fumblesData.historico.total_fumbles_perdidos / 1000).toFixed(1)}k
+                      </p>
+                      <p style={{ fontSize: "9px", color: "#888", fontWeight: "600" }}>Perdidos</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Temporada 2026 */}
+                <div style={{ padding: "20px", backgroundColor: "#f39c12", border: "2px solid #1a1a1a", borderRadius: "2px" }}>
+                  <p style={{ fontSize: "11px", fontWeight: "600", textTransform: "uppercase", color: "#1a1a1a", marginBottom: "8px" }}>
+                    Temporada 2026 (En Vivo)
+                  </p>
+                  <div style={{ display: "flex", justifyContent: "space-around", gap: "12px" }}>
+                    <div>
+                      <p style={{ fontSize: "24px", fontWeight: "900", color: "#1a1a1a" }}>
+                        {fumblesData.temporada_2026.total_fumbles}
+                      </p>
+                      <p style={{ fontSize: "9px", color: "#1a1a1a", fontWeight: "600" }}>Fumbles</p>
+                    </div>
+                    <div style={{ borderLeft: "2px solid #1a1a1a" }} />
+                    <div>
+                      <p style={{ fontSize: "24px", fontWeight: "900", color: "#1a1a1a" }}>
+                        {fumblesData.temporada_2026.total_fumbles_perdidos}
+                      </p>
+                      <p style={{ fontSize: "9px", color: "#1a1a1a", fontWeight: "600" }}>Perdidos</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* TEAM MODAL */}
       {selectedTeam && (
