@@ -43,7 +43,6 @@ export function PowerRanking() {
   const [editState, setEditState] = useState<EditState | null>(null);
   const [loading, setLoading] = useState(true);
   const [currentWeek, setCurrentWeek] = useState(1);
-  const [fumblesData, setFumblesData] = useState<any>(null);
   const TOTAL_WEEKS = 18;
 
   const addToComparison = (team: TeamRanking) => {
@@ -62,18 +61,6 @@ export function PowerRanking() {
     loadRankings();
   }, [currentWeek]);
 
-  useEffect(() => {
-    const loadFumblesData = async () => {
-      try {
-        const response = await fetch("/data/fumbles_contador.json");
-        const data = await response.json();
-        setFumblesData(data);
-      } catch (error) {
-        console.error("Error loading fumbles data:", error);
-      }
-    };
-    loadFumblesData();
-  }, []);
 
   const loadRankings = async () => {
     try {
@@ -225,28 +212,6 @@ export function PowerRanking() {
         </div>
       </div>
 
-      {/* FUMBLES BANNER */}
-      <div className="section bg-white border-b-4 border-bauhaus-black">
-        <div className="container-geo space-y-4">
-          <div style={{ display: "flex", gap: "24px", justifyContent: "space-between", alignItems: "center" }}>
-            <div>
-              <p style={{ fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px", color: "#1a1a1a", margin: 0 }}>
-                🏈 Balón Suelto - Estadísticas Generales
-              </p>
-            </div>
-            <div style={{ display: "flex", gap: "32px" }}>
-              <div style={{ textAlign: "center" }}>
-                <p style={{ fontSize: "20px", fontWeight: "900", color: "#1a1a1a", margin: 0 }}>19,601</p>
-                <p style={{ fontSize: "9px", color: "#888", fontWeight: "600", margin: "4px 0 0 0" }}>Fumbles (1999-2025)</p>
-              </div>
-              <div style={{ textAlign: "center" }}>
-                <p style={{ fontSize: "20px", fontWeight: "900", color: "#e74c3c", margin: 0 }}>9,185</p>
-                <p style={{ fontSize: "9px", color: "#888", fontWeight: "600", margin: "4px 0 0 0" }}>Perdidos (1999-2025)</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
 
       {/* TEAM MODAL */}
