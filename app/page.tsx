@@ -16,6 +16,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [currentWeek, setCurrentWeek] = useState(1);
   const [activeSection, setActiveSection] = useState<Section>("scoreboard");
+  const [fumblesData, setFumblesData] = useState<any>(null);
 
   useEffect(() => {
     async function load() {
@@ -27,14 +28,27 @@ export default function Home() {
     load();
   }, [currentWeek]);
 
+  useEffect(() => {
+    async function loadFumbles() {
+      try {
+        const response = await fetch("/data/fumbles_contador.json");
+        const data = await response.json();
+        setFumblesData(data);
+      } catch (error) {
+        console.error("Error loading fumbles data:", error);
+      }
+    }
+    loadFumbles();
+  }, []);
+
   return (
     <div className="min-h-screen bg-bauhaus-bg">
       {/* Navigation Header - Bauhaus */}
       <div className="sticky top-0 z-30 bg-white border-b-4 border-bauhaus-black">
         <div className="container-geo">
-          <div className="flex items-center justify-between py-4">
+          <div className="flex items-center justify-between py-4 gap-4">
             {/* Logo */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-shrink-0">
               <Image
                 src="/logo2.png"
                 alt="Balón Suelto"
@@ -46,8 +60,26 @@ export default function Home() {
               />
             </div>
 
+            {/* Fumbles Counter */}
+            {fumblesData && (
+              <div style={{ display: "flex", flexDirection: "column", gap: "4px", fontSize: "10px", flex: 1, paddingLeft: "20px", borderLeft: "2px solid #ddd" }}>
+                <p style={{ fontWeight: "700", color: "#1a1a1a", margin: 0, fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.5px" }}>🏈 Balón Suelto</p>
+                <div style={{ display: "flex", gap: "20px" }}>
+                  <div style={{ textAlign: "center" }}>
+                    <p style={{ fontWeight: "700", color: "#1a1a1a", margin: "0 0 1px 0" }}>{fumblesData.historico.total_fumbles.toLocaleString()}</p>
+                    <p style={{ margin: 0, color: "#888" }}>Fumbles</p>
+                  </div>
+                  <div style={{ textAlign: "center" }}>
+                    <p style={{ fontWeight: "700", color: "#e74c3c", margin: "0 0 1px 0" }}>{fumblesData.historico.total_fumbles_perdidos.toLocaleString()}</p>
+                    <p style={{ margin: 0, color: "#888" }}>Perdidos</p>
+                  </div>
+                  <p style={{ color: "#999", margin: 0, fontSize: "8px" }}>1999-2025</p>
+                </div>
+              </div>
+            )}
+
             {/* Tabs */}
-            <div className="flex gap-0 border-l-4 border-bauhaus-black divide-x-4 divide-bauhaus-black">
+            <div className="flex gap-0 border-l-4 border-bauhaus-black divide-x-4 divide-bauhaus-black flex-shrink-0">
               {[
                 { id: "scoreboard" as Section, label: "Partidos" },
                 { id: "power-ranking" as Section, label: "Ranking" },
