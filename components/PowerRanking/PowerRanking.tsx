@@ -168,7 +168,7 @@ export function PowerRanking() {
       {/* HEADER - Bauhaus */}
       <div className="section border-b-4 border-bauhaus-black bg-white">
         <div className="container-geo">
-          <div className="flex items-center justify-between gap-6">
+          <div className="flex items-center justify-between gap-4">
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-2">
                 <Trophy className="w-8 h-8 text-bauhaus-red" />
@@ -177,25 +177,6 @@ export function PowerRanking() {
               <p className="text-sm uppercase tracking-wider text-bauhaus-black">
                 Ranking editorial de los 32 equipos
               </p>
-            </div>
-
-            {/* FUMBLES STATS - Al lado del logo */}
-            <div style={{ padding: "16px", backgroundColor: "#f0f0f0", border: "2px solid #1a1a1a", borderRadius: "2px", minWidth: "280px" }}>
-              <p style={{ fontSize: "10px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", color: "#1a1a1a", marginBottom: "12px", margin: "0 0 12px 0" }}>
-                🏈 Balón Suelto
-              </p>
-              <div style={{ display: "flex", gap: "16px", justifyContent: "space-between" }}>
-                <div>
-                  <p style={{ fontSize: "18px", fontWeight: "900", color: "#1a1a1a", margin: 0 }}>19,601</p>
-                  <p style={{ fontSize: "8px", color: "#888", fontWeight: "600", margin: "2px 0 0 0" }}>Fumbles</p>
-                </div>
-                <div style={{ borderLeft: "1px solid #ddd" }} />
-                <div>
-                  <p style={{ fontSize: "18px", fontWeight: "900", color: "#e74c3c", margin: 0 }}>9,185</p>
-                  <p style={{ fontSize: "8px", color: "#888", fontWeight: "600", margin: "2px 0 0 0" }}>Perdidos</p>
-                </div>
-              </div>
-              <p style={{ fontSize: "7px", color: "#999", fontStyle: "italic", margin: "8px 0 0 0" }}>1999-2025</p>
             </div>
             <button
               onClick={handleAdminToggle}
@@ -240,6 +221,29 @@ export function PowerRanking() {
             >
               <ChevronRight className="w-6 h-6" />
             </button>
+          </div>
+        </div>
+      </div>
+
+      {/* FUMBLES BANNER */}
+      <div className="section bg-white border-b-4 border-bauhaus-black">
+        <div className="container-geo space-y-4">
+          <div style={{ display: "flex", gap: "24px", justifyContent: "space-between", alignItems: "center" }}>
+            <div>
+              <p style={{ fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px", color: "#1a1a1a", margin: 0 }}>
+                🏈 Balón Suelto - Estadísticas Generales
+              </p>
+            </div>
+            <div style={{ display: "flex", gap: "32px" }}>
+              <div style={{ textAlign: "center" }}>
+                <p style={{ fontSize: "20px", fontWeight: "900", color: "#1a1a1a", margin: 0 }}>19,601</p>
+                <p style={{ fontSize: "9px", color: "#888", fontWeight: "600", margin: "4px 0 0 0" }}>Fumbles (1999-2025)</p>
+              </div>
+              <div style={{ textAlign: "center" }}>
+                <p style={{ fontSize: "20px", fontWeight: "900", color: "#e74c3c", margin: 0 }}>9,185</p>
+                <p style={{ fontSize: "9px", color: "#888", fontWeight: "600", margin: "4px 0 0 0" }}>Perdidos (1999-2025)</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
