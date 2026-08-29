@@ -186,12 +186,12 @@ export function PowerRanking() {
               </p>
               <div style={{ display: "flex", gap: "16px", justifyContent: "space-between" }}>
                 <div>
-                  <p style={{ fontSize: "18px", fontWeight: "900", color: "#1a1a1a", margin: 0 }}>19.6k</p>
+                  <p style={{ fontSize: "18px", fontWeight: "900", color: "#1a1a1a", margin: 0 }}>19,601</p>
                   <p style={{ fontSize: "8px", color: "#888", fontWeight: "600", margin: "2px 0 0 0" }}>Fumbles</p>
                 </div>
                 <div style={{ borderLeft: "1px solid #ddd" }} />
                 <div>
-                  <p style={{ fontSize: "18px", fontWeight: "900", color: "#e74c3c", margin: 0 }}>9.2k</p>
+                  <p style={{ fontSize: "18px", fontWeight: "900", color: "#e74c3c", margin: 0 }}>9,185</p>
                   <p style={{ fontSize: "8px", color: "#888", fontWeight: "600", margin: "2px 0 0 0" }}>Perdidos</p>
                 </div>
               </div>
