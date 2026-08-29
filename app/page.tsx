@@ -62,18 +62,14 @@ export default function Home() {
 
             {/* Fumbles Counter */}
             {fumblesData && (
-              <div style={{ display: "flex", flexDirection: "column", gap: "4px", fontSize: "10px", flex: 1, paddingLeft: "20px", borderLeft: "2px solid #ddd" }}>
-                <p style={{ fontWeight: "700", color: "#1a1a1a", margin: 0, fontSize: "9px", textTransform: "uppercase", letterSpacing: "0.5px" }}>🏈 Balón Suelto</p>
-                <div style={{ display: "flex", gap: "20px" }}>
-                  <div style={{ textAlign: "center" }}>
-                    <p style={{ fontWeight: "700", color: "#1a1a1a", margin: "0 0 1px 0" }}>{fumblesData.historico.total_fumbles.toLocaleString()}</p>
-                    <p style={{ margin: 0, color: "#888" }}>Fumbles</p>
-                  </div>
-                  <div style={{ textAlign: "center" }}>
-                    <p style={{ fontWeight: "700", color: "#e74c3c", margin: "0 0 1px 0" }}>{fumblesData.historico.total_fumbles_perdidos.toLocaleString()}</p>
-                    <p style={{ margin: 0, color: "#888" }}>Perdidos</p>
-                  </div>
-                  <p style={{ color: "#999", margin: 0, fontSize: "8px" }}>1999-2025</p>
+              <div style={{ display: "flex", gap: "30px", flex: 1, paddingLeft: "20px", borderLeft: "2px solid #ddd" }}>
+                <div style={{ textAlign: "center" }}>
+                  <p style={{ fontWeight: "700", color: "#1a1a1a", margin: 0, fontSize: "14px" }}>{fumblesData.historico.total_fumbles.toLocaleString()}</p>
+                  <p style={{ margin: "4px 0 0 0", color: "#888", fontSize: "10px" }}>Fumbles</p>
+                </div>
+                <div style={{ textAlign: "center" }}>
+                  <p style={{ fontWeight: "700", color: "#e74c3c", margin: 0, fontSize: "14px" }}>{fumblesData.historico.total_fumbles_perdidos.toLocaleString()}</p>
+                  <p style={{ margin: "4px 0 0 0", color: "#888", fontSize: "10px" }}>Perdidos</p>
                 </div>
               </div>
             )}
