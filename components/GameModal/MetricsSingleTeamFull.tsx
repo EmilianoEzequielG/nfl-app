@@ -1,5 +1,25 @@
 "use client";
 
+const COLORS = {
+  primary: "#1a1a1a",
+  bg: "#f0f0f0",
+  success: "#2ecc71",
+  error: "#e74c3c",
+  warning: "#f39c12",
+  muted: "#888",
+  border: "#ddd",
+};
+
+const TYPOGRAPHY = {
+  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+  caption: { fontSize: "9px", fontWeight: "500" },
+  small: { fontSize: "11px", fontWeight: "500" },
+  base: { fontSize: "12px", fontWeight: "600" },
+  large: { fontSize: "14px", fontWeight: "600" },
+  xl: { fontSize: "16px", fontWeight: "700" },
+  xxl: { fontSize: "24px", fontWeight: "900" },
+};
+
 interface MetricsSingleTeamFullProps {
   teamName: string;
   teamColor: string;
@@ -32,12 +52,12 @@ const MetricRowNewFormat = ({
   };
 
   const getBarWidth = (val: number) => Math.min((Math.abs(val) / 100) * 100, 100);
-  const getBarColor = (val: number) => (val >= 50 ? "#00AA00" : "#DD0000");
+  const getBarColor = (val: number) => (val >= 50 ? COLORS.success : COLORS.error);
 
   const renderRow = (type: string, value: number, rank?: number) => (
-    <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
+    <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "16px" }}>
       {/* Metric — Type */}
-      <div style={{ fontSize: "11px", fontWeight: "600", color: "#121212" }}>
+      <div style={{ ...TYPOGRAPHY.small, color: COLORS.primary }}>
         {metric} — {type}:
       </div>
       {/* Barra */}
@@ -50,11 +70,11 @@ const MetricRowNewFormat = ({
         }}
       />
       {/* Ranking */}
-      <div style={{ fontSize: "11px", fontWeight: "600", color: "#666", textAlign: "center" }}>
+      <div style={{ ...TYPOGRAPHY.small, color: COLORS.muted, textAlign: "center" }}>
         {rank ? `#${rank}` : "—"}
       </div>
       {/* Raw value in parentheses */}
-      <div style={{ fontSize: "11px", fontWeight: "500", color: "#121212", textAlign: "right" }}>
+      <div style={{ ...TYPOGRAPHY.small, color: COLORS.primary, textAlign: "right" }}>
         ({formatValue(value)})
       </div>
     </div>
@@ -70,7 +90,7 @@ const MetricRowNewFormat = ({
 
 export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: MetricsSingleTeamFullProps) {
   return (
-    <div style={{ padding: "0", fontSize: "13px" }}>
+    <div style={{ padding: "0", fontSize: "13px", fontFamily: TYPOGRAPHY.fontFamily }}>
       {/* Section: EPA Percentile */}
       <div style={{ marginBottom: "24px" }}>
         <h3
@@ -78,7 +98,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             fontSize: "12px",
             fontWeight: "900",
             textTransform: "uppercase",
-            borderBottom: "2px solid #121212",
+            borderBottom: "2px solid " + COLORS.primary,
             paddingBottom: "8px",
             marginBottom: "12px",
           }}
@@ -87,13 +107,13 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
         </h3>
         <div style={{ marginBottom: "12px" }}>
           <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
-            <div style={{ fontSize: "11px", fontWeight: "600", color: "#121212" }}>
+            <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               EPA — Ofensiva:
             </div>
             <div
               style={{
                 height: "6px",
-                backgroundColor: (metrics.epaOffensePercentile || 0) >= 50 ? "#00AA00" : "#DD0000",
+                backgroundColor: (metrics.epaOffensePercentile || 0) >= 50 ? COLORS.success : COLORS.error,
                 width: `${Math.min((metrics.epaOffensePercentile || 0), 100)}%`,
                 borderRadius: "2px",
               }}
@@ -101,18 +121,18 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             <div style={{ fontSize: "11px", fontWeight: "600", color: "#666", textAlign: "center" }}>
               {metrics.rankEpaOffense ? `#${metrics.rankEpaOffense}` : "—"}
             </div>
-            <div style={{ fontSize: "11px", fontWeight: "500", color: "#121212", textAlign: "right" }}>
+            <div style={{ fontSize: "11px", fontWeight: "500", color: COLORS.primary, textAlign: "right" }}>
               ({(metrics.epaOffensePercentile || 0).toFixed(1)}%)
             </div>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center" }}>
-            <div style={{ fontSize: "11px", fontWeight: "600", color: "#121212" }}>
+            <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               EPA — Defensiva:
             </div>
             <div
               style={{
                 height: "6px",
-                backgroundColor: (metrics.epaDefensePercentile || 0) >= 50 ? "#00AA00" : "#DD0000",
+                backgroundColor: (metrics.epaDefensePercentile || 0) >= 50 ? COLORS.success : COLORS.error,
                 width: `${Math.min((metrics.epaDefensePercentile || 0), 100)}%`,
                 borderRadius: "2px",
               }}
@@ -120,7 +140,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             <div style={{ fontSize: "11px", fontWeight: "600", color: "#666", textAlign: "center" }}>
               {metrics.rankEpaDefense ? `#${metrics.rankEpaDefense}` : "—"}
             </div>
-            <div style={{ fontSize: "11px", fontWeight: "500", color: "#121212", textAlign: "right" }}>
+            <div style={{ fontSize: "11px", fontWeight: "500", color: COLORS.primary, textAlign: "right" }}>
               ({(metrics.epaDefensePercentile || 0).toFixed(1)}%)
             </div>
           </div>
@@ -134,7 +154,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             fontSize: "12px",
             fontWeight: "900",
             textTransform: "uppercase",
-            borderBottom: "2px solid #121212",
+            borderBottom: "2px solid " + COLORS.primary,
             paddingBottom: "8px",
             marginBottom: "12px",
           }}
@@ -213,7 +233,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             fontSize: "12px",
             fontWeight: "900",
             textTransform: "uppercase",
-            borderBottom: "2px solid #121212",
+            borderBottom: "2px solid " + COLORS.primary,
             paddingBottom: "8px",
             marginBottom: "12px",
           }}
@@ -223,13 +243,13 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
 
         <div style={{ marginBottom: "16px", paddingBottom: "12px", borderBottom: "1px solid #ddd" }}>
           <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
-            <div style={{ fontSize: "11px", fontWeight: "600", color: "#121212" }}>
+            <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Yardas Totales:
             </div>
             <div
               style={{
                 height: "6px",
-                backgroundColor: (metrics.totalYardsOffense || 0) >= 5000 ? "#00AA00" : "#DD0000",
+                backgroundColor: (metrics.totalYardsOffense || 0) >= 5000 ? COLORS.success : COLORS.error,
                 width: `${Math.min(((metrics.totalYardsOffense || 0) / 6000) * 100, 100)}%`,
                 borderRadius: "2px",
               }}
@@ -237,7 +257,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             <div style={{ fontSize: "11px", fontWeight: "600", color: "#666", textAlign: "center" }}>
               {metrics.rankTotalYardsOffense ? `#${metrics.rankTotalYardsOffense}` : "—"}
             </div>
-            <div style={{ fontSize: "11px", fontWeight: "500", color: "#121212", textAlign: "right" }}>
+            <div style={{ fontSize: "11px", fontWeight: "500", color: COLORS.primary, textAlign: "right" }}>
               ({Math.round(metrics.totalYardsOffense || 0)})
             </div>
           </div>
@@ -245,13 +265,13 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
 
         <div style={{ marginBottom: "16px", paddingBottom: "12px", borderBottom: "1px solid #ddd" }}>
           <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
-            <div style={{ fontSize: "11px", fontWeight: "600", color: "#121212" }}>
+            <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Yardas Aéreas:
             </div>
             <div
               style={{
                 height: "6px",
-                backgroundColor: (metrics.passingYards || 0) >= 3500 ? "#00AA00" : "#DD0000",
+                backgroundColor: (metrics.passingYards || 0) >= 3500 ? COLORS.success : COLORS.error,
                 width: `${Math.min(((metrics.passingYards || 0) / 4500) * 100, 100)}%`,
                 borderRadius: "2px",
               }}
@@ -259,7 +279,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             <div style={{ fontSize: "11px", fontWeight: "600", color: "#666", textAlign: "center" }}>
               {metrics.rankPassingYards ? `#${metrics.rankPassingYards}` : "—"}
             </div>
-            <div style={{ fontSize: "11px", fontWeight: "500", color: "#121212", textAlign: "right" }}>
+            <div style={{ fontSize: "11px", fontWeight: "500", color: COLORS.primary, textAlign: "right" }}>
               ({Math.round(metrics.passingYards || 0)})
             </div>
           </div>
@@ -267,13 +287,13 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
 
         <div style={{ marginBottom: "16px", paddingBottom: "12px" }}>
           <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
-            <div style={{ fontSize: "11px", fontWeight: "600", color: "#121212" }}>
+            <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Yardas Terrestres:
             </div>
             <div
               style={{
                 height: "6px",
-                backgroundColor: (metrics.rushingYards || 0) >= 1500 ? "#00AA00" : "#DD0000",
+                backgroundColor: (metrics.rushingYards || 0) >= 1500 ? COLORS.success : COLORS.error,
                 width: `${Math.min(((metrics.rushingYards || 0) / 2200) * 100, 100)}%`,
                 borderRadius: "2px",
               }}
@@ -281,7 +301,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             <div style={{ fontSize: "11px", fontWeight: "600", color: "#666", textAlign: "center" }}>
               {metrics.rankRushingYards ? `#${metrics.rankRushingYards}` : "—"}
             </div>
-            <div style={{ fontSize: "11px", fontWeight: "500", color: "#121212", textAlign: "right" }}>
+            <div style={{ fontSize: "11px", fontWeight: "500", color: COLORS.primary, textAlign: "right" }}>
               ({Math.round(metrics.rushingYards || 0)})
             </div>
           </div>
@@ -295,7 +315,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             fontSize: "12px",
             fontWeight: "900",
             textTransform: "uppercase",
-            borderBottom: "2px solid #121212",
+            borderBottom: "2px solid " + COLORS.primary,
             paddingBottom: "8px",
             marginBottom: "12px",
           }}
@@ -305,13 +325,13 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
 
         <div style={{ marginBottom: "16px", paddingBottom: "12px", borderBottom: "1px solid #ddd" }}>
           <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
-            <div style={{ fontSize: "11px", fontWeight: "600", color: "#121212" }}>
+            <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Yardas Totales:
             </div>
             <div
               style={{
                 height: "6px",
-                backgroundColor: (metrics.totalYardsAllowed || 0) <= 5500 ? "#00AA00" : "#DD0000",
+                backgroundColor: (metrics.totalYardsAllowed || 0) <= 5500 ? COLORS.success : COLORS.error,
                 width: `${Math.min(((metrics.totalYardsAllowed || 0) / 6500) * 100, 100)}%`,
                 borderRadius: "2px",
               }}
@@ -319,7 +339,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             <div style={{ fontSize: "11px", fontWeight: "600", color: "#666", textAlign: "center" }}>
               {metrics.rankTotalYardsAllowed ? `#${metrics.rankTotalYardsAllowed}` : "—"}
             </div>
-            <div style={{ fontSize: "11px", fontWeight: "500", color: "#121212", textAlign: "right" }}>
+            <div style={{ fontSize: "11px", fontWeight: "500", color: COLORS.primary, textAlign: "right" }}>
               ({Math.round(metrics.totalYardsAllowed || 0)})
             </div>
           </div>
@@ -327,13 +347,13 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
 
         <div style={{ marginBottom: "16px", paddingBottom: "12px", borderBottom: "1px solid #ddd" }}>
           <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
-            <div style={{ fontSize: "11px", fontWeight: "600", color: "#121212" }}>
+            <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Yardas Aéreas:
             </div>
             <div
               style={{
                 height: "6px",
-                backgroundColor: (metrics.passingYardsAllowed || 0) <= 4000 ? "#00AA00" : "#DD0000",
+                backgroundColor: (metrics.passingYardsAllowed || 0) <= 4000 ? COLORS.success : COLORS.error,
                 width: `${Math.min(((metrics.passingYardsAllowed || 0) / 5000) * 100, 100)}%`,
                 borderRadius: "2px",
               }}
@@ -341,7 +361,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             <div style={{ fontSize: "11px", fontWeight: "600", color: "#666", textAlign: "center" }}>
               {metrics.rankPassingYardsAllowed ? `#${metrics.rankPassingYardsAllowed}` : "—"}
             </div>
-            <div style={{ fontSize: "11px", fontWeight: "500", color: "#121212", textAlign: "right" }}>
+            <div style={{ fontSize: "11px", fontWeight: "500", color: COLORS.primary, textAlign: "right" }}>
               ({Math.round(metrics.passingYardsAllowed || 0)})
             </div>
           </div>
@@ -349,13 +369,13 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
 
         <div style={{ marginBottom: "16px", paddingBottom: "12px" }}>
           <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
-            <div style={{ fontSize: "11px", fontWeight: "600", color: "#121212" }}>
+            <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Yardas Terrestres:
             </div>
             <div
               style={{
                 height: "6px",
-                backgroundColor: (metrics.rushingYardsAllowed || 0) <= 2000 ? "#00AA00" : "#DD0000",
+                backgroundColor: (metrics.rushingYardsAllowed || 0) <= 2000 ? COLORS.success : COLORS.error,
                 width: `${Math.min(((metrics.rushingYardsAllowed || 0) / 2500) * 100, 100)}%`,
                 borderRadius: "2px",
               }}
@@ -363,7 +383,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             <div style={{ fontSize: "11px", fontWeight: "600", color: "#666", textAlign: "center" }}>
               {metrics.rankRushingYardsAllowed ? `#${metrics.rankRushingYardsAllowed}` : "—"}
             </div>
-            <div style={{ fontSize: "11px", fontWeight: "500", color: "#121212", textAlign: "right" }}>
+            <div style={{ fontSize: "11px", fontWeight: "500", color: COLORS.primary, textAlign: "right" }}>
               ({Math.round(metrics.rushingYardsAllowed || 0)})
             </div>
           </div>
@@ -377,7 +397,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             fontSize: "12px",
             fontWeight: "900",
             textTransform: "uppercase",
-            borderBottom: "2px solid #121212",
+            borderBottom: "2px solid " + COLORS.primary,
             paddingBottom: "8px",
             marginBottom: "12px",
           }}
@@ -386,13 +406,13 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
         </h3>
         <div style={{ marginBottom: "16px", paddingBottom: "12px", borderBottom: "1px solid #ddd" }}>
           <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
-            <div style={{ fontSize: "11px", fontWeight: "600", color: "#121212" }}>
+            <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Cometidas:
             </div>
             <div
               style={{
                 height: "6px",
-                backgroundColor: (metrics.penaltiesOffensiveCommittedCount || 0) <= 50 ? "#00AA00" : "#DD0000",
+                backgroundColor: (metrics.penaltiesOffensiveCommittedCount || 0) <= 50 ? COLORS.success : COLORS.error,
                 width: `${Math.min(((metrics.penaltiesOffensiveCommittedCount || 0) / 80) * 100, 100)}%`,
                 borderRadius: "2px",
               }}
@@ -400,7 +420,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             <div style={{ fontSize: "11px", fontWeight: "600", color: "#666", textAlign: "center" }}>
               {metrics.rankPenaltiesOffensiveCommitted ? `#${metrics.rankPenaltiesOffensiveCommitted}` : "—"}
             </div>
-            <div style={{ fontSize: "11px", fontWeight: "500", color: "#121212", textAlign: "right" }}>
+            <div style={{ fontSize: "11px", fontWeight: "500", color: COLORS.primary, textAlign: "right" }}>
               ({Math.round(metrics.penaltiesOffensiveCommittedCount || 0)})
             </div>
           </div>
@@ -417,7 +437,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
               }}
             />
             <div />
-            <div style={{ fontSize: "11px", fontWeight: "500", color: "#121212", textAlign: "right" }}>
+            <div style={{ fontSize: "11px", fontWeight: "500", color: COLORS.primary, textAlign: "right" }}>
               ({Math.round(metrics.penaltiesOffensiveCommittedYards || 0)})
             </div>
           </div>
@@ -425,13 +445,13 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
 
         <div style={{ marginBottom: "16px", paddingBottom: "12px" }}>
           <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
-            <div style={{ fontSize: "11px", fontWeight: "600", color: "#121212" }}>
+            <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Recibidas:
             </div>
             <div
               style={{
                 height: "6px",
-                backgroundColor: (metrics.penaltiesOffensiveReceivedCount || 0) <= 50 ? "#00AA00" : "#DD0000",
+                backgroundColor: (metrics.penaltiesOffensiveReceivedCount || 0) <= 50 ? COLORS.success : COLORS.error,
                 width: `${Math.min(((metrics.penaltiesOffensiveReceivedCount || 0) / 80) * 100, 100)}%`,
                 borderRadius: "2px",
               }}
@@ -439,7 +459,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             <div style={{ fontSize: "11px", fontWeight: "600", color: "#666", textAlign: "center" }}>
               {metrics.rankPenaltiesOffensiveReceived ? `#${metrics.rankPenaltiesOffensiveReceived}` : "—"}
             </div>
-            <div style={{ fontSize: "11px", fontWeight: "500", color: "#121212", textAlign: "right" }}>
+            <div style={{ fontSize: "11px", fontWeight: "500", color: COLORS.primary, textAlign: "right" }}>
               ({Math.round(metrics.penaltiesOffensiveReceivedCount || 0)})
             </div>
           </div>
@@ -456,7 +476,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
               }}
             />
             <div />
-            <div style={{ fontSize: "11px", fontWeight: "500", color: "#121212", textAlign: "right" }}>
+            <div style={{ fontSize: "11px", fontWeight: "500", color: COLORS.primary, textAlign: "right" }}>
               ({Math.round(metrics.penaltiesOffensiveReceivedYards || 0)})
             </div>
           </div>
@@ -470,7 +490,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             fontSize: "12px",
             fontWeight: "900",
             textTransform: "uppercase",
-            borderBottom: "2px solid #121212",
+            borderBottom: "2px solid " + COLORS.primary,
             paddingBottom: "8px",
             marginBottom: "12px",
           }}
@@ -479,13 +499,13 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
         </h3>
         <div style={{ marginBottom: "16px", paddingBottom: "12px", borderBottom: "1px solid #ddd" }}>
           <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
-            <div style={{ fontSize: "11px", fontWeight: "600", color: "#121212" }}>
+            <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Cometidas:
             </div>
             <div
               style={{
                 height: "6px",
-                backgroundColor: (metrics.penaltiesDefensiveCommittedCount || 0) <= 50 ? "#00AA00" : "#DD0000",
+                backgroundColor: (metrics.penaltiesDefensiveCommittedCount || 0) <= 50 ? COLORS.success : COLORS.error,
                 width: `${Math.min(((metrics.penaltiesDefensiveCommittedCount || 0) / 80) * 100, 100)}%`,
                 borderRadius: "2px",
               }}
@@ -493,7 +513,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             <div style={{ fontSize: "11px", fontWeight: "600", color: "#666", textAlign: "center" }}>
               {metrics.rankPenaltiesDefensiveCommitted ? `#${metrics.rankPenaltiesDefensiveCommitted}` : "—"}
             </div>
-            <div style={{ fontSize: "11px", fontWeight: "500", color: "#121212", textAlign: "right" }}>
+            <div style={{ fontSize: "11px", fontWeight: "500", color: COLORS.primary, textAlign: "right" }}>
               ({Math.round(metrics.penaltiesDefensiveCommittedCount || 0)})
             </div>
           </div>
@@ -510,7 +530,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
               }}
             />
             <div />
-            <div style={{ fontSize: "11px", fontWeight: "500", color: "#121212", textAlign: "right" }}>
+            <div style={{ fontSize: "11px", fontWeight: "500", color: COLORS.primary, textAlign: "right" }}>
               ({Math.round(metrics.penaltiesDefensiveCommittedYards || 0)})
             </div>
           </div>
@@ -518,13 +538,13 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
 
         <div>
           <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
-            <div style={{ fontSize: "11px", fontWeight: "600", color: "#121212" }}>
+            <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Recibidas:
             </div>
             <div
               style={{
                 height: "6px",
-                backgroundColor: (metrics.penaltiesDefensiveReceivedCount || 0) <= 50 ? "#00AA00" : "#DD0000",
+                backgroundColor: (metrics.penaltiesDefensiveReceivedCount || 0) <= 50 ? COLORS.success : COLORS.error,
                 width: `${Math.min(((metrics.penaltiesDefensiveReceivedCount || 0) / 80) * 100, 100)}%`,
                 borderRadius: "2px",
               }}
@@ -532,7 +552,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
             <div style={{ fontSize: "11px", fontWeight: "600", color: "#666", textAlign: "center" }}>
               {metrics.rankPenaltiesDefensiveReceived ? `#${metrics.rankPenaltiesDefensiveReceived}` : "—"}
             </div>
-            <div style={{ fontSize: "11px", fontWeight: "500", color: "#121212", textAlign: "right" }}>
+            <div style={{ fontSize: "11px", fontWeight: "500", color: COLORS.primary, textAlign: "right" }}>
               ({Math.round(metrics.penaltiesDefensiveReceivedCount || 0)})
             </div>
           </div>
@@ -549,7 +569,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
               }}
             />
             <div />
-            <div style={{ fontSize: "11px", fontWeight: "500", color: "#121212", textAlign: "right" }}>
+            <div style={{ fontSize: "11px", fontWeight: "500", color: COLORS.primary, textAlign: "right" }}>
               ({Math.round(metrics.penaltiesDefensiveReceivedYards || 0)})
             </div>
           </div>
