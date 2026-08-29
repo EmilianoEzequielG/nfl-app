@@ -289,18 +289,20 @@ export function PowerRanking() {
                   boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
                 }}
               >
-                <div style={{ position: "relative", width: "100%", height: "180px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div style={{ position: "relative", width: "100%", maxHeight: "150px", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <Image
                     src={`/wordmarks/${selectedTeam.id}.png`}
                     alt={selectedTeam.name}
                     width={320}
-                    height={180}
+                    height={150}
                     priority={true}
                     style={{
                       display: "block",
                       objectFit: "contain",
+                      maxWidth: "100%",
+                      maxHeight: "150px",
                       width: "auto",
-                      height: "100%",
+                      height: "auto",
                       filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))",
                     }}
                     onError={(e) => {
