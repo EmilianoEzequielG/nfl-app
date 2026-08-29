@@ -278,56 +278,64 @@ export function PowerRanking() {
                 style={{
                   textAlign: "center",
                   marginBottom: "32px",
-                  padding: "24px",
-                  backgroundColor: "#F5F5F5",
-                  border: "4px solid #121212",
+                  padding: "32px",
+                  backgroundColor: "white",
+                  border: "3px solid #1a1a1a",
+                  borderRadius: "2px",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  gap: "16px",
+                  gap: "20px",
+                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
                 }}
               >
-                <Image
-                  src={`/wordmarks/${selectedTeam.id}.png`}
-                  alt={selectedTeam.name}
-                  width={200}
-                  height={200}
-                  unoptimized={true}
-                  style={{
-                    display: "block",
-                    objectFit: "contain",
-                    maxHeight: "180px",
-                  }}
-                  onError={(e) => {
-                    (e.target as any).src = `/helmets/${selectedTeam.id}.png`;
-                  }}
-                />
-                <div style={{ width: "100%", borderTop: "2px solid #121212", paddingTop: "16px" }}>
+                <div style={{ position: "relative", width: "100%", height: "180px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <Image
+                    src={`/wordmarks/${selectedTeam.id}.png`}
+                    alt={selectedTeam.name}
+                    width={320}
+                    height={180}
+                    priority={true}
+                    style={{
+                      display: "block",
+                      objectFit: "contain",
+                      width: "auto",
+                      height: "100%",
+                      filter: "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))",
+                    }}
+                    onError={(e) => {
+                      (e.target as any).src = `/helmets/${selectedTeam.id}.png`;
+                    }}
+                  />
+                </div>
+                <div style={{ width: "100%", borderTop: "2px solid #e0e0e0", paddingTop: "20px", textAlign: "center" }}>
                   <p
                     style={{
                       fontWeight: "900",
-                      fontSize: "20px",
-                      marginBottom: "4px",
+                      fontSize: "28px",
+                      marginBottom: "8px",
                       color: selectedTeam.color,
                       textTransform: "uppercase",
+                      letterSpacing: "2px",
+                      margin: "0 0 8px 0",
                     }}
                   >
                     #{selectedTeam.adjustedRank || selectedTeam.calculatedRank}
                   </p>
-                  <p style={{ fontWeight: "bold", fontSize: "16px", marginBottom: "8px", color: "#121212" }}>
+                  <p style={{ fontWeight: "700", fontSize: "18px", marginBottom: "8px", color: "#1a1a1a", textTransform: "uppercase", letterSpacing: "1px", margin: "0 0 8px 0" }}>
                     {selectedTeam.name}
                   </p>
-                  <p style={{ fontSize: "13px", color: "#666", fontWeight: "600" }}>{selectedTeam.record}</p>
+                  <p style={{ fontSize: "14px", color: "#888", fontWeight: "600", letterSpacing: "0.5px", margin: 0 }}>{selectedTeam.record}</p>
                 </div>
               </div>
 
               {/* Summary */}
-              <div style={{ marginBottom: "24px", borderBottom: "2px solid #121212", paddingBottom: "16px" }}>
-                <p style={{ fontSize: "12px", fontWeight: "900", textTransform: "uppercase", marginBottom: "8px", color: "#D02020" }}>
+              <div style={{ marginBottom: "32px", borderBottom: "2px solid #e0e0e0", paddingBottom: "24px" }}>
+                <p style={{ fontSize: "14px", fontWeight: "700", textTransform: "uppercase", marginBottom: "12px", color: "#1a1a1a", letterSpacing: "0.5px", margin: "0 0 12px 0" }}>
                   📝 Resumen Editorial
                 </p>
                 {selectedTeam.summary ? (
-                  <p style={{ fontSize: "14px", fontWeight: "500", lineHeight: "1.6", color: "#121212" }}>
+                  <p style={{ fontSize: "14px", fontWeight: "500", lineHeight: "1.7", color: "#333" }}>
                     {selectedTeam.summary}
                   </p>
                 ) : (
