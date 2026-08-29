@@ -168,7 +168,7 @@ export function PowerRanking() {
       {/* HEADER - Bauhaus */}
       <div className="section border-b-4 border-bauhaus-black bg-white">
         <div className="container-geo">
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center justify-between gap-6">
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-2">
                 <Trophy className="w-8 h-8 text-bauhaus-red" />
@@ -177,6 +177,25 @@ export function PowerRanking() {
               <p className="text-sm uppercase tracking-wider text-bauhaus-black">
                 Ranking editorial de los 32 equipos
               </p>
+            </div>
+
+            {/* FUMBLES STATS - Al lado del logo */}
+            <div style={{ padding: "16px", backgroundColor: "#f0f0f0", border: "2px solid #1a1a1a", borderRadius: "2px", minWidth: "280px" }}>
+              <p style={{ fontSize: "10px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "0.5px", color: "#1a1a1a", marginBottom: "12px", margin: "0 0 12px 0" }}>
+                🏈 Balón Suelto
+              </p>
+              <div style={{ display: "flex", gap: "16px", justifyContent: "space-between" }}>
+                <div>
+                  <p style={{ fontSize: "18px", fontWeight: "900", color: "#1a1a1a", margin: 0 }}>19.6k</p>
+                  <p style={{ fontSize: "8px", color: "#888", fontWeight: "600", margin: "2px 0 0 0" }}>Fumbles</p>
+                </div>
+                <div style={{ borderLeft: "1px solid #ddd" }} />
+                <div>
+                  <p style={{ fontSize: "18px", fontWeight: "900", color: "#e74c3c", margin: 0 }}>9.2k</p>
+                  <p style={{ fontSize: "8px", color: "#888", fontWeight: "600", margin: "2px 0 0 0" }}>Perdidos</p>
+                </div>
+              </div>
+              <p style={{ fontSize: "7px", color: "#999", fontStyle: "italic", margin: "8px 0 0 0" }}>1999-2025</p>
             </div>
             <button
               onClick={handleAdminToggle}
@@ -225,61 +244,6 @@ export function PowerRanking() {
         </div>
       </div>
 
-      {/* HERO BANNER - FUMBLES STATS */}
-      <div className="section border-b-4 border-bauhaus-black" style={{ backgroundColor: "#f0f0f0" }}>
-        <div className="container-geo">
-          <div style={{ textAlign: "center", marginBottom: "24px" }}>
-            <p style={{ fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px", color: "#1a1a1a", marginBottom: "16px" }}>
-              🏈 BALÓN SUELTO - Estadísticas Generales
-            </p>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
-              {/* Histórico */}
-              <div style={{ padding: "20px", backgroundColor: "white", border: "2px solid #1a1a1a", borderRadius: "2px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "600", textTransform: "uppercase", color: "#888", marginBottom: "8px" }}>
-                  Histórico (1999-2025)
-                </p>
-                <div style={{ display: "flex", justifyContent: "space-around", gap: "12px" }}>
-                  <div>
-                    <p style={{ fontSize: "24px", fontWeight: "900", color: "#1a1a1a" }}>
-                      19.6k
-                    </p>
-                    <p style={{ fontSize: "9px", color: "#888", fontWeight: "600" }}>Fumbles</p>
-                  </div>
-                  <div style={{ borderLeft: "2px solid #ddd" }} />
-                  <div>
-                    <p style={{ fontSize: "24px", fontWeight: "900", color: "#e74c3c" }}>
-                      9.2k
-                    </p>
-                    <p style={{ fontSize: "9px", color: "#888", fontWeight: "600" }}>Perdidos</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Temporada 2026 */}
-              <div style={{ padding: "20px", backgroundColor: "#f39c12", border: "2px solid #1a1a1a", borderRadius: "2px" }}>
-                <p style={{ fontSize: "11px", fontWeight: "600", textTransform: "uppercase", color: "#1a1a1a", marginBottom: "8px" }}>
-                  Temporada 2026 (En Vivo)
-                </p>
-                <div style={{ display: "flex", justifyContent: "space-around", gap: "12px" }}>
-                  <div>
-                    <p style={{ fontSize: "24px", fontWeight: "900", color: "#1a1a1a" }}>
-                      {fumblesData?.temporada_2026?.total_fumbles || 142}
-                    </p>
-                    <p style={{ fontSize: "9px", color: "#1a1a1a", fontWeight: "600" }}>Fumbles</p>
-                  </div>
-                  <div style={{ borderLeft: "2px solid #1a1a1a" }} />
-                  <div>
-                    <p style={{ fontSize: "24px", fontWeight: "900", color: "#1a1a1a" }}>
-                      {fumblesData?.temporada_2026?.total_fumbles_perdidos || 68}
-                    </p>
-                    <p style={{ fontSize: "9px", color: "#1a1a1a", fontWeight: "600" }}>Perdidos</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       {/* TEAM MODAL */}
       {selectedTeam && (
