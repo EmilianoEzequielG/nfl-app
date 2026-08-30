@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+<rect width="800" height="480" rx="18" fill="#0f172a"/>
+<rect x="40" y="60" width="720" height="360" rx="14" fill="#1a7a33" stroke="white" stroke-width="3"/>
+<line x1="68" y1="132.0" x2="732" y2="132.0" stroke="white" stroke-opacity="0.3" stroke-width="1"/>
+<line x1="68" y1="186.0" x2="732" y2="186.0" stroke="white" stroke-opacity="0.3" stroke-width="1"/>
+<line x1="68" y1="294.0" x2="732" y2="294.0" stroke="white" stroke-opacity="0.3" stroke-width="1"/>
+<line x1="68" y1="348.0" x2="732" y2="348.0" stroke="white" stroke-opacity="0.3" stroke-width="1"/>
+<line x1="40" y1="240" x2="760" y2="240" stroke="white" stroke-width="3"/>
+<ellipse cx="400.0" cy="240" rx="8" ry="4.5" fill="#7c3a09" stroke="white" stroke-width="1"/>
+<circle cx="284.8" cy="240.0" r="15" fill="#6c757d" stroke="white" stroke-width="1.6"/><text x="284.8" y="243.0" text-anchor="middle" font-size="7" font-weight="900" fill="white">LT</text>
+<circle cx="335.2" cy="240.0" r="15" fill="#6c757d" stroke="white" stroke-width="1.6"/><text x="335.2" y="243.0" text-anchor="middle" font-size="7" font-weight="900" fill="white">LG</text>
+<circle cx="400.0" cy="240.0" r="15" fill="#6c757d" stroke="white" stroke-width="1.6"/><text x="400.0" y="243.0" text-anchor="middle" font-size="7" font-weight="900" fill="white">C</text>
+<circle cx="464.8" cy="240.0" r="15" fill="#6c757d" stroke="white" stroke-width="1.6"/><text x="464.8" y="243.0" text-anchor="middle" font-size="7" font-weight="900" fill="white">RG</text>
+<circle cx="515.2" cy="240.0" r="15" fill="#6c757d" stroke="white" stroke-width="1.6"/><text x="515.2" y="243.0" text-anchor="middle" font-size="7" font-weight="900" fill="white">RT</text>
+<circle cx="565.6" cy="240.0" r="15" fill="#e76f51" stroke="white" stroke-width="1.6"/><text x="565.6" y="243.0" text-anchor="middle" font-size="7" font-weight="900" fill="white">TE</text>
+<text x="565.6" y="264.0" text-anchor="middle" font-size="6" font-weight="800" fill="white">TE</text>
+<circle cx="83.2" cy="240.0" r="15" fill="#457b9d" stroke="white" stroke-width="1.6"/><text x="83.2" y="243.0" text-anchor="middle" font-size="7" font-weight="900" fill="white">WR</text>
+<text x="83.2" y="264.0" text-anchor="middle" font-size="6" font-weight="800" fill="white">WR X</text>
+<circle cx="716.8" cy="247.2" r="15" fill="#1d4ed8" stroke="white" stroke-width="1.6"/><text x="716.8" y="250.2" text-anchor="middle" font-size="7" font-weight="900" fill="white">WR</text>
+<text x="716.8" y="271.2" text-anchor="middle" font-size="6" font-weight="800" fill="white">WR Z</text>
+<circle cx="529.6" cy="312.0" r="15" fill="#457b9d" stroke="white" stroke-width="1.6"/><text x="529.6" y="315.0" text-anchor="middle" font-size="7" font-weight="900" fill="white">WR</text>
+<text x="529.6" y="336.0" text-anchor="middle" font-size="6" font-weight="800" fill="white">SLOT</text>
+<circle cx="400.0" cy="315" r="15" fill="#e63946" stroke="white" stroke-width="1.6"/><text x="400.0" y="330" text-anchor="middle" font-size="7" font-weight="900" fill="white">QB</text>
+<circle cx="342.4" cy="385" r="15" fill="#2a9d8f" stroke="white" stroke-width="1.6"/><text x="342.4" y="400" text-anchor="middle" font-size="7" font-weight="900" fill="white">RB</text>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+<rect width="800" height="480" rx="18" fill="#0f172a"/>
+<rect x="40" y="60" width="720" height="360" rx="14" fill="#1a7a33" stroke="white" stroke-width="3"/>
+<line x1="68" y1="132.0" x2="732" y2="132.0" stroke="white" stroke-opacity="0.3" stroke-width="1"/>
+<line x1="68" y1="186.0" x2="732" y2="186.0" stroke="white" stroke-opacity="0.3" stroke-width="1"/>
+<line x1="68" y1="294.0" x2="732" y2="294.0" stroke="white" stroke-opacity="0.3" stroke-width="1"/>
+<line x1="68" y1="348.0" x2="732" y2="348.0" stroke="white" stroke-opacity="0.3" stroke-width="1"/>
+<line x1="40" y1="240" x2="760" y2="240" stroke="white" stroke-width="3"/>
+<ellipse cx="400.0" cy="240" rx="8" ry="4.5" fill="#7c3a09" stroke="white" stroke-width="1"/>
+<circle cx="227.2" cy="225.6" r="15" fill="#b91c1c" stroke="white" stroke-width="1.6"/><text x="227.2" y="228.6" text-anchor="middle" font-size="7" font-weight="900" fill="white">DE</text>
+<circle cx="328.0" cy="229.2" r="15" fill="#b91c1c" stroke="white" stroke-width="1.6"/><text x="328.0" y="232.2" text-anchor="middle" font-size="7" font-weight="900" fill="white">DT</text>
+<circle cx="457.6" cy="225.6" r="15" fill="#b91c1c" stroke="white" stroke-width="1.6"/><text x="457.6" y="228.6" text-anchor="middle" font-size="7" font-weight="900" fill="white">DT</text>
+<circle cx="572.8" cy="225.6" r="15" fill="#b91c1c" stroke="white" stroke-width="1.6"/><text x="572.8" y="228.6" text-anchor="middle" font-size="7" font-weight="900" fill="white">DE</text>
+<circle cx="313.6" cy="196.8" r="15" fill="#92400e" stroke="white" stroke-width="1.6"/><text x="313.6" y="199.8" text-anchor="middle" font-size="7" font-weight="900" fill="white">SAM</text>
+<circle cx="400.0" cy="189.6" r="15" fill="#92400e" stroke="white" stroke-width="1.6"/><text x="400.0" y="192.6" text-anchor="middle" font-size="7" font-weight="900" fill="white">MIKE</text>
+<circle cx="486.4" cy="196.8" r="15" fill="#92400e" stroke="white" stroke-width="1.6"/><text x="486.4" y="199.8" text-anchor="middle" font-size="7" font-weight="900" fill="white">WILL</text>
+<circle cx="83.2" cy="211.2" r="15" fill="#1e40af" stroke="white" stroke-width="1.6"/><text x="83.2" y="214.2" text-anchor="middle" font-size="7" font-weight="900" fill="white">CB</text>
+<circle cx="716.8" cy="211.2" r="15" fill="#1e40af" stroke="white" stroke-width="1.6"/><text x="716.8" y="214.2" text-anchor="middle" font-size="7" font-weight="900" fill="white">CB</text>
+<circle cx="270.4" cy="139.2" r="15" fill="#7c3aed" stroke="white" stroke-width="1.6"/><text x="270.4" y="142.2" text-anchor="middle" font-size="7" font-weight="900" fill="white">FS</text>
+<circle cx="529.6" cy="160.8" r="15" fill="#7c3aed" stroke="white" stroke-width="1.6"/><text x="529.6" y="163.8" text-anchor="middle" font-size="7" font-weight="900" fill="white">SS</text>
+</svg>

@@ -125,7 +125,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Goal line específicamente (1 yarda), poder de carrera incuestionable, cuando necesitas garantía de movimiento sobre gambols ofensivos.",
-    diagram: undefined,
+    diagram: "personnel-13",
   },
 
   {
@@ -149,7 +149,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Equipos con dos RBs elite que pueden bloquear/recibir, drive mixto donde versatilidad es ventaja, cuando quieres spread sin sacrificar poder de carrera.",
-    diagram: undefined,
+    diagram: "personnel-20",
   },
 
   {
@@ -172,7 +172,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Drive de poder controlado, goal line situaciones, cuando necesitas ambigüedad pre-snap entre carrera y pase corto. Equipos con dos RBs y TEs de calidad.",
-    diagram: undefined,
+    diagram: "personnel-22",
   },
 
   {
@@ -241,7 +241,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Tercera larga profunda, cuando necesitas pase explosivo, vs defensiva en nickel (sin LBs).",
-    diagram: undefined,
+    diagram: "formation-var-shotgun-empty",
   },
 
   {
@@ -262,7 +262,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Rutas crossing, mesh conceptos, pase primera lectura, vs zone coverage.",
-    diagram: undefined,
+    diagram: "formation-var-shotgun-bunch",
   },
 
   {
@@ -310,7 +310,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Carrera de poder específica (4-5 yardas), goal line, segunda mitad cuando defensa cansada, cuando necesitas movimiento físico garantizado.",
-    diagram: undefined,
+    diagram: "formation-strong-i",
   },
 
   {
@@ -354,7 +354,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Rutas crossing, mesh, pase primera lectura, situaciones todo-propósito.",
-    diagram: undefined,
+    diagram: "formation-var-singlebank-bunch",
   },
 
   {
@@ -496,7 +496,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Vs zone coverage (flood es muerte para zone), vs man coverage donde mismatch existe, pase rápido necesario, primera-segunda intentona cuando necesitas seguridad.",
-    diagram: undefined,
+    diagram: "aerial-smash",
   },
 
   {
@@ -519,7 +519,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Vs zone coverage (especialmente Cover 3), cuando necesitas seguridad QB contra presión moderada, cuando tienes tres receptores talentosos en misma zona.",
-    diagram: undefined,
+    diagram: "aerial-flood",
   },
 
   {
@@ -542,7 +542,151 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Vs Cover 3 (LBs de coverage pueden estar confundidos), cuando necesitas sideline movimiento, pase rápido vs presión, vs zone donde horizontal spread ayuda.",
-    diagram: undefined,
+    diagram: "aerial-stick",
+  },
+
+  {
+    id: "aerial-scissors",
+    name: "Scissors (Cross Crossing)",
+    category: "aerial",
+    categoryLabel: "Conceptos Aéreos",
+    definition:
+      "Dos receptores en misma alineación corren rutas que se cruzan a niveles similares de profundidad. Crean confusion en cobertura man donde DB debe decidir si sigue su receptor o ajusta en el cross.",
+    strengths: [
+      "Pick defensivo — receptor A bloquea a DB de receptor B, ambos se abren",
+      "Confusión man coverage — man DBs no saben si switch o follow",
+      "Espaciamiento garantizado — uno de los dos queda open en el cross",
+      "QB lectura simple — dos opciones al mismo nivel, lectura rápida",
+    ],
+    weaknesses: [
+      "Penalty riesgo — contact excessivo puede ser flag ofensivo",
+      "Timing crítico — crossing debe coincidir exactamente",
+      "Lento desarrollo — requiere 2-3 segundos para separation",
+      "Vulnerable a blitz — presión rápida collapsa concepto",
+    ],
+    idealFor:
+      "Vs man coverage, cuando necesitas pick play legal, pase primera/segunda intentona, equipos con receptores versátiles.",
+    diagram: "aerial-scissors",
+  },
+
+  {
+    id: "aerial-yankee",
+    name: "Yankee (Deep Crossing)",
+    category: "aerial",
+    categoryLabel: "Conceptos Aéreos",
+    definition:
+      "Dos receptores en alas corren rutas cruzadas a profundidad profunda (12-15+ yardas). El cruce ocurre profundo, creando confusión entre safeties y DBs sobre coverage.",
+    strengths: [
+      "Profundidad ganancia — si completa, 15+ yardas típicamente",
+      "Confusión safety — safeties no pueden rotar a tiempo en el cross",
+      "Spacing profundo — ambos receptores en zona abierta sin coverage tight",
+      "Play-action setup — funciona bien después de establece carrera",
+    ],
+    weaknesses: [
+      "Tiempo requerido — QB necesita 3+ segundos para desarrollo completo",
+      "Blitz asesino — presión rápida invalida concepto",
+      "Deep ball riesgo — interception posible en long throws",
+      "Requiere arm talent — necesita QB con potencia profunda",
+    ],
+    idealFor:
+      "Vs Cover 2 (safeties split crean seams profundos), cuando OL tiene tiempo, cuando quieres ganancia profunda ambiciosa, setup después carrera.",
+    diagram: "aerial-yankee",
+  },
+
+  {
+    id: "aerial-divide",
+    name: "Divide (Post + Wheel)",
+    category: "aerial",
+    categoryLabel: "Conceptos Aéreos",
+    definition:
+      "Dos receptores en misma alineación: uno corre post profundo (20+ yardas), otro corre wheel lateral hacia el borde. Ataca safety lejano y edge defensivo simultáneamente.",
+    strengths: [
+      "Dos niveles profundidad — post profundo vs wheel edge, opciones variadas",
+      "Safety dilema — safeties no pueden cubrir post + wheel al mismo tiempo",
+      "Ganancia explosiva — post genera 20+ yardas, wheel genera RAC",
+      "Versatilidad — funciona vs Cover 2 y Cover 4",
+    ],
+    weaknesses: [
+      "Timing preciso — post y wheel deben desarrollarse en sync",
+      "Tiempo QB — requiere 3+ segundos para separación completa",
+      "Blitz vulnerable — presión rápida invalida tiempo desarrollo",
+      "Requiere talento — receptores versátiles + brazo QB",
+    ],
+    idealFor:
+      "Vs Cover 2/Cover 4, cuando OL protege 3+ segundos, buscando ganancia explosiva, cuando quieres explotar safeties deficientes.",
+    diagram: "aerial-divide",
+  },
+
+  {
+    id: "aerial-post-wheel",
+    name: "Post Wheel (TE + RB)",
+    category: "aerial",
+    categoryLabel: "Conceptos Aéreos",
+    definition:
+      "TE en seam corre post vertical profundo mientras RB en backfield corre wheel lateral. Crea spacing profundo vs profundo donde uno siempre abierto.",
+    strengths: [
+      "Mismatch — TE vs safety profundo tiene ventaja recepta",
+      "RB escape — wheel lateral da opción segura si post cubierto",
+      "Coverage imposible — no hay cobertura que cubra post + wheel con DB",
+      "YAC potencial — wheel específicamente crea space después catch",
+    ],
+    weaknesses: [
+      "Development lento — ambos necesitan tiempo separarse",
+      "Proteción critica — QB necesita mínimo 2.5 segundos clean pocket",
+      "RB assignment — RB debe ejecutar wheel limpio sin hesitación",
+      "Timing QB-TE — post requiere timing preciso QB-TE connection",
+    ],
+    idealFor:
+      "Vs Cover 2 (seam abierto), cuando TE elite, cuando RB versátil, segunda/tercera intentona donde necesitas opción de seguridad.",
+    diagram: "aerial-post-wheel",
+  },
+
+  {
+    id: "aerial-slot-fade",
+    name: "Slot Fade (TE Vertical)",
+    category: "aerial",
+    categoryLabel: "Conceptos Aéreos",
+    definition:
+      "Slot receiver o TE alineado en slot corre fade vertical (vertical hacia la esquina profunda). Explota mismatch donde DB de interior no tiene ventaja profunda.",
+    strengths: [
+      "Mismatch fade — DB interior vs TE profundo, TE ventaja física/vertical",
+      "1-v-1 aislamiento — slot fade crea uno-contra-uno claro",
+      "Explosión rápida — fade es ruta rápida, development 2 segundos",
+      "Esquina profunda abierta — espacio natural en esquina si coverage rotate",
+    ],
+    weaknesses: [
+      "Depth limitada — fade no es super profunda (típicamente 12-15 yardas)",
+      "Press man tricky — DB en la cara del receptor puede molestar fade",
+      "One-read only — si DB juega profundo, play mata",
+      "Vulnerable blitz — presión rápida invalida tiempo",
+    ],
+    idealFor:
+      "Vs man coverage man con DB interior, cuando TE elite en red zone, buscando ruta rápida con explosión, primera-segunda intentona.",
+    diagram: "aerial-slot-fade",
+  },
+
+  {
+    id: "aerial-mills",
+    name: "Mills (Cross + Fade)",
+    category: "aerial",
+    categoryLabel: "Conceptos Aéreos",
+    definition:
+      "Dos receptores: uno corre crossing ruta corta (8-10 yardas), otro corre fade profundo (15+ yardas). Crea dos niveles de profundidad en misma zona vertical.",
+    strengths: [
+      "Dos niveles opción — cross si DB juega profundo, fade si juega shallow",
+      "QB lectura facil — pre-snap lees si DB profundo/shallow, lectura post-snap confirmada",
+      "Confusión cobertura — dos profundidades en misma zona overwhelm coverage",
+      "Espaciamiento garantizado — uno abierto en cada scenario",
+    ],
+    weaknesses: [
+      "Timing importante — cross + fade deben desarrollarse en sync",
+      "Vulnerable blitz — presión rápida mata development",
+      "Baja explosión cross — cross típicamente corta, YAC limitado",
+      "Requiere precisión QB — timing cross-fade crítico para ejecución",
+    ],
+    idealFor:
+      "Vs Cover 3 (LBs de coverage versus profundidad), cuando necesitas flexibilidad de lectura, primera/segunda intentona, red zone situaciones.",
+    diagram: "aerial-mills",
   },
 
   // ─── CONCEPTOS TERRESTRES ───────────────────────────────────────────
@@ -639,7 +783,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Cuando defensa sobre-fluye hacia punto de ataque fake, vs 4-3 con gap discipline pobre, equipos con OL ágil, play-action pre-set después de varios Inside Zones.",
-    diagram: undefined,
+    diagram: "ground-counter",
   },
 
   {
@@ -663,7 +807,103 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Situaciones segunda intentona, cuando defensivo está sobre-extendido, vs edge rushers predecibles, cuando tienes bloqueo de trappee coordinado.",
-    diagram: undefined,
+    diagram: "ground-trap",
+  },
+
+  {
+    id: "ground-duo",
+    name: "Duo (Dual Gap)",
+    category: "ground",
+    categoryLabel: "Conceptos Terrestres",
+    definition:
+      "Dos lineman (típicamente Guard + Guard o Guard + Tackle) bloquean coordin adamente DOS gaps diferentes en lugar de uno solo. Crea movimiento dual que abre puntos de ataque múltiples.",
+    strengths: [
+      "Dual amenaza — defensa no sabe si carrera va izquierda o derecha (dos gaps)",
+      "Poder coordinado — dos bloqueadores juntos crean fuerza coordinada",
+      "Adaptabilidad RB — RB puede escoger entre dos gaps abiertos",
+      "Confusión defensiva — defensa no sabe qué gap defender antes del snap",
+    ],
+    weaknesses: [
+      "Timing critico — dos bloqueadores deben moverse en perfecto sync",
+      "Complejidad OL — más difícil de ejecutar que gap simple",
+      "Lentitud desarrollo — coordinación requiere frames adicionales",
+      "Requires OL communication — cambios pre-snap complicados si hay ruido",
+    ],
+    idealFor:
+      "Primera intentona versatilidad, cuando OL tiene talento coordinación, vs defensas que se comprometen gaps temprano, situaciones segunda mitad.",
+    diagram: "ground-duo",
+  },
+
+  {
+    id: "ground-iso",
+    name: "ISO (Isolation Block)",
+    category: "ground",
+    categoryLabel: "Conceptos Terrestres",
+    definition:
+      "Un bloqueador (típicamente TE o RB bloqueador) es designado para aislar un defensivo específico 1-v-1. RB corre hacia gap abierto donde ese defensivo fue aislado. Concepto simple de poder puro.",
+    strengths: [
+      "Aislamiento claro — un bloqueador vs un defensivo, 1-v-1 definido",
+      "Poder simple — si bloqueo limpio, ganancia garantizada",
+      "Gap abierto — defensivo aislado = gap se abre automáticamente",
+      "Goal line efectivo — poder puro en corta distancia es efectivo",
+    ],
+    weaknesses: [
+      "Predecible intención — todos saben carrera (defensa puede stack box)",
+      "Requiere bloqueador talentoso — bloqueo 1-v-1 sin help es exigente",
+      "Vulnerable penetration — si defensivo penetra antes del bloqueo, muere",
+      "Baja explosión típicamente — rara generación 10+ yardas, 4-6 promedio",
+    ],
+    idealFor:
+      "Goal line, corta distancia (1-3 yardas), cuando tienes bloqueador TE/RB de calidad, buscando poder incuestionable.",
+    diagram: "ground-iso",
+  },
+
+  {
+    id: "ground-dive",
+    name: "Dive (Direct Run)",
+    category: "ground",
+    categoryLabel: "Conceptos Terrestres",
+    definition:
+      "RB corre directo (hacia adelante sin lateralidad) sobre gap asignado. QB entrega de manera directa (no pitch). Carrera más rápida en concepto, ideal para corta distancia.",
+    strengths: [
+      "Velocidad ejecución — ruta más directa = desarrollo rápido",
+      "Simplicidad — no hay lectura RB, gap pre-asignado",
+      "Tiempo ganancia rápida — típicamente gana 2-4 yardas rápido",
+      "Goal line dominancia — en 1-2 yardas es casi garantizado",
+    ],
+    weaknesses: [
+      "Gap penetration vulnerable — si DL penetra su gap, carrera muere",
+      "Baja explosión — 2-4 yardas típicamente, raramente 10+",
+      "Predecible intención — todos saben carrera directo",
+      "Requiere paciencia OL — no hay espacio para creación post-snap",
+    ],
+    idealFor:
+      "Goal line/corta distancia específicamente (1-2 yardas), situaciones fourth-and-1, cuando necesitas velocidad de ejecución sobre gamble.",
+    diagram: "ground-dive",
+  },
+
+  {
+    id: "ground-pitch",
+    name: "Pitch / Toss (Lateral Play)",
+    category: "ground",
+    categoryLabel: "Conceptos Terrestres",
+    definition:
+      "QB tira el balón lateralmente (pitch/toss) al RB en el backfield en lugar de entregar hacia adelante. RB recibe en movimiento lateral y fluye hacia edge. Diseñado para crear espacio perimeter.",
+    strengths: [
+      "Edge creation — pitch permite RB acceder edge sin congestión interior",
+      "Momentum lateral — RB ya en movimiento lateral cuando recibe",
+      "Espacio perimeter — menos congestión en edge que interior",
+      "WR bloqueo — WRs pueden involucrarse en edge bloqueo",
+    ],
+    weaknesses: [
+      "Timing pitching — QB debe timing pitch perfectamente",
+      "Fumble riesgo — lateral = más fumbles potenciales que forward",
+      "Desarrollo lento — pitch requiere movimiento adicional",
+      "Defensa flow — edge defense puede fluir rápidamente al pitch",
+    ],
+    idealFor:
+      "Cuando RB tiene agilidad/velocidad edge, vs defensas que stack box interior, situaciones perimeter búsqueda espacio, equipos con WR bloqueo versátil.",
+    diagram: "ground-pitch",
   },
 
     {

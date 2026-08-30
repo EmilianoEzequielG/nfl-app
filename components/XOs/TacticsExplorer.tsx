@@ -536,7 +536,6 @@ export function TacticsExplorer() {
                         {/* DIAGRAM */}
                         {currentConcept.diagram && (
                           <div style={DIAGRAM_SECTION_STYLES}>
-                            <p style={DIAGRAM_LABEL_STYLES}>📊 Diagrama</p>
                             <div style={DIAGRAM_CONTAINER_STYLES}>
                               <TacticDiagrams diagramId={currentConcept.diagram} />
                             </div>

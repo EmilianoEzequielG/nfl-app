@@ -39,8 +39,113 @@ interface TacticDiagramsProps {
   diagramId: string;
 }
 
+// Mapeo de diagramas a rutas SVG en public
+const diagramPathMap: Record<string, string> = {
+  // Personnel
+  "personnel-11": "/diagrams/personnel/personnel-11.svg",
+  "personnel-12": "/diagrams/personnel/personnel-12.svg",
+  "personnel-10": "/diagrams/personnel/personnel-10.svg",
+  "personnel-21": "/diagrams/personnel/personnel-21.svg",
+  "personnel-13": "/diagrams/personnel/personnel-13.svg",
+  "personnel-20": "/diagrams/personnel/personnel-20.svg",
+  "personnel-22": "/diagrams/personnel/personnel-22.svg",
+
+  // Formations
+  "formation-shotgun": "/diagrams/formations/formation-shotgun.svg",
+  "formation-i": "/diagrams/formations/formation-i.svg",
+  "formation-ace": "/diagrams/formations/formation-ace.svg",
+  "formation-pistol": "/diagrams/formations/formation-pistol.svg",
+  "formation-strong-i": "/diagrams/formations/formation-strong-i.svg",
+  "formation-var-shotgun-empty": "/diagrams/formations/formation-var-shotgun-empty.svg",
+  "formation-var-shotgun-bunch": "/diagrams/formations/formation-var-shotgun-bunch.svg",
+  "formation-var-singlebank-bunch": "/diagrams/formations/formation-var-singlebank-bunch.svg",
+
+  // Aerial Concepts
+  "aerial-dagger": "/diagrams/concepts/aerial/aerial-dagger.svg",
+  "aerial-four-verts": "/diagrams/concepts/aerial/aerial-four-verts.svg",
+  "aerial-slant": "/diagrams/concepts/aerial/aerial-slant.svg",
+  "aerial-mesh": "/diagrams/concepts/aerial/aerial-mesh.svg",
+  "aerial-smash": "/diagrams/concepts/aerial/aerial-smash.svg",
+  "aerial-flood": "/diagrams/concepts/aerial/aerial-flood.svg",
+  "aerial-stick": "/diagrams/concepts/aerial/aerial-stick.svg",
+  "aerial-scissors": "/diagrams/concepts/aerial/aerial-scissors.svg",
+  "aerial-yankee": "/diagrams/concepts/aerial/aerial-yankee.svg",
+  "aerial-divide": "/diagrams/concepts/aerial/aerial-divide.svg",
+  "aerial-post-wheel": "/diagrams/concepts/aerial/aerial-post-wheel.svg",
+  "aerial-slot-fade": "/diagrams/concepts/aerial/aerial-slot-fade.svg",
+  "aerial-mills": "/diagrams/concepts/aerial/aerial-mills.svg",
+
+  // Ground Concepts
+  "ground-inside-zone": "/diagrams/concepts/ground/ground-inside-zone.svg",
+  "ground-outside-zone": "/diagrams/concepts/ground/ground-outside-zone.svg",
+  "ground-power": "/diagrams/concepts/ground/ground-power.svg",
+  "ground-counter": "/diagrams/concepts/ground/ground-counter.svg",
+  "ground-trap": "/diagrams/concepts/ground/ground-trap.svg",
+  "ground-duo": "/diagrams/concepts/ground/ground-duo.svg",
+  "ground-iso": "/diagrams/concepts/ground/ground-iso.svg",
+  "ground-dive": "/diagrams/concepts/ground/ground-dive.svg",
+  "ground-pitch": "/diagrams/concepts/ground/ground-pitch.svg",
+
+  // Gap Scheme
+  "gap-scheme-intro": "/diagrams/concepts/gap-scheme/gap-scheme-intro.svg",
+  "gap-scheme-power": "/diagrams/concepts/gap-scheme/gap-scheme-power.svg",
+
+  // Defensive formations
+  "def-form-43": "/diagrams/defensive/formations/def-form-43.svg",
+  "def-form-34": "/diagrams/defensive/formations/def-form-34.svg",
+  "def-form-nickel": "/diagrams/defensive/formations/def-form-nickel.svg",
+  "def-form-dime": "/diagrams/defensive/formations/def-form-dime.svg",
+
+  // Defensive fronts
+  "front-under": "/diagrams/defensive/fronts/front-under.svg",
+  "front-over": "/diagrams/defensive/fronts/front-over.svg",
+  "front-even": "/diagrams/defensive/fronts/front-even.svg",
+  "front-odd": "/diagrams/defensive/fronts/front-odd.svg",
+
+  // Defensive coverage
+  "cov-cover-0": "/diagrams/defensive/coverage/cov-cover-0.svg",
+  "cov-cover-1": "/diagrams/defensive/coverage/cov-cover-1.svg",
+  "cov-cover-2": "/diagrams/defensive/coverage/cov-cover-2.svg",
+  "cov-cover-3": "/diagrams/defensive/coverage/cov-cover-3.svg",
+  "cov-cover-4": "/diagrams/defensive/coverage/cov-cover-4.svg",
+  "cov-cover-5": "/diagrams/defensive/coverage/cov-cover-5.svg",
+  "cov-cover-6": "/diagrams/defensive/coverage/cov-cover-6.svg",
+  "cov-cover-7": "/diagrams/defensive/coverage/cov-cover-7.svg",
+  "cov-cover-8": "/diagrams/defensive/coverage/cov-cover-8.svg",
+  "cov-cover-9": "/diagrams/defensive/coverage/cov-cover-9.svg",
+
+  // Offensive protections
+  "protection-man": "/diagrams/concepts/protection-man.svg",
+  "protection-zone": "/diagrams/concepts/protection-zone.svg",
+
+  // Blitz/Presiones
+  "blitz-corner": "/diagrams/defensive/blitz/blitz-corner.svg",
+  "blitz-safety": "/diagrams/defensive/blitz/blitz-safety.svg",
+  "blitz-mike": "/diagrams/defensive/blitz/blitz-mike.svg",
+  "blitz-zone-fire": "/diagrams/defensive/blitz/blitz-zone-fire.svg",
+
+  // Defensive glossary
+  "glos-coverage-synonym": "/diagrams/defensive/glossary/glos-coverage-synonym.svg",
+  "glos-receiver-names": "/diagrams/defensive/glossary/glos-receiver-names.svg",
+  "glos-gap-assignments": "/diagrams/defensive/glossary/glos-gap-assignments.svg",
+  "glos-cornerback-technique": "/diagrams/defensive/glossary/glos-cornerback-technique.svg",
+  "glos-blitz-package": "/diagrams/defensive/glossary/glos-blitz-package.svg",
+};
+
 export function TacticDiagrams({ diagramId }: TacticDiagramsProps) {
-  const diagram = diagramMap[diagramId];
+  const diagramPath = diagramPathMap[diagramId];
+
+  // Si existe una ruta SVG en public, mostrar imagen
+  if (diagramPath) {
+    return (
+      <div className="w-full h-auto flex justify-center">
+        <img src={diagramPath} alt={diagramId} className="max-w-full h-auto" />
+      </div>
+    );
+  }
+
+  // Fallback a diagramas JSX si no hay SVG disponible
+  const diagram = diagramMapJSX[diagramId];
 
   if (!diagram) {
     return (
@@ -82,7 +187,7 @@ function Block({ x, y, size = 8 }: { x: number; y: number; size?: number }) {
   return <rect x={x - size / 2} y={y - size / 2} width={size} height={size} fill={COLORS.block} stroke={COLORS.textCaption} strokeWidth="0.5" />;
 }
 
-const diagramMap: Record<string, React.ReactNode> = {
+const diagramMapJSX: Record<string, React.ReactNode> = {
   // OFENSIVA - PERSONNEL
   "personnel-11": (
     <svg viewBox="0 0 320 200" className="w-full h-auto">

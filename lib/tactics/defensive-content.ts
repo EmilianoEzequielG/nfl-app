@@ -169,7 +169,7 @@ export const defensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Contra ofensivas que prefieren carreras de poder en B/D gaps, equipos que valoran run defense lateral sobre presión DL interior.",
-    diagram: undefined,
+    diagram: "front-even",
   },
 
   {
@@ -192,7 +192,7 @@ export const defensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Contra ofensivas con poder run central (I-form, gap scheme), equipos que priorizan control A-gap sobre defensas laterales.",
-    diagram: undefined,
+    diagram: "front-odd",
   },
 
   // ─── COBERTURAS ────────────────────────────────────────────────────
@@ -509,7 +509,7 @@ export const defensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Equipos con comunicación defensiva excelente, cuando quieres presión con flexibilidad de cobertura, tercera larga donde confusión es ventaja.",
-    diagram: undefined,
+    diagram: "blitz-zone-fire",
   },
 
   // ─── GLOSARIO ──────────────────────────────────────────────────────
@@ -526,7 +526,7 @@ export const defensiveContent: TacticConcept[] = [
     ],
     weaknesses: [],
     idealFor: "Referencia, entender conversación defensiva.",
-    diagram: undefined,
+    diagram: "glos-coverage-synonym",
   },
 
   {
@@ -542,7 +542,7 @@ export const defensiveContent: TacticConcept[] = [
     ],
     weaknesses: [],
     idealFor: "Referencia para entender playcalls defensivos.",
-    diagram: undefined,
+    diagram: "glos-receiver-names",
   },
 
   {
@@ -558,7 +558,7 @@ export const defensiveContent: TacticConcept[] = [
     ],
     weaknesses: [],
     idealFor: "Referencia para entender run defense.",
-    diagram: undefined,
+    diagram: "glos-gap-assignments",
   },
 
   {
@@ -578,7 +578,7 @@ export const defensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Press en tercera corta/man coverage, Off en zone/pase larga cuando quieres help.",
-    diagram: undefined,
+    diagram: "glos-cornerback-technique",
   },
 
   {
@@ -598,7 +598,7 @@ export const defensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Tercera larga, situaciones specific (rojo zone, must-have), sorpresa.",
-    diagram: undefined,
+    diagram: "glos-blitz-package",
   },
 
   // ─── GLOSARIO DE PENALIDADES ───────────────────────────────────────
