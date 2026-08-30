@@ -381,19 +381,99 @@ export const offensiveContent: TacticConcept[] = [
 
   // ─── CONCEPTOS AÉREOS ───────────────────────────// ─── CONCEPTOS AÉREOS ───────────────────────────────────────────────
   {
-    "aerial-dagger",
+    id: "aerial-dagger",
+    name: "Dagger (Seam Route)",
+    category: "aerial",
+    categoryLabel: "Conceptos Aéreos",
+    definition:
+      "Receptor corre vertical directamente en el seam (espacio entre dos safeties en cobertura de dos-high). Explota brecha inevitable entre safeties cuando están split.",
+    strengths: [
+      "Seam garantizado — siempre existe espacio vertical entre dos safeties split",
+      "Ganancia profunda — si completa, típicamente 12+ yardas",
+      "Seguridad recepta — si cobertura rotate, receptor deja pasar (no interception)",
+      "Simple lectura QB — pre-snap lees si safeties split, post-snap es automático",
+    ],
+    weaknesses: [
+      "Inefectivo vs Cover 1 — safety único lejano puede jugar profundo",
+      "Vulnerable a LB blitz — sin tiempo, QB no puede esperar receiver en profundidad",
+      "Timing crítico — must time con snap, si slip timing colapsa concepto",
+      "Inútil vs Cover 4 — dos deep safeties cada uno en su media cancha, sin seam",
+    ],
+    idealFor:
+      "Vs Cover 2/Cover 3 (split safeties automáticamente crean seam), primera-segunda intentona, cuando OL tiene tiempo para proteger profundidad.",
+    diagram: "aerial-dagger",
   },
 
   {
-    "aerial-four-verts",
+    id: "aerial-four-verts",
+    name: "4 Verts / Verticals",
+    category: "aerial",
+    categoryLabel: "Conceptos Aéreos",
+    definition:
+      "Cuatro receptores (WR, WR, TE, RB típicamente) corren rutas verticales paralelas a diferentes espacios horizontales. Ataca cobertura profunda forzando múltiples decisiones de seguridad.",
+    strengths: [
+      "Cobertura imposible — cuatro receptores verticales = defensa no puede cubrir todos profundo",
+      "Garantía uno abierto — matemáticamente siempre hay gap sin coverage",
+      "Espaciamiento horizontal — cada receptor en su carril = imposible zone coverage",
+      "Explosión vertical — si QB tiene tiempo, ganancia es 15-25 yardas típicamente",
+    ],
+    weaknesses: [
+      "Tiempo requerido — QB necesita mínimo 3 segundos para receptores en profundidad",
+      "Blitz asesino — presión rápida = QB no puede esperar, sack automático",
+      "Inútil vs Cover 0 — sin safety lejano, corners juegan profundo sin ayuda",
+      "Arm talent necesario — distancia es 20+ yardas, requiere QB con brazo",
+    ],
+    idealFor:
+      "Vs Cover 2/Cover 3 (safeties split crean seams profundos), cuando OL puede bloquear 3+ segundos, cuando QB tiene arm fuerte, pase largo necesario.",
+    diagram: "aerial-four-verts",
   },
 
   {
-    "aerial-mesh",
+    id: "aerial-mesh",
+    name: "Mesh / Crossing Routes",
+    category: "aerial",
+    categoryLabel: "Conceptos Aéreos",
+    definition:
+      "Dos receptores corren rutas que se cruzan en el field (típicamente deep crossing y intermediate crossing). Crea 'pick' natural donde un receptor obstaculiza defender del otro.",
+    strengths: [
+      "Pick defensivo — WR puede crear contacto legal que bloquea a DB",
+      "Space creation — defensa mancover lucha contra crossing, zone coverage confundida",
+      "QB opciones — siempre hay secondary read si primera opción cubierta",
+      "Timing versatilidad — crossing puede ocurrir en múltiples profundidades",
+    ],
+    weaknesses: [
+      "Penalty riesgo — 'pick play' puede ser llamado holding ofensivo si contacto demasiado obvio",
+      "Man coverage adaptable — DB individual puede seguir crossing, pick es inútil",
+      "Timing crítico — crossing debe ser coordinado, timing falla = confusión ofensiva",
+      "Lento desarrollo — crossers típicamente toman 2-3 segundos para separarse",
+    ],
+    idealFor:
+      "Vs Cover 3 (LBs de coverage tienen dilema en crossers), vs zone donde pick es limpio, cuando QB tiene tiempo.",
+    diagram: "aerial-mesh",
   },
 
   {
-    "aerial-slant",
+    id: "aerial-slant",
+    name: "Slant Routes",
+    category: "aerial",
+    categoryLabel: "Conceptos Aéreos",
+    definition:
+      "Receptor corre 45-grados hacia interior del field a 5-7 yards depth. Ruta más rápida en árbol conceptual, ideal para quick game vs presión defensiva.",
+    strengths: [
+      "Timing rápido — 1 segundo aire, snap-to-completion es ~2 segundos total",
+      "DB aislamiento — WR 1-v-1 vs cornerback de manera clara",
+      "YAC potencial — momentum interior + lateral = space after catch en sideline",
+      "Presión answer — vs blitz, slant es quick game answer",
+    ],
+    weaknesses: [
+      "Interception riesgo — si timing falls, ball expuesta a CB route",
+      "Gap penetration vulnerable — DL que penetra gap opuesto puede intercept",
+      "Baja ganancia — típicamente 6-8 yardas, raro 10+",
+      "Predictable vs press man — DB en la cara del WR puede presionar ruta",
+    ],
+    idealFor:
+      "Man coverage (slant ama 1-v-1), pase rápido primera lectura, vs presión defensiva, cuando DB está en posición deep.",
+    diagram: "aerial-slant",
   },
 
   {
@@ -611,15 +691,75 @@ export const offensiveContent: TacticConcept[] = [
 
   // ─── CONCEPTOS TERRESTRES ───────────────────────────────────────────
   {
-    "ground-inside-zone",
+    id: "ground-inside-zone",
+    name: "Inside Zone (Zone Run)",
+    category: "ground",
+    categoryLabel: "Conceptos Terrestres",
+    definition:
+      "RB corre en zona central de línea ofensiva. OL bloquea en sus gaps individuales (no asignación de defender, sino de ocupar), RB lee bloques y fluye lateralmente buscando espacio más allá de línea de scrimmage.",
+    strengths: [
+      "Consistencia — casi garantiza 4-5 yardas sin necesidad de explosión",
+      "Flexibilidad de punto de ataque — RB decide izquierda/derecha basado en bloqueo real",
+      "Adaptabilidad defensiva — defensa no sabe punto de ataque pre-snap",
+      "OL simple — cada lineman: bloquea en dirección del snap, sin decisión pre-snap",
+    ],
+    weaknesses: [
+      "Lentitud de desarrollo — RB debe leer bloques (toma milisegundos cruciales)",
+      "DL penetration asesino — si DL ocupa gap en LOS, carrera muere en backfield",
+      "Baja explosión — raramente genera 10+ yardas, 5-6 es promedio",
+      "Requiere paciencia RB — RB impaciente que corre upfield mata concepto",
+    ],
+    idealFor:
+      "Primera intentona movimiento confiable, drive de campo donde necesitas consistencia, cuando OL tiene ventaja mano-a-mano, setup para carrera edge después.",
+    diagram: "ground-inside-zone",
   },
 
   {
-    "ground-outside-zone",
+    id: "ground-outside-zone",
+    name: "Outside Zone (Stretch)",
+    category: "ground",
+    categoryLabel: "Conceptos Terrestres",
+    definition:
+      "RB corre hacia edge (extremo) de línea ofensiva. OL bloquea lateralmente creando 'cut-back lane', RB fluye hacia sideline buscando bloqueador que establece edge.",
+    strengths: [
+      "Space creation — RB accede a velocidad en perimeter sin congestión interior",
+      "Home run potential — si OL establece edge, espacio es 15-30 yardas potencial",
+      "Defensa confundida — exterior flow es difícil de defending gap integrity",
+      "WR bloqueo — exterior WRs pueden involucrarse en bloqueo creando ventaja numérica",
+    ],
+    weaknesses: [
+      "Tiempo de desarrollo — requiere RB que espere bloques, defensa tiene tiempo de fluir",
+      "Edge rush killer — DE rápido/agresivo puede tackle RB en backfield",
+      "OL movilidad requerida — lineman deben ser veloces (no work para lineman lento/grande)",
+      "Pérdida potencial — si edge no se establece, RB en backfield (pérdida común)",
+    ],
+    idealFor:
+      "Vs 4-3 defensas que corren upfield (stretch los estira), cuando OL es mobile, cuando RB tiene agilidad + velocidad (no poder puro).",
+    diagram: "ground-outside-zone",
   },
 
   {
-    "ground-power",
+    id: "ground-power",
+    name: "Power Run / Power O",
+    category: "ground",
+    categoryLabel: "Conceptos Terrestres",
+    definition:
+      "OL (especialmente Guard + Fullback) ejecutan 'power point' — bloquean lateral creando punto de ataque definido. Lead blocker (FB/puller) abre hole físicamente, RB sigue directo.",
+    strengths: [
+      "Poder imparable — dos bloqueadores en movimiento coordinado = fuerza bruta",
+      "Consistencia garantizada — poder generalmente genera 3-4 yardas confiables",
+      "Goal line dominancia — cuando defensa necesita penetración, poder la vence",
+      "Definido — punto de ataque es conocido, no hay confusión ofensiva",
+    ],
+    weaknesses: [
+      "Predecibilidad — punto de ataque es obvio (defensa puede stack box)",
+      "Lentitud — toma tiempo ejecutar bloques coordinados, defensa llega",
+      "Gap penetration vulnerable — si LB fluye al hole rápido, muere en LOS",
+      "Requiere FB bloqueador — sin FB de calidad, power pierde efectividad",
+    ],
+    idealFor:
+      "Goal line/corta distancia (1-3 yardas donde poder es garantía), cuando necesitas movimiento físico incuestionable, segunda mitad cuando defensa cansada.",
+    diagram: "ground-power",
   },
 
   {
@@ -791,11 +931,49 @@ export const offensiveContent: TacticConcept[] = [
 
 // ─── GAP SCHEME ─────────────────────────────────────────────────────
   {
-    "gap-scheme-intro",
+    id: "gap-scheme-intro",
+    name: "Gap Scheme — Fundamentos",
+    category: "gap-scheme",
+    categoryLabel: "Gap Scheme",
+    definition:
+      "Sistema defensivo-pensado donde cada OL asigna un GAP específico (A, B, C desde adentro hacia afuera). Cada lineman es responsable de ocupar su gap, no de 'reach' lateralmente. Más directo y físico que zone scheme.",
+    strengths: [
+      "Definitivo — cada OL sabe exactamente su asignación (gap X = su responsabilidad)",
+      "Consistencia — reglas claras generan ejecución predecible",
+      "Physicality énfasis — contacto inicial es criterio, no movimiento lateral",
+      "Simple lectura RB — gap scheme requiere menos lectura post-snap (gap es predecible)",
+    ],
+    weaknesses: [
+      "Inflexibilidad — si DL se mueve, asignaciones se desmoronan",
+      "Lentitud lineal — requiere contacto inicial + mantener, no es rápido",
+      "Slant vulnerable — defensa can slant gaps = confusión ofensiva instantánea",
+      "No adaptable — cambios defensivos pre-snap requieren audible ofensiva",
+    ],
+    idealFor:
+      "Equipos que valoran poder físico sobre información, offensivas con bloqueadores fuertes, carreras 4-5 yardas consistentes sobre big plays.",
+    diagram: "gap-scheme-intro",
   },
 
   {
-    "gap-scheme-power",
+    id: "gap-scheme-power",
+    name: "Power Run (Gap)",
+    category: "gap-scheme",
+    categoryLabel: "Gap Scheme",
+    definition:
+      "Guard + Fullback ejecutan 'seal block' específico en punto de ataque. Guard bloquea defensivo en gap, FB acompaña en movimiento lateral. RB sigue bloqueadores en línea recta predecible.",
+    strengths: [
+      "Movimiento coordinado — dos bloqueadores juntos = fuerza combinada imparable",
+      "Explosión predecible — RB sabe exactamente dónde ir (no lectura post-snap)",
+      "Goal line efectivo — poder es efectivo cuando línea es congestión defensiva",
+    ],
+    weaknesses: [
+      "Lento desarrollo — toma frames para ejecutar dos bloques coordinados",
+      "Predecible intención — todos saben dónde va el balón (defensa stack box)",
+      "Gap penetration asesino — si DL penetra su gap antes de bloqueo, muere",
+    ],
+    idealFor:
+      "Goal line, situaciones 1-3 yardas necesitadas, cuando necesitas movimiento garantizado sobre gamble.",
+    diagram: "gap-scheme-power",
   },
 
   // ─── PROTECCIONES ───────────────────────────────────────────────────
