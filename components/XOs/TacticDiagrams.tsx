@@ -61,10 +61,6 @@ const diagramPathMap: Record<string, string> = {
   "formation-var-singlebank-bunch": "/diagrams/formations/formation-var-singlebank-bunch.svg",
 
   // Aerial Concepts
-  "aerial-dagger": "/diagrams/concepts/aerial/aerial-dagger.svg",
-  "aerial-four-verts": "/diagrams/concepts/aerial/aerial-four-verts.svg",
-  "aerial-slant": "/diagrams/concepts/aerial/aerial-slant.svg",
-  "aerial-mesh": "/diagrams/concepts/aerial/aerial-mesh.svg",
   "aerial-smash": "/diagrams/concepts/aerial/aerial-smash.svg",
   "aerial-flood": "/diagrams/concepts/aerial/aerial-flood.svg",
   "aerial-stick": "/diagrams/concepts/aerial/aerial-stick.svg",
@@ -76,19 +72,12 @@ const diagramPathMap: Record<string, string> = {
   "aerial-mills": "/diagrams/concepts/aerial/aerial-mills.svg",
 
   // Ground Concepts
-  "ground-inside-zone": "/diagrams/concepts/ground/ground-inside-zone.svg",
-  "ground-outside-zone": "/diagrams/concepts/ground/ground-outside-zone.svg",
-  "ground-power": "/diagrams/concepts/ground/ground-power.svg",
   "ground-counter": "/diagrams/concepts/ground/ground-counter.svg",
   "ground-trap": "/diagrams/concepts/ground/ground-trap.svg",
   "ground-duo": "/diagrams/concepts/ground/ground-duo.svg",
   "ground-iso": "/diagrams/concepts/ground/ground-iso.svg",
   "ground-dive": "/diagrams/concepts/ground/ground-dive.svg",
   "ground-pitch": "/diagrams/concepts/ground/ground-pitch.svg",
-
-  // Gap Scheme
-  "gap-scheme-intro": "/diagrams/concepts/gap-scheme/gap-scheme-intro.svg",
-  "gap-scheme-power": "/diagrams/concepts/gap-scheme/gap-scheme-power.svg",
 
   // Defensive formations
   "def-form-43": "/diagrams/defensive/formations/def-form-43.svg",
@@ -113,10 +102,6 @@ const diagramPathMap: Record<string, string> = {
   "cov-cover-7": "/diagrams/defensive/coverage/cov-cover-7.svg",
   "cov-cover-8": "/diagrams/defensive/coverage/cov-cover-8.svg",
   "cov-cover-9": "/diagrams/defensive/coverage/cov-cover-9.svg",
-
-  // Offensive protections
-  "protection-man": "/diagrams/concepts/protection-man.svg",
-  "protection-zone": "/diagrams/concepts/protection-zone.svg",
 
   // Blitz/Presiones
   "blitz-corner": "/diagrams/defensive/blitz/blitz-corner.svg",

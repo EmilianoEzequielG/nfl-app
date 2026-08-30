@@ -401,7 +401,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Vs Cover 2/Cover 3 (split safeties automáticamente crean seam), primera-segunda intentona, cuando OL tiene tiempo para proteger profundidad.",
-    diagram: "aerial-dagger",
+    diagram: undefined,
   },
 
   {
@@ -425,7 +425,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Vs Cover 2/Cover 3 (safeties split crean seams profundos), cuando OL puede bloquear 3+ segundos, cuando QB tiene arm fuerte, pase largo necesario.",
-    diagram: "aerial-four-verts",
+    diagram: undefined,
   },
 
   {
@@ -449,7 +449,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Vs Cover 3 (LBs de coverage tienen dilema en crossers), vs zone donde pick es limpio, cuando QB tiene tiempo.",
-    diagram: "aerial-mesh",
+    diagram: undefined,
   },
 
   {
@@ -473,7 +473,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Man coverage (slant ama 1-v-1), pase rápido primera lectura, vs presión defensiva, cuando DB está en posición deep.",
-    diagram: "aerial-slant",
+    diagram: undefined,
   },
 
   {
@@ -711,7 +711,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Primera intentona movimiento confiable, drive de campo donde necesitas consistencia, cuando OL tiene ventaja mano-a-mano, setup para carrera edge después.",
-    diagram: "ground-inside-zone",
+    diagram: undefined,
   },
 
   {
@@ -735,7 +735,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Vs 4-3 defensas que corren upfield (stretch los estira), cuando OL es mobile, cuando RB tiene agilidad + velocidad (no poder puro).",
-    diagram: "ground-outside-zone",
+    diagram: undefined,
   },
 
   {
@@ -759,7 +759,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Goal line/corta distancia (1-3 yardas donde poder es garantía), cuando necesitas movimiento físico incuestionable, segunda mitad cuando defensa cansada.",
-    diagram: "ground-power",
+    diagram: undefined,
   },
 
   {
@@ -951,7 +951,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Equipos que valoran poder físico sobre información, offensivas con bloqueadores fuertes, carreras 4-5 yardas consistentes sobre big plays.",
-    diagram: "gap-scheme-intro",
+    diagram: undefined,
   },
 
   {
@@ -973,7 +973,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Goal line, situaciones 1-3 yardas necesitadas, cuando necesitas movimiento garantizado sobre gamble.",
-    diagram: "gap-scheme-power",
+    diagram: undefined,
   },
 
   // ─── PROTECCIONES ───────────────────────────────────────────────────
@@ -997,7 +997,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Vs cobertura predecible donde sabes qué defensivos blitzean, cuando OL tiene ventaja técnica individual.",
-    diagram: "protection-man",
+    diagram: undefined,
   },
 
   {
@@ -1020,7 +1020,7 @@ export const offensiveContent: TacticConcept[] = [
     ],
     idealFor:
       "Vs blitz sorpresa (zona adapta automáticamente), cuando DL es técnico (slants/stunts), pases que requieren máxima flexibilidad.",
-    diagram: "protection-zone",
+    diagram: undefined,
   },
 
   // ─── SISTEMAS / FILOSOFÍAS OFENSIVAS ────────────────────────────────
