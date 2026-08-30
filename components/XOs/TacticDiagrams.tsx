@@ -61,6 +61,10 @@ const diagramPathMap: Record<string, string> = {
   "formation-var-singlebank-bunch": "/diagrams/formations/formation-var-singlebank-bunch.png",
 
   // Aerial Concepts
+  "aerial-dagger": "/diagrams/concepts/aerial/aerial-dagger.png",
+  "aerial-four-verts": "/diagrams/concepts/aerial/aerial-four-verts.png",
+  "aerial-mesh": "/diagrams/concepts/aerial/aerial-mesh.png",
+  "aerial-slant": "/diagrams/concepts/aerial/aerial-slant.png",
   "aerial-smash": "/diagrams/concepts/aerial/aerial-smash.png",
   "aerial-flood": "/diagrams/concepts/aerial/aerial-flood.png",
   "aerial-stick": "/diagrams/concepts/aerial/aerial-stick.png",
@@ -72,12 +76,19 @@ const diagramPathMap: Record<string, string> = {
   "aerial-mills": "/diagrams/concepts/aerial/aerial-mills.png",
 
   // Ground Concepts
+  "ground-inside-zone": "/diagrams/concepts/ground/ground-inside-zone.png",
+  "ground-outside-zone": "/diagrams/concepts/ground/ground-outside-zone.png",
+  "ground-power": "/diagrams/concepts/ground/ground-power.png",
   "ground-counter": "/diagrams/concepts/ground/ground-counter.png",
   "ground-trap": "/diagrams/concepts/ground/ground-trap.png",
   "ground-duo": "/diagrams/concepts/ground/ground-duo.png",
   "ground-iso": "/diagrams/concepts/ground/ground-iso.png",
   "ground-dive": "/diagrams/concepts/ground/ground-dive.png",
   "ground-pitch": "/diagrams/concepts/ground/ground-pitch.png",
+
+  // Gap Scheme
+  "gap-scheme-intro": "/diagrams/concepts/gap-scheme/gap-scheme-intro.png",
+  "gap-scheme-power": "/diagrams/concepts/gap-scheme/gap-scheme-power.png",
 
   // Defensive formations
   "def-form-43": "/diagrams/defensive/formations/def-form-43.png",

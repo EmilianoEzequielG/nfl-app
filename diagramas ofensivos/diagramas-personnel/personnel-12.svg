@@ -13,13 +13,9 @@
 <circle cx="464.8" cy="240.0" r="15" fill="#6c757d" stroke="white" stroke-width="1.6"/><text x="464.8" y="243.0" text-anchor="middle" font-size="7" font-weight="900" fill="white">RG</text>
 <circle cx="515.2" cy="240.0" r="15" fill="#6c757d" stroke="white" stroke-width="1.6"/><text x="515.2" y="243.0" text-anchor="middle" font-size="7" font-weight="900" fill="white">RT</text>
 <circle cx="234.4" cy="240.0" r="15" fill="#e76f51" stroke="white" stroke-width="1.6"/><text x="234.4" y="243.0" text-anchor="middle" font-size="7" font-weight="900" fill="white">TE</text>
-<text x="234.4" y="264.0" text-anchor="middle" font-size="6" font-weight="800" fill="white">TE-Y</text>
 <circle cx="565.6" cy="240.0" r="15" fill="#e76f51" stroke="white" stroke-width="1.6"/><text x="565.6" y="243.0" text-anchor="middle" font-size="7" font-weight="900" fill="white">TE</text>
-<text x="565.6" y="264.0" text-anchor="middle" font-size="6" font-weight="800" fill="white">TE-U</text>
 <circle cx="83.2" cy="247.2" r="15" fill="#457b9d" stroke="white" stroke-width="1.6"/><text x="83.2" y="250.2" text-anchor="middle" font-size="7" font-weight="900" fill="white">WR</text>
-<text x="83.2" y="271.2" text-anchor="middle" font-size="6" font-weight="800" fill="white">WR X</text>
 <circle cx="716.8" cy="247.2" r="15" fill="#457b9d" stroke="white" stroke-width="1.6"/><text x="716.8" y="250.2" text-anchor="middle" font-size="7" font-weight="900" fill="white">WR</text>
-<text x="716.8" y="271.2" text-anchor="middle" font-size="6" font-weight="800" fill="white">WR Z</text>
-<circle cx="400.0" cy="315" r="15" fill="#e63946" stroke="white" stroke-width="1.6"/><text x="400.0" y="330" text-anchor="middle" font-size="7" font-weight="900" fill="white">QB</text>
-<circle cx="400.0" cy="385" r="15" fill="#2a9d8f" stroke="white" stroke-width="1.6"/><text x="400.0" y="400" text-anchor="middle" font-size="7" font-weight="900" fill="white">RB</text>
+<circle cx="400.0" cy="265.2" r="15" fill="#e63946" stroke="white" stroke-width="1.6"/><text x="400.0" y="268.2" text-anchor="middle" font-size="7" font-weight="900" fill="white">QB</text>
+<circle cx="400.0" cy="319.2" r="15" fill="#2a9d8f" stroke="white" stroke-width="1.6"/><text x="400.0" y="322.2" text-anchor="middle" font-size="7" font-weight="900" fill="white">RB</text>
 </svg>
