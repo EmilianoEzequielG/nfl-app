@@ -451,6 +451,18 @@ function buildRankingsWithRealData(
 export async function GET(request: NextRequest) {
   try {
     const week = parseWeekParam(request);
+
+    // Intentar leer snapshot congelado de la semana
+    try {
+      const snapshotModule = await import(`@/public/data/rankings-snapshots/week-${String(week).padStart(2, "0")}.json`);
+      console.log(`[Power Ranking] Using frozen snapshot for week ${week}`);
+      return NextResponse.json(snapshotModule.rankings || snapshotModule.default?.rankings || snapshotModule.default);
+    } catch (e) {
+      // Snapshot no existe, calcular en vivo
+      console.log(`[Power Ranking] No snapshot for week ${week}, calculating live...`);
+    }
+
+    // Calcular rankings en vivo para semana actual
     const lookups = initializeLookups();
     const rankings = buildRankingsWithRealData(week, lookups);
 
