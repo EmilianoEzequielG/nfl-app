@@ -24,6 +24,8 @@ import { NextRequest, NextResponse } from "next/server";
 import offenseSeasonData from "@/public/data/offense_season.json";
 import defenseSeasonData from "@/public/data/defense_season.json";
 import epaPercentileData from "@/public/data/epa_percentile_by_week.json";
+import summariesData from "@/public/data/power-ranking-summaries.json";
+import { calculateTeamRankings, calculateSubRankings } from "@/lib/power-ranking/calculate";
 
 // ============================================================================
 // TYPES
@@ -36,6 +38,20 @@ interface OffenseMetrics {
   turnovers: number;
   drives_total: number;
   pass_epa_adj_z?: number;
+  points_scored?: number;
+  passing_yards?: number;
+  rushing_yards?: number;
+  drives_td?: number;
+  drives_fg?: number;
+  drives_punt?: number;
+  third_down_conversions?: number;
+  third_downs_faced?: number;
+  passing_tds?: number;
+  rushing_tds?: number;
+  penalties_count?: number;
+  penalties_yards?: number;
+  penalties_opp_count_opp?: number;
+  penalties_opp_yards_opp?: number;
 }
 
 interface DefenseMetrics {
@@ -44,6 +60,17 @@ interface DefenseMetrics {
   sacks_generated: number;
   turnovers_forced: number;
   pass_epa_adj_z?: number;
+  points_allowed?: number;
+  passing_yards_allowed?: number;
+  rushing_yards_allowed?: number;
+  td_rate_allowed?: number;
+  fg_rate_allowed?: number;
+  punt_rate_forced?: number;
+  third_down_stop_rate?: number;
+  penalties_count?: number;
+  penalties_yards?: number;
+  penalties_opp_count_opp?: number;
+  penalties_opp_yards_opp?: number;
 }
 
 interface EPAPercentileWeekly {
@@ -52,6 +79,7 @@ interface EPAPercentileWeekly {
   percentil_ofensivo: number;
   percentil_defensivo: number;
   epa_total: number;
+  epa_total_allowed?: number;
 }
 
 interface PowerRankingMetrics {
@@ -173,55 +201,7 @@ interface PowerRankingResponse {
 // DATA
 // ============================================================================
 
-const DEFAULT_RANKINGS: RankingCalculation[] = [
-  { teamId: "KC", calculatedRank: 1, epa: 8.5 },
-  { teamId: "BUF", calculatedRank: 2, epa: 7.8 },
-  { teamId: "SF", calculatedRank: 3, epa: 7.6 },
-  { teamId: "PHI", calculatedRank: 4, epa: 7.4 },
-  { teamId: "BAL", calculatedRank: 5, epa: 7.1 },
-  { teamId: "LA", calculatedRank: 6, epa: 6.8 },
-  { teamId: "DEN", calculatedRank: 7, epa: 6.5 },
-  { teamId: "GB", calculatedRank: 8, epa: 6.2 },
-  { teamId: "HOU", calculatedRank: 9, epa: 5.9 },
-  { teamId: "TB", calculatedRank: 10, epa: 5.6 },
-  { teamId: "CIN", calculatedRank: 11, epa: 5.3 },
-  { teamId: "MIA", calculatedRank: 12, epa: 5.0 },
-  { teamId: "LAC", calculatedRank: 13, epa: 4.7 },
-  { teamId: "DAL", calculatedRank: 14, epa: 4.4 },
-  { teamId: "MIN", calculatedRank: 15, epa: 4.1 },
-  { teamId: "IND", calculatedRank: 16, epa: 3.8 },
-  { teamId: "SEA", calculatedRank: 17, epa: 3.5 },
-  { teamId: "WAS", calculatedRank: 18, epa: 3.2 },
-  { teamId: "ARI", calculatedRank: 19, epa: 2.9 },
-  { teamId: "DET", calculatedRank: 20, epa: 2.6 },
-  { teamId: "NO", calculatedRank: 21, epa: 2.3 },
-  { teamId: "ATL", calculatedRank: 22, epa: 2.0 },
-  { teamId: "NE", calculatedRank: 23, epa: 1.7 },
-  { teamId: "TEN", calculatedRank: 24, epa: 1.4 },
-  { teamId: "CAR", calculatedRank: 25, epa: 1.1 },
-  { teamId: "CHI", calculatedRank: 26, epa: 0.8 },
-  { teamId: "NYG", calculatedRank: 27, epa: 0.5 },
-  { teamId: "NYJ", calculatedRank: 28, epa: 0.2 },
-  { teamId: "JAX", calculatedRank: 29, epa: -0.1 },
-  { teamId: "LV", calculatedRank: 30, epa: -0.4 },
-  { teamId: "CLE", calculatedRank: 31, epa: -0.7 },
-  { teamId: "PIT", calculatedRank: 32, epa: -1.0 },
-];
-
-const powerRankingNotes: Record<string, { rankingPosition?: number; summary?: string }> = {
-  KC: {
-    rankingPosition: 1,
-    summary: "Los Chiefs mantienen el liderato con un equipo equilibrado. Mahomes jugando a MVP level en los momentos decisivos.",
-  },
-  BUF: {
-    rankingPosition: 2,
-    summary: "Buffalo sigue siendo una amenaza real en el Este. La defensa se ha mejorado significativamente en las últimas semanas.",
-  },
-  SF: {
-    rankingPosition: 3,
-    summary: "San Francisco sigue siendo el equipo más completo. Su defensa es de élite y el ataque maneja bien los tiempos.",
-  },
-};
+const ALL_TEAM_IDS = ["KC", "BUF", "SF", "PHI", "BAL", "LA", "DEN", "GB", "HOU", "TB", "CIN", "MIA", "LAC", "DAL", "MIN", "IND", "SEA", "WAS", "ARI", "DET", "NO", "ATL", "NE", "TEN", "CAR", "CHI", "NYG", "NYJ", "JAX", "LV", "CLE", "PIT"];
 
 const TEAM_DATA: Record<string, TeamData> = {
   KC: { name: "Kansas City Chiefs", record: "11-3", color: "#E31828", abbr: "KC" },
@@ -319,65 +299,12 @@ interface RankingMap {
   [key: string]: number;
 }
 
-function calculateRankings(lookups: DataLookups): {
-  tdRateRanking: RankingMap;
-  fgRateRanking: RankingMap;
-  puntRateRanking: RankingMap;
-  thirdDownRanking: RankingMap;
-  penaltiesOffCommittedRanking: RankingMap;
-  penaltiesOffReceivedRanking: RankingMap;
-  penaltiesDefCommittedRanking: RankingMap;
-  penaltiesDefReceivedRanking: RankingMap;
-  epaOffenseRanking: RankingMap;
-  epaDefenseRanking: RankingMap;
-  passingYardsRanking: RankingMap;
-  rushingYardsRanking: RankingMap;
-  totalYardsRanking: RankingMap;
-  passingYardsAllowedRanking: RankingMap;
-  rushingYardsAllowedRanking: RankingMap;
-  totalYardsAllowedRanking: RankingMap;
-} {
-  const offenseArray = Array.from(lookups.offense.values());
-  const defenseArray = Array.from(lookups.defense.values());
-
-  // Helper to calculate TD rate (td drives / total drives)
-  const getTdRate = (o: any) => o.drives_td ? (o.drives_td / (o.drives_total || 1)) * 100 : 0;
-  const getFgRate = (o: any) => o.drives_fg ? (o.drives_fg / (o.drives_total || 1)) * 100 : 0;
-  const getPuntRate = (o: any) => o.drives_punt ? (o.drives_punt / (o.drives_total || 1)) * 100 : 0;
-  const getThirdDownRate = (o: any) => o.third_down_conversions ? (o.third_down_conversions / (o.third_downs_faced || 1)) * 100 : 0;
-
-  // Create ranking maps (higher is better for most metrics)
-  const rankByValue = (data: any[], getValue: (x: any) => number, descending = true) => {
-    const sorted = [...data].sort((a, b) => descending ? getValue(b) - getValue(a) : getValue(a) - getValue(b));
-    return Object.fromEntries(sorted.map((item, idx) => [item.team, idx + 1]));
-  };
-
-  return {
-    tdRateRanking: rankByValue(offenseArray, getTdRate),
-    fgRateRanking: rankByValue(offenseArray, getFgRate),
-    puntRateRanking: rankByValue(offenseArray, getPuntRate),
-    thirdDownRanking: rankByValue(offenseArray, getThirdDownRate),
-    penaltiesOffCommittedRanking: rankByValue(offenseArray, (o) => o.penalties_count || 0, false),
-    penaltiesOffReceivedRanking: rankByValue(offenseArray, (o) => o.penalties_opp_count_opp || 0, false),
-    penaltiesDefCommittedRanking: rankByValue(defenseArray, (d) => d.penalties_count || 0, false),
-    penaltiesDefReceivedRanking: rankByValue(defenseArray, (d) => d.penalties_opp_count_opp || 0, false),
-    epaOffenseRanking: rankByValue(offenseArray, (o) => o.total_epa || 0),
-    epaDefenseRanking: rankByValue(defenseArray, (d) => d.total_epa_allowed || 0, false),
-    passingYardsRanking: rankByValue(offenseArray, (o) => o.passing_yards || 0),
-    rushingYardsRanking: rankByValue(offenseArray, (o) => o.rushing_yards || 0),
-    totalYardsRanking: rankByValue(offenseArray, (o) => (o.passing_yards || 0) + (o.rushing_yards || 0)),
-    passingYardsAllowedRanking: rankByValue(defenseArray, (d) => d.passing_yards_allowed || 0, false),
-    rushingYardsAllowedRanking: rankByValue(defenseArray, (d) => d.rushing_yards_allowed || 0, false),
-    totalYardsAllowedRanking: rankByValue(defenseArray, (d) => (d.passing_yards_allowed || 0) + (d.rushing_yards_allowed || 0), false),
-  };
-}
-
 function buildMetrics(
   teamId: string,
   week: number,
   lookups: DataLookups,
   leagueAvg: PowerRankingMetrics['leagueAvg'],
-  rankings: ReturnType<typeof calculateRankings>
+  rankings: ReturnType<typeof calculateSubRankings>
 ): PowerRankingMetrics {
   const offenseMetrics = lookups.offense.get(teamId);
   const defenseMetrics = lookups.defense.get(teamId);
@@ -479,32 +406,42 @@ function buildRankingsWithRealData(
   console.log(`[Power Ranking] Building rankings for week ${week}...`);
 
   const leagueAvg = calculateLeagueAverages(lookups);
-  const rankingsMap = calculateRankings(lookups);
-  console.log(`[Power Ranking] League averages + rankings calculated`);
 
-  const rankings = DEFAULT_RANKINGS.map((calc) => {
-    const note = powerRankingNotes[calc.teamId];
-    const team = TEAM_DATA[calc.teamId];
-    const metrics = buildMetrics(calc.teamId, week, lookups, leagueAvg, rankingsMap);
-    const epaWeekly = lookups.epaWeekly.get(`${calc.teamId}-w${week}`);
+  // Calcular rankings reales basados en métricas
+  const calculatedRankings = calculateTeamRankings(lookups.offense, lookups.defense, lookups.epaWeekly, ALL_TEAM_IDS);
+
+  // Calcular sub-rankings (EPA, yardas, penalidades, etc.)
+  const subRankings = calculateSubRankings(lookups.offense, lookups.defense);
+
+  // Leer resúmenes editoriales del JSON
+  const weekSummaries = (summariesData.summaries as Record<string, Record<string, string>>)[week.toString()] || {};
+
+  console.log(`[Power Ranking] Real rankings + sub-rankings calculated`);
+
+  const rankings = ALL_TEAM_IDS.map((teamId) => {
+    const team = TEAM_DATA[teamId];
+    const metrics = buildMetrics(teamId, week, lookups, leagueAvg, subRankings);
+    const epaWeekly = lookups.epaWeekly.get(`${teamId}-w${week}`);
+    const calculatedRank = calculatedRankings.get(teamId) || 16;
+    const summary = weekSummaries[teamId] || "";
 
     return {
-      id: calc.teamId,
+      id: teamId,
       abbr: team.abbr,
       name: team.name,
       record: team.record,
       color: team.color,
-      calculatedRank: calc.calculatedRank,
-      adjustedRank: note?.rankingPosition,
-      isAdjusted: !!note?.rankingPosition,
-      summary: note?.summary,
-      epa: epaWeekly?.epa_total ?? calc.epa,
+      calculatedRank,
+      adjustedRank: undefined,
+      isAdjusted: false,
+      summary: summary || undefined,
+      epa: epaWeekly?.epa_total ?? 0,
       metrics,
     };
   });
 
   console.log(`[Power Ranking] Processed ${rankings.length} teams for week ${week}`);
-  return rankings;
+  return rankings.sort((a, b) => a.calculatedRank - b.calculatedRank);
 }
 
 // ============================================================================
@@ -528,27 +465,8 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  try {
-    const body = await request.json();
-    const { teamId, rankingPosition, summary } = body;
-
-    if (!teamId || !rankingPosition || !summary) {
-      return NextResponse.json(
-        { error: "Missing required fields: teamId, rankingPosition, summary" },
-        { status: 400 }
-      );
-    }
-
-    console.log(`[Power Ranking] Updating ${teamId}: rank ${rankingPosition}`);
-
-    powerRankingNotes[teamId] = { rankingPosition, summary };
-
-    return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error("[Power Ranking] Error saving ranking:", error);
-    return NextResponse.json(
-      { error: "Error saving ranking" },
-      { status: 500 }
-    );
-  }
+  return NextResponse.json(
+    { error: "POST endpoint deprecated. Edit /public/data/power-ranking-summaries.json directly." },
+    { status: 410 }
+  );
 }

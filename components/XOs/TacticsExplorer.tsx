@@ -309,12 +309,13 @@ export function TacticsExplorer() {
       ? (["formations", "fronts", "coverage", "blitz", "glossary"] as DefensiveCategory[])
       : (["offensive", "defensive"] as PenaltiesCategory[]);
 
-  const categoryInfo =
+  const categoryInfo = (
     activeTab === "offensive"
       ? OFFENSIVE_CATEGORIES
       : activeTab === "defensive"
       ? DEFENSIVE_CATEGORIES
-      : PENALTIES_CATEGORIES;
+      : PENALTIES_CATEGORIES
+  ) as Record<string, { label: string; icon: string; description: string }>;
 
   const currentConcept = filteredConcepts[carouselIndex] || null;
 
@@ -393,7 +394,7 @@ export function TacticsExplorer() {
           borderBottom: "4px solid #121212",
           position: "sticky",
           top: 0,
-          zIndex: 40,
+          zIndex: 50,
         }}
       >
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "16px 20px" }}>
@@ -408,7 +409,7 @@ export function TacticsExplorer() {
       </div>
 
       {/* TAB NAVIGATION */}
-      <div style={{ backgroundColor: "#D02020", borderBottom: "4px solid #121212", position: "sticky", top: "72px", zIndex: 40 }}>
+      <div style={{ backgroundColor: "#D02020", borderBottom: "4px solid #121212", position: "sticky", top: "70px", zIndex: 50 }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", gap: 0 }}>
           {[
             { id: "offensive" as TabType, label: "🔴 Ofensiva" },
@@ -543,11 +544,11 @@ export function TacticsExplorer() {
                         )}
 
                         {/* STRENGTHS */}
-                        {currentConcept.strengths.length > 0 && (
+                        {currentConcept.punto_fuerte.length > 0 && (
                           <div style={CONCEPT_SECTION_STYLES}>
-                            <p style={{ ...DIVIDER_TITLE_STYLES, color: "#D02020" }}>✓ Fortalezas</p>
+                            <p style={{ ...DIVIDER_TITLE_STYLES, color: "#D02020" }}>✓ Puntos Fuertes</p>
                             <ul style={STRENGTHS_LIST_STYLES}>
-                              {currentConcept.strengths.map((s, i) => (
+                              {currentConcept.punto_fuerte.map((s, i) => (
                                 <li key={i} style={LIST_ITEM_STYLES}>
                                   <span style={{ fontWeight: "900", color: "#D02020", flexShrink: 0 }}>•</span>
                                   <span>{s}</span>
@@ -558,11 +559,11 @@ export function TacticsExplorer() {
                         )}
 
                         {/* WEAKNESSES */}
-                        {currentConcept.weaknesses.length > 0 && (
+                        {currentConcept.punto_debil.length > 0 && (
                           <div style={CONCEPT_SECTION_STYLES}>
-                            <p style={{ ...DIVIDER_TITLE_STYLES, color: "#0066CC" }}>✗ Debilidades</p>
+                            <p style={{ ...DIVIDER_TITLE_STYLES, color: "#0066CC" }}>✗ Puntos Débiles</p>
                             <ul style={STRENGTHS_LIST_STYLES}>
-                              {currentConcept.weaknesses.map((w, i) => (
+                              {currentConcept.punto_debil.map((w, i) => (
                                 <li key={i} style={LIST_ITEM_STYLES}>
                                   <span style={{ fontWeight: "900", color: "#0066CC", flexShrink: 0 }}>•</span>
                                   <span>{w}</span>
