@@ -22,30 +22,30 @@ export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
       }}
       className={`w-full bg-white text-bauhaus-black border-4 border-bauhaus-black p-3 sm:p-6 text-left font-black shadow-geo-lg transition-transform hover:shadow-geo-xl active:translate-x-1 active:translate-y-1 active:shadow-geo-md`}
     >
-      <div className="flex items-center justify-between gap-2 sm:gap-4">
+      <div className="flex items-center justify-between gap-1 sm:gap-4">
         {/* AWAY TEAM */}
-        <div className="flex-1 min-w-0 flex items-center gap-2 sm:gap-3">
+        <div className="flex-1 min-w-0 flex items-center gap-1 sm:gap-3">
           <div className="flex-shrink-0">
             <Image
               src={`/helmets/${game.awayTeam.abbr}.png`}
               alt={game.awayTeam.abbr}
               width={56}
               height={56}
-              className="w-12 h-12 sm:w-14 sm:h-14 object-contain"
+              className="w-8 h-8 sm:w-14 sm:h-14 object-contain"
               unoptimized={true}
             />
           </div>
-          <div className="min-w-0">
-            <div className="flex items-center gap-1">
-              <span className="text-sm">✈️</span>
-              <h3 className={`h3 text-xs sm:text-sm text-bauhaus-black truncate font-black uppercase`}>
-                {getTeamNickname(game.awayTeam.abbr)}
+          <div className="min-w-0 flex-1">
+            <div className="flex items-center gap-0.5">
+              <span className="text-xs">✈️</span>
+              <h3 className={`text-xs sm:text-sm text-bauhaus-black truncate font-black uppercase`}>
+                {game.awayTeam.abbr}
               </h3>
             </div>
-            <p className={`text-xs sm:text-sm text-bauhaus-black/60 truncate`}>
+            <p className={`text-xs sm:text-sm text-bauhaus-black/60 truncate hidden sm:block`}>
               {getTeamCity(game.awayTeam.abbr)}
             </p>
-            <p className={`text-lg sm:text-3xl font-black text-bauhaus-black mt-1`}>
+            <p className={`text-base sm:text-3xl font-black text-bauhaus-black mt-0.5`}>
               {game.status === "final" && game.awayScore !== undefined
                 ? game.awayScore
                 : "—"}
@@ -54,17 +54,17 @@ export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
         </div>
 
         {/* CENTER - Status & Time */}
-        <div className="text-center flex-shrink-0 px-2 space-y-1">
+        <div className="text-center flex-shrink-0 px-1 sm:px-2 space-y-0.5 sm:space-y-1">
           {game.status === "live" && (
             <p className={`text-xs font-black text-bauhaus-black animate-pulse`}>LIVE</p>
           )}
           {game.status === "scheduled" && (
             <>
-              <p className={`text-xs font-bold text-bauhaus-black uppercase`}>
+              <p className={`text-xs font-bold text-bauhaus-black uppercase hidden sm:block`}>
                 {formatGameTimeArg(game.dateUTC)}
               </p>
               <p className={`text-xs font-bold text-bauhaus-black`}>
-                {getTeamNickname(game.homeTeam.abbr)} {game.spreadLine || "—"}
+                {game.spreadLine || "—"}
               </p>
             </>
           )}
@@ -74,15 +74,15 @@ export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
         </div>
 
         {/* HOME TEAM */}
-        <div className="flex-1 min-w-0 flex items-center justify-end gap-2 sm:gap-3">
-          <div className="min-w-0 text-right">
-            <h3 className={`h3 text-xs sm:text-sm text-bauhaus-black truncate font-black uppercase`}>
-              {getTeamNickname(game.homeTeam.abbr)}
+        <div className="flex-1 min-w-0 flex items-center justify-end gap-1 sm:gap-3">
+          <div className="min-w-0 text-right flex-1">
+            <h3 className={`text-xs sm:text-sm text-bauhaus-black truncate font-black uppercase`}>
+              {game.homeTeam.abbr}
             </h3>
-            <p className={`text-xs sm:text-sm text-bauhaus-black/60 truncate`}>
+            <p className={`text-xs sm:text-sm text-bauhaus-black/60 truncate hidden sm:block`}>
               {getTeamCity(game.homeTeam.abbr)}
             </p>
-            <p className={`text-lg sm:text-3xl font-black text-bauhaus-black mt-1`}>
+            <p className={`text-base sm:text-3xl font-black text-bauhaus-black mt-0.5`}>
               {game.status === "final" && game.homeScore !== undefined
                 ? game.homeScore
                 : "—"}
@@ -94,14 +94,14 @@ export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
               alt={game.homeTeam.abbr}
               width={56}
               height={56}
-              className="w-12 h-12 sm:w-14 sm:h-14 object-contain"
+              className="w-8 h-8 sm:w-14 sm:h-14 object-contain"
               unoptimized={true}
             />
           </div>
         </div>
 
         {/* ARROW */}
-        <ChevronRight className={`w-5 h-5 sm:w-6 sm:h-6 text-bauhaus-black flex-shrink-0`} />
+        <ChevronRight className={`w-4 h-4 sm:w-6 sm:h-6 text-bauhaus-black flex-shrink-0`} />
       </div>
     </button>
   );
