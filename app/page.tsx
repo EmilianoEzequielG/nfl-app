@@ -46,7 +46,8 @@ export default function Home() {
       {/* Navigation Header - Bauhaus */}
       <div className="sticky top-0 z-30 bg-white border-b-4 border-bauhaus-black">
         <div className="container-geo">
-          <div className="flex items-center justify-between py-4 gap-4">
+          {/* Row 1: Logo + Fumbles */}
+          <div className="flex items-center justify-between py-3 gap-2 border-b-2 border-bauhaus-black/10">
             {/* Logo */}
             <div className="flex items-center gap-2 flex-shrink-0">
               <Image
@@ -54,15 +55,15 @@ export default function Home() {
                 alt="Balón Suelto"
                 width={120}
                 height={60}
-                className="h-12 w-auto"
+                className="h-10 w-auto sm:h-12"
                 priority
                 unoptimized
               />
             </div>
 
-            {/* Fumbles Counter */}
+            {/* Fumbles Counter - hidden on mobile */}
             {fumblesData && (
-              <div style={{ display: "flex", gap: "30px", flex: 1, paddingLeft: "20px", borderLeft: "2px solid #ddd" }}>
+              <div className="hidden sm:flex gap-8">
                 <div style={{ textAlign: "center" }}>
                   <p style={{ margin: 0, color: "#888", fontSize: "10px" }}>Fumbles</p>
                   <p style={{ fontWeight: "700", color: "#1a1a1a", margin: "4px 0 0 0", fontSize: "14px" }}>{fumblesData.historico.total_fumbles.toLocaleString()}</p>
@@ -73,27 +74,27 @@ export default function Home() {
                 </div>
               </div>
             )}
+          </div>
 
-            {/* Tabs */}
-            <div className="flex gap-0 border-l-4 border-bauhaus-black divide-x-4 divide-bauhaus-black flex-shrink-0">
-              {[
-                { id: "scoreboard" as Section, label: "Partidos" },
-                { id: "power-ranking" as Section, label: "Ranking" },
-                { id: "xos" as Section, label: "Tácticas" },
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveSection(tab.id)}
-                  className={`px-3 sm:px-4 py-3 text-xs sm:text-sm font-black uppercase tracking-wider transition-colors ${
-                    activeSection === tab.id
-                      ? "bg-bauhaus-red text-white"
-                      : "text-bauhaus-black hover:bg-bauhaus-muted"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
+          {/* Row 2: Tabs */}
+          <div className="flex gap-0 divide-x-4 divide-bauhaus-black py-2">
+            {[
+              { id: "scoreboard" as Section, label: "Partidos" },
+              { id: "power-ranking" as Section, label: "Ranking" },
+              { id: "xos" as Section, label: "Tácticas" },
+            ].map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveSection(tab.id)}
+                className={`flex-1 px-2 sm:px-4 py-2 text-xs sm:text-sm font-black uppercase tracking-wider transition-colors ${
+                  activeSection === tab.id
+                    ? "bg-bauhaus-red text-white"
+                    : "text-bauhaus-black hover:bg-bauhaus-muted"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
         </div>
       </div>

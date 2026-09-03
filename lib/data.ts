@@ -174,6 +174,43 @@ export function formatGameTimeArg(dateStr: string | undefined): string {
   }
 }
 
+export function getGameDay(dateStr: string | undefined): string {
+  if (!dateStr) return "TBD";
+  try {
+    const date = new Date(dateStr);
+    const formatter = new Intl.DateTimeFormat("es-AR", {
+      timeZone: "America/Argentina/Buenos_Aires",
+      day: "2-digit",
+      month: "2-digit",
+    });
+    const parts = formatter.formatToParts(date);
+    const day = parts.find((p) => p.type === "day")?.value || "00";
+    const month = parts.find((p) => p.type === "month")?.value || "00";
+    return `${day}/${month}`;
+  } catch {
+    return "TBD";
+  }
+}
+
+export function getGameTime(dateStr: string | undefined): string {
+  if (!dateStr) return "TBD";
+  try {
+    const date = new Date(dateStr);
+    const formatter = new Intl.DateTimeFormat("es-AR", {
+      timeZone: "America/Argentina/Buenos_Aires",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    });
+    const parts = formatter.formatToParts(date);
+    const hour = parts.find((p) => p.type === "hour")?.value || "00";
+    const minute = parts.find((p) => p.type === "minute")?.value || "00";
+    return `${hour}:${minute}`;
+  } catch {
+    return "TBD";
+  }
+}
+
 // Calculate all penalty rankings (lower count = better = higher rank)
 function calculateAllPenaltyRankings(offenseData: any[], defenseData: any[]) {
   const rankings = {

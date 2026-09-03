@@ -3,7 +3,7 @@
 import { Game } from "@/types";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
-import { getTeamNickname, getTeamCity, formatGameTimeArg } from "@/lib/data";
+import { getTeamNickname, getTeamCity, formatGameTimeArg, getGameDay, getGameTime } from "@/lib/data";
 
 interface GameCardProps {
   game: Game;
@@ -20,7 +20,7 @@ export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
         console.log("🔘 CLICK en tarjeta:", game.awayTeam.abbr, "vs", game.homeTeam.abbr);
         onSelect(game);
       }}
-      className={`w-full bg-white text-bauhaus-black border-4 border-bauhaus-black p-3 sm:p-6 text-left font-black shadow-geo-lg transition-transform hover:shadow-geo-xl active:translate-x-1 active:translate-y-1 active:shadow-geo-md`}
+      className={`w-full bg-white text-bauhaus-black border-4 border-bauhaus-black p-3 sm:p-6 text-left font-black shadow-geo-lg transition-transform hover:shadow-geo-xl active:translate-x-1 active:translate-y-1 active:shadow-geo-md !bg-white !text-bauhaus-black`}
     >
       <div className="flex items-center justify-between gap-1 sm:gap-4">
         {/* AWAY TEAM */}
@@ -60,11 +60,14 @@ export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
           )}
           {game.status === "scheduled" && (
             <>
-              <p className={`text-xs sm:text-xs font-bold text-bauhaus-black uppercase`}>
-                {formatGameTimeArg(game.dateUTC)}
+              <p className={`text-xs font-bold text-bauhaus-black uppercase`}>
+                {getGameDay(game.dateUTC)}
               </p>
               <p className={`text-xs font-bold text-bauhaus-black`}>
-                {game.spreadLine || "—"}
+                {getGameTime(game.dateUTC)}
+              </p>
+              <p className={`text-xs font-bold text-bauhaus-black`}>
+                Línea: {game.spreadLine || "—"}
               </p>
             </>
           )}
