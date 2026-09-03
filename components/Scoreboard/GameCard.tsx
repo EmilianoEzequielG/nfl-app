@@ -20,9 +20,9 @@ export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
         console.log("🔘 CLICK en tarjeta:", game.awayTeam.abbr, "vs", game.homeTeam.abbr);
         onSelect(game);
       }}
-      className={`w-full bg-white text-bauhaus-black border-4 border-bauhaus-black p-4 sm:p-6 text-left font-black shadow-geo-lg transition-transform hover:shadow-geo-xl active:translate-x-1 active:translate-y-1 active:shadow-geo-md`}
+      className={`w-full bg-white text-bauhaus-black border-4 border-bauhaus-black p-3 sm:p-6 text-left font-black shadow-geo-lg transition-transform hover:shadow-geo-xl active:translate-x-1 active:translate-y-1 active:shadow-geo-md`}
     >
-      <div className="flex items-center justify-between gap-3 sm:gap-4">
+      <div className="flex items-center justify-between gap-2 sm:gap-4">
         {/* AWAY TEAM */}
         <div className="flex-1 min-w-0 flex items-center gap-2 sm:gap-3">
           <div className="flex-shrink-0">
