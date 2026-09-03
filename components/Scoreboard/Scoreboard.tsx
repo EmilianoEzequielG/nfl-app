@@ -33,7 +33,7 @@ export function Scoreboard({ week }: ScoreboardProps) {
       </div>
 
       {/* GAMES LIST - Bauhaus */}
-      <div className="container-geo space-y-6 sm:space-y-8">
+      <div className="container-geo space-y-4 sm:space-y-8 pb-8">
         {week.games.length === 0 ? (
           <div className="card p-8 text-center">
             <p className="font-black text-lg uppercase">No hay partidos disponibles</p>

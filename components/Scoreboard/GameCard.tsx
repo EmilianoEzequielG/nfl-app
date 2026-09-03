@@ -60,7 +60,7 @@ export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
           )}
           {game.status === "scheduled" && (
             <>
-              <p className={`text-xs font-bold text-bauhaus-black uppercase hidden sm:block`}>
+              <p className={`text-xs sm:text-xs font-bold text-bauhaus-black uppercase`}>
                 {formatGameTimeArg(game.dateUTC)}
               </p>
               <p className={`text-xs font-bold text-bauhaus-black`}>
