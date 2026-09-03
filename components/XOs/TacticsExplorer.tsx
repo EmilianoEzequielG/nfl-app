@@ -6,6 +6,18 @@ import { defensiveContent } from "@/lib/tactics/defensive-content";
 import { TacticDiagrams } from "./TacticDiagrams";
 import { ChevronLeft, ChevronRight, X, Zap } from "lucide-react";
 
+// Hook para detectar viewport mobile
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+  return isMobile;
+}
+
 type TabType = "offensive" | "defensive" | "penalties";
 type OffensiveCategory = "personnel" | "formations" | "gap-scheme" | "aerial" | "ground" | "protections" | "sistemas";
 type DefensiveCategory = "formations" | "fronts" | "coverage" | "blitz" | "glossary";
@@ -441,7 +453,7 @@ export function TacticsExplorer() {
       </div>
 
       {/* MAIN LAYOUT */}
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "24px 20px", display: "grid", gridTemplateColumns: "1fr 3fr", gap: "24px" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "24px 20px", display: "grid", gridTemplateColumns: useIsMobile() ? "1fr" : "1fr 3fr", gap: "24px" }}>
         {/* SIDEBAR - CATEGORIES */}
         <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
           {categories.map((cat) => {
