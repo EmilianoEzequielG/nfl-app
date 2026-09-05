@@ -26,6 +26,14 @@ import defenseSeasonData from "@/public/data/defense_season.json";
 import epaPercentileData from "@/public/data/epa_percentile_by_week.json";
 import summariesData from "@/public/data/power-ranking-summaries.json";
 import { calculateTeamRankings, calculateSubRankings } from "@/lib/power-ranking/calculate";
+import {
+  calculateOffensiveDriveRates,
+  calculateDefensiveDriveRates,
+  calculateThirdDownEfficiency,
+  calculateThirdDownStopRate,
+  calculateTotalYards,
+  calculateTotalYardsAllowed,
+} from "@/lib/metrics/calculate";
 
 // ============================================================================
 // TYPES
@@ -327,17 +335,11 @@ function buildMetrics(
   const passingYards = offenseMetrics?.passing_yards ?? 0;
   const rushingYards = offenseMetrics?.rushing_yards ?? 0;
 
-  // Calculate drive rates from offense data
-  const tdDriveRateOff = offenseMetrics?.drives_td ? (offenseMetrics.drives_td / (offenseMetrics.drives_total || 1)) * 100 : 0;
-  const fgDriveRateOff = offenseMetrics?.drives_fg ? (offenseMetrics.drives_fg / (offenseMetrics.drives_total || 1)) * 100 : 0;
-  const puntDriveRateOff = offenseMetrics?.drives_punt ? (offenseMetrics.drives_punt / (offenseMetrics.drives_total || 1)) * 100 : 0;
-  const thirdDownEffOff = offenseMetrics?.third_down_conversions ? (offenseMetrics.third_down_conversions / (offenseMetrics.third_downs_faced || 1)) * 100 : 0;
-
-  // Defense rates from defense data (already calculated percentages, convert to decimal)
-  const tdDriveRateDef = (defenseMetrics?.td_rate_allowed || 0) / 100;
-  const fgDriveRateDef = (defenseMetrics?.fg_rate_allowed || 0) / 100;
-  const puntDriveRateDef = (defenseMetrics?.punt_rate_forced || 0) / 100;
-  const thirdDownEffDef = (defenseMetrics?.third_down_stop_rate || 0) / 100;
+  // Use shared calculation functions for consistency across app
+  const offensiveDrives = calculateOffensiveDriveRates(offenseMetrics as any);
+  const defensiveDrives = calculateDefensiveDriveRates(defenseMetrics as any);
+  const thirdDownEffOff = calculateThirdDownEfficiency(offenseMetrics as any);
+  const thirdDownEffDef = calculateThirdDownStopRate(defenseMetrics as any);
 
   return {
     epaOffensePercentile,
@@ -350,13 +352,13 @@ function buildMetrics(
     pointsAllowed: defenseMetrics?.points_allowed ?? 0,
     passingYards,
     rushingYards,
-    totalYardsOffense: passingYards + rushingYards,
+    totalYardsOffense: calculateTotalYards(offenseMetrics as any),
     rankPassingYards: rankings.passingYardsRanking[teamId] ?? 16,
     rankRushingYards: rankings.rushingYardsRanking[teamId] ?? 16,
     rankTotalYardsOffense: rankings.totalYardsRanking[teamId] ?? 16,
     passingYardsAllowed: defenseMetrics?.passing_yards_allowed ?? 0,
     rushingYardsAllowed: defenseMetrics?.rushing_yards_allowed ?? 0,
-    totalYardsAllowed: (defenseMetrics?.passing_yards_allowed ?? 0) + (defenseMetrics?.rushing_yards_allowed ?? 0),
+    totalYardsAllowed: calculateTotalYardsAllowed(defenseMetrics as any),
     rankPassingYardsAllowed: rankings.passingYardsAllowedRanking[teamId] ?? 16,
     rankRushingYardsAllowed: rankings.rushingYardsAllowedRanking[teamId] ?? 16,
     rankTotalYardsAllowed: rankings.totalYardsAllowedRanking[teamId] ?? 16,
@@ -364,20 +366,20 @@ function buildMetrics(
     rushingTDs: offenseMetrics?.rushing_tds ?? 0,
     sacksAllowed: offenseMetrics?.sacks_allowed ?? 0,
     sacksGenerated: defenseMetrics?.sacks_generated ?? 0,
-    turnoverDriveRateOffense: offenseMetrics?.turnovers ? offenseMetrics.turnovers / (offenseMetrics.drives_total || 1) : 0,
-    turnoverDriveRateDefense: defenseMetrics?.turnovers_forced ? defenseMetrics.turnovers_forced / (offenseMetrics?.drives_total || 1) : 0,
+    turnoverDriveRateOffense: offensiveDrives.turnoverDriveRateOffense,
+    turnoverDriveRateDefense: defensiveDrives.turnoverDriveRateDefense,
     turnoversForcedCount: defenseMetrics?.turnovers_forced ?? 0,
-    tdDriveRateOffense: tdDriveRateOff / 100,
-    fgDriveRateOffense: fgDriveRateOff / 100,
-    puntDriveRateOffense: puntDriveRateOff / 100,
-    thirdDownEfficiencyOffense: thirdDownEffOff / 100,
+    tdDriveRateOffense: offensiveDrives.tdDriveRateOffense,
+    fgDriveRateOffense: offensiveDrives.fgDriveRateOffense,
+    puntDriveRateOffense: offensiveDrives.puntDriveRateOffense,
+    thirdDownEfficiencyOffense: thirdDownEffOff,
     rankTdRate: rankings.tdRateRanking[teamId] ?? 16,
     rankFgRate: rankings.fgRateRanking[teamId] ?? 16,
     rankPuntRate: rankings.puntRateRanking[teamId] ?? 16,
     rankThirdDownConv: rankings.thirdDownRanking[teamId] ?? 16,
-    tdDriveRateDefense: tdDriveRateDef,
-    fgDriveRateDefense: fgDriveRateDef,
-    puntDriveRateDefense: puntDriveRateDef,
+    tdDriveRateDefense: defensiveDrives.tdDriveRateDefense,
+    fgDriveRateDefense: defensiveDrives.fgDriveRateDefense,
+    puntDriveRateDefense: defensiveDrives.puntDriveRateDefense,
     thirdDownEfficiencyDefense: thirdDownEffDef,
     rankTdRateAllowed: rankings.tdRateRanking[teamId] ?? 16,
     rankFgRateAllowed: rankings.fgRateRanking[teamId] ?? 16,

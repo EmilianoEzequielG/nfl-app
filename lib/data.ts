@@ -1,5 +1,13 @@
 import { Week, Game, GameMetrics } from "@/types";
 import { CURRENT_STATS_SEASON } from "./config";
+import {
+  calculateOffensiveDriveRates,
+  calculateDefensiveDriveRates,
+  calculateThirdDownEfficiency,
+  calculateThirdDownStopRate,
+  calculateTotalYards,
+  calculateTotalYardsAllowed,
+} from "./metrics/calculate";
 
 const teamColors: Record<string, string> = {
   ARI: "#97233F",
@@ -301,18 +309,21 @@ function enrichMetricsWithSeasonalData(
     defCommittedRank: penaltyRankings?.defensiveCommitted?.[teamAbbr],
   });
 
+  const offensiveDrives = calculateOffensiveDriveRates(teamOffenseData);
+  const thirdDownEffOff = calculateThirdDownEfficiency(teamOffenseData);
+
   const enriched = {
     // ===== OFFENSIVE STATS (what this team does) =====
 
     // Drive outcomes (offensive) - calculated from drives
-    scoringDriveRateOffense: teamOffenseData.drives_total ? teamOffenseData.drives_score / teamOffenseData.drives_total : 0.45,
-    tdDriveRateOffense: teamOffenseData.drives_total ? teamOffenseData.drives_td / teamOffenseData.drives_total : 0.30,
-    fgDriveRateOffense: teamOffenseData.drives_total ? teamOffenseData.drives_fg / teamOffenseData.drives_total : 0.15,
-    puntDriveRateOffense: teamOffenseData.drives_total ? teamOffenseData.drives_punt / teamOffenseData.drives_total : 0.20,
-    turnoverDriveRateOffense: teamOffenseData.drives_total ? teamOffenseData.drives_turnover / teamOffenseData.drives_total : 0.05,
+    scoringDriveRateOffense: offensiveDrives.scoringDriveRateOffense || 0.45,
+    tdDriveRateOffense: offensiveDrives.tdDriveRateOffense || 0.30,
+    fgDriveRateOffense: offensiveDrives.fgDriveRateOffense || 0.15,
+    puntDriveRateOffense: offensiveDrives.puntDriveRateOffense || 0.20,
+    turnoverDriveRateOffense: offensiveDrives.turnoverDriveRateOffense || 0.05,
 
     // 3rd down efficiency (offensive)
-    thirdDownEfficiencyOffense: teamOffenseData.third_down_conv_rate ? teamOffenseData.third_down_conv_rate / 100 : 0.35,
+    thirdDownEfficiencyOffense: thirdDownEffOff || 0.35,
 
     // Pass neutral rate (use neutral pass pct)
     passNeutralRate: teamOffenseData.neutral_pass_pct ? teamOffenseData.neutral_pass_pct / 100 : 0.50,
@@ -344,14 +355,10 @@ function enrichMetricsWithSeasonalData(
     // ===== DEFENSIVE STATS (what this team's defense allows) =====
 
     // Drive outcomes (defensive - what opponent accomplished against this defense)
-    scoringDriveRateDefense: teamDefenseData.drives_faced ? teamDefenseData.drives_allowed_score / teamDefenseData.drives_faced : 0.45,
-    tdDriveRateDefense: teamDefenseData.drives_faced ? teamDefenseData.drives_allowed_td / teamDefenseData.drives_faced : 0.30,
-    fgDriveRateDefense: teamDefenseData.drives_faced ? teamDefenseData.drives_allowed_fg / teamDefenseData.drives_faced : 0.16,
-    puntDriveRateDefense: teamDefenseData.drives_faced ? teamDefenseData.drives_forced_punt / teamDefenseData.drives_faced : 0.21,
-    turnoverDriveRateDefense: teamDefenseData.drives_faced ? teamDefenseData.drives_forced_turnover / teamDefenseData.drives_faced : 0.05,
+    ...calculateDefensiveDriveRates(teamDefenseData),
 
     // 3rd down efficiency (defensive - stop rate)
-    thirdDownEfficiencyDefense: teamDefenseData.third_down_stop_rate ? teamDefenseData.third_down_stop_rate / 100 : 0.65,
+    thirdDownEfficiencyDefense: calculateThirdDownStopRate(teamDefenseData) || 0.65,
 
     // EPA percentiles & values (defensive)
     epaDefensePercentile: teamDefenseData.rank_total_epa_allowed ? Math.round((100 * (32 - teamDefenseData.rank_total_epa_allowed)) / 31) : 50,
