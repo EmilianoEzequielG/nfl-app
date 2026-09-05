@@ -122,6 +122,13 @@ export function PowerRanking() {
       const response = await fetch(`/api/power-ranking?week=${currentWeek}`);
       if (response.ok) {
         const data = await response.json();
+        console.log("📊 Power Ranking Data (First Team):", {
+          team: data[0]?.id,
+          tdRate: data[0]?.metrics?.tdDriveRateOffense,
+          fgRate: data[0]?.metrics?.fgDriveRateOffense,
+          puntRate: data[0]?.metrics?.puntDriveRateOffense,
+          allMetrics: data[0]?.metrics,
+        });
         setRankings(data);
       }
     } catch (error) {
