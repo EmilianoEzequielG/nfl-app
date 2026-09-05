@@ -24,7 +24,6 @@ import { NextRequest, NextResponse } from "next/server";
 import offenseSeasonData from "@/public/data/offense_season.json";
 import defenseSeasonData from "@/public/data/defense_season.json";
 import epaPercentileData from "@/public/data/epa_percentile_by_week.json";
-import summariesData from "@/public/data/power-ranking-summaries.json";
 import { calculateTeamRankings, calculateSubRankings } from "@/lib/power-ranking/calculate";
 import {
   calculateOffensiveDriveRates,
@@ -401,10 +400,10 @@ function buildMetrics(
   };
 }
 
-function buildRankingsWithRealData(
+async function buildRankingsWithRealData(
   week: number,
   lookups: DataLookups
-): PowerRankingResponse[] {
+): Promise<PowerRankingResponse[]> {
   console.log(`[Power Ranking] Building rankings for week ${week}...`);
 
   const leagueAvg = calculateLeagueAverages(lookups);
@@ -415,8 +414,17 @@ function buildRankingsWithRealData(
   // Calcular sub-rankings (EPA, yardas, penalidades, etc.)
   const subRankings = calculateSubRankings(lookups.offense, lookups.defense);
 
-  // Leer resúmenes editoriales del JSON
-  const weekSummaries = (summariesData.summaries as Record<string, Record<string, string>>)[week.toString()] || {};
+  // Leer resúmenes editoriales del JSON (dinámicamente, no cacheado)
+  let weekSummaries: Record<string, string> = {};
+  try {
+    const summariesRes = await fetch(`${process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : 'http://localhost:3000'}/data/power-ranking-summaries.json`, { cache: 'no-store' });
+    if (summariesRes.ok) {
+      const summariesData = await summariesRes.json();
+      weekSummaries = (summariesData.summaries as Record<string, Record<string, string>>)[week.toString()] || {};
+    }
+  } catch (error) {
+    console.warn(`[Power Ranking] Error loading summaries: ${error}`);
+  }
 
   console.log(`[Power Ranking] Real rankings + sub-rankings calculated`);
 
@@ -466,7 +474,7 @@ export async function GET(request: NextRequest) {
 
     // Calcular rankings en vivo para semana actual
     const lookups = initializeLookups();
-    const rankings = buildRankingsWithRealData(week, lookups);
+    const rankings = await buildRankingsWithRealData(week, lookups);
 
     return NextResponse.json(rankings);
   } catch (error) {
