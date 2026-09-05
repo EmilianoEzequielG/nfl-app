@@ -53,19 +53,33 @@ export interface DefenseData {
  * Returns values as decimals (0.0 - 1.0), not percentages
  */
 export function calculateOffensiveDriveRates(offenseData: OffenseData) {
+  if (!offenseData) {
+    console.warn("[calculateOffensiveDriveRates] No offense data provided, returning zeros");
+    return {
+      tdDriveRateOffense: 0,
+      fgDriveRateOffense: 0,
+      puntDriveRateOffense: 0,
+      turnoverDriveRateOffense: 0,
+      scoringDriveRateOffense: 0,
+    };
+  }
+
   const drivesTotal = offenseData.drives_total || 1;
   const td = offenseData.drives_td || 0;
   const fg = offenseData.drives_fg || 0;
   const punt = offenseData.drives_punt || 0;
   const turnover = offenseData.drives_turnover || 0;
 
-  return {
+  const result = {
     tdDriveRateOffense: td / drivesTotal,
     fgDriveRateOffense: fg / drivesTotal,
     puntDriveRateOffense: punt / drivesTotal,
     turnoverDriveRateOffense: turnover / drivesTotal,
     scoringDriveRateOffense: (td + fg) / drivesTotal,
   };
+
+  console.debug("[calculateOffensiveDriveRates]", { drivesTotal, td, fg, result });
+  return result;
 }
 
 /**
