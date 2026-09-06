@@ -122,12 +122,15 @@ export function PowerRanking() {
       const response = await fetch(`/api/power-ranking?week=${currentWeek}`);
       if (response.ok) {
         const data = await response.json();
-        console.log("📊 Power Ranking Data (First Team):", {
-          team: data[0]?.id,
-          tdRate: data[0]?.metrics?.tdDriveRateOffense,
-          fgRate: data[0]?.metrics?.fgDriveRateOffense,
-          puntRate: data[0]?.metrics?.puntDriveRateOffense,
-          allMetrics: data[0]?.metrics,
+        const firstTeam = data[0];
+        console.log("📊 KC (First Team) Raw Metrics:", firstTeam?.metrics);
+        console.log("📊 KC Drive Rates:", {
+          tdDriveRateOffense: firstTeam?.metrics?.tdDriveRateOffense,
+          fgDriveRateOffense: firstTeam?.metrics?.fgDriveRateOffense,
+          puntDriveRateOffense: firstTeam?.metrics?.puntDriveRateOffense,
+          tdDriveRateDefense: firstTeam?.metrics?.tdDriveRateDefense,
+          fgDriveRateDefense: firstTeam?.metrics?.fgDriveRateDefense,
+          puntDriveRateDefense: firstTeam?.metrics?.puntDriveRateDefense,
         });
         setRankings(data);
       }
