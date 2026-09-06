@@ -26,7 +26,12 @@ import path from "path";
 import offenseSeasonData from "@/public/data/offense_season.json";
 import defenseSeasonData from "@/public/data/defense_season.json";
 import epaPercentileData from "@/public/data/epa_percentile_by_week.json";
-import { calculateTeamRankings, calculateSubRankings } from "@/lib/power-ranking/calculate";
+import {
+  calculateTeamRankings,
+  calculateSubRankings,
+  calculateSeasonEpaPercentiles,
+  type SeasonEpaPercentiles,
+} from "@/lib/power-ranking/calculate";
 import {
   calculateOffensiveDriveRates,
   calculateDefensiveDriveRates,
@@ -313,25 +318,22 @@ function buildMetrics(
   week: number,
   lookups: DataLookups,
   leagueAvg: PowerRankingMetrics['leagueAvg'],
-  rankings: ReturnType<typeof calculateSubRankings>
+  rankings: ReturnType<typeof calculateSubRankings>,
+  seasonPercentiles: Map<string, SeasonEpaPercentiles>
 ): PowerRankingMetrics {
   const offenseMetrics = lookups.offense.get(teamId);
   const defenseMetrics = lookups.defense.get(teamId);
-  const epaWeekly = lookups.epaWeekly.get(`${teamId}-w${week}`);
 
   if (!offenseMetrics) console.warn(`[Power Ranking] Missing offense data for ${teamId}`);
   if (!defenseMetrics) console.warn(`[Power Ranking] Missing defense data for ${teamId}`);
-  if (!epaWeekly) console.warn(`[Power Ranking] Missing weekly EPA data for ${teamId} week ${week}`);
 
-  const epaOffensePercentile = epaWeekly?.percentil_ofensivo ?? offenseMetrics?.pass_epa_adj_z ?? 50;
-  // Fallback for defensive EPA: if zero in JSON, use epa_total_allowed as proxy
-  let epaDefensePercentile = epaWeekly?.percentil_defensivo ?? 50;
-  if (epaDefensePercentile === 0 && epaWeekly?.epa_total_allowed) {
-    // Calculate estimated defensive percentile based on epa_allowed
-    // Lower EPA allowed is better (defensive), so we invert: 100 - (raw percentile)
-    const epaAllowed = epaWeekly.epa_total_allowed;
-    epaDefensePercentile = Math.max(10, Math.min(90, 50 - (epaAllowed * 3))); // Estimate
-  }
+  // EPA en percentil (0-100) calculado sobre el ACUMULADO de temporada, la misma
+  // base que usan las yardas, drives y penalidades de abajo. Antes se tomaba el
+  // percentil de una semana aislada de epa_percentile_by_week.json, lo que
+  // mezclaba una semana suelta con 17 semanas en la misma pantalla.
+  const percentiles = seasonPercentiles.get(teamId) ?? { offense: 50, defense: 50 };
+  const epaOffensePercentile = percentiles.offense;
+  const epaDefensePercentile = percentiles.defense;
 
   const passingYards = offenseMetrics?.passing_yards ?? 0;
   const rushingYards = offenseMetrics?.rushing_yards ?? 0;
@@ -416,6 +418,9 @@ async function buildRankingsWithRealData(
   // Calcular sub-rankings (EPA, yardas, penalidades, etc.)
   const subRankings = calculateSubRankings(lookups.offense, lookups.defense);
 
+  // Percentiles EPA sobre el acumulado de temporada (misma base que el resto de métricas)
+  const seasonPercentiles = calculateSeasonEpaPercentiles(lookups.offense, lookups.defense);
+
   // Leer resúmenes editoriales del JSON desde el filesystem (server-side, sin HTTP)
   let weekSummaries: Record<string, string> = {};
   try {
@@ -432,8 +437,7 @@ async function buildRankingsWithRealData(
 
   const rankings = ALL_TEAM_IDS.map((teamId) => {
     const team = TEAM_DATA[teamId];
-    const metrics = buildMetrics(teamId, week, lookups, leagueAvg, subRankings);
-    const epaWeekly = lookups.epaWeekly.get(`${teamId}-w${week}`);
+    const metrics = buildMetrics(teamId, week, lookups, leagueAvg, subRankings, seasonPercentiles);
     const calculatedRank = calculatedRankings.get(teamId) || 16;
     const summary = weekSummaries[teamId] || "";
 
@@ -447,7 +451,7 @@ async function buildRankingsWithRealData(
       adjustedRank: undefined,
       isAdjusted: false,
       summary: summary || undefined,
-      epa: epaWeekly?.epa_total ?? 0,
+      epa: lookups.offense.get(teamId)?.total_epa ?? 0,
       metrics,
     };
   });

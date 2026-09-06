@@ -122,16 +122,6 @@ export function PowerRanking() {
       const response = await fetch(`/api/power-ranking?week=${currentWeek}`);
       if (response.ok) {
         const data = await response.json();
-        const firstTeam = data[0];
-        console.log("📊 KC (First Team) Raw Metrics:", firstTeam?.metrics);
-        console.log("📊 KC Drive Rates:", {
-          tdDriveRateOffense: firstTeam?.metrics?.tdDriveRateOffense,
-          fgDriveRateOffense: firstTeam?.metrics?.fgDriveRateOffense,
-          puntDriveRateOffense: firstTeam?.metrics?.puntDriveRateOffense,
-          tdDriveRateDefense: firstTeam?.metrics?.tdDriveRateDefense,
-          fgDriveRateDefense: firstTeam?.metrics?.fgDriveRateDefense,
-          puntDriveRateDefense: firstTeam?.metrics?.puntDriveRateDefense,
-        });
         setRankings(data);
       }
     } catch (error) {
@@ -404,7 +394,7 @@ export function PowerRanking() {
                   📝 Resumen Editorial
                 </p>
                 {selectedTeam.summary ? (
-                  <p style={{ fontSize: "14px", fontWeight: "500", lineHeight: "1.7", color: "#333" }}>
+                  <p style={{ fontSize: "14px", fontWeight: "500", lineHeight: "1.7", color: "#333", whiteSpace: "pre-wrap" }}>
                     {selectedTeam.summary}
                   </p>
                 ) : (

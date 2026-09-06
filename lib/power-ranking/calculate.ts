@@ -77,6 +77,57 @@ interface RankingScore {
   epaDefensePercentile: number;
 }
 
+export interface SeasonEpaPercentiles {
+  offense: number;
+  defense: number;
+}
+
+/**
+ * Calcula percentiles EPA (0-100) sobre el ACUMULADO de temporada.
+ *
+ * Los percentiles de epa_percentile_by_week.json corresponden a una semana
+ * aislada, mientras que el resto de las métricas mostradas (yardas, drives,
+ * penalidades) salen de offense_season.json / defense_season.json, que son
+ * acumulados de toda la temporada. Mezclar ambas escalas hacía que la misma
+ * pantalla comparara una semana suelta contra 17 semanas.
+ *
+ * Acá se rankean los 32 equipos por su EPA acumulado y se convierte la
+ * posición a percentil: el mejor obtiene 100, el peor 0.
+ *   - Ofensiva: mayor total_epa es mejor.
+ *   - Defensiva: menor total_epa_allowed es mejor (permite menos EPA).
+ */
+export function calculateSeasonEpaPercentiles(
+  offense: Map<string, OffenseMetrics>,
+  defense: Map<string, DefenseMetrics>
+): Map<string, SeasonEpaPercentiles> {
+  const toPercentile = (index: number, total: number) =>
+    total <= 1 ? 50 : ((total - 1 - index) / (total - 1)) * 100;
+
+  const offenseRanked = Array.from(offense.values()).sort(
+    (a, b) => (b.total_epa ?? 0) - (a.total_epa ?? 0)
+  );
+  const defenseRanked = Array.from(defense.values()).sort(
+    (a, b) => (a.total_epa_allowed ?? 0) - (b.total_epa_allowed ?? 0)
+  );
+
+  const result = new Map<string, SeasonEpaPercentiles>();
+
+  offenseRanked.forEach((team, index) => {
+    result.set(team.team, {
+      offense: toPercentile(index, offenseRanked.length),
+      defense: 50,
+    });
+  });
+
+  defenseRanked.forEach((team, index) => {
+    const existing = result.get(team.team) ?? { offense: 50, defense: 50 };
+    existing.defense = toPercentile(index, defenseRanked.length);
+    result.set(team.team, existing);
+  });
+
+  return result;
+}
+
 /**
  * Calcula un ranking numérico real para cada equipo basado en sus métricas
  * Fórmula: combinación ponderada de EPA ofensivo/defensivo + diferencial de puntos
@@ -91,6 +142,12 @@ export function calculateTeamRankings(
 ): Map<string, number> {
   const scores: RankingScore[] = [];
 
+  // Percentiles EPA reales (0-100) sobre el acumulado de temporada.
+  // Antes se usaba pass_epa_adj_z, que es un z-score (~-3 a +3) y no un
+  // percentil: un valor excelente como 11.4 se leía como "percentil 11.4",
+  // es decir casi el peor de la liga, y con peso 0.40 distorsionaba el ranking.
+  const seasonPercentiles = calculateSeasonEpaPercentiles(offense, defense);
+
   for (const teamId of allTeamIds) {
     const offenseMetrics = offense.get(teamId);
     const defenseMetrics = defense.get(teamId);
@@ -100,9 +157,9 @@ export function calculateTeamRankings(
       continue;
     }
 
-    // Obtener percentiles EPA (normalizados 0-100, donde 100 = mejor)
-    const epaOffensePercentile = offenseMetrics.pass_epa_adj_z ?? 50;
-    const epaDefensePercentile = 100 - (defenseMetrics.pass_epa_adj_z ?? 50); // Invertir: menor EPA permitido = mejor defensa
+    const percentiles = seasonPercentiles.get(teamId) ?? { offense: 50, defense: 50 };
+    const epaOffensePercentile = percentiles.offense;
+    const epaDefensePercentile = percentiles.defense;
 
     // Diferencial de puntos por juego (proxy de dominio general)
     const pointsDiff = (offenseMetrics.points_scored ?? 0) - (defenseMetrics.points_allowed ?? 0);
@@ -112,11 +169,15 @@ export function calculateTeamRankings(
       ? (offenseMetrics.third_down_conversions / (offenseMetrics.third_downs_faced || 1)) * 100
       : 50;
 
+    // Diferencial normalizado a 0-100: 50 es paridad, +/-100 puntos satura los extremos.
+    // El clamp inferior evita que un diferencial muy negativo aporte un valor negativo.
+    const pointsDiffNormalized = Math.max(0, Math.min(100, 50 + pointsDiff * 0.5));
+
     // Puntuación compuesta: EPA ofensivo (40%) + EPA defensivo (40%) + diferencial puntos (15%) + 3ª corta (5%)
     const compositeScore =
       epaOffensePercentile * 0.40 +
       epaDefensePercentile * 0.40 +
-      Math.min(pointsDiff * 1.5, 100) * 0.15 + // Normalizar diff puntos a 0-100
+      pointsDiffNormalized * 0.15 +
       Math.min(thirdDownEff, 100) * 0.05;
 
     scores.push({
