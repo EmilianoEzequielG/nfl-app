@@ -21,6 +21,8 @@
  */
 
 import { NextRequest, NextResponse } from "next/server";
+import fs from "fs";
+import path from "path";
 import offenseSeasonData from "@/public/data/offense_season.json";
 import defenseSeasonData from "@/public/data/defense_season.json";
 import epaPercentileData from "@/public/data/epa_percentile_by_week.json";
@@ -414,16 +416,16 @@ async function buildRankingsWithRealData(
   // Calcular sub-rankings (EPA, yardas, penalidades, etc.)
   const subRankings = calculateSubRankings(lookups.offense, lookups.defense);
 
-  // Leer resúmenes editoriales del JSON (dinámicamente, no cacheado)
+  // Leer resúmenes editoriales del JSON desde el filesystem (server-side, sin HTTP)
   let weekSummaries: Record<string, string> = {};
   try {
-    const summariesRes = await fetch(`${process.env.VERCEL_URL ? 'https://' + process.env.VERCEL_URL : 'http://localhost:3000'}/data/power-ranking-summaries.json`, { cache: 'no-store' });
-    if (summariesRes.ok) {
-      const summariesData = await summariesRes.json();
-      weekSummaries = (summariesData.summaries as Record<string, Record<string, string>>)[week.toString()] || {};
-    }
+    const summariesPath = path.join(process.cwd(), "public", "data", "power-ranking-summaries.json");
+    const summariesRaw = fs.readFileSync(summariesPath, "utf8");
+    const summariesData = JSON.parse(summariesRaw) as { summaries: Record<string, Record<string, string>> };
+    weekSummaries = summariesData.summaries[week.toString()] || {};
+    console.log(`[Power Ranking] Loaded ${Object.keys(weekSummaries).length} summaries for week ${week}`);
   } catch (error) {
-    console.warn(`[Power Ranking] Error loading summaries: ${error}`);
+    console.error(`[Power Ranking] Error loading summaries:`, error);
   }
 
   console.log(`[Power Ranking] Real rankings + sub-rankings calculated`);
