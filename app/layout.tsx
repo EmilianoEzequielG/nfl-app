@@ -8,12 +8,21 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "NFL XOs - Análisis Táctico Profesional",
+  title: "Balón Suelto - Análisis Táctico NFL",
   description: "Scoreboard en vivo, Power Ranking editorial, y tácticas ofensivas/defensivas. Análisis profesional de fútbol americano.",
+  applicationName: "Balón Suelto",
   openGraph: {
-    title: "NFL XOs",
-    description: "Análisis táctico profesional de la NFL",
+    title: "Balón Suelto",
+    // siteName es el que muestran WhatsApp, Twitter y Facebook como origen del enlace
+    siteName: "Balón Suelto",
+    description: "Scoreboard en vivo, Power Ranking editorial y guía táctica de la NFL.",
     type: "website",
+    locale: "es_AR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Balón Suelto",
+    description: "Scoreboard en vivo, Power Ranking editorial y guía táctica de la NFL.",
   },
 };
 
