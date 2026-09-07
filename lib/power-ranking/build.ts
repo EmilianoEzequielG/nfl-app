@@ -172,9 +172,12 @@ export interface PowerRankingResponse {
   name: string;
   record: string;
   color: string;
+  /** Posición publicada: la editorial si esa semana tiene lista, si no la del algoritmo */
   calculatedRank: number;
   adjustedRank?: number;
   isAdjusted: boolean;
+  /** Posición según la fórmula, siempre presente para poder contrastarla */
+  algorithmicRank: number;
   summary?: string;
   epa: number;
   metrics: PowerRankingMetrics;
@@ -268,6 +271,46 @@ export function initializeLookups(): DataLookups {
   console.log(`[Power Ranking] Loaded ${offense.size} offense, ${defense.size} defense, ${epaWeekly.size} weekly EPA records`);
 
   return { offense, defense, epaWeekly };
+}
+
+/**
+ * Orden editorial de la semana, si existe.
+ *
+ * El ranking publicado lo decide el autor, no la fórmula: ésta queda como
+ * referencia en `algorithmicRank`. Si la lista falta, está incompleta o tiene
+ * códigos inválidos se descarta entera y se cae al cálculo, porque publicar
+ * media lista editorial mezclada con media calculada sería peor que cualquiera
+ * de las dos.
+ *
+ * Devuelve un mapa equipo -> posición (1-32), o null si no hay orden usable.
+ */
+export function loadWeekOrder(week: number): Map<string, number> | null {
+  let order: string[];
+  try {
+    const data = readJson<{ order: Record<string, string[]> }>("power-ranking-order.json");
+    order = data.order?.[week.toString()] ?? [];
+  } catch (error) {
+    console.warn("[Power Ranking] No se pudo leer power-ranking-order.json:", error);
+    return null;
+  }
+
+  if (order.length === 0) return null;
+
+  const validTeams = new Set(ALL_TEAM_IDS);
+  const unknown = order.filter((id) => !validTeams.has(id));
+  const duplicates = order.filter((id, i) => order.indexOf(id) !== i);
+  const missing = ALL_TEAM_IDS.filter((id) => !order.includes(id));
+
+  if (unknown.length || duplicates.length || missing.length) {
+    console.error(`[Power Ranking] Orden editorial de la semana ${week} inválido, se usa el cálculo:`);
+    if (unknown.length) console.error(`  Códigos desconocidos: ${unknown.join(", ")} (Rams es LA, no LAR)`);
+    if (duplicates.length) console.error(`  Repetidos: ${[...new Set(duplicates)].join(", ")}`);
+    if (missing.length) console.error(`  Faltan: ${missing.join(", ")}`);
+    return null;
+  }
+
+  console.log(`[Power Ranking] Semana ${week}: usando orden editorial (${order.length} equipos)`);
+  return new Map(order.map((teamId, index) => [teamId, index + 1]));
 }
 
 export function loadWeekSummaries(week: number): Record<string, string> {
@@ -410,10 +453,13 @@ export function buildWeekRankings(week: number): PowerRankingResponse[] {
   const subRankings = calculateSubRankings(lookups.offense, lookups.defense);
   const seasonPercentiles = calculateSeasonEpaPercentiles(lookups.offense, lookups.defense);
   const weekSummaries = loadWeekSummaries(week);
+  const editorialOrder = loadWeekOrder(week);
 
   const rankings = ALL_TEAM_IDS.map((teamId) => {
     const team = TEAM_DATA[teamId];
     const summary = weekSummaries[teamId] || "";
+    const algorithmicRank = calculatedRankings.get(teamId) || 16;
+    const editorialRank = editorialOrder?.get(teamId);
 
     return {
       id: teamId,
@@ -421,9 +467,10 @@ export function buildWeekRankings(week: number): PowerRankingResponse[] {
       name: team.name,
       record: team.record,
       color: team.color,
-      calculatedRank: calculatedRankings.get(teamId) || 16,
-      adjustedRank: undefined,
-      isAdjusted: false,
+      calculatedRank: editorialRank ?? algorithmicRank,
+      adjustedRank: editorialRank,
+      isAdjusted: editorialRank !== undefined,
+      algorithmicRank,
       summary: summary || undefined,
       epa: lookups.offense.get(teamId)?.total_epa ?? 0,
       metrics: buildMetrics(teamId, lookups, leagueAvg, subRankings, seasonPercentiles),

@@ -1,0 +1,28 @@
+{
+  "_comment": "Orden editorial del Power Ranking por semana. Si una semana tiene lista, ese es el orden que se publica y el cálculo automático pasa a ser sólo referencia. Si está vacía, se ordena por el cálculo. Códigos de equipo: usar LA para los Rams (no LAR) y WAS para Washington.",
+  "order": {
+    "1": [
+      "LA", "NE", "SEA", "CIN", "HOU", "DEN", "CHI", "DET",
+      "BUF", "PHI", "LAC", "GB", "BAL", "JAX", "KC", "PIT",
+      "SF", "DAL", "TB", "MIN", "WAS", "IND", "NO", "NYG",
+      "CAR", "TEN", "ATL", "CLE", "NYJ", "LV", "ARI", "MIA"
+    ],
+    "2": [],
+    "3": [],
+    "4": [],
+    "5": [],
+    "6": [],
+    "7": [],
+    "8": [],
+    "9": [],
+    "10": [],
+    "11": [],
+    "12": [],
+    "13": [],
+    "14": [],
+    "15": [],
+    "16": [],
+    "17": [],
+    "18": []
+  }
+}
