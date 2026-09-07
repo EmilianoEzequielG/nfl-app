@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "download-wordmarks": "node scripts/download-wordmarks.js",
-    "snapshot": "node scripts/build-weekly-snapshot.mjs"
+    "snapshot": "node scripts/build-weekly-snapshot.mts"
   },
   "dependencies": {
     "lucide-react": "^1.33.0",
