@@ -75,7 +75,8 @@ const MODAL_STYLES: React.CSSProperties = {
   backgroundColor: "white",
   border: "4px solid #121212",
   boxShadow: "0 10px 40px rgba(0, 0, 0, 0.3)",
-  overflow: "auto",
+  overflowY: "auto",
+  overflowX: "hidden",
 };
 
 const HEADER_STYLES: React.CSSProperties = {
@@ -278,6 +279,7 @@ const cleanPenaltyName = (name: string): string => {
 // ─────────────────────────────────────────────────────────────────────────────
 
 export function TacticsExplorer() {
+  const isMobile = useIsMobile();
   const [activeTab, setActiveTab] = useState<TabType>("offensive");
   const [activeCategory, setActiveCategory] = useState<OffensiveCategory | DefensiveCategory | PenaltiesCategory>("personnel");
   const [carouselIndex, setCarouselIndex] = useState(0);
@@ -404,9 +406,9 @@ export function TacticsExplorer() {
         style={{
           backgroundColor: "white",
           borderBottom: "4px solid #121212",
-          position: "sticky",
+          position: isMobile ? "static" : "sticky",
           top: 0,
-          zIndex: 50,
+          zIndex: 30,
         }}
       >
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "16px 20px" }}>
@@ -421,7 +423,7 @@ export function TacticsExplorer() {
       </div>
 
       {/* TAB NAVIGATION */}
-      <div style={{ backgroundColor: "#D02020", borderBottom: "4px solid #121212", position: "sticky", top: "70px", zIndex: 50 }}>
+      <div style={{ backgroundColor: "#D02020", borderBottom: "4px solid #121212", position: isMobile ? "static" : "sticky", top: "70px", zIndex: 30 }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", gap: 0 }}>
           {[
             { id: "offensive" as TabType, label: "🔴 Ofensiva" },
@@ -453,7 +455,7 @@ export function TacticsExplorer() {
       </div>
 
       {/* MAIN LAYOUT */}
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "24px 20px", display: "grid", gridTemplateColumns: useIsMobile() ? "1fr" : "1fr 3fr", gap: "24px" }}>
+      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "24px 20px", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 3fr", gap: "24px" }}>
         {/* SIDEBAR - CATEGORIES */}
         <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
           {categories.map((cat) => {

@@ -1,11 +1,11 @@
 {
-  "_comment": "Previa editorial de cada partido, por semana. La clave es VISITANTE-LOCAL (ej. NE-SEA). 'estelar' pinta el badge de partido destacado, por eso el texto de introducción ya no repite 'PARTIDO ESTELAR'. Códigos: LA para los Rams, WAS para Washington.",
+  "_comment": "Previa editorial de cada partido, por semana. La clave es VISITANTE-LOCAL (ej. NE-SEA). 'primeTime' en true pinta el badge PRIME TIME: ponelo solo en los partidos de horario nocturno o ventana exclusiva. Códigos: LA para los Rams, WAS para Washington.",
   "previews": {
     "1": {
       "NE-SEA": {
         "titulo": "Patriots @ Seahawks",
-        "cuando": "Miércoles NBC",
-        "estelar": true,
+        "cuando": "Miércoles",
+        "primeTime": true,
         "introduccion": "Se abre la temporada con la revancha del Super Bowl en Seattle, campeón recibiendo al finalista en el primer miércoles inaugural de la historia.",
         "figura": "Drake Maye. 490 puntos a favor, apenas 8 intercepciones y muy fino en tercer down, arriba del 43%.",
         "duelo": "Maye vs Devon Witherspoon. Seattle forzó 18 intercepciones y permitió 292 puntos, lo menos de la liga.",
@@ -16,8 +16,8 @@
       },
       "SF-LA": {
         "titulo": "49ers @ Rams",
-        "cuando": "Jueves Melbourne, Netflix",
-        "estelar": true,
+        "cuando": "Jueves Melbourne",
+        "primeTime": true,
         "introduccion": "Partido histórico: primer partido oficial en Australia, en el MCG, con dos pesos pesados del Oeste.",
         "figura": "Myles Garrett, debuta en Rams tras el traspaso por Verse y tres picks.",
         "duelo": "Puka Nacua vs Fred Warner, el duelo que define el medio de la cancha.",
@@ -28,8 +28,8 @@
       },
       "CHI-CAR": {
         "titulo": "Bears @ Panthers",
-        "cuando": "Domingo 1pm FOX",
-        "estelar": false,
+        "cuando": "Domingo 1pm",
+        "primeTime": false,
         "introduccion": "Chicago viaja a Carolina con cartel de playoff ante un equipo que todavía busca identidad con Young.",
         "figura": "Caleb Williams. Solo 7 intercepciones y Chicago perdió apenas 11 balones en el año.",
         "duelo": "DJ Moore vs Jaycee Horn por fuera.",
@@ -40,8 +40,8 @@
       },
       "TB-CIN": {
         "titulo": "Buccaneers @ Bengals",
-        "cuando": "Domingo 1pm FOX",
-        "estelar": false,
+        "cuando": "Domingo 1pm",
+        "primeTime": false,
         "introduccion": "Tampa sin Evans visita a un Cincinnati que se cansó de defender mal y rompió el chanchito por Lawrence.",
         "figura": "Joe Burrow. 414 puntos pero 17 intercepciones, llega hablando de revancha.",
         "duelo": "Ja'Marr Chase contra la secundaria de Tampa, que forzó 13 intercepciones.",
@@ -52,8 +52,8 @@
       },
       "NO-DET": {
         "titulo": "Saints @ Lions",
-        "cuando": "Domingo 1pm FOX",
-        "estelar": false,
+        "cuando": "Domingo 1pm",
+        "primeTime": false,
         "introduccion": "Detroit, candidato en casa, recibe a un Saints en reconstrucción que apuesta por un quarterback joven.",
         "figura": "Jahmyr Gibbs. Detroit anotó 481 puntos y cuidó la pelota con 8 intercepciones.",
         "duelo": "Amon-Ra St. Brown vs la esquina joven de New Orleans.",
@@ -64,8 +64,8 @@
       },
       "BUF-HOU": {
         "titulo": "Bills @ Texans",
-        "cuando": "Domingo 1pm CBS",
-        "estelar": true,
+        "cuando": "Domingo 1pm",
+        "primeTime": false,
         "introduccion": "Choque de candidatos en Houston, probablemente el mejor partido del domingo temprano.",
         "figura": "Josh Allen. Buffalo anotó 481 puntos, mejor juego terrestre y 44 touchdowns en zona roja.",
         "duelo": "Allen vs Will Anderson y Stingley. Houston forzó 19 intercepciones y 27 robos, con 47 capturas.",
@@ -76,8 +76,8 @@
       },
       "BAL-IND": {
         "titulo": "Ravens @ Colts",
-        "cuando": "Domingo 1pm CBS",
-        "estelar": false,
+        "cuando": "Domingo 1pm",
+        "primeTime": false,
         "introduccion": "Baltimore estrena coordinador ofensivo en Indianapolis ante un equipo que corre y golpea.",
         "figura": "Lamar Jackson, ahora con Declan Doyle.",
         "duelo": "Lamar vs Zaire Franklin.",
@@ -88,8 +88,8 @@
       },
       "CLE-JAX": {
         "titulo": "Browns @ Jaguars",
-        "cuando": "Domingo 1pm CBS",
-        "estelar": false,
+        "cuando": "Domingo 1pm",
+        "primeTime": false,
         "introduccion": "Jacksonville, con aspiraciones, recibe a un Cleveland en plena venta de estrellas y buscando quarterback.",
         "figura": "Trevor Lawrence. Jaguars anotó 474 puntos y necesita dar el salto.",
         "duelo": "Brian Thomas Jr. vs Denzel Ward.",
@@ -101,7 +101,7 @@
       "ATL-PIT": {
         "titulo": "Falcons @ Steelers",
         "cuando": "Domingo 1pm",
-        "estelar": false,
+        "primeTime": false,
         "introduccion": "Pittsburgh abre la era sin Tomlin, con McCarthy y Rodgers, ante un Atlanta pragmático.",
         "figura": "Aaron Rodgers en modo último baile, renovado por un año.",
         "duelo": "Bijan Robinson vs T.J. Watt.",
@@ -112,8 +112,8 @@
       },
       "NYJ-TEN": {
         "titulo": "Jets @ Titans",
-        "cuando": "Domingo 1pm CBS",
-        "estelar": false,
+        "cuando": "Domingo 1pm",
+        "primeTime": false,
         "introduccion": "Duelo de reconstrucciones, con picks altos recientes en cancha y poco margen para ilusionarse.",
         "figura": "Cam Ward contra Sauce Gardner.",
         "duelo": "Garrett Wilson vs L'Jarius Sneed.",
@@ -124,8 +124,8 @@
       },
       "ARI-LAC": {
         "titulo": "Cardinals @ Chargers",
-        "cuando": "Domingo 4:25pm CBS",
-        "estelar": false,
+        "cuando": "Domingo 4:25pm",
+        "primeTime": false,
         "introduccion": "Los Chargers estrenan ofensiva con McDaniel en casa ante un Arizona que vive contra las cuerdas.",
         "figura": "Justin Herbert, ahora dirigido por McDaniel.",
         "duelo": "Herbert vs Budda Baker.",
@@ -137,7 +137,7 @@
       "MIA-LV": {
         "titulo": "Dolphins @ Raiders",
         "cuando": "Domingo 4:25pm",
-        "estelar": false,
+        "primeTime": false,
         "introduccion": "Miami desarmado visita a Las Vegas, que presenta a su quarterback número 1 del draft ante su gente.",
         "figura": "Fernando Mendoza, debut titular.",
         "duelo": "Brock Bowers vs la secundaria de Miami.",
@@ -149,7 +149,7 @@
       "GB-MIN": {
         "titulo": "Packers @ Vikings",
         "cuando": "Domingo 4:25pm",
-        "estelar": true,
+        "primeTime": false,
         "introduccion": "Clásico del Norte con Green Bay sólido y Minnesota con caras nuevas en despacho y quarterback.",
         "figura": "Justin Jefferson con quarterback nuevo, Kyler Murray.",
         "duelo": "Jefferson vs la esquina de Green Bay.",
@@ -160,8 +160,8 @@
       },
       "WAS-PHI": {
         "titulo": "Commanders @ Eagles",
-        "cuando": "Domingo 4:25pm FOX",
-        "estelar": false,
+        "cuando": "Domingo 4:25pm",
+        "primeTime": false,
         "introduccion": "Rivalidad del Este, el campeón de división recibe a un Washington que promete pero defiende mal.",
         "figura": "Jayden Daniels contra Jalen Hurts.",
         "duelo": "Terry McLaurin vs Quinyon Mitchell.",
@@ -172,8 +172,8 @@
       },
       "DAL-NYG": {
         "titulo": "Cowboys @ Giants",
-        "cuando": "Sunday Night NBC",
-        "estelar": true,
+        "cuando": "Sunday Night",
+        "primeTime": true,
         "introduccion": "Prime time en Nueva York, Dallas anotador pero frágil atrás contra unos Giants renovados con Harbaugh.",
         "figura": "Jaxson Dart, segundo año.",
         "duelo": "Malik Nabers vs DaRon Bland, y Lamb contra la secundaria de Giants.",
@@ -184,8 +184,8 @@
       },
       "DEN-KC": {
         "titulo": "Broncos @ Chiefs",
-        "cuando": "Monday Night ESPN/ABC",
-        "estelar": true,
+        "cuando": "Monday Night",
+        "primeTime": true,
         "introduccion": "Cierre en Arrowhead, Denver agresivo contra un Kansas City que viene de un 6-11 que nadie esperaba.",
         "figura": "Patrick Mahomes.",
         "duelo": "Rashee Rice vs Pat Surtain.",

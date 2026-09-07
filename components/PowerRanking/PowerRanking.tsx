@@ -290,7 +290,8 @@ export function PowerRanking() {
               backgroundColor: "white",
               border: "4px solid #121212",
               boxShadow: "0 10px 40px rgba(0, 0, 0, 0.3)",
-              overflow: "auto",
+              overflowY: "auto",
+              overflowX: "hidden",
             }}
           >
             {/* Header */}

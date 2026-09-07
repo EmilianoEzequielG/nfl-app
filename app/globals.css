@@ -247,3 +247,17 @@ a:focus-visible {
 .divider-h {
   border-bottom: 4px solid #121212;
 }
+
+/* Los diagramas tácticos declaran width="320" fijo. Con su viewBox intacto,
+   este tope los deja escalar dentro del modal en pantallas angostas en vez de
+   forzar scroll horizontal. No afecta a los íconos, que son mucho más chicos. */
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ninguna vista debe desplazarse en horizontal. */
+html,
+body {
+  overflow-x: hidden;
+}

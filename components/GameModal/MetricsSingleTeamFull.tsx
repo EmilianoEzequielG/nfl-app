@@ -55,7 +55,7 @@ const MetricRowNewFormat = ({
   const getBarColor = (val: number) => (val >= 50 ? COLORS.success : COLORS.error);
 
   const renderRow = (type: string, value: number, rank?: number) => (
-    <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "16px" }}>
+    <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(0, 1fr) 40px 58px", gap: "8px", alignItems: "center", marginBottom: "16px" }}>
       {/* Metric — Type */}
       <div style={{ ...TYPOGRAPHY.small, color: COLORS.primary }}>
         {metric} — {type}:
@@ -90,7 +90,7 @@ const MetricRowNewFormat = ({
 
 export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: MetricsSingleTeamFullProps) {
   return (
-    <div style={{ padding: "0", fontSize: "13px", fontFamily: TYPOGRAPHY.fontFamily }}>
+    <div style={{ padding: "0", fontSize: "13px", fontFamily: TYPOGRAPHY.fontFamily, overflowWrap: "break-word", minWidth: 0 }}>
       {/* Section: EPA Percentile */}
       <div style={{ marginBottom: "24px" }}>
         <h3
@@ -106,7 +106,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
           📊 EPA Percentile
         </h3>
         <div style={{ marginBottom: "12px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(0, 1fr) 40px 58px", gap: "8px", alignItems: "center", marginBottom: "8px" }}>
             <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               EPA — Ofensiva:
             </div>
@@ -125,7 +125,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
               ({(metrics.epaOffensePercentile || 0).toFixed(1)}%)
             </div>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(0, 1fr) 40px 58px", gap: "8px", alignItems: "center" }}>
             <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               EPA — Defensiva:
             </div>
@@ -242,7 +242,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
         </h3>
 
         <div style={{ marginBottom: "16px", paddingBottom: "12px", borderBottom: "1px solid #ddd" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(0, 1fr) 40px 58px", gap: "8px", alignItems: "center", marginBottom: "8px" }}>
             <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Yardas Totales:
             </div>
@@ -264,7 +264,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
         </div>
 
         <div style={{ marginBottom: "16px", paddingBottom: "12px", borderBottom: "1px solid #ddd" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(0, 1fr) 40px 58px", gap: "8px", alignItems: "center", marginBottom: "8px" }}>
             <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Yardas Aéreas:
             </div>
@@ -286,7 +286,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
         </div>
 
         <div style={{ marginBottom: "16px", paddingBottom: "12px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(0, 1fr) 40px 58px", gap: "8px", alignItems: "center", marginBottom: "8px" }}>
             <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Yardas Terrestres:
             </div>
@@ -324,7 +324,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
         </h3>
 
         <div style={{ marginBottom: "16px", paddingBottom: "12px", borderBottom: "1px solid #ddd" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(0, 1fr) 40px 58px", gap: "8px", alignItems: "center", marginBottom: "8px" }}>
             <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Yardas Totales:
             </div>
@@ -346,7 +346,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
         </div>
 
         <div style={{ marginBottom: "16px", paddingBottom: "12px", borderBottom: "1px solid #ddd" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(0, 1fr) 40px 58px", gap: "8px", alignItems: "center", marginBottom: "8px" }}>
             <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Yardas Aéreas:
             </div>
@@ -368,7 +368,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
         </div>
 
         <div style={{ marginBottom: "16px", paddingBottom: "12px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(0, 1fr) 40px 58px", gap: "8px", alignItems: "center", marginBottom: "8px" }}>
             <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Yardas Terrestres:
             </div>
@@ -405,7 +405,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
           ⚠️ Penalties - Ofensiva
         </h3>
         <div style={{ marginBottom: "16px", paddingBottom: "12px", borderBottom: "1px solid #ddd" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(0, 1fr) 40px 58px", gap: "8px", alignItems: "center", marginBottom: "8px" }}>
             <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Cometidas:
             </div>
@@ -424,7 +424,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
               ({Math.round(metrics.penaltiesOffensiveCommittedCount || 0)})
             </div>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(0, 1fr) 40px 58px", gap: "8px", alignItems: "center" }}>
             <div style={{ fontSize: "11px", fontWeight: "600", color: "#999" }}>
               Yardas:
             </div>
@@ -444,7 +444,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
         </div>
 
         <div style={{ marginBottom: "16px", paddingBottom: "12px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(0, 1fr) 40px 58px", gap: "8px", alignItems: "center", marginBottom: "8px" }}>
             <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Recibidas:
             </div>
@@ -463,7 +463,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
               ({Math.round(metrics.penaltiesOffensiveReceivedCount || 0)})
             </div>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(0, 1fr) 40px 58px", gap: "8px", alignItems: "center" }}>
             <div style={{ fontSize: "11px", fontWeight: "600", color: "#999" }}>
               Yardas:
             </div>
@@ -498,7 +498,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
           ⚠️ Penalties - Defensiva
         </h3>
         <div style={{ marginBottom: "16px", paddingBottom: "12px", borderBottom: "1px solid #ddd" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(0, 1fr) 40px 58px", gap: "8px", alignItems: "center", marginBottom: "8px" }}>
             <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Cometidas:
             </div>
@@ -517,7 +517,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
               ({Math.round(metrics.penaltiesDefensiveCommittedCount || 0)})
             </div>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(0, 1fr) 40px 58px", gap: "8px", alignItems: "center" }}>
             <div style={{ fontSize: "11px", fontWeight: "600", color: "#999" }}>
               Yardas:
             </div>
@@ -537,7 +537,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
         </div>
 
         <div>
-          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center", marginBottom: "8px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(0, 1fr) 40px 58px", gap: "8px", alignItems: "center", marginBottom: "8px" }}>
             <div style={{ fontSize: "11px", fontWeight: "600", color: COLORS.primary }}>
               Recibidas:
             </div>
@@ -556,7 +556,7 @@ export function MetricsSingleTeamFull({ teamName, teamColor, teamId, metrics }: 
               ({Math.round(metrics.penaltiesDefensiveReceivedCount || 0)})
             </div>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "180px 1fr 80px 80px", gap: "12px", alignItems: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.5fr) minmax(0, 1fr) 40px 58px", gap: "8px", alignItems: "center" }}>
             <div style={{ fontSize: "11px", fontWeight: "600", color: "#999" }}>
               Yardas:
             </div>

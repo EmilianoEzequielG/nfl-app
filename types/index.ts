@@ -83,7 +83,8 @@ export type GameMetrics = {
 export type GamePreview = {
   titulo: string;
   cuando: string;
-  estelar: boolean;
+  /** Horario nocturno o ventana exclusiva; pinta el badge PRIME TIME */
+  primeTime: boolean;
   introduccion: string;
   figura: string;
   duelo: string;

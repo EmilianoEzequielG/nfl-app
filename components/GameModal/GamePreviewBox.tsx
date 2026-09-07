@@ -83,7 +83,7 @@ export function GamePreviewBox({ game }: { game: Game }) {
         >
           📋 Previa
         </span>
-        {preview.estelar && (
+        {preview.primeTime && (
           <span
             style={{
               fontSize: "9px",
@@ -94,9 +94,10 @@ export function GamePreviewBox({ game }: { game: Game }) {
               color: COLORS.ink,
               border: `2px solid ${COLORS.ink}`,
               padding: "2px 6px",
+              whiteSpace: "nowrap",
             }}
           >
-            ★ Estelar
+            🌙 Prime Time
           </span>
         )}
         <span
@@ -105,6 +106,7 @@ export function GamePreviewBox({ game }: { game: Game }) {
             fontSize: "11px",
             fontWeight: 700,
             color: COLORS.muted,
+            whiteSpace: "nowrap",
           }}
         >
           {preview.cuando}
