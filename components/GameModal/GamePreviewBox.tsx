@@ -156,6 +156,34 @@ export function GamePreviewBox({ game }: { game: Game }) {
           ))}
         </div>
       )}
+
+      {/* Dato de contexto, al cierre */}
+      {preview.aTenerEnCuenta && (
+        <div
+          style={{
+            backgroundColor: "#FDF6DC",
+            border: `2px solid ${COLORS.ink}`,
+            padding: "10px 12px",
+            marginTop: "4px",
+          }}
+        >
+          <p
+            style={{
+              margin: "0 0 4px 0",
+              fontSize: "10px",
+              fontWeight: 900,
+              textTransform: "uppercase",
+              letterSpacing: "1px",
+              color: COLORS.ink,
+            }}
+          >
+            💡 A tener en cuenta
+          </p>
+          <p style={{ margin: 0, fontSize: "13px", lineHeight: 1.6, color: COLORS.ink }}>
+            {preview.aTenerEnCuenta}
+          </p>
+        </div>
+      )}
     </div>
   );
 }

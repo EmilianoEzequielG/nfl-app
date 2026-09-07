@@ -90,6 +90,8 @@ export type GamePreview = {
   duelo: string;
   /** Cómo gana cada equipo, indexado por abreviatura */
   comoGana: Record<string, string>;
+  /** Dato de contexto o histórico del cruce; opcional */
+  aTenerEnCuenta?: string;
 };
 
 export type Game = {

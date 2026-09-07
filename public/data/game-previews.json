@@ -7,12 +7,13 @@
         "cuando": "Miércoles",
         "primeTime": true,
         "introduccion": "Se abre la temporada con la revancha del Super Bowl en Seattle, campeón recibiendo al finalista en el primer miércoles inaugural de la historia.",
-        "figura": "Drake Maye. 490 puntos a favor, apenas 8 intercepciones y muy fino en tercer down, arriba del 43%.",
+        "figura": "Drake Maye y su nueva sociedad con A.J. Brown. Apenas 8 intercepciones y arriba del 43% en tercer down, ahora con un WR1 real por fuera.",
         "duelo": "Maye vs Devon Witherspoon. Seattle forzó 18 intercepciones y permitió 292 puntos, lo menos de la liga.",
         "comoGana": {
-          "NE": "Aguantar a una defensa de 47 capturas, porque su línea permitió 48.",
-          "SEA": "Darnold viene de 15 intercepciones; si no regala posesiones, la localía y la defensa alcanzan."
-        }
+          "NE": "Aguantando a la defensiva que lo atosigó en el Super Bowl, con presión y más presión sobre Maye. Partido bisagra para Will Campbell en el lado ciego.",
+          "SEA": "Con rotación de frentes, coberturas de dos safeties y una defensa de 47 capturas que obligue a Maye a ir a segundas lecturas. Si Darnold, 15 intercepciones en 2025, protege el balón con play-action y juego terrestre, la localía hace el resto."
+        },
+        "aTenerEnCuenta": "Primer miércoles inaugural en la historia de la NFL. Seattle está 15-1 en primetime en casa desde 2021 y New England no gana en Lumen Field desde 2011."
       },
       "SF-LA": {
         "titulo": "49ers @ Rams",
@@ -24,43 +25,47 @@
         "comoGana": {
           "SF": "Purdy lanzó 16 intercepciones; con Mike Evans nuevo tiene que cambiar goles de campo por touchdowns en zona roja.",
           "LA": "Stafford lanzó solo 8 intercepciones y su equipo anotó 518 puntos; ante una defensa que logró 6 intercepciones, debe atacar sin miedo."
-        }
+        },
+        "aTenerEnCuenta": "Primer partido oficial de temporada regular en Australia y en el hemisferio sur. Los Rams ganaron 4 de los últimos 5 vs SF en temporada regular."
       },
       "CHI-CAR": {
         "titulo": "Bears @ Panthers",
         "cuando": "Domingo 1pm",
         "primeTime": false,
-        "introduccion": "Chicago viaja a Carolina con cartel de playoff ante un equipo que todavía busca identidad con Young.",
+        "introduccion": "Chicago viaja a Carolina con la presión de repetir el título divisional ante un equipo que todavía busca identidad con Young.",
         "figura": "Caleb Williams. Solo 7 intercepciones y Chicago perdió apenas 11 balones en el año.",
-        "duelo": "DJ Moore vs Jaycee Horn por fuera.",
+        "duelo": "Rome Odunze vs Jaycee Horn por fuera.",
         "comoGana": {
           "CHI": "Su defensa robó 23 pelotas por aire, la mayor cifra del año; si Young duda, lo pagan.",
           "CAR": "Young sigue sin extensión y su tercer down estuvo debajo del 37%; necesita carrera y segundos intentos cortos."
-        }
+        },
+        "aTenerEnCuenta": "Chicago ganó los últimos 3 vs Carolina por 10+ puntos y Bryce Young está 0-7 vs defensas top-10 en robos."
       },
       "TB-CIN": {
         "titulo": "Buccaneers @ Bengals",
         "cuando": "Domingo 1pm",
         "primeTime": false,
-        "introduccion": "Tampa sin Evans visita a un Cincinnati que se cansó de defender mal y rompió el chanchito por Lawrence.",
-        "figura": "Joe Burrow. 414 puntos pero 17 intercepciones, llega hablando de revancha.",
+        "introduccion": "Tampa sin Evans visita a un Cincinnati que estrena una defensiva completamente nueva.",
+        "figura": "Joe Burrow, de regreso tras la lesión que cortó su 2025. Habló de revancha después de un año de 414 puntos empañado por 17 intercepciones.",
         "duelo": "Ja'Marr Chase contra la secundaria de Tampa, que forzó 13 intercepciones.",
         "comoGana": {
-          "TB": "Con coordinador nuevo, debe mejorar una zona roja pobre.",
+          "TB": "Con coordinador nuevo, debe corregir una zona roja muy pobre para no vivir de goles de campo.",
           "CIN": "Permitió 492 puntos; si no presiona a Mayfield con Lawrence y Mafe, sufre."
-        }
+        },
+        "aTenerEnCuenta": "Cincinnati perdió sus últimos 3 debuts en Semana 1 y Burrow busca su primera victoria en un opener como titular desde 2021."
       },
       "NO-DET": {
         "titulo": "Saints @ Lions",
         "cuando": "Domingo 1pm",
         "primeTime": false,
         "introduccion": "Detroit, candidato en casa, recibe a un Saints en reconstrucción que apuesta por un quarterback joven.",
-        "figura": "Jahmyr Gibbs. Detroit anotó 481 puntos y cuidó la pelota con 8 intercepciones.",
-        "duelo": "Amon-Ra St. Brown vs la esquina joven de New Orleans.",
+        "figura": "Jahmyr Gibbs, tras un 2025 de 1.600 yardas totales y 16 touchdowns, motor de una ofensiva que anotó 481 puntos y cuidó la pelota con apenas 8 intercepciones.",
+        "duelo": "Amon-Ra St. Brown vs la secundaria renovada de New Orleans, llena de caras nuevas.",
         "comoGana": {
           "NO": "Apuesta por Shough y anotó 306 puntos, último corriendo; necesita series largas.",
           "DET": "Su frente logró 49 capturas, tiene que jugar en campo rival desde el inicio."
-        }
+        },
+        "aTenerEnCuenta": "Detroit ganó sus últimos 4 debuts como local en Semana 1 anotando 30+ puntos en todos. Saints perdió 5 visitas seguidas a Detroit."
       },
       "BUF-HOU": {
         "titulo": "Bills @ Texans",
@@ -72,19 +77,21 @@
         "comoGana": {
           "BUF": "Con DJ Moore nuevo, debe mantener su 46% en tercer down.",
           "HOU": "Stroud lanzó 9 intercepciones; si no entrega, deja a Allen en la banca."
-        }
+        },
+        "aTenerEnCuenta": "Buffalo no gana en Houston desde 2006. Perdió sus últimas 3 visitas allí, todas por una posesión."
       },
       "BAL-IND": {
         "titulo": "Ravens @ Colts",
         "cuando": "Domingo 1pm",
         "primeTime": false,
-        "introduccion": "Baltimore estrena coordinador ofensivo en Indianapolis ante un equipo que corre y golpea.",
-        "figura": "Lamar Jackson, ahora con Declan Doyle.",
-        "duelo": "Lamar vs Zaire Franklin.",
+        "introduccion": "Baltimore estrena head coach y coordinador ofensivo con Declan Doyle y visita a un Indianapolis que corre y golpea en casa.",
+        "figura": "Lamar Jackson, ahora con Declan Doyle en el mando ofensivo.",
+        "duelo": "Lamar Jackson vs Zaire Franklin y Sauce Gardner, que debuta como Colt tras el traspaso con Jets. Prueba de fuego inmediata para la secundaria nueva.",
         "comoGana": {
           "BAL": "Perdió 22 balones y permitió 45 capturas; necesita correr para evitar terceras largas.",
           "IND": "Anotó 466 puntos y forzó 21 robos; si Taylor impone ritmo, controla el reloj."
-        }
+        },
+        "aTenerEnCuenta": "Lamar Jackson está 3-0 en su carrera vs Indianapolis con 7 TD y 0 INT. Baltimore ganó 4 de los últimos 5 vs Indy."
       },
       "CLE-JAX": {
         "titulo": "Browns @ Jaguars",
@@ -94,33 +101,36 @@
         "figura": "Trevor Lawrence. Jaguars anotó 474 puntos y necesita dar el salto.",
         "duelo": "Brian Thomas Jr. vs Denzel Ward.",
         "comoGana": {
-          "CLE": "279 puntos, 51 capturas permitidas y 18 intercepciones; sin Garrett, viaja a sobrevivir.",
+          "CLE": "Con apenas 279 puntos, 51 capturas permitidas y 18 intercepciones en 2025, y ya sin Garrett tras el traspaso, Cleveland tiene que acortar el partido con defensa y juego terrestre para sobrevivir.",
           "JAX": "Robó 29 balones, la mejor cifra; con dos robos temprano, liquida."
-        }
+        },
+        "aTenerEnCuenta": "Cleveland es el peor equipo de la NFL en Semana 1 desde 2008: 1-13-1. No gana un debut desde 2004."
       },
       "ATL-PIT": {
         "titulo": "Falcons @ Steelers",
         "cuando": "Domingo 1pm",
         "primeTime": false,
-        "introduccion": "Pittsburgh abre la era sin Tomlin, con McCarthy y Rodgers, ante un Atlanta pragmático.",
-        "figura": "Aaron Rodgers en modo último baile, renovado por un año.",
-        "duelo": "Bijan Robinson vs T.J. Watt.",
+        "introduccion": "Pittsburgh abre la era sin Tomlin, con McCarthy y Rodgers, ante un Atlanta pragmático que apuesta por Tua como QB1 junto a Bijan.",
+        "figura": "Aaron Rodgers en modo last dance, renovado por un año.",
+        "duelo": "Bijan Robinson, tras otro año por encima de las 1.800 yardas totales, vs T.J. Watt y un frente que logró 48 capturas.",
         "comoGana": {
-          "ATL": "Penix cuidó la pelota con 8 intercepciones pero su tercer down fue 34%; necesita mantenerse en campo.",
-          "PIT": "Sumó a Pittman y a Dean, logró 48 capturas y 25 robos; en casa debe ganar en zona roja."
-        }
+          "ATL": "Con Tua como QB1 debe cuidar la pelota y mejorar un tercer down del 34%; con Bijan como eje, necesita mantenerse en campo con series largas.",
+          "PIT": "Con Pittman y Dean como refuerzos estelares, más una defensa de 48 capturas y 25 robos, en casa debe imponer presión y rematar en zona roja con Rodgers."
+        },
+        "aTenerEnCuenta": "Pittsburgh no pierde en Semana 1 como local desde 2002 (8-0). Rodgers está 4-0 en su carrera vs Atlanta."
       },
       "NYJ-TEN": {
         "titulo": "Jets @ Titans",
         "cuando": "Domingo 1pm",
         "primeTime": false,
         "introduccion": "Duelo de reconstrucciones, con picks altos recientes en cancha y poco margen para ilusionarse.",
-        "figura": "Cam Ward contra Sauce Gardner.",
+        "figura": "Cam Ward, año 2 en Tennessee, ante una secundaria de Jets ya sin Sauce Gardner tras su salida a Indianapolis.",
         "duelo": "Garrett Wilson vs L'Jarius Sneed.",
         "comoGana": {
-          "NYJ": "Permitió 60 capturas y su defensa no logró una intercepción en el año; trajo a Sweat y Ossai.",
+          "NYJ": "Permitió 60 capturas y su defensa no logró una intercepción en el año; con Sweat y Ossai para imponer presión por fuera, tiene que ganar desde el frente.",
           "TEN": "284 puntos y 32% en tercer down; jugar simple, correr y patear."
-        }
+        },
+        "aTenerEnCuenta": "NY Jets terminó 2025 sin una sola intercepción defensiva, primero en 30 años. Ambos equipos vienen de 0-4 en debuts de Semana 1."
       },
       "ARI-LAC": {
         "titulo": "Cardinals @ Chargers",
@@ -132,43 +142,47 @@
         "comoGana": {
           "ARI": "Permitió 59 capturas y 488 puntos; McBride es su escape ante Derwin James.",
           "LAC": "Forzó 19 intercepciones y frena casi 65% de terceros downs; si Alt y Slater están sanos, castiga profundo."
-        }
+        },
+        "aTenerEnCuenta": "Arizona nunca ganó en el SoFi Stadium (0-4) y perdió los últimos 5 duelos directos vs Chargers."
       },
       "MIA-LV": {
         "titulo": "Dolphins @ Raiders",
         "cuando": "Domingo 4:25pm",
         "primeTime": false,
-        "introduccion": "Miami desarmado visita a Las Vegas, que presenta a su quarterback número 1 del draft ante su gente.",
-        "figura": "Fernando Mendoza, debut titular.",
-        "duelo": "Brock Bowers vs la secundaria de Miami.",
+        "introduccion": "Miami desarmado, con Malik Willis como QB1, visita a Las Vegas, que estrena a Kirk Cousins como QB1 ante su gente.",
+        "figura": "Brock Bowers. El mejor ala cerrada de la liga, 100+ recepciones en 2025.",
+        "duelo": "Malik Willis vs Maxx Crosby. La movilidad de Willis contra el mejor arma de Vegas para esconder una línea que permitió 64 capturas.",
         "comoGana": {
-          "MIA": "Sin McDaniel ni Hill, lanzó 18 intercepciones; Achane debe darle segundas oportunidades cortas.",
-          "LV": "241 puntos y 64 capturas permitidas; lecturas fáciles para el novato y que Crosby regale campo corto."
-        }
+          "MIA": "Con Willis como QB1 y sin Hill ni McDaniel, necesita ritmo con Achane, RPO y piernas de Willis para evitar terceras largas.",
+          "LV": "Con Cousins al mando y tras un 2025 de 241 puntos y 64 capturas permitidas, necesita protección simple, mucho Bowers y que Crosby regale campo corto."
+        },
+        "aTenerEnCuenta": "Cousins debuta como titular de Las Vegas y Willis como titular de Miami, ambos con equipo nuevo. LV busca su primera victoria en Semana 1 desde 2021."
       },
       "GB-MIN": {
         "titulo": "Packers @ Vikings",
         "cuando": "Domingo 4:25pm",
         "primeTime": false,
-        "introduccion": "Clásico del Norte con Green Bay sólido y Minnesota con caras nuevas en despacho y quarterback.",
+        "introduccion": "Clásico del Norte con Green Bay sólido y Minnesota con nuevo quarterback, Kyler Murray, y sistema renovado.",
         "figura": "Justin Jefferson con quarterback nuevo, Kyler Murray.",
         "duelo": "Jefferson vs la esquina de Green Bay.",
         "comoGana": {
           "GB": "Love lanzó 7 intercepciones y su tercer down fue 48.5%; sin Jacobs, Lloyd debe sostener la carrera.",
           "MIN": "Lanzó 21 intercepciones, lo peor de la liga; su defensa de 49 capturas tiene que tapar eso."
-        }
+        },
+        "aTenerEnCuenta": "Minnesota ganó 3 de los últimos 4 en casa vs Green Bay. Con Kyler Murray, Jefferson busca su 5to partido seguido de 100+ yardas vs GB en US Bank."
       },
       "WAS-PHI": {
         "titulo": "Commanders @ Eagles",
         "cuando": "Domingo 4:25pm",
         "primeTime": false,
         "introduccion": "Rivalidad del Este, el campeón de división recibe a un Washington que promete pero defiende mal.",
-        "figura": "Jayden Daniels contra Jalen Hurts.",
+        "figura": "Jayden Daniels. Sostiene a un equipo de 356 puntos que lo necesita en modo MVP cada semana.",
         "duelo": "Terry McLaurin vs Quinyon Mitchell.",
         "comoGana": {
-          "WAS": "356 puntos pero permitió 451 y robó 9 balones; necesita explosivos.",
-          "PHI": "Permitió 325 puntos y lanzó 7 intercepciones; con Saquon corriendo, deja a Daniels en la banca."
-        }
+          "WAS": "Permitió 451 puntos y robó apenas 9 balones; necesita ser explosivo ante la secundaria y darle mucho juego a Diggs en vertical.",
+          "PHI": "Con una defensa que permitió apenas 325 puntos y cuidó el balón con 7 intercepciones, debe imponer el tempo con Saquon y dejar a Daniels mirando desde la banda."
+        },
+        "aTenerEnCuenta": "Washington perdió 6 visitas seguidas a Philadelphia. Eagles ganó 8 de los últimos 9 vs Commanders en casa."
       },
       "DAL-NYG": {
         "titulo": "Cowboys @ Giants",
@@ -176,11 +190,12 @@
         "primeTime": true,
         "introduccion": "Prime time en Nueva York, Dallas anotador pero frágil atrás contra unos Giants renovados con Harbaugh.",
         "figura": "Jaxson Dart, segundo año.",
-        "duelo": "Malik Nabers vs DaRon Bland, y Lamb contra la secundaria de Giants.",
+        "duelo": "Malik Nabers vs DaRon Bland por fuera, el duelo que puede abrir la noche.",
         "comoGana": {
-          "DAL": "471 puntos pero permitió 511, lo peor, con 6 intercepciones; Dak lanzó 12 y el equipo perdió 21 balones.",
+          "DAL": "Pese a sus 471 puntos, permitió 511 y perdió 21 balones con 12 intercepciones de Dak; si no protege el balón y ajusta atrás, ni el ataque lo salva.",
           "NYG": "Buen juego terrestre y Thibodeaux jugándose un traspaso; correrle encima es el plan."
-        }
+        },
+        "aTenerEnCuenta": "Dallas ganó 13 de los últimos 15 vs Giants. Harbaugh está 5-0 en debuts como head coach (NFL y CFB) y busca cortar esa racha en SNF."
       },
       "DEN-KC": {
         "titulo": "Broncos @ Chiefs",
@@ -192,7 +207,8 @@
         "comoGana": {
           "DEN": "68 capturas, 311 puntos permitidos y gran tercer down defensivo; con Waddle nuevo, quiere jugar con ventaja.",
           "KC": "Permitió 47 capturas y su tercer down fue 38%; necesita correr para no dejar a Mahomes en tercera y larga toda la noche."
-        }
+        },
+        "aTenerEnCuenta": "Denver ganó 3 seguidos vs Kansas City por primera vez desde 1983-86 y busca el 4to al hilo en Arrowhead, donde KC perdió 5 de sus últimos 6 en 2025."
       }
     },
     "2": {},
