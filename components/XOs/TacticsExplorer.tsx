@@ -79,6 +79,17 @@ const MODAL_STYLES: React.CSSProperties = {
   overflowX: "hidden",
 };
 
+// En mobile el panel deja de comportarse como modal: ocupa todo el ancho y
+// fluye con la pagina, para que haya un solo scroll en vez de dos anidados.
+const PANEL_MOBILE_STYLES: React.CSSProperties = {
+  ...MODAL_STYLES,
+  width: "100%",
+  maxWidth: "none",
+  maxHeight: "none",
+  overflowY: "visible",
+  boxShadow: "4px 4px 0px #121212",
+};
+
 const HEADER_STYLES: React.CSSProperties = {
   backgroundColor: "#D02020",
   border: "4px solid #121212",
@@ -473,7 +484,23 @@ export function TacticsExplorer() {
       {/* MAIN LAYOUT */}
       <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "24px 20px", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 3fr", gap: "24px" }}>
         {/* SIDEBAR - CATEGORIES */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+        <div
+          className={isMobile ? "chips-categorias" : undefined}
+          style={
+            isMobile
+              ? {
+                  display: "flex",
+                  flexDirection: "row",
+                  gap: "8px",
+                  overflowX: "auto",
+                  paddingBottom: "6px",
+                  margin: "0 -20px",
+                  paddingLeft: "20px",
+                  paddingRight: "20px",
+                }
+              : { display: "flex", flexDirection: "column", gap: "8px" }
+          }
+        >
           {categories.map((cat) => {
             const info = categoryInfo[cat as keyof typeof categoryInfo];
             const isActive = activeCategory === cat;
@@ -483,13 +510,14 @@ export function TacticsExplorer() {
                 key={cat}
                 onClick={() => handleCategoryChange(cat)}
                 style={{
-                  width: "100%",
+                  width: isMobile ? "auto" : "100%",
+                  flexShrink: isMobile ? 0 : undefined,
                   textAlign: "left",
-                  padding: "12px",
+                  padding: isMobile ? "8px 12px" : "12px",
                   border: "2px solid #121212",
                   fontWeight: "900",
                   textTransform: "uppercase",
-                  fontSize: "12px",
+                  fontSize: isMobile ? "11px" : "12px",
                   transition: "all 0.2s",
                   whiteSpace: "nowrap",
                   backgroundColor: isActive ? "#0066CC" : "white",
@@ -498,11 +526,19 @@ export function TacticsExplorer() {
                   cursor: "pointer",
                 }}
               >
-                <div style={{ fontSize: "16px", marginBottom: "4px" }}>{info.icon}</div>
-                <div>{info.label}</div>
-                <div style={{ fontSize: "10px", color: isActive ? "rgba(255, 255, 255, 0.8)" : "rgba(18, 18, 18, 0.6)", marginTop: "2px" }}>
-                  {info.description}
-                </div>
+                {isMobile ? (
+                  <span>
+                    {info.icon} {info.label}
+                  </span>
+                ) : (
+                  <>
+                    <div style={{ fontSize: "16px", marginBottom: "4px" }}>{info.icon}</div>
+                    <div>{info.label}</div>
+                    <div style={{ fontSize: "10px", color: isActive ? "rgba(255, 255, 255, 0.8)" : "rgba(18, 18, 18, 0.6)", marginTop: "2px" }}>
+                      {info.description}
+                    </div>
+                  </>
+                )}
               </button>
             );
           })}
@@ -511,13 +547,13 @@ export function TacticsExplorer() {
         {/* MODAL CAROUSEL - GameModal Architecture */}
         <div>
           {filteredConcepts.length === 0 ? (
-            <div style={{ ...MODAL_STYLES, padding: "32px", textAlign: "center" }}>
+            <div style={{ ...(isMobile ? PANEL_MOBILE_STYLES : MODAL_STYLES), padding: "32px", textAlign: "center" }}>
               <p style={{ fontWeight: "900", fontSize: "14px", textTransform: "uppercase", color: "#121212" }}>
                 No se encontraron conceptos
               </p>
             </div>
           ) : (
-            <div style={MODAL_STYLES}>
+            <div style={isMobile ? PANEL_MOBILE_STYLES : MODAL_STYLES}>
               {/* HEADER - GameModal Reference */}
               <div style={HEADER_STYLES}>
                 <div style={HEADER_INFO_STYLES}>
@@ -649,7 +685,22 @@ export function TacticsExplorer() {
               </div>
 
               {/* NAVIGATION FOOTER - GameModal Architecture */}
-              <div style={NAVIGATION_FOOTER_STYLES}>
+              <div
+                style={
+                  isMobile
+                    ? {
+                        ...NAVIGATION_FOOTER_STYLES,
+                        position: "sticky",
+                        bottom: 0,
+                        backgroundColor: "white",
+                        marginTop: "16px",
+                        paddingTop: "12px",
+                        paddingBottom: "12px",
+                        zIndex: 10,
+                      }
+                    : NAVIGATION_FOOTER_STYLES
+                }
+              >
                 <button
                   onClick={handlePrevious}
                   disabled={filteredConcepts.length <= 1}

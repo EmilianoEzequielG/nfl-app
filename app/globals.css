@@ -269,3 +269,14 @@ body {
   width: 100%;
   height: auto;
 }
+
+/* Fila de categorías de Tácticas en mobile: se desliza en horizontal sin
+   mostrar barra, que en un celular sólo ocupa lugar. */
+.chips-categorias {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+.chips-categorias::-webkit-scrollbar {
+  display: none;
+}
