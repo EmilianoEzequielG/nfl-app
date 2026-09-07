@@ -61,16 +61,21 @@ export default function Home() {
               />
             </div>
 
-            {/* Fumbles Counter - hidden on mobile */}
+            {/* Contador de fumbles: visible tambien en mobile, con tipografia y
+                separacion reducidas para que entre al lado del logo */}
             {fumblesData && (
-              <div className="hidden sm:flex gap-8">
-                <div style={{ textAlign: "center" }}>
-                  <p style={{ margin: 0, color: "#888", fontSize: "10px" }}>Fumbles</p>
-                  <p style={{ fontWeight: "700", color: "#1a1a1a", margin: "4px 0 0 0", fontSize: "14px" }}>{fumblesData.historico.total_fumbles.toLocaleString()}</p>
+              <div className="flex gap-4 sm:gap-8 flex-shrink-0 border-l-2 border-bauhaus-black/10 pl-3 sm:pl-4">
+                <div className="text-center">
+                  <p className="m-0 text-[9px] sm:text-[10px] text-[#888] uppercase tracking-wide">Fumbles</p>
+                  <p className="mt-0.5 mb-0 font-bold text-xs sm:text-sm text-[#1a1a1a] tabular-nums">
+                    {fumblesData.historico.total_fumbles.toLocaleString()}
+                  </p>
                 </div>
-                <div style={{ textAlign: "center" }}>
-                  <p style={{ margin: 0, color: "#888", fontSize: "10px" }}>Perdidos</p>
-                  <p style={{ fontWeight: "700", color: "#e74c3c", margin: "4px 0 0 0", fontSize: "14px" }}>{fumblesData.historico.total_fumbles_perdidos.toLocaleString()}</p>
+                <div className="text-center">
+                  <p className="m-0 text-[9px] sm:text-[10px] text-[#888] uppercase tracking-wide">Perdidos</p>
+                  <p className="mt-0.5 mb-0 font-bold text-xs sm:text-sm text-[#e74c3c] tabular-nums">
+                    {fumblesData.historico.total_fumbles_perdidos.toLocaleString()}
+                  </p>
                 </div>
               </div>
             )}

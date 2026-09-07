@@ -284,6 +284,22 @@ export function TacticsExplorer() {
   const [activeCategory, setActiveCategory] = useState<OffensiveCategory | DefensiveCategory | PenaltiesCategory>("personnel");
   const [carouselIndex, setCarouselIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
+  const [zoomedDiagram, setZoomedDiagram] = useState<{ id: string; nombre: string } | null>(null);
+
+  // Cerrar el diagrama ampliado con Escape y evitar que el fondo siga scrolleando
+  useEffect(() => {
+    if (!zoomedDiagram) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setZoomedDiagram(null);
+    };
+    const scrollPrevio = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = scrollPrevio;
+    };
+  }, [zoomedDiagram]);
 
   const filteredConcepts = useMemo(() => {
     if (activeTab === "offensive") {
@@ -551,9 +567,43 @@ export function TacticsExplorer() {
                         {/* DIAGRAM */}
                         {currentConcept.diagram && (
                           <div style={DIAGRAM_SECTION_STYLES}>
-                            <div style={DIAGRAM_CONTAINER_STYLES}>
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setZoomedDiagram({
+                                  id: currentConcept.diagram!,
+                                  nombre: currentConcept.name,
+                                })
+                              }
+                              aria-label={`Ampliar diagrama: ${currentConcept.name}`}
+                              style={{
+                                ...DIAGRAM_CONTAINER_STYLES,
+                                width: "100%",
+                                border: "none",
+                                padding: 0,
+                                cursor: "zoom-in",
+                                position: "relative",
+                              }}
+                            >
                               <TacticDiagrams diagramId={currentConcept.diagram} />
-                            </div>
+                              <span
+                                style={{
+                                  position: "absolute",
+                                  bottom: "6px",
+                                  right: "6px",
+                                  fontSize: "9px",
+                                  fontWeight: 900,
+                                  textTransform: "uppercase",
+                                  letterSpacing: "0.5px",
+                                  backgroundColor: "rgba(18, 18, 18, 0.75)",
+                                  color: "white",
+                                  padding: "3px 6px",
+                                  pointerEvents: "none",
+                                }}
+                              >
+                                Ampliar
+                              </span>
+                            </button>
                           </div>
                         )}
 
@@ -668,6 +718,107 @@ export function TacticsExplorer() {
           )}
         </div>
       </div>
+
+      {/* DIAGRAMA AMPLIADO */}
+      {zoomedDiagram && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 9999,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "16px",
+          }}
+        >
+          <div
+            onClick={() => setZoomedDiagram(null)}
+            style={{
+              position: "fixed",
+              inset: 0,
+              backgroundColor: "rgba(0, 0, 0, 0.85)",
+              zIndex: 1,
+            }}
+          />
+
+          <div
+            style={{
+              position: "relative",
+              zIndex: 2,
+              width: "100%",
+              maxWidth: "900px",
+              maxHeight: "92vh",
+              backgroundColor: "white",
+              border: "4px solid #121212",
+              display: "flex",
+              flexDirection: "column",
+              overflow: "hidden",
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: "#D02020",
+                borderBottom: "4px solid #121212",
+                padding: "12px 16px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                gap: "12px",
+              }}
+            >
+              <p
+                style={{
+                  margin: 0,
+                  color: "white",
+                  fontSize: "14px",
+                  fontWeight: 900,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.5px",
+                }}
+              >
+                {zoomedDiagram.nombre}
+              </p>
+              <button
+                type="button"
+                onClick={() => setZoomedDiagram(null)}
+                aria-label="Cerrar diagrama"
+                style={{
+                  flexShrink: 0,
+                  padding: "4px 10px",
+                  backgroundColor: "white",
+                  border: "2px solid #121212",
+                  cursor: "pointer",
+                  fontSize: "20px",
+                  lineHeight: 1,
+                  color: "#D02020",
+                  fontWeight: 900,
+                }}
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* El SVG trae viewBox, asi que escala al ancho disponible */}
+            <div
+              style={{
+                flex: 1,
+                minHeight: 0,
+                overflow: "auto",
+                padding: "16px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "white",
+              }}
+            >
+              <div className="diagrama-ampliado" style={{ width: "100%" }}>
+                <TacticDiagrams diagramId={zoomedDiagram.id} />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

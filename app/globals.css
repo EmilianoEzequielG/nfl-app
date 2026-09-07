@@ -261,3 +261,11 @@ html,
 body {
   overflow-x: hidden;
 }
+
+/* Dentro del visor ampliado el SVG debe ocupar todo el ancho disponible.
+   El max-width global lo achica en pantallas chicas, pero no lo hace crecer
+   más allá del width="320" que trae declarado. */
+.diagrama-ampliado svg {
+  width: 100%;
+  height: auto;
+}
