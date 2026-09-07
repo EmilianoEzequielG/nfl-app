@@ -1,0 +1,216 @@
+{
+  "_comment": "Previa editorial de cada partido, por semana. La clave es VISITANTE-LOCAL (ej. NE-SEA). 'estelar' pinta el badge de partido destacado, por eso el texto de introducción ya no repite 'PARTIDO ESTELAR'. Códigos: LA para los Rams, WAS para Washington.",
+  "previews": {
+    "1": {
+      "NE-SEA": {
+        "titulo": "Patriots @ Seahawks",
+        "cuando": "Miércoles NBC",
+        "estelar": true,
+        "introduccion": "Se abre la temporada con la revancha del Super Bowl en Seattle, campeón recibiendo al finalista en el primer miércoles inaugural de la historia.",
+        "figura": "Drake Maye. 490 puntos a favor, apenas 8 intercepciones y muy fino en tercer down, arriba del 43%.",
+        "duelo": "Maye vs Devon Witherspoon. Seattle forzó 18 intercepciones y permitió 292 puntos, lo menos de la liga.",
+        "comoGana": {
+          "NE": "Aguantar a una defensa de 47 capturas, porque su línea permitió 48.",
+          "SEA": "Darnold viene de 15 intercepciones; si no regala posesiones, la localía y la defensa alcanzan."
+        }
+      },
+      "SF-LA": {
+        "titulo": "49ers @ Rams",
+        "cuando": "Jueves Melbourne, Netflix",
+        "estelar": true,
+        "introduccion": "Partido histórico: primer partido oficial en Australia, en el MCG, con dos pesos pesados del Oeste.",
+        "figura": "Myles Garrett, debuta en Rams tras el traspaso por Verse y tres picks.",
+        "duelo": "Puka Nacua vs Fred Warner, el duelo que define el medio de la cancha.",
+        "comoGana": {
+          "SF": "Purdy lanzó 16 intercepciones; con Mike Evans nuevo tiene que cambiar goles de campo por touchdowns en zona roja.",
+          "LA": "Stafford lanzó solo 8 intercepciones y su equipo anotó 518 puntos; ante una defensa que logró 6 intercepciones, debe atacar sin miedo."
+        }
+      },
+      "CHI-CAR": {
+        "titulo": "Bears @ Panthers",
+        "cuando": "Domingo 1pm FOX",
+        "estelar": false,
+        "introduccion": "Chicago viaja a Carolina con cartel de playoff ante un equipo que todavía busca identidad con Young.",
+        "figura": "Caleb Williams. Solo 7 intercepciones y Chicago perdió apenas 11 balones en el año.",
+        "duelo": "DJ Moore vs Jaycee Horn por fuera.",
+        "comoGana": {
+          "CHI": "Su defensa robó 23 pelotas por aire, la mayor cifra del año; si Young duda, lo pagan.",
+          "CAR": "Young sigue sin extensión y su tercer down estuvo debajo del 37%; necesita carrera y segundos intentos cortos."
+        }
+      },
+      "TB-CIN": {
+        "titulo": "Buccaneers @ Bengals",
+        "cuando": "Domingo 1pm FOX",
+        "estelar": false,
+        "introduccion": "Tampa sin Evans visita a un Cincinnati que se cansó de defender mal y rompió el chanchito por Lawrence.",
+        "figura": "Joe Burrow. 414 puntos pero 17 intercepciones, llega hablando de revancha.",
+        "duelo": "Ja'Marr Chase contra la secundaria de Tampa, que forzó 13 intercepciones.",
+        "comoGana": {
+          "TB": "Con coordinador nuevo, debe mejorar una zona roja pobre.",
+          "CIN": "Permitió 492 puntos; si no presiona a Mayfield con Lawrence y Mafe, sufre."
+        }
+      },
+      "NO-DET": {
+        "titulo": "Saints @ Lions",
+        "cuando": "Domingo 1pm FOX",
+        "estelar": false,
+        "introduccion": "Detroit, candidato en casa, recibe a un Saints en reconstrucción que apuesta por un quarterback joven.",
+        "figura": "Jahmyr Gibbs. Detroit anotó 481 puntos y cuidó la pelota con 8 intercepciones.",
+        "duelo": "Amon-Ra St. Brown vs la esquina joven de New Orleans.",
+        "comoGana": {
+          "NO": "Apuesta por Shough y anotó 306 puntos, último corriendo; necesita series largas.",
+          "DET": "Su frente logró 49 capturas, tiene que jugar en campo rival desde el inicio."
+        }
+      },
+      "BUF-HOU": {
+        "titulo": "Bills @ Texans",
+        "cuando": "Domingo 1pm CBS",
+        "estelar": true,
+        "introduccion": "Choque de candidatos en Houston, probablemente el mejor partido del domingo temprano.",
+        "figura": "Josh Allen. Buffalo anotó 481 puntos, mejor juego terrestre y 44 touchdowns en zona roja.",
+        "duelo": "Allen vs Will Anderson y Stingley. Houston forzó 19 intercepciones y 27 robos, con 47 capturas.",
+        "comoGana": {
+          "BUF": "Con DJ Moore nuevo, debe mantener su 46% en tercer down.",
+          "HOU": "Stroud lanzó 9 intercepciones; si no entrega, deja a Allen en la banca."
+        }
+      },
+      "BAL-IND": {
+        "titulo": "Ravens @ Colts",
+        "cuando": "Domingo 1pm CBS",
+        "estelar": false,
+        "introduccion": "Baltimore estrena coordinador ofensivo en Indianapolis ante un equipo que corre y golpea.",
+        "figura": "Lamar Jackson, ahora con Declan Doyle.",
+        "duelo": "Lamar vs Zaire Franklin.",
+        "comoGana": {
+          "BAL": "Perdió 22 balones y permitió 45 capturas; necesita correr para evitar terceras largas.",
+          "IND": "Anotó 466 puntos y forzó 21 robos; si Taylor impone ritmo, controla el reloj."
+        }
+      },
+      "CLE-JAX": {
+        "titulo": "Browns @ Jaguars",
+        "cuando": "Domingo 1pm CBS",
+        "estelar": false,
+        "introduccion": "Jacksonville, con aspiraciones, recibe a un Cleveland en plena venta de estrellas y buscando quarterback.",
+        "figura": "Trevor Lawrence. Jaguars anotó 474 puntos y necesita dar el salto.",
+        "duelo": "Brian Thomas Jr. vs Denzel Ward.",
+        "comoGana": {
+          "CLE": "279 puntos, 51 capturas permitidas y 18 intercepciones; sin Garrett, viaja a sobrevivir.",
+          "JAX": "Robó 29 balones, la mejor cifra; con dos robos temprano, liquida."
+        }
+      },
+      "ATL-PIT": {
+        "titulo": "Falcons @ Steelers",
+        "cuando": "Domingo 1pm",
+        "estelar": false,
+        "introduccion": "Pittsburgh abre la era sin Tomlin, con McCarthy y Rodgers, ante un Atlanta pragmático.",
+        "figura": "Aaron Rodgers en modo último baile, renovado por un año.",
+        "duelo": "Bijan Robinson vs T.J. Watt.",
+        "comoGana": {
+          "ATL": "Penix cuidó la pelota con 8 intercepciones pero su tercer down fue 34%; necesita mantenerse en campo.",
+          "PIT": "Sumó a Pittman y a Dean, logró 48 capturas y 25 robos; en casa debe ganar en zona roja."
+        }
+      },
+      "NYJ-TEN": {
+        "titulo": "Jets @ Titans",
+        "cuando": "Domingo 1pm CBS",
+        "estelar": false,
+        "introduccion": "Duelo de reconstrucciones, con picks altos recientes en cancha y poco margen para ilusionarse.",
+        "figura": "Cam Ward contra Sauce Gardner.",
+        "duelo": "Garrett Wilson vs L'Jarius Sneed.",
+        "comoGana": {
+          "NYJ": "Permitió 60 capturas y su defensa no logró una intercepción en el año; trajo a Sweat y Ossai.",
+          "TEN": "284 puntos y 32% en tercer down; jugar simple, correr y patear."
+        }
+      },
+      "ARI-LAC": {
+        "titulo": "Cardinals @ Chargers",
+        "cuando": "Domingo 4:25pm CBS",
+        "estelar": false,
+        "introduccion": "Los Chargers estrenan ofensiva con McDaniel en casa ante un Arizona que vive contra las cuerdas.",
+        "figura": "Justin Herbert, ahora dirigido por McDaniel.",
+        "duelo": "Herbert vs Budda Baker.",
+        "comoGana": {
+          "ARI": "Permitió 59 capturas y 488 puntos; McBride es su escape ante Derwin James.",
+          "LAC": "Forzó 19 intercepciones y frena casi 65% de terceros downs; si Alt y Slater están sanos, castiga profundo."
+        }
+      },
+      "MIA-LV": {
+        "titulo": "Dolphins @ Raiders",
+        "cuando": "Domingo 4:25pm",
+        "estelar": false,
+        "introduccion": "Miami desarmado visita a Las Vegas, que presenta a su quarterback número 1 del draft ante su gente.",
+        "figura": "Fernando Mendoza, debut titular.",
+        "duelo": "Brock Bowers vs la secundaria de Miami.",
+        "comoGana": {
+          "MIA": "Sin McDaniel ni Hill, lanzó 18 intercepciones; Achane debe darle segundas oportunidades cortas.",
+          "LV": "241 puntos y 64 capturas permitidas; lecturas fáciles para el novato y que Crosby regale campo corto."
+        }
+      },
+      "GB-MIN": {
+        "titulo": "Packers @ Vikings",
+        "cuando": "Domingo 4:25pm",
+        "estelar": true,
+        "introduccion": "Clásico del Norte con Green Bay sólido y Minnesota con caras nuevas en despacho y quarterback.",
+        "figura": "Justin Jefferson con quarterback nuevo, Kyler Murray.",
+        "duelo": "Jefferson vs la esquina de Green Bay.",
+        "comoGana": {
+          "GB": "Love lanzó 7 intercepciones y su tercer down fue 48.5%; sin Jacobs, Lloyd debe sostener la carrera.",
+          "MIN": "Lanzó 21 intercepciones, lo peor de la liga; su defensa de 49 capturas tiene que tapar eso."
+        }
+      },
+      "WAS-PHI": {
+        "titulo": "Commanders @ Eagles",
+        "cuando": "Domingo 4:25pm FOX",
+        "estelar": false,
+        "introduccion": "Rivalidad del Este, el campeón de división recibe a un Washington que promete pero defiende mal.",
+        "figura": "Jayden Daniels contra Jalen Hurts.",
+        "duelo": "Terry McLaurin vs Quinyon Mitchell.",
+        "comoGana": {
+          "WAS": "356 puntos pero permitió 451 y robó 9 balones; necesita explosivos.",
+          "PHI": "Permitió 325 puntos y lanzó 7 intercepciones; con Saquon corriendo, deja a Daniels en la banca."
+        }
+      },
+      "DAL-NYG": {
+        "titulo": "Cowboys @ Giants",
+        "cuando": "Sunday Night NBC",
+        "estelar": true,
+        "introduccion": "Prime time en Nueva York, Dallas anotador pero frágil atrás contra unos Giants renovados con Harbaugh.",
+        "figura": "Jaxson Dart, segundo año.",
+        "duelo": "Malik Nabers vs DaRon Bland, y Lamb contra la secundaria de Giants.",
+        "comoGana": {
+          "DAL": "471 puntos pero permitió 511, lo peor, con 6 intercepciones; Dak lanzó 12 y el equipo perdió 21 balones.",
+          "NYG": "Buen juego terrestre y Thibodeaux jugándose un traspaso; correrle encima es el plan."
+        }
+      },
+      "DEN-KC": {
+        "titulo": "Broncos @ Chiefs",
+        "cuando": "Monday Night ESPN/ABC",
+        "estelar": true,
+        "introduccion": "Cierre en Arrowhead, Denver agresivo contra un Kansas City que viene de un 6-11 que nadie esperaba.",
+        "figura": "Patrick Mahomes.",
+        "duelo": "Rashee Rice vs Pat Surtain.",
+        "comoGana": {
+          "DEN": "68 capturas, 311 puntos permitidos y gran tercer down defensivo; con Waddle nuevo, quiere jugar con ventaja.",
+          "KC": "Permitió 47 capturas y su tercer down fue 38%; necesita correr para no dejar a Mahomes en tercera y larga toda la noche."
+        }
+      }
+    },
+    "2": {},
+    "3": {},
+    "4": {},
+    "5": {},
+    "6": {},
+    "7": {},
+    "8": {},
+    "9": {},
+    "10": {},
+    "11": {},
+    "12": {},
+    "13": {},
+    "14": {},
+    "15": {},
+    "16": {},
+    "17": {},
+    "18": {}
+  }
+}

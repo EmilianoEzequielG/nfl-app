@@ -1,4 +1,4 @@
-import { Week, Game, GameMetrics } from "@/types";
+import { Week, Game, GameMetrics, GamePreview } from "@/types";
 import { CURRENT_STATS_SEASON } from "./config";
 import {
   calculateOffensiveDriveRates,
@@ -389,10 +389,28 @@ function enrichMetricsWithSeasonalData(
   return enriched;
 }
 
+/**
+ * Previas editoriales de la semana, indexadas por VISITANTE-LOCAL (ej. "NE-SEA").
+ * Si el archivo falta o la semana no tiene previas, se devuelve un mapa vacío
+ * y el modal simplemente no muestra el bloque.
+ */
+async function loadWeekPreviews(week: number): Promise<Record<string, GamePreview>> {
+  try {
+    const response = await fetch("/data/game-previews.json");
+    if (!response.ok) return {};
+    const data = await response.json();
+    return data.previews?.[week.toString()] ?? {};
+  } catch (error) {
+    console.warn("No se pudieron cargar las previas:", error);
+    return {};
+  }
+}
+
 export async function loadWeekData(week: number): Promise<Week | null> {
   try {
     // Load seasonal stats for enrichment
     const { offenseMap, defenseMap, penaltyRankings } = await loadSeasonalStats();
+    const previews = await loadWeekPreviews(week);
 
     // Cargar schedule base
     const response = await fetch("/data/games_by_week.json");
@@ -485,6 +503,7 @@ export async function loadWeekData(week: number): Promise<Week | null> {
           },
           dateUTC: g.date_utc,
           spreadLine: g.spread_line,
+          preview: previews[`${g.away_team}-${g.home_team}`],
         } as Game;
       });
 

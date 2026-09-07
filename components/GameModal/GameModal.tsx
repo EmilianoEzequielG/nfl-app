@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Game } from "@/types";
 import { MetricsComparison } from "./MetricsComparison";
+import { GamePreviewBox } from "./GamePreviewBox";
 import { X } from "lucide-react";
 
 interface GameModalProps {
@@ -167,7 +168,10 @@ export function GameModal({ game, onClose }: GameModalProps) {
 
           {/* Metrics */}
           <div style={{ borderTop: "4px solid #121212", paddingTop: "24px" }}>
-            <MetricsComparison game={game} />
+            {/* Previa editorial antes de las métricas */}
+          <GamePreviewBox game={game} />
+
+          <MetricsComparison game={game} />
           </div>
         </div>
       </div>

@@ -79,6 +79,18 @@ export type GameMetrics = {
   rankScoringRateAllowed?: number;
 };
 
+/** Previa editorial del partido, cargada de public/data/game-previews.json */
+export type GamePreview = {
+  titulo: string;
+  cuando: string;
+  estelar: boolean;
+  introduccion: string;
+  figura: string;
+  duelo: string;
+  /** Cómo gana cada equipo, indexado por abreviatura */
+  comoGana: Record<string, string>;
+};
+
 export type Game = {
   id: string;
   week: number;
@@ -92,6 +104,7 @@ export type Game = {
   status: "scheduled" | "live" | "final";
   dateUTC?: string;
   spreadLine?: string;
+  preview?: GamePreview;
 };
 
 export type Week = {
