@@ -1,10 +1,15 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   title: "NFL XOs - Análisis Táctico Profesional",
   description: "Scoreboard en vivo, Power Ranking editorial, y tácticas ofensivas/defensivas. Análisis profesional de fútbol americano.",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
   openGraph: {
     title: "NFL XOs",
     description: "Análisis táctico profesional de la NFL",
