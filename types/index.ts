@@ -109,6 +109,8 @@ export type Game = {
   spreadLine?: string;
   /** Reloj y cuarto que informa ESPN mientras el partido esta en juego */
   liveDetail?: string;
+  /** Id del evento en ESPN, para pedir el resumen de anotaciones */
+  espnId?: string;
   preview?: GamePreview;
 };
 

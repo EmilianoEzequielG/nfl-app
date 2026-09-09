@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Game } from "@/types";
 import { MetricsComparison } from "./MetricsComparison";
 import { GamePreviewBox } from "./GamePreviewBox";
+import { GameSummaryBox } from "./GameSummaryBox";
 import { X } from "lucide-react";
 
 interface GameModalProps {
@@ -139,14 +140,15 @@ export function GameModal({ game, onClose }: GameModalProps) {
 
             {/* Score */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-              {game.status === "final" && (
+              {/* El marcador tambien mientras se juega, no solo al terminar */}
+              {(game.status === "final" || game.status === "live") && (
                 <>
-                  <div style={{ fontSize: "48px", fontWeight: "900", marginBottom: "8px" }}>{game.awayScore}</div>
+                  <div style={{ fontSize: "48px", fontWeight: "900", marginBottom: "8px" }}>{game.awayScore ?? 0}</div>
                   <div style={{ fontSize: "20px", fontWeight: "bold", color: "#666" }}>-</div>
-                  <div style={{ fontSize: "48px", fontWeight: "900", marginTop: "8px" }}>{game.homeScore}</div>
+                  <div style={{ fontSize: "48px", fontWeight: "900", marginTop: "8px" }}>{game.homeScore ?? 0}</div>
                 </>
               )}
-              {game.status !== "final" && (
+              {game.status === "scheduled" && (
                 <div style={{ fontWeight: "900", fontSize: "14px", backgroundColor: "#F0C020", border: "2px solid #121212", padding: "8px 12px" }}>
                   VS
                 </div>
@@ -169,7 +171,9 @@ export function GameModal({ game, onClose }: GameModalProps) {
 
           {/* Metrics */}
           <div style={{ borderTop: "4px solid #121212", paddingTop: "24px" }}>
-            {/* Previa editorial antes de las métricas */}
+            {/* Con el partido en marcha, primero lo que pasó; después la previa */}
+          <GameSummaryBox game={game} />
+
           <GamePreviewBox game={game} />
 
           <MetricsComparison game={game} />

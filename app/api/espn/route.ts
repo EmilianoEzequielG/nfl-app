@@ -5,12 +5,15 @@ export async function GET(request: Request) {
   const endpoint = searchParams.get("endpoint") || "scoreboard";
   const week = searchParams.get("week");
   const year = searchParams.get("year");
+  const event = searchParams.get("event");
 
   try {
     // Sin semana, ESPN devuelve la que se este jugando: al mirar otra semana en
     // la app se mezclarian marcadores de fechas distintas. seasontype=2 es
     // temporada regular.
     const params = new URLSearchParams();
+    // summary trae anotaciones y estadisticas de un partido y se pide por id
+    if (event) params.set("event", event);
     if (week) params.set("week", week);
     if (year) {
       params.set("dates", year);

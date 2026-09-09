@@ -506,6 +506,7 @@ export async function loadWeekData(week: number): Promise<Week | null> {
           dateUTC: g.date_utc,
           spreadLine: g.spread_line,
           liveDetail: g.espn_detalle ?? undefined,
+          espnId: g.espn_id ?? undefined,
           preview: previews[`${g.away_team}-${g.home_team}`],
         } as Game;
       });
@@ -582,6 +583,8 @@ function mergeESPNScores(scheduleGames: any[], espnData: any): any[] {
       date_utc: encontrado.date ?? game.date_utc,
       // Reloj y cuarto, utiles mientras el partido esta en juego
       espn_detalle: comp?.status?.type?.shortDetail ?? null,
+      // Id del evento en ESPN: lo pide el endpoint summary para traer anotaciones
+      espn_id: encontrado.id ?? null,
     };
   });
 
