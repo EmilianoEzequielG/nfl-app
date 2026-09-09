@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { Scoreboard } from "@/components/Scoreboard/Scoreboard";
 import { PowerRanking } from "@/components/PowerRanking/PowerRanking";
@@ -17,16 +17,44 @@ export default function Home() {
   const [currentWeek, setCurrentWeek] = useState(1);
   const [activeSection, setActiveSection] = useState<Section>("scoreboard");
   const [fumblesData, setFumblesData] = useState<any>(null);
+  const [ultimaActualizacion, setUltimaActualizacion] = useState<Date | null>(null);
 
-  useEffect(() => {
-    async function load() {
-      setLoading(true);
+  // Una sola funcion de carga. En modo silencioso no toca `loading`, para que el
+  // refresco automatico no reemplace la grilla por el cartel de "Cargando...".
+  const cargarSemana = useCallback(
+    async (silencioso = false) => {
+      if (!silencioso) setLoading(true);
       const data = await loadWeekData(currentWeek);
       setWeek(data);
-      setLoading(false);
-    }
-    load();
-  }, [currentWeek]);
+      setUltimaActualizacion(new Date());
+      if (!silencioso) setLoading(false);
+    },
+    [currentWeek]
+  );
+
+  useEffect(() => {
+    cargarSemana();
+  }, [cargarSemana]);
+
+  // Con partidos en juego el marcador cambia solo; con partidos cuya hora ya
+  // paso conviene mirar mas espaciado para detectar el kickoff. Fuera de esos
+  // dos casos no se consulta nada, para no pegarle a ESPN de gusto.
+  const hayEnVivo = !!week?.games.some((g) => g.status === "live");
+  const porArrancar = !!week?.games.some(
+    (g) =>
+      g.status === "scheduled" &&
+      g.dateUTC &&
+      new Date(g.dateUTC).getTime() - Date.now() < 30 * 60 * 1000
+  );
+
+  useEffect(() => {
+    if (activeSection !== "scoreboard") return;
+    if (!hayEnVivo && !porArrancar) return;
+
+    const cada = hayEnVivo ? 30_000 : 60_000;
+    const id = setInterval(() => cargarSemana(true), cada);
+    return () => clearInterval(id);
+  }, [hayEnVivo, porArrancar, activeSection, cargarSemana]);
 
   useEffect(() => {
     async function loadFumbles() {
@@ -125,6 +153,20 @@ export default function Home() {
                 PRÓXIMA →
               </button>
             </div>
+
+            {/* Solo cuando hay algo que seguir: avisa que se actualiza sin recargar */}
+            {(hayEnVivo || porArrancar) && ultimaActualizacion && (
+              <div className="mb-4 flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider text-bauhaus-black/60">
+                <span className={hayEnVivo ? "text-bauhaus-red animate-pulse" : ""}>●</span>
+                <span>
+                  {hayEnVivo ? "En vivo · actualiza solo" : "Por comenzar"} ·{" "}
+                  {ultimaActualizacion.toLocaleTimeString("es-AR", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </span>
+              </div>
+            )}
 
             {/* Content */}
             {loading ? (
