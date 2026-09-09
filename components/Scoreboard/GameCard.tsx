@@ -46,7 +46,9 @@ export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
               {getTeamCity(game.awayTeam.abbr)}
             </p>
             <p className={`text-base sm:text-3xl font-black text-bauhaus-black mt-0.5`}>
-              {game.status === "final" && game.awayScore !== undefined
+              {(game.status === "final" || game.status === "live") &&
+              game.awayScore !== undefined &&
+              game.awayScore !== null
                 ? game.awayScore
                 : "—"}
             </p>
@@ -56,7 +58,12 @@ export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
         {/* CENTER - Status & Time */}
         <div className="text-center flex-shrink-0 px-1 sm:px-2 space-y-0.5 sm:space-y-1">
           {game.status === "live" && (
-            <p className={`text-xs font-black text-bauhaus-black animate-pulse`}>LIVE</p>
+            <>
+              <p className={`text-xs font-black text-bauhaus-red animate-pulse`}>● LIVE</p>
+              {game.liveDetail && (
+                <p className={`text-[10px] font-bold text-bauhaus-black`}>{game.liveDetail}</p>
+              )}
+            </>
           )}
           {game.status === "scheduled" && (
             <>
@@ -86,7 +93,9 @@ export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
               {getTeamCity(game.homeTeam.abbr)}
             </p>
             <p className={`text-base sm:text-3xl font-black text-bauhaus-black mt-0.5`}>
-              {game.status === "final" && game.homeScore !== undefined
+              {(game.status === "final" || game.status === "live") &&
+              game.homeScore !== undefined &&
+              game.homeScore !== null
                 ? game.homeScore
                 : "—"}
             </p>

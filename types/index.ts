@@ -107,6 +107,8 @@ export type Game = {
   status: "scheduled" | "live" | "final";
   dateUTC?: string;
   spreadLine?: string;
+  /** Reloj y cuarto que informa ESPN mientras el partido esta en juego */
+  liveDetail?: string;
   preview?: GamePreview;
 };
 

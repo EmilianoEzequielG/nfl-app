@@ -1,5 +1,5 @@
 import { Week, Game, GameMetrics, GamePreview } from "@/types";
-import { CURRENT_STATS_SEASON } from "./config";
+import { CURRENT_STATS_SEASON, CURRENT_SEASON } from "./config";
 import {
   calculateOffensiveDriveRates,
   calculateDefensiveDriveRates,
@@ -418,7 +418,9 @@ export async function loadWeekData(week: number): Promise<Week | null> {
 
     // Intentar obtener scores en vivo desde ESPN
     try {
-      const espnResponse = await fetch("/api/espn?endpoint=scoreboard");
+      const espnResponse = await fetch(
+        `/api/espn?endpoint=scoreboard&week=${week}&year=${CURRENT_SEASON}`
+      );
       if (espnResponse.ok) {
         const espnData = await espnResponse.json();
         allGames = mergeESPNScores(allGames, espnData);
@@ -503,6 +505,7 @@ export async function loadWeekData(week: number): Promise<Week | null> {
           },
           dateUTC: g.date_utc,
           spreadLine: g.spread_line,
+          liveDetail: g.espn_detalle ?? undefined,
           preview: previews[`${g.away_team}-${g.home_team}`],
         } as Game;
       });
@@ -521,33 +524,74 @@ export async function loadWeekData(week: number): Promise<Week | null> {
   }
 }
 
+/** Estado de un partido segun ESPN. `status.type.state` es "pre" | "in" | "post"
+ *  y es mas estable que `type.name`, que distingue STATUS_HALFTIME,
+ *  STATUS_END_PERIOD y demas variantes que igual significan "en juego". */
+function estadoDesdeESPN(competencia: any): "scheduled" | "live" | "final" {
+  const tipo = competencia?.status?.type;
+  const estado = tipo?.state;
+  if (estado === "post" || tipo?.completed === true) return "final";
+  if (estado === "in") return "live";
+  return "scheduled";
+}
+
+/** ESPN expone los dos equipos en `competitions[0].competitors[]`, cada uno con
+ *  `homeAway`. Se acepta tambien la forma `competitions[0].home/.away` por si
+ *  alguna respuesta la trae. */
+function ladosDesdeESPN(competencia: any): { local: any; visitante: any } {
+  const lista = competencia?.competitors;
+  if (Array.isArray(lista)) {
+    return {
+      local: lista.find((c: any) => c?.homeAway === "home"),
+      visitante: lista.find((c: any) => c?.homeAway === "away"),
+    };
+  }
+  return { local: competencia?.home, visitante: competencia?.away };
+}
+
 function mergeESPNScores(scheduleGames: any[], espnData: any): any[] {
-  if (!espnData?.events) return scheduleGames;
+  if (!espnData?.events?.length) {
+    console.log("[ESPN] Sin eventos en la respuesta; se usa el schedule base");
+    return scheduleGames;
+  }
 
-  return scheduleGames.map((game) => {
-    // Buscar el evento correspondiente en ESPN
-    const espnEvent = espnData.events?.find(
-      (event: any) =>
-        event.competitions?.[0]?.home?.team?.abbreviation === game.home_team &&
-        event.competitions?.[0]?.away?.team?.abbreviation === game.away_team
-    );
+  let cruzados = 0;
 
-    if (espnEvent) {
-      const comp = espnEvent.competitions[0];
-      const homeScore = parseInt(comp.home?.score || "0");
-      const awayScore = parseInt(comp.away?.score || "0");
-      const status = comp.status?.type === "STATUS_FINAL" ? "final" :
-                     comp.status?.type === "STATUS_IN_PROGRESS" ? "live" : "scheduled";
+  const resultado = scheduleGames.map((game) => {
+    const encontrado = espnData.events.find((event: any) => {
+      const comp = event?.competitions?.[0];
+      if (!comp) return false;
+      const { local, visitante } = ladosDesdeESPN(comp);
+      return (
+        local?.team?.abbreviation === game.home_team &&
+        visitante?.team?.abbreviation === game.away_team
+      );
+    });
 
-      return {
-        ...game,
-        home_score: homeScore,
-        away_score: awayScore,
-        status: status,
-        date_utc: espnEvent.date,
-      };
-    }
+    if (!encontrado) return game;
 
-    return game;
+    const comp = encontrado.competitions[0];
+    const { local, visitante } = ladosDesdeESPN(comp);
+    cruzados++;
+
+    return {
+      ...game,
+      home_score: parseInt(local?.score ?? "0", 10) || 0,
+      away_score: parseInt(visitante?.score ?? "0", 10) || 0,
+      status: estadoDesdeESPN(comp),
+      date_utc: encontrado.date ?? game.date_utc,
+      // Reloj y cuarto, utiles mientras el partido esta en juego
+      espn_detalle: comp?.status?.type?.shortDetail ?? null,
+    };
   });
+
+  console.log(`[ESPN] ${cruzados}/${scheduleGames.length} partidos cruzados con la respuesta de ESPN`);
+  if (cruzados === 0) {
+    const muestra = espnData.events[0]?.competitions?.[0];
+    console.warn("[ESPN] Ningun cruce. Abreviaturas recibidas:", JSON.stringify(
+      (muestra?.competitors ?? []).map((c: any) => `${c?.homeAway}:${c?.team?.abbreviation}`)
+    ));
+  }
+
+  return resultado;
 }

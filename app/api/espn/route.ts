@@ -3,9 +3,21 @@
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const endpoint = searchParams.get("endpoint") || "scoreboard";
+  const week = searchParams.get("week");
+  const year = searchParams.get("year");
 
   try {
-    const url = `https://site.api.espn.com/apis/site/v2/sports/football/nfl/${endpoint}`;
+    // Sin semana, ESPN devuelve la que se este jugando: al mirar otra semana en
+    // la app se mezclarian marcadores de fechas distintas. seasontype=2 es
+    // temporada regular.
+    const params = new URLSearchParams();
+    if (week) params.set("week", week);
+    if (year) {
+      params.set("dates", year);
+      params.set("seasontype", "2");
+    }
+    const qs = params.toString();
+    const url = `https://site.api.espn.com/apis/site/v2/sports/football/nfl/${endpoint}${qs ? `?${qs}` : ""}`;
 
     const response = await fetch(url, {
       headers: {
