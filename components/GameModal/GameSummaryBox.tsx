@@ -2,7 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { Game } from "@/types";
-import { cargarResumenPartido, type ResumenPartido, type TipoAnotacion } from "@/lib/espn/summary";
+import {
+  cargarResumenPartido,
+  type Autor,
+  type ResumenPartido,
+  type TipoAnotacion,
+} from "@/lib/espn/summary";
 
 const COLORS = {
   ink: "#121212",
@@ -18,19 +23,37 @@ const ICONO: Record<TipoAnotacion, string> = {
   OTRO: "•",
 };
 
-function Totales({ abbr, color, t }: { abbr: string; color: string; t: any }) {
+function Totales({
+  abbr,
+  color,
+  t,
+}: {
+  abbr: string;
+  color: string;
+  t: {
+    td: number;
+    fg: number;
+    turnovers: number | null;
+    sacks: number | null;
+    intercepciones: number | null;
+    fumblesRecuperados: number | null;
+  };
+}) {
   const celdas = [
     { etiqueta: "TD", valor: t.td },
     { etiqueta: "FG", valor: t.fg },
-    { etiqueta: "TO", valor: t.turnovers },
     { etiqueta: "Sacks", valor: t.sacks },
+    { etiqueta: "INT", valor: t.intercepciones },
+    { etiqueta: "Fum rec", valor: t.fumblesRecuperados },
+    { etiqueta: "Pérdidas", valor: t.turnovers },
   ];
+
   return (
-    <div style={{ borderLeft: `4px solid ${color}`, paddingLeft: "10px" }}>
+    <div style={{ borderLeft: `5px solid ${color}`, paddingLeft: "10px" }}>
       <p
         style={{
           margin: "0 0 6px 0",
-          fontSize: "11px",
+          fontSize: "12px",
           fontWeight: 900,
           textTransform: "uppercase",
           letterSpacing: "0.5px",
@@ -39,16 +62,74 @@ function Totales({ abbr, color, t }: { abbr: string; color: string; t: any }) {
       >
         {abbr}
       </p>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "6px" }}>
+      {/* Seis metricas en dos filas: en una sola no entran en un telefono */}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "6px" }}>
         {celdas.map((c) => (
           <div key={c.etiqueta} style={{ textAlign: "center" }}>
-            <p style={{ margin: 0, fontSize: "9px", color: COLORS.muted, textTransform: "uppercase" }}>
+            <p
+              style={{
+                margin: 0,
+                fontSize: "9px",
+                color: COLORS.muted,
+                textTransform: "uppercase",
+                whiteSpace: "nowrap",
+              }}
+            >
               {c.etiqueta}
             </p>
             <p style={{ margin: "2px 0 0 0", fontSize: "17px", fontWeight: 900, color: COLORS.ink }}>
               {c.valor ?? "—"}
             </p>
           </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ListaAutores({
+  titulo,
+  icono,
+  autores,
+  colorDe,
+}: {
+  titulo: string;
+  icono: string;
+  autores: Autor[];
+  colorDe: (abbr?: string) => string;
+}) {
+  if (autores.length === 0) return null;
+  return (
+    <div style={{ borderTop: `1px solid ${COLORS.hairline}`, paddingTop: "10px", marginTop: "10px" }}>
+      <p
+        style={{
+          margin: "0 0 6px 0",
+          fontSize: "10px",
+          fontWeight: 900,
+          textTransform: "uppercase",
+          letterSpacing: "1px",
+          color: COLORS.muted,
+        }}
+      >
+        {icono} {titulo}
+      </p>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+        {autores.map((a, i) => (
+          <span
+            key={`${a.jugador}-${i}`}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              fontSize: "12px",
+              color: COLORS.ink,
+              borderLeft: `4px solid ${colorDe(a.equipo)}`,
+              paddingLeft: "6px",
+            }}
+          >
+            {a.jugador}
+            <strong style={{ fontWeight: 900 }}>{a.cantidad}</strong>
+          </span>
         ))}
       </div>
     </div>
@@ -86,7 +167,6 @@ export function GameSummaryBox({ game }: { game: Game }) {
     };
   }, [game.espnId, arrancado, enJuego]);
 
-  // Antes del kickoff no hay nada que mostrar
   if (!arrancado) return null;
 
   if (!resumen) {
@@ -107,8 +187,12 @@ export function GameSummaryBox({ game }: { game: Game }) {
   }
 
   const abbrs = [game.awayTeam.abbr, game.homeTeam.abbr];
-  const colorDe = (a: string) =>
-    a === game.awayTeam.abbr ? game.awayTeam.color : game.homeTeam.color;
+  const colorDe = (a?: string) =>
+    a === game.awayTeam.abbr
+      ? game.awayTeam.color
+      : a === game.homeTeam.abbr
+      ? game.homeTeam.color
+      : COLORS.muted;
 
   return (
     <div
@@ -155,14 +239,22 @@ export function GameSummaryBox({ game }: { game: Game }) {
           </span>
         )}
         {game.liveDetail && (
-          <span style={{ marginLeft: "auto", fontSize: "11px", fontWeight: 700, color: COLORS.muted }}>
+          <span
+            style={{
+              marginLeft: "auto",
+              fontSize: "11px",
+              fontWeight: 700,
+              color: COLORS.muted,
+              whiteSpace: "nowrap",
+            }}
+          >
             {game.liveDetail}
           </span>
         )}
       </div>
 
       {/* Totales por equipo */}
-      <div style={{ display: "grid", gap: "12px", marginBottom: "14px" }}>
+      <div style={{ display: "grid", gap: "14px", marginBottom: "4px" }}>
         {abbrs.map((a) =>
           resumen.totales[a] ? (
             <Totales key={a} abbr={a} color={colorDe(a)} t={resumen.totales[a]} />
@@ -170,9 +262,23 @@ export function GameSummaryBox({ game }: { game: Game }) {
         )}
       </div>
 
+      <ListaAutores titulo="Capturas" icono="💥" autores={resumen.sacks} colorDe={colorDe} />
+      <ListaAutores
+        titulo="Intercepciones"
+        icono="🙌"
+        autores={resumen.intercepciones}
+        colorDe={colorDe}
+      />
+      <ListaAutores
+        titulo="Fumbles recuperados"
+        icono="🤲"
+        autores={resumen.fumblesRecuperados}
+        colorDe={colorDe}
+      />
+
       {/* Anotaciones, de la mas reciente a la mas vieja */}
       {resumen.anotaciones.length > 0 && (
-        <div style={{ borderTop: `1px solid ${COLORS.hairline}`, paddingTop: "12px" }}>
+        <div style={{ borderTop: `1px solid ${COLORS.hairline}`, paddingTop: "12px", marginTop: "10px" }}>
           <p
             style={{
               margin: "0 0 8px 0",
@@ -192,8 +298,10 @@ export function GameSummaryBox({ game }: { game: Game }) {
                 display: "flex",
                 gap: "8px",
                 alignItems: "flex-start",
-                padding: "6px 0",
-                borderBottom: i < resumen.anotaciones.length - 1 ? `1px solid ${COLORS.hairline}` : "none",
+                // Franja del color del equipo que anoto
+                borderLeft: `5px solid ${colorDe(a.equipo)}`,
+                paddingLeft: "8px",
+                marginBottom: "8px",
               }}
             >
               <span style={{ fontSize: "13px", flexShrink: 0 }}>{ICONO[a.tipo]}</span>
@@ -207,29 +315,6 @@ export function GameSummaryBox({ game }: { game: Game }) {
               </div>
             </div>
           ))}
-        </div>
-      )}
-
-      {/* Quien captura */}
-      {resumen.sackeadores.length > 0 && (
-        <div style={{ borderTop: `1px solid ${COLORS.hairline}`, paddingTop: "12px", marginTop: "4px" }}>
-          <p
-            style={{
-              margin: "0 0 6px 0",
-              fontSize: "10px",
-              fontWeight: 900,
-              textTransform: "uppercase",
-              letterSpacing: "1px",
-              color: COLORS.muted,
-            }}
-          >
-            Capturas
-          </p>
-          <p style={{ margin: 0, fontSize: "12px", lineHeight: 1.6, color: COLORS.ink }}>
-            {resumen.sackeadores
-              .map((s) => `${s.jugador}${s.equipo ? ` (${s.equipo})` : ""} ${s.cantidad}`)
-              .join(" · ")}
-          </p>
         </div>
       )}
     </div>
