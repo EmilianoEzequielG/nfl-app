@@ -18,12 +18,26 @@ export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
 
   // Con el partido en marcha el marcador manda: pasa a ser lo mas grande de la
   // tarjeta, y el que va abajo queda atenuado para que se lea de un vistazo.
-  const claseMarcador = (propios: number, ajenos: number) =>
-    [
-      "mt-0.5 font-black tabular-nums leading-none",
-      arrancado ? "text-3xl sm:text-4xl" : "text-base sm:text-3xl",
-      arrancado && propios < ajenos ? "text-bauhaus-black/40" : "text-bauhaus-black",
-    ].join(" ");
+  const estiloMarcador = (propios: number, ajenos: number): React.CSSProperties => ({
+    // Arrancado el partido el marcador es lo mas grande de la tarjeta; antes del
+    // kickoff el guion queda chico para no estirar los partidos programados.
+    fontSize: arrancado ? "clamp(30px, 9vw, 40px)" : "15px",
+    fontWeight: 900,
+    lineHeight: 1,
+    fontVariantNumeric: "tabular-nums",
+    marginTop: arrancado ? "2px" : "1px",
+    color: arrancado && propios < ajenos ? "rgba(18,18,18,0.35)" : "#121212",
+  });
+
+  // El nombre del equipo es un h3 y globals.css lo lleva a 18px como minimo,
+  // por encima de cualquier clase de Tailwind: se fija aca.
+  const estiloEquipo: React.CSSProperties = {
+    fontSize: "13px",
+    fontWeight: 900,
+    lineHeight: 1.1,
+    textTransform: "uppercase",
+    letterSpacing: "0.02em",
+  };
 
   return (
     <button
@@ -49,14 +63,14 @@ export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-0.5">
               <span className="text-xs">✈️</span>
-              <h3 className={`text-xs sm:text-sm text-bauhaus-black truncate font-black uppercase`}>
+              <h3 className="truncate text-bauhaus-black" style={estiloEquipo}>
                 {game.awayTeam.abbr}
               </h3>
             </div>
             <p className={`text-xs sm:text-sm text-bauhaus-black/60 truncate hidden sm:block`}>
               {getTeamCity(game.awayTeam.abbr)}
             </p>
-            <p className={claseMarcador(puntosVisita, puntosLocal)}>
+            <p style={estiloMarcador(puntosVisita, puntosLocal)}>
               {arrancado ? puntosVisita : "—"}
             </p>
           </div>
@@ -93,13 +107,13 @@ export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
         {/* HOME TEAM */}
         <div className="flex-1 min-w-0 flex items-center justify-end gap-1 sm:gap-3">
           <div className="min-w-0 text-right flex-1">
-            <h3 className={`text-xs sm:text-sm text-bauhaus-black truncate font-black uppercase`}>
+            <h3 className="truncate text-bauhaus-black" style={estiloEquipo}>
               {game.homeTeam.abbr}
             </h3>
             <p className={`text-xs sm:text-sm text-bauhaus-black/60 truncate hidden sm:block`}>
               {getTeamCity(game.homeTeam.abbr)}
             </p>
-            <p className={claseMarcador(puntosLocal, puntosVisita)}>
+            <p style={estiloMarcador(puntosLocal, puntosVisita)}>
               {arrancado ? puntosLocal : "—"}
             </p>
           </div>
