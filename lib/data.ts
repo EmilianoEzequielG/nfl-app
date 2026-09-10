@@ -525,6 +525,21 @@ export async function loadWeekData(week: number): Promise<Week | null> {
   }
 }
 
+/** ESPN informa el cuarto en ingles ("11:07 - 1st", "Halftime", "End of 2nd").
+ *  Se traduce una sola vez aca para que la tarjeta y el modal muestren lo mismo. */
+function traducirDetalle(detalle: string | null | undefined): string | null {
+  if (!detalle) return null;
+  return detalle
+    .replace(/\bEnd of\b/gi, "Fin del")
+    .replace(/\bHalftime\b/gi, "Entretiempo")
+    .replace(/\bOT\b/g, "TS")
+    .replace(/\b1st\b/gi, "1C")
+    .replace(/\b2nd\b/gi, "2C")
+    .replace(/\b3rd\b/gi, "3C")
+    .replace(/\b4th\b/gi, "4C")
+    .replace(/\s-\s/, " · ");
+}
+
 /** Estado de un partido segun ESPN. `status.type.state` es "pre" | "in" | "post"
  *  y es mas estable que `type.name`, que distingue STATUS_HALFTIME,
  *  STATUS_END_PERIOD y demas variantes que igual significan "en juego". */
@@ -582,7 +597,7 @@ function mergeESPNScores(scheduleGames: any[], espnData: any): any[] {
       status: estadoDesdeESPN(comp),
       date_utc: encontrado.date ?? game.date_utc,
       // Reloj y cuarto, utiles mientras el partido esta en juego
-      espn_detalle: comp?.status?.type?.shortDetail ?? null,
+      espn_detalle: traducirDetalle(comp?.status?.type?.shortDetail),
       // Id del evento en ESPN: lo pide el endpoint summary para traer anotaciones
       espn_id: encontrado.id ?? null,
     };

@@ -12,7 +12,18 @@ interface GameCardProps {
 }
 
 export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
-  console.log(`🏈 GameCard: Away=${game.awayTeam.abbr} → /helmets/${game.awayTeam.abbr}.png, Home=${game.homeTeam.abbr} → /helmets/${game.homeTeam.abbr}.png`);
+  const arrancado = game.status === "final" || game.status === "live";
+  const puntosVisita = game.awayScore ?? 0;
+  const puntosLocal = game.homeScore ?? 0;
+
+  // Con el partido en marcha el marcador manda: pasa a ser lo mas grande de la
+  // tarjeta, y el que va abajo queda atenuado para que se lea de un vistazo.
+  const claseMarcador = (propios: number, ajenos: number) =>
+    [
+      "mt-0.5 font-black tabular-nums leading-none",
+      arrancado ? "text-3xl sm:text-4xl" : "text-base sm:text-3xl",
+      arrancado && propios < ajenos ? "text-bauhaus-black/40" : "text-bauhaus-black",
+    ].join(" ");
 
   return (
     <button
@@ -45,12 +56,8 @@ export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
             <p className={`text-xs sm:text-sm text-bauhaus-black/60 truncate hidden sm:block`}>
               {getTeamCity(game.awayTeam.abbr)}
             </p>
-            <p className={`text-base sm:text-3xl font-black text-bauhaus-black mt-0.5`}>
-              {(game.status === "final" || game.status === "live") &&
-              game.awayScore !== undefined &&
-              game.awayScore !== null
-                ? game.awayScore
-                : "—"}
+            <p className={claseMarcador(puntosVisita, puntosLocal)}>
+              {arrancado ? puntosVisita : "—"}
             </p>
           </div>
         </div>
@@ -92,12 +99,8 @@ export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
             <p className={`text-xs sm:text-sm text-bauhaus-black/60 truncate hidden sm:block`}>
               {getTeamCity(game.homeTeam.abbr)}
             </p>
-            <p className={`text-base sm:text-3xl font-black text-bauhaus-black mt-0.5`}>
-              {(game.status === "final" || game.status === "live") &&
-              game.homeScore !== undefined &&
-              game.homeScore !== null
-                ? game.homeScore
-                : "—"}
+            <p className={claseMarcador(puntosLocal, puntosVisita)}>
+              {arrancado ? puntosLocal : "—"}
             </p>
           </div>
           <div className="flex-shrink-0">
