@@ -114,17 +114,26 @@ async function main() {
     console.log(`[ESPN live] Semana no identificada; guardado ${path.relative(projectRoot, archivo)}`);
   }
 
-  // Resumenes: solo para partidos en juego o recien terminados (menos de 4h),
-  // que es donde el resumen todavia puede cambiar o recien se necesita.
-  // Pedir el resumen de todos los partidos de la semana, jugados o no, seria
-  // desperdiciar pedidos.
+  // Resumenes: en vivo se piden siempre (las anotaciones van cambiando).
+  // Terminados, se piden solo si TODAVIA NO se guardo un archivo para ese
+  // evento - una vez guardado, el resultado final ya no cambia mas, asi que
+  // no hace falta volver a pedirlo.
+  //
+  // Antes esto tenia una ventana de 4h post-partido en vez de "ya tiene
+  // archivo": cualquier partido consultado mas tarde que eso (alguien
+  // mirando el resumen al dia siguiente, por ejemplo) nunca llegaba a
+  // generarse - quedaba en "Todavia no hay anotaciones" para siempre porque
+  // el script jamas intentaba pedirlo.
+  const archivosExistentes = new Set(
+    (await fs.readdir(outDir).catch(() => []))
+      .filter((n) => n.startsWith("summary-"))
+      .map((n) => n.replace("summary-", "").replace(".json", ""))
+  );
+
   const relevantes = events.filter((ev) => {
     const estado = ev?.status?.type?.state;
     if (estado === "in") return true;
-    if (estado === "post") {
-      const fin = new Date(ev?.date ?? 0).getTime();
-      return Date.now() - fin < 4 * 60 * 60 * 1000;
-    }
+    if (estado === "post") return !archivosExistentes.has(String(ev?.id));
     return false;
   });
 
@@ -147,18 +156,20 @@ async function main() {
   }
   console.log(`[ESPN live] ${sumariosOk}/${relevantes.length} resumenes guardados`);
 
-  // Los resumenes de partidos ya viejos (mas de 24h desde que terminaron) se
-  // borran para que el directorio no crezca sin limite semana a semana.
+  // Los resumenes viejos se borran solo pasados 10 dias (cubre toda la
+  // semana NFL con margen) para que el directorio no crezca sin limite.
+  // Antes eran 24h contra "sigue vigente" (estar en `relevantes`) - pero un
+  // partido terminado con su resumen ya guardado deja de estar en
+  // `relevantes` justamente PORQUE ya se guardo, asi que se borraba apenas
+  // un dia despues de generado: el peor momento posible, cuando alguien
+  // recien va a mirar el resultado del dia anterior.
   const archivos = await fs.readdir(outDir);
   let borrados = 0;
   for (const nombre of archivos) {
     if (!nombre.startsWith("summary-")) continue;
-    const idEnNombre = nombre.replace("summary-", "").replace(".json", "");
-    const sigueVigente = relevantes.some((ev) => String(ev.id) === idEnNombre);
-    if (sigueVigente) continue;
     const ruta = path.join(outDir, nombre);
     const stat = await fs.stat(ruta).catch(() => null);
-    if (stat && Date.now() - stat.mtimeMs > 24 * 60 * 60 * 1000) {
+    if (stat && Date.now() - stat.mtimeMs > 10 * 24 * 60 * 60 * 1000) {
       await fs.unlink(ruta);
       borrados++;
     }

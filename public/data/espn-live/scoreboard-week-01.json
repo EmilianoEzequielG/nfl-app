@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-11T22:51:53.888Z",
+  "generatedAt": "2026-09-11T22:54:54.606Z",
   "week": 1,
   "raw": {
     "leagues": [
@@ -3089,7 +3089,7 @@
                   "shortDisplayName": "ML",
                   "home": {
                     "close": {
-                      "odds": "-340",
+                      "odds": "-325",
                       "link": {
                         "language": "en-US",
                         "rel": [
@@ -3121,7 +3121,7 @@
                   },
                   "away": {
                     "close": {
-                      "odds": "+270",
+                      "odds": "+260",
                       "link": {
                         "language": "en-US",
                         "rel": [
@@ -3712,7 +3712,7 @@
             "tickets": [
               {
                 "summary": "Tickets as low as $21",
-                "numberAvailable": 3254,
+                "numberAvailable": 3318,
                 "links": [
                   {
                     "href": "https://www.vividseats.com/tennessee-titans-tickets-nashville-nissan-stadium-parking-3-8-2027/production/6493575?wsUser=717"
@@ -5127,8 +5127,8 @@
             },
             "tickets": [
               {
-                "summary": "Tickets as low as $123",
-                "numberAvailable": 6719,
+                "summary": "Tickets as low as $109",
+                "numberAvailable": 6631,
                 "links": [
                   {
                     "href": "https://www.vividseats.com/pittsburgh-steelers-tickets-pittsburgh-acrisure-stadium-3-4-2027/production/6495144?wsUser=717"

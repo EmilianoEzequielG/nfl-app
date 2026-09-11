@@ -108,8 +108,26 @@ export function traducirJugada(texto: string): string {
   let t = texto;
 
   // Anotaciones: "<jugador> <n> Yd <accion>"
-  t = t.replace(/(\d+)\s*Yd\s+pass\s+(?:from|to)\s+/gi, "pase de $1 yd a ");
-  t = t.replace(/(\d+)\s*Yd\s+Run\b/gi, "carrera de $1 yd");
+  //
+  // ESPN usa dos formas para el pase, con el orden de nombres invertido:
+  //   "Drake Maye 12 Yd pass TO A.J. Brown"   -> [pasador] ... TO [receptor]
+  //   "Eli Raridon 2 Yd pass FROM Drake Maye" -> [receptor] ... FROM [pasador]
+  // Un replace simple del fragmento del medio (version anterior) daba
+  // "Eli Raridon pase de 2 yd a Drake Maye" para el segundo caso: dejaba los
+  // nombres en su posicion original del string sin darse cuenta de que con
+  // "from" estan invertidos. Confirmado con datos reales de ESPN, no era un
+  // caso hipotetico. Esta version captura ambos nombres y los reordena segun
+  // corresponda antes de armar la frase.
+  t = t.replace(
+    /^(.+?)\s+(\d+)\s*Yd\s+pass\s+(from|to)\s+(.+?)(\s*\(.*)?$/i,
+    (_m, nombreAntes: string, yardas: string, direccion: string, nombreDespues: string, resto = "") => {
+      const [pasador, receptor] =
+        direccion.toLowerCase() === "to" ? [nombreAntes, nombreDespues] : [nombreDespues, nombreAntes];
+      return `${pasador} pase de ${yardas} yd a ${receptor}${resto}`;
+    }
+  );
+  // "Rush" y "Run" son sinonimos en el texto de ESPN para carrera
+  t = t.replace(/(\d+)\s*Yd\s+(?:Run|Rush)\b/gi, "carrera de $1 yd");
   t = t.replace(/(\d+)\s*Yd\s+Field\s+Goal\b/gi, "gol de campo de $1 yd");
   t = t.replace(/(\d+)\s*Yd\s+Interception\s+Return\b/gi, "devolución de intercepción de $1 yd");
   t = t.replace(/(\d+)\s*Yd\s+Fumble\s+Return\b/gi, "devolución de fumble de $1 yd");

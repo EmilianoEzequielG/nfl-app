@@ -6,17 +6,13 @@ name: ESPN live poll
 # prospera, deja el resultado como JSON estatico en public/data/espn-live/ y
 # el sitio lo sirve sin volver a pegarle a ESPN.
 #
-# Corre todos los dias, no solo domingo/lunes/jueves. Restringir a esos tres
-# se penso para ahorrar minutos de Action en un repo privado (limitados por
-# mes), pero este repo es publico: en un repo publico GitHub Actions es
-# gratis e ilimitado, asi que no hay razon para dejar un hueco. Sin esto,
-# alguien mirando el viernes el resultado del jueves (o un partido de
-# International Series con horario atipico) se encontraba con datos viejos
-# porque el cron simplemente no corria ese dia.
+# Corre lunes, martes, jueves, viernes y domingo (por ahora - sin miercoles
+# ni sabado). El repo es publico, asi que GitHub Actions es gratis e
+# ilimitado; no restringir por costo, solo por los dias que interesa cubrir.
 
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "*/10 * * * 0,1,2,4,5"
   workflow_dispatch: {}
 
 concurrency:
