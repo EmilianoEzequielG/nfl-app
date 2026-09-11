@@ -47,7 +47,18 @@ export async function GET(request: Request) {
     // la corta, gastando tiempo de ejecucion sin devolver nada util.
     const corte = AbortSignal.timeout(8000);
     const response = await fetch(url, {
-      headers: { "User-Agent": "Mozilla/5.0" },
+      // "Mozilla/5.0" a secas no se parece a un navegador real. Akamai (el CDN
+      // de ESPN) suele fijarse en el resto de estos headers para distinguir
+      // trafico de datacenter; esto no garantiza pasar el bloqueo, solo baja
+      // la chance de que un request server-to-server se note como bot.
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+        Accept: "application/json, text/plain, */*",
+        "Accept-Language": "es-AR,es;q=0.9,en;q=0.8",
+        Referer: "https://www.espn.com/",
+        Origin: "https://www.espn.com",
+      },
       signal: corte,
     });
 

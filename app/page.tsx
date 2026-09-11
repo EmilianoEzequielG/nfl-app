@@ -40,12 +40,16 @@ export default function Home() {
   // paso conviene mirar mas espaciado para detectar el kickoff. Fuera de esos
   // dos casos no se consulta nada, para no pegarle a ESPN de gusto.
   const hayEnVivo = !!week?.games.some((g) => g.status === "live");
-  const porArrancar = !!week?.games.some(
-    (g) =>
-      g.status === "scheduled" &&
-      g.dateUTC &&
-      new Date(g.dateUTC).getTime() - Date.now() < 30 * 60 * 1000
-  );
+  const porArrancar = !!week?.games.some((g) => {
+    if (g.status !== "scheduled" || !g.dateUTC) return false;
+    const faltan = new Date(g.dateUTC).getTime() - Date.now();
+    // Sin el limite inferior, un partido que ya deberia haber arrancado pero
+    // quedo con status "scheduled" (por ejemplo, porque el fetch a ESPN vino
+    // fallando) daba una resta muy negativa que igual es "< 30 min": el
+    // sistema creia para siempre que estaba por arrancar un partido de hace
+    // dos dias, en vez de reconocer que algo no esta actualizando el estado.
+    return faltan > 0 && faltan < 30 * 60 * 1000;
+  });
 
   useEffect(() => {
     if (activeSection !== "scoreboard") return;
