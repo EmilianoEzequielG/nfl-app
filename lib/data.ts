@@ -561,6 +561,26 @@ function estadoDesdeESPN(competencia: any): "scheduled" | "live" | "final" {
   return "scheduled";
 }
 
+/**
+ * ESPN usa sus propias abreviaturas para un par de equipos, distintas de las
+ * que usa el resto de esta app (games_by_week.json, game-previews.json,
+ * power-ranking, etc.): "LAR" para los Rams en vez de "LA", "WSH" para
+ * Washington en vez de "WAS". Sin normalizar esto, el cruce por abreviatura
+ * en mergeESPNScores nunca coincide para esos dos equipos - el partido llega
+ * en la respuesta de ESPN pero el codigo lo descarta en silencio porque
+ * "LAR" !== "LA". Confirmado en produccion: SF@LA no se actualizaba pese a
+ * que el JSON de ESPN traia el resultado (LAR 7, SF 27).
+ */
+const ABREVIATURA_ESPN_A_APP: Record<string, string> = {
+  LAR: "LA",
+  WSH: "WAS",
+};
+
+function normalizarAbbrESPN(abbr: string | undefined): string | undefined {
+  if (!abbr) return abbr;
+  return ABREVIATURA_ESPN_A_APP[abbr] ?? abbr;
+}
+
 /** ESPN expone los dos equipos en `competitions[0].competitors[]`, cada uno con
  *  `homeAway`. Se acepta tambien la forma `competitions[0].home/.away` por si
  *  alguna respuesta la trae. */
@@ -589,8 +609,8 @@ function mergeESPNScores(scheduleGames: any[], espnData: any): any[] {
       if (!comp) return false;
       const { local, visitante } = ladosDesdeESPN(comp);
       return (
-        local?.team?.abbreviation === game.home_team &&
-        visitante?.team?.abbreviation === game.away_team
+        normalizarAbbrESPN(local?.team?.abbreviation) === game.home_team &&
+        normalizarAbbrESPN(visitante?.team?.abbreviation) === game.away_team
       );
     });
 

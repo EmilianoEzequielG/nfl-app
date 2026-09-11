@@ -45,13 +45,31 @@ export interface ResumenPartido {
   fumblesRecuperados: Autor[];
 }
 
+/**
+ * ESPN usa "LAR" y "WSH" donde el resto de la app usa "LA" y "WAS" (mismo
+ * mismatch que en lib/data.ts, mergeESPNScores). Sin esto, las anotaciones y
+ * los totales de Rams/Washington quedan etiquetados con un codigo que
+ * GameSummaryBox no reconoce (colorDe compara contra game.awayTeam.abbr /
+ * homeTeam.abbr, que son "LA"/"WAS"), y esa mitad del resumen se pinta gris
+ * en vez del color del equipo.
+ */
+const ABREVIATURA_ESPN_A_APP: Record<string, string> = {
+  LAR: "LA",
+  WSH: "WAS",
+};
+
+function normalizarAbbr(abbr: string | undefined): string | undefined {
+  if (!abbr) return abbr;
+  return ABREVIATURA_ESPN_A_APP[abbr] ?? abbr;
+}
+
 /** Mapa id-de-equipo -> abreviatura, desde el encabezado del resumen. */
 function mapaEquipos(data: any): Record<string, string> {
   const mapa: Record<string, string> = {};
   const competidores = data?.header?.competitions?.[0]?.competitors ?? [];
   for (const c of competidores) {
     const id = c?.team?.id ?? c?.id;
-    const abbr = c?.team?.abbreviation;
+    const abbr = normalizarAbbr(c?.team?.abbreviation);
     if (id && abbr) mapa[String(id)] = abbr;
   }
   return mapa;
@@ -160,7 +178,7 @@ function extraerPorColumna(
 ): Autor[] {
   const salida: Autor[] = [];
   for (const bloque of data?.boxscore?.players ?? []) {
-    const abbr = bloque?.team?.abbreviation ?? equipos[String(bloque?.team?.id)];
+    const abbr = normalizarAbbr(bloque?.team?.abbreviation) ?? equipos[String(bloque?.team?.id)];
     for (const grupo of bloque?.statistics ?? []) {
       const nombreGrupo = String(grupo?.name ?? "").toLowerCase();
       if (grupos && !grupos.some((g) => nombreGrupo.includes(g))) continue;
@@ -199,7 +217,7 @@ export function parsearResumen(data: any): ResumenPartido | null {
     const original = j?.text ?? "";
     return {
       tipo: clasificar(j),
-      equipo: j?.team?.abbreviation ?? equipos[String(j?.team?.id)],
+      equipo: normalizarAbbr(j?.team?.abbreviation) ?? equipos[String(j?.team?.id)],
       texto: traducirJugada(original),
       textoOriginal: original,
       cuando: cuarto ? `${cuarto}C${reloj ? " " + reloj : ""}` : reloj || undefined,
@@ -231,7 +249,7 @@ export function parsearResumen(data: any): ResumenPartido | null {
   };
 
   for (const bloque of data?.boxscore?.teams ?? []) {
-    const abbr = bloque?.team?.abbreviation ?? equipos[String(bloque?.team?.id)];
+    const abbr = normalizarAbbr(bloque?.team?.abbreviation) ?? equipos[String(bloque?.team?.id)];
     if (abbr) registrar(abbr, bloque?.statistics ?? []);
   }
 
