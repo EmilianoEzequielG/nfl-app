@@ -1,13 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { Game } from "@/types";
-import {
-  cargarResumenPartido,
-  type Autor,
-  type ResumenPartido,
-  type TipoAnotacion,
-} from "@/lib/espn/summary";
+import { type Autor, type ResumenPartido, type TipoAnotacion } from "@/lib/espn/summary";
 
 const COLORS = {
   ink: "#121212",
@@ -136,40 +130,22 @@ function ListaAutores({
   );
 }
 
-export function GameSummaryBox({ game }: { game: Game }) {
-  const [resumen, setResumen] = useState<ResumenPartido | null>(null);
-  const [cargando, setCargando] = useState(false);
-
+/**
+ * Componente de presentacion puro: recibe `resumen`/`cargando` en vez de
+ * pedirlos el mismo. El fetch+polling vive en useResumenPartido (llamado
+ * desde GameModal), compartido con GamePlayerHighlights - asi ambos bloques
+ * leen el mismo resumen sin duplicar la llamada de red ni el intervalo.
+ */
+export function GameSummaryBox({
+  game,
+  resumen,
+  cargando,
+}: {
+  game: Game;
+  resumen: ResumenPartido | null;
+  cargando: boolean;
+}) {
   const enJuego = game.status === "live";
-  const arrancado = enJuego || game.status === "final";
-
-  useEffect(() => {
-    if (!arrancado || !game.espnId) return;
-
-    let vigente = true;
-    const traer = async () => {
-      setCargando(true);
-      const r = await cargarResumenPartido(game.espnId!);
-      if (vigente) {
-        setResumen(r);
-        setCargando(false);
-      }
-    };
-    traer();
-
-    // Mientras el partido corre, las anotaciones cambian: se refresca solo.
-    // Terminado el partido no hace falta volver a pedirlo. El archivo detras
-    // de esto lo actualiza un job externo cada 5-10 min (ver
-    // lib/espn/summary.ts), asi que pedirlo mas seguido que eso no aporta.
-    if (!enJuego) return () => { vigente = false; };
-    const id = setInterval(traer, 120000);
-    return () => {
-      vigente = false;
-      clearInterval(id);
-    };
-  }, [game.espnId, arrancado, enJuego]);
-
-  if (!arrancado) return null;
 
   if (!resumen) {
     return (

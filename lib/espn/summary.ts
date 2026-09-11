@@ -8,6 +8,9 @@
  * en vez de romper la vista del partido.
  */
 
+import { useEffect, useState } from "react";
+import type { Game } from "@/types";
+
 export type TipoAnotacion = "TD" | "FG" | "SAFETY" | "OTRO";
 
 export interface Anotacion {
@@ -37,12 +40,31 @@ export interface Autor {
   cantidad: number;
 }
 
+export interface LineaJugador {
+  equipo?: string;
+  jugador: string;
+  /** Ya formateada para mostrar, ej "25/34, 205 yd, 3 TD, 1 INT" */
+  linea: string;
+}
+
+export interface Destacados {
+  /** Uno por equipo: el de mas intentos de pase, normalmente el titular */
+  qb: LineaJugador[];
+  /** Uno por equipo: el de mas yardas terrestres */
+  topRB: LineaJugador[];
+  /** Uno por equipo: el de mas yardas por aire */
+  topWR: LineaJugador[];
+  /** Uno por equipo, solo si pateo al menos un FG */
+  fieldGoals: LineaJugador[];
+}
+
 export interface ResumenPartido {
   anotaciones: Anotacion[];
   totales: Record<string, TotalesEquipo>;
   sacks: Autor[];
   intercepciones: Autor[];
   fumblesRecuperados: Autor[];
+  destacados: Destacados;
 }
 
 /**
@@ -224,6 +246,130 @@ function totalPorEquipo(autores: Autor[], abbr: string): number | null {
   return propios.reduce((suma, a) => suma + a.cantidad, 0);
 }
 
+/**
+ * El jugador con mayor valor en una columna, dentro de un grupo de
+ * estadisticas de una categoria (ej. el de mas YDS en "rushing"). Nota
+ * ausente: ESPN no expone "fumbles forzados" como columna individual en este
+ * boxscore (solo FUM/LOST/REC, que es sobre quien perdio o recupero, no
+ * quien lo forzo) - por eso no hay un extractor de forced fumbles aca.
+ */
+function liderDeGrupo(
+  grupo: any,
+  columnaOrden: string
+): { fila: any; columnas: Record<string, number> } | null {
+  const etiquetas: string[] = (grupo?.labels ?? []).map((l: any) => String(l).toUpperCase());
+  const columnas: Record<string, number> = {};
+  etiquetas.forEach((e, i) => (columnas[e] = i));
+  const iOrden = columnas[columnaOrden];
+  if (iOrden === undefined) return null;
+
+  let mejor: any = null;
+  let mejorValor = -Infinity;
+  for (const fila of grupo?.athletes ?? []) {
+    const valor = Number(fila?.stats?.[iOrden]);
+    if (Number.isFinite(valor) && valor > mejorValor) {
+      mejorValor = valor;
+      mejor = fila;
+    }
+  }
+  return mejor ? { fila: mejor, columnas } : null;
+}
+
+function nombreDe(fila: any): string | undefined {
+  return fila?.athlete?.displayName ?? fila?.athlete?.shortName;
+}
+
+function valorCol(fila: any, columnas: Record<string, number>, nombre: string): string {
+  const i = columnas[nombre];
+  return i !== undefined ? String(fila?.stats?.[i] ?? "") : "";
+}
+
+function extraerDestacados(data: any, equipos: Record<string, string>): Destacados {
+  const destacados: Destacados = { qb: [], topRB: [], topWR: [], fieldGoals: [] };
+
+  for (const bloque of data?.boxscore?.players ?? []) {
+    const abbr = normalizarAbbr(bloque?.team?.abbreviation) ?? equipos[String(bloque?.team?.id)];
+    if (!abbr) continue;
+
+    for (const grupo of bloque?.statistics ?? []) {
+      const categoria = String(grupo?.name ?? "").toLowerCase();
+
+      if (categoria === "passing") {
+        const top = liderDeGrupo(grupo, "YDS");
+        const jugador = top && nombreDe(top.fila);
+        if (top && jugador) {
+          const { fila, columnas } = top;
+          const catt = valorCol(fila, columnas, "C/ATT");
+          const yds = valorCol(fila, columnas, "YDS");
+          const td = valorCol(fila, columnas, "TD");
+          const int = valorCol(fila, columnas, "INT");
+          destacados.qb.push({
+            equipo: abbr,
+            jugador,
+            linea: `${catt ? catt + ", " : ""}${yds} yd, ${td} TD, ${int} INT`,
+          });
+        }
+      }
+
+      if (categoria === "rushing") {
+        const top = liderDeGrupo(grupo, "YDS");
+        const jugador = top && nombreDe(top.fila);
+        if (top && jugador) {
+          const { fila, columnas } = top;
+          const car = valorCol(fila, columnas, "CAR");
+          const yds = valorCol(fila, columnas, "YDS");
+          const td = valorCol(fila, columnas, "TD");
+          destacados.topRB.push({
+            equipo: abbr,
+            jugador,
+            linea: `${car} ac, ${yds} yd, ${td} TD`,
+          });
+        }
+      }
+
+      if (categoria === "receiving") {
+        const top = liderDeGrupo(grupo, "YDS");
+        const jugador = top && nombreDe(top.fila);
+        if (top && jugador) {
+          const { fila, columnas } = top;
+          const rec = valorCol(fila, columnas, "REC");
+          const yds = valorCol(fila, columnas, "YDS");
+          const td = valorCol(fila, columnas, "TD");
+          destacados.topWR.push({
+            equipo: abbr,
+            jugador,
+            linea: `${rec} rec, ${yds} yd, ${td} TD`,
+          });
+        }
+      }
+
+      if (categoria === "kicking") {
+        // Un solo kicker por equipo normalmente; se toma el primero que
+        // haya intentado al menos un FG (formato "0/0" cuando no intento).
+        for (const fila of grupo?.athletes ?? []) {
+          const etiquetas: string[] = (grupo?.labels ?? []).map((l: any) => String(l).toUpperCase());
+          const columnas: Record<string, number> = {};
+          etiquetas.forEach((e, i) => (columnas[e] = i));
+          const fg = valorCol(fila, columnas, "FG");
+          const intentos = Number(fg.split("/")[1] ?? "0");
+          if (!intentos) continue;
+          const jugador = nombreDe(fila);
+          if (!jugador) continue;
+          const long = valorCol(fila, columnas, "LONG");
+          destacados.fieldGoals.push({
+            equipo: abbr,
+            jugador,
+            linea: `${fg} FG${long ? ` (más largo: ${long} yd)` : ""}`,
+          });
+          break;
+        }
+      }
+    }
+  }
+
+  return destacados;
+}
+
 export function parsearResumen(data: any): ResumenPartido | null {
   if (!data) return null;
 
@@ -280,17 +426,19 @@ export function parsearResumen(data: any): ResumenPartido | null {
 
   if (anotaciones.length === 0 && Object.keys(totales).length === 0) return null;
 
-  return { anotaciones, totales, sacks, intercepciones, fumblesRecuperados };
+  const destacados = extraerDestacados(data, equipos);
+
+  return { anotaciones, totales, sacks, intercepciones, fumblesRecuperados, destacados };
 }
 
 /**
  * Igual que el scoreboard, se lee de un archivo estatico
  * (public/data/espn-live/summary-{id}.json) que deja el job de GitHub
  * Actions, no de un fetch directo a ESPN - el proxy /api/espn recibe 403 de
- * forma consistente desde Vercel. El job solo guarda el resumen de partidos
- * en vivo o terminados hace menos de 4h, asi que un 404 ademas de "todavia
- * no corrio el job" tambien puede significar "ese partido ya no esta en la
- * ventana que se guarda".
+ * forma consistente desde Vercel. El job guarda el resumen de partidos en
+ * vivo, y de los terminados solo hasta que se guarda una vez (el resultado
+ * final ya no cambia), asi que un 404 puede significar tanto "todavia no
+ * corrio el job" como "el partido ni empezo, nada que resumir todavia".
  */
 export async function cargarResumenPartido(espnId: string): Promise<ResumenPartido | null> {
   try {
@@ -309,4 +457,49 @@ export async function cargarResumenPartido(espnId: string): Promise<ResumenParti
     console.warn("[ESPN] No se pudo cargar el resumen del partido:", error);
     return null;
   }
+}
+
+/**
+ * Carga (y refresca mientras el partido esta en vivo) el resumen de un
+ * partido. Vive aca, no dentro de GameSummaryBox, porque GamePlayerHighlights
+ * necesita los mismos datos (destacados sale del mismo resumen) - si cada
+ * componente hiciera su propio fetch+polling se duplicaria la llamada de red
+ * y el intervalo, sin necesidad: GameModal llama esto una vez y pasa
+ * `resumen`/`cargando` como props a ambos.
+ */
+export function useResumenPartido(game: Game): { resumen: ResumenPartido | null; cargando: boolean } {
+  const [resumen, setResumen] = useState<ResumenPartido | null>(null);
+  const [cargando, setCargando] = useState(false);
+
+  const enJuego = game.status === "live";
+  const arrancado = enJuego || game.status === "final";
+
+  useEffect(() => {
+    setResumen(null);
+    if (!arrancado || !game.espnId) return;
+
+    let vigente = true;
+    const traer = async () => {
+      setCargando(true);
+      const r = await cargarResumenPartido(game.espnId!);
+      if (vigente) {
+        setResumen(r);
+        setCargando(false);
+      }
+    };
+    traer();
+
+    // Mientras el partido corre, las anotaciones cambian: se refresca solo.
+    // Terminado el partido no hace falta volver a pedirlo. El archivo detras
+    // de esto lo actualiza un job externo cada 5-10 min, asi que pedirlo mas
+    // seguido que eso no aporta.
+    if (!enJuego) return () => { vigente = false; };
+    const id = setInterval(traer, 120000);
+    return () => {
+      vigente = false;
+      clearInterval(id);
+    };
+  }, [game.espnId, arrancado, enJuego]);
+
+  return { resumen, cargando };
 }

@@ -2,36 +2,42 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Game } from "@/types";
+import { useResumenPartido } from "@/lib/espn/summary";
 import { MetricsComparison } from "./MetricsComparison";
 import { GamePreviewBox } from "./GamePreviewBox";
 import { GameSummaryBox } from "./GameSummaryBox";
-import { X } from "lucide-react";
+import { GamePlayerHighlights } from "./GamePlayerHighlights";
 
 interface GameModalProps {
   game: Game;
   onClose: () => void;
 }
 
+const COLORS = { ink: "#121212", red: "#D02020", muted: "#666" };
+
 export function GameModal({ game, onClose }: GameModalProps) {
   const [isOpen, setIsOpen] = useState(true);
+  const { resumen, cargando } = useResumenPartido(game);
+
+  // El partido decide que hay para ver, no solo el orden:
+  //  - todavia no arranco: nada que resumir, directo a previa + metricas.
+  //  - en vivo o terminado: el resultado manda (marcador + resumen, y si ya
+  //    termino tambien las estadisticas destacadas), con la previa y las
+  //    metricas a un swipe/click de distancia en vez de mas scroll.
+  const arrancado = game.status !== "scheduled";
+  const [pagina, setPagina] = useState<0 | 1>(0);
+  const [touchStart, setTouchStart] = useState(0);
+
+  // Al abrir un partido distinto (o cuando el estado cambia de "scheduled" a
+  // "live" mientras el modal esta abierto) se vuelve a la primera pagina.
+  useEffect(() => {
+    setPagina(0);
+  }, [game.id, arrancado]);
 
   useEffect(() => {
     console.log("🎯 GameModal opened for", game.awayTeam.abbr, "vs", game.homeTeam.abbr);
-    console.log("📊 Away metrics:", {
-      fg: game.awayMetrics.fgDriveRateOffense,
-      punt: game.awayMetrics.puntDriveRateOffense,
-      penalties: game.awayMetrics.penaltiesCommittedCount,
-      rankFg: game.awayMetrics.rankFgRate,
-      epaOffense: game.awayMetrics.rankEpaOffense,
-    });
-    console.log("📊 Home metrics:", {
-      fg: game.homeMetrics.fgDriveRateOffense,
-      punt: game.homeMetrics.puntDriveRateOffense,
-      penalties: game.homeMetrics.penaltiesCommittedCount,
-      rankFg: game.homeMetrics.rankFgRate,
-      epaOffense: game.homeMetrics.rankEpaOffense,
-    });
   }, [game]);
 
   useEffect(() => {
@@ -50,6 +56,13 @@ export function GameModal({ game, onClose }: GameModalProps) {
     window.addEventListener("keydown", handleEscape);
     return () => window.removeEventListener("keydown", handleEscape);
   }, []);
+
+  const handleTouchStart = (e: React.TouchEvent) => setTouchStart(e.targetTouches[0].clientX);
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const diff = touchStart - e.changedTouches[0].clientX;
+    if (Math.abs(diff) < 50) return; // mismo umbral que el carrusel de Tacticas
+    setPagina(diff > 0 ? 1 : 0);
+  };
 
   return (
     <div style={{ position: "fixed", inset: 0, zIndex: 9999, display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -116,11 +129,11 @@ export function GameModal({ game, onClose }: GameModalProps) {
 
         {/* Content */}
         <div style={{ padding: "24px" }}>
-          {/* Marcador. Los dos numeros vivian apilados en la columna del medio
-              con un guion entre ellos, asi que no se sabia cual era de quien:
-              ahora cada uno va debajo de su propio equipo. */}
+          {/* Marcador: siempre visible arriba, en los tres estados. Cada
+              puntaje va debajo de su propio equipo en vez de los dos numeros
+              apilados en el medio, para que se sepa cual es de quien de un
+              vistazo. */}
           {(() => {
-            const arrancado = game.status === "final" || game.status === "live";
             const visitante = game.awayScore ?? 0;
             const local = game.homeScore ?? 0;
             const lado = (equipo: typeof game.awayTeam, puntos: number, gana: boolean) => (
@@ -153,7 +166,6 @@ export function GameModal({ game, onClose }: GameModalProps) {
                       fontWeight: 900,
                       lineHeight: 1,
                       fontVariantNumeric: "tabular-nums",
-                      // El que va arriba en negro pleno; el otro atenuado
                       color: gana ? "#121212" : "#9a9a9a",
                     }}
                   >
@@ -215,15 +227,86 @@ export function GameModal({ game, onClose }: GameModalProps) {
             );
           })()}
 
-          {/* Metrics */}
-          <div style={{ borderTop: "4px solid #121212", paddingTop: "24px" }}>
-            {/* Con el partido en marcha, primero lo que pasó; después la previa */}
-          <GameSummaryBox game={game} />
+          {!arrancado ? (
+            // Todavia no hay nada que resumir: directo a la previa y las
+            // metricas comparativas, sin carrusel de por medio (una sola
+            // pagina no necesita paginacion).
+            <div style={{ borderTop: "4px solid #121212", paddingTop: "24px" }}>
+              <GamePreviewBox game={game} />
+              <MetricsComparison game={game} />
+            </div>
+          ) : (
+            <div
+              style={{ borderTop: "4px solid #121212", paddingTop: "24px" }}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
+              {pagina === 0 ? (
+                <>
+                  <GameSummaryBox game={game} resumen={resumen} cargando={cargando} />
+                  <GamePlayerHighlights game={game} resumen={resumen} />
+                </>
+              ) : (
+                <>
+                  <GamePreviewBox game={game} />
+                  <MetricsComparison game={game} />
+                </>
+              )}
 
-          <GamePreviewBox game={game} />
-
-          <MetricsComparison game={game} />
-          </div>
+              {/* Navegacion entre paginas: flechas para click/tap, deslizar
+                  tambien funciona (ver handleTouchStart/End arriba) */}
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "16px",
+                  marginTop: "8px",
+                  paddingTop: "16px",
+                  borderTop: "2px solid #121212",
+                }}
+              >
+                <button
+                  onClick={() => setPagina(0)}
+                  aria-label="Ver resultado del partido"
+                  style={{
+                    padding: "8px 12px",
+                    border: `2px solid ${COLORS.ink}`,
+                    backgroundColor: pagina === 0 ? COLORS.ink : "white",
+                    color: pagina === 0 ? "white" : COLORS.ink,
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    fontSize: "11px",
+                    fontWeight: 900,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  <ChevronLeft size={14} /> Resultado
+                </button>
+                <button
+                  onClick={() => setPagina(1)}
+                  aria-label="Ver previa y métricas"
+                  style={{
+                    padding: "8px 12px",
+                    border: `2px solid ${COLORS.ink}`,
+                    backgroundColor: pagina === 1 ? COLORS.ink : "white",
+                    color: pagina === 1 ? "white" : COLORS.ink,
+                    cursor: "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "6px",
+                    fontSize: "11px",
+                    fontWeight: 900,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Previa y métricas <ChevronRight size={14} />
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
