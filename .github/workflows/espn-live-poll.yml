@@ -1,0 +1,48 @@
+name: ESPN live poll
+
+# Le pega a ESPN desde un runner de GitHub Actions (Azure) en vez de desde
+# Vercel (AWS), porque Akamai bloquea el origen de Vercel con 403 de forma
+# consistente - confirmado en los Runtime Logs de produccion. Si el fetch
+# prospera, deja el resultado como JSON estatico en public/data/espn-live/ y
+# el sitio lo sirve sin volver a pegarle a ESPN.
+#
+# Corre solo en las ventanas donde suele haber partidos NFL (domingo, lunes,
+# jueves UTC). Restringir los dias importa: en un repo privado, GitHub
+# Actions da minutos gratis limitados por mes, y correr 24/7 los agotaria.
+
+on:
+  schedule:
+    - cron: "*/10 * * * 0,1,4"
+  workflow_dispatch: {}
+
+concurrency:
+  group: espn-live-poll
+  cancel-in-progress: false
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Traer datos de ESPN
+        run: node scripts/fetch-espn-live.mjs
+
+      - name: Commit y push si hubo cambios
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/espn-live/
+          if git diff --cached --quiet; then
+            echo "Sin cambios, nada que commitear."
+          else
+            git commit -m "Actualizar datos en vivo de ESPN [skip ci]"
+            git push
+          fi

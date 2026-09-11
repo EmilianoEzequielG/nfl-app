@@ -1,5 +1,5 @@
 import { Week, Game, GameMetrics, GamePreview } from "@/types";
-import { CURRENT_STATS_SEASON, CURRENT_SEASON } from "./config";
+import { CURRENT_STATS_SEASON } from "./config";
 import {
   calculateOffensiveDriveRates,
   calculateDefensiveDriveRates,
@@ -416,17 +416,27 @@ export async function loadWeekData(week: number): Promise<Week | null> {
     const response = await fetch("/data/games_by_week.json");
     let allGames: any[] = await response.json();
 
-    // Intentar obtener scores en vivo desde ESPN
+    // Scores en vivo: se leen de un archivo estatico que deja un job de
+    // GitHub Actions (public/data/espn-live/scoreboard-week-NN.json), no de
+    // un fetch directo a ESPN desde el navegador o desde el proxy /api/espn.
+    // Ese proxy corre en Vercel (AWS) y ESPN lo bloquea con 403 de forma
+    // consistente - confirmado en los Runtime Logs de produccion. El job
+    // corre en un runner de GitHub Actions (Azure, otro rango de IP) y
+    // actualiza este archivo cada 5-10 min mientras hay partidos; si no
+    // existe o esta vacio, se sigue con el schedule base tal cual antes.
     try {
-      const espnResponse = await fetch(
-        `/api/espn?endpoint=scoreboard&week=${week}&year=${CURRENT_SEASON}`
-      );
+      const semanaFmt = String(week).padStart(2, "0");
+      const espnResponse = await fetch(`/data/espn-live/scoreboard-week-${semanaFmt}.json`, {
+        cache: "no-store",
+      });
       if (espnResponse.ok) {
-        const espnData = await espnResponse.json();
-        allGames = mergeESPNScores(allGames, espnData);
+        const archivo = await espnResponse.json();
+        if (archivo?.raw) {
+          allGames = mergeESPNScores(allGames, archivo.raw);
+        }
       }
     } catch (error) {
-      console.log("ESPN scores no disponibles, usando schedule base");
+      console.log("Datos en vivo de ESPN no disponibles, usando schedule base");
     }
 
     const weekGames = allGames

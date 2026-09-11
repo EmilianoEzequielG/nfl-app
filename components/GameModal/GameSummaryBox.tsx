@@ -158,9 +158,11 @@ export function GameSummaryBox({ game }: { game: Game }) {
     traer();
 
     // Mientras el partido corre, las anotaciones cambian: se refresca solo.
-    // Terminado el partido no hace falta volver a pedirlo.
+    // Terminado el partido no hace falta volver a pedirlo. El archivo detras
+    // de esto lo actualiza un job externo cada 5-10 min (ver
+    // lib/espn/summary.ts), asi que pedirlo mas seguido que eso no aporta.
     if (!enJuego) return () => { vigente = false; };
-    const id = setInterval(traer, 45000);
+    const id = setInterval(traer, 120000);
     return () => {
       vigente = false;
       clearInterval(id);

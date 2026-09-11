@@ -55,7 +55,11 @@ export default function Home() {
     if (activeSection !== "scoreboard") return;
     if (!hayEnVivo && !porArrancar) return;
 
-    const cada = hayEnVivo ? 30_000 : 60_000;
+    // Los scores en vivo ya no salen de un fetch directo a ESPN (bloqueado
+    // desde Vercel, ver lib/data.ts), sino de un archivo que un job externo
+    // actualiza cada 5-10 min. Pedirlo cada 30s no trae nada mas fresco, asi
+    // que el intervalo se alarga a algo acorde a esa cadencia real.
+    const cada = hayEnVivo ? 120_000 : 180_000;
     const id = setInterval(() => cargarSemana(true), cada);
     return () => clearInterval(id);
   }, [hayEnVivo, porArrancar, activeSection, cargarSemana]);

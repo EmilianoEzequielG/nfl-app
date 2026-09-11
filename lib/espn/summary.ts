@@ -247,14 +247,28 @@ export function parsearResumen(data: any): ResumenPartido | null {
   return { anotaciones, totales, sacks, intercepciones, fumblesRecuperados };
 }
 
+/**
+ * Igual que el scoreboard, se lee de un archivo estatico
+ * (public/data/espn-live/summary-{id}.json) que deja el job de GitHub
+ * Actions, no de un fetch directo a ESPN - el proxy /api/espn recibe 403 de
+ * forma consistente desde Vercel. El job solo guarda el resumen de partidos
+ * en vivo o terminados hace menos de 4h, asi que un 404 ademas de "todavia
+ * no corrio el job" tambien puede significar "ese partido ya no esta en la
+ * ventana que se guarda".
+ */
 export async function cargarResumenPartido(espnId: string): Promise<ResumenPartido | null> {
   try {
-    const res = await fetch(`/api/espn?endpoint=summary&event=${encodeURIComponent(espnId)}`);
+    const res = await fetch(`/data/espn-live/summary-${encodeURIComponent(espnId)}.json`, {
+      cache: "no-store",
+    });
     if (!res.ok) {
-      console.warn(`[ESPN] summary devolvio ${res.status} para el evento ${espnId}`);
+      if (res.status !== 404) {
+        console.warn(`[ESPN] summary devolvio ${res.status} para el evento ${espnId}`);
+      }
       return null;
     }
-    return parsearResumen(await res.json());
+    const archivo = await res.json();
+    return parsearResumen(archivo?.raw);
   } catch (error) {
     console.warn("[ESPN] No se pudo cargar el resumen del partido:", error);
     return null;
