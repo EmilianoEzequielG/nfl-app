@@ -14,11 +14,8 @@ export function Scoreboard({ week }: ScoreboardProps) {
   const [selectedGame, setSelectedGame] = useState<Game | null>(null);
 
   const handleSelectGame = (game: Game) => {
-    console.log("🎬 Modal: Abriendo modal para:", game.awayTeam.abbr, "vs", game.homeTeam.abbr);
     setSelectedGame(game);
   };
-
-  console.log("📋 Scoreboard - selectedGame:", selectedGame ? `${selectedGame.awayTeam.abbr} vs ${selectedGame.homeTeam.abbr}` : "null");
 
   return (
     <>

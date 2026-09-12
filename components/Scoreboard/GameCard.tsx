@@ -41,10 +41,7 @@ export function GameCard({ game, onSelect, colorIndex = 0 }: GameCardProps) {
 
   return (
     <button
-      onClick={() => {
-        console.log("🔘 CLICK en tarjeta:", game.awayTeam.abbr, "vs", game.homeTeam.abbr);
-        onSelect(game);
-      }}
+      onClick={() => onSelect(game)}
       className={`w-full bg-white text-bauhaus-black border-4 border-bauhaus-black p-3 sm:p-6 text-left font-black shadow-geo-lg transition-transform hover:shadow-geo-xl active:translate-x-1 active:translate-y-1 active:shadow-geo-md !bg-white !text-bauhaus-black`}
     >
       <div className="flex items-center justify-between gap-1 sm:gap-4">

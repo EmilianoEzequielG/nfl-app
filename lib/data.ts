@@ -255,8 +255,6 @@ function calculateAllPenaltyRankings(offenseData: any[], defenseData: any[]) {
 // Load seasonal stats to enrich game metrics
 async function loadSeasonalStats(season: number = CURRENT_STATS_SEASON) {
   try {
-    console.log("🔄 Starting seasonal stats load...");
-
     const offenseRes = await fetch(`/data/offense_season.json`);
     const defenseRes = await fetch(`/data/defense_season.json`);
 
@@ -286,7 +284,6 @@ async function loadSeasonalStats(season: number = CURRENT_STATS_SEASON) {
     // Calculate penalty rankings
     const penaltyRankings = calculateAllPenaltyRankings(offense, defense);
 
-    console.log("✅ Seasonal stats loaded. Offense teams:", Object.keys(offenseMap).length, "Defense teams:", Object.keys(defenseMap).length);
     return { offenseMap, defenseMap, penaltyRankings };
   } catch (error) {
     console.error("❌ Error loading seasonal stats:", error);
@@ -303,12 +300,6 @@ function enrichMetricsWithSeasonalData(
 ): Partial<GameMetrics> {
   const teamOffenseData = offenseMap[teamAbbr] || {};
   const teamDefenseData = defenseMap[teamAbbr] || {};
-
-  console.log(`📝 Enriching ${teamAbbr}:`, {
-    hasRankings: !!penaltyRankings,
-    offCommittedRank: penaltyRankings?.offensiveCommitted?.[teamAbbr],
-    defCommittedRank: penaltyRankings?.defensiveCommitted?.[teamAbbr],
-  });
 
   const offensiveDrives = calculateOffensiveDriveRates(teamOffenseData);
   const thirdDownEffOff = calculateThirdDownEfficiency(teamOffenseData);

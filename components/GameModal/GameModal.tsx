@@ -37,10 +37,6 @@ export function GameModal({ game, onClose }: GameModalProps) {
   }, [game.id, arrancado]);
 
   useEffect(() => {
-    console.log("🎯 GameModal opened for", game.awayTeam.abbr, "vs", game.homeTeam.abbr);
-  }, [game]);
-
-  useEffect(() => {
     if (!isOpen) {
       onClose();
     }
