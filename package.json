@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "download-wordmarks": "node scripts/download-wordmarks.js",
-    "snapshot": "node scripts/build-weekly-snapshot.mts"
+    "snapshot": "node scripts/build-weekly-snapshot.mts",
+    "test": "vitest run"
   },
   "dependencies": {
     "lucide-react": "^1.33.0",
@@ -24,6 +25,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.2",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^2.1.9"
   }
 }
