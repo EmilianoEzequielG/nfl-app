@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Week, Game, GameMetrics, GamePreview } from "@/types";
 import { CURRENT_STATS_SEASON } from "./config";
 import {
@@ -642,4 +643,43 @@ function mergeESPNScores(scheduleGames: any[], espnData: any): any[] {
   }
 
   return resultado;
+}
+
+/**
+ * Semana que corresponde mostrar por defecto al entrar a la app, sin que
+ * nadie tenga que clickear "Próxima" a mano cada vez que empieza una nueva.
+ *
+ * Se lee de public/data/espn-live/current-week.json, que deja el mismo job
+ * de GitHub Actions que trae los marcadores en vivo (ver
+ * scripts/fetch-espn-live.mjs): ESPN ya resuelve "qué semana es esta" al
+ * pedir el scoreboard sin parámetros, así que se publica ese número tal cual
+ * en vez de calcularlo acá con una tabla de fechas de inicio de temporada,
+ * que además habría que actualizar a mano cada año.
+ *
+ * Devuelve `null` mientras no se resolvió todavía (para no arrancar
+ * mostrando la semana 1 un instante y despues saltar a la real), y cae a 1
+ * si el archivo no existe o la respuesta es rara - antes de que el job corra
+ * por primera vez, o si la temporada todavía no arrancó.
+ */
+export function useSemanaActual(): number | null {
+  const [semana, setSemana] = useState<number | null>(null);
+
+  useEffect(() => {
+    let vigente = true;
+    (async () => {
+      try {
+        const res = await fetch("/data/espn-live/current-week.json", { cache: "no-store" });
+        const dato = res.ok ? await res.json() : null;
+        const detectada = Number(dato?.week);
+        if (vigente) setSemana(Number.isFinite(detectada) && detectada >= 1 ? detectada : 1);
+      } catch {
+        if (vigente) setSemana(1);
+      }
+    })();
+    return () => {
+      vigente = false;
+    };
+  }, []);
+
+  return semana;
 }

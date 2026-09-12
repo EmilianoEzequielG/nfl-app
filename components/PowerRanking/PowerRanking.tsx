@@ -5,6 +5,7 @@ import { ChevronDown, Trophy, ChevronLeft, ChevronRight, X } from "lucide-react"
 import Image from "next/image";
 import { MetricsSingleTeamFull } from "@/components/GameModal/MetricsSingleTeamFull";
 import { TeamComparison } from "@/components/GameModal/TeamComparison";
+import { useSemanaActual } from "@/lib/data";
 
 interface TeamRanking {
   id: string;
@@ -88,8 +89,17 @@ export function PowerRanking() {
   const [selectedTeam, setSelectedTeam] = useState<TeamRanking | null>(null);
   const [comparisonTeams, setComparisonTeams] = useState<[TeamRanking | null, TeamRanking | null]>([null, null]);
   const [loading, setLoading] = useState(true);
-  const [currentWeek, setCurrentWeek] = useState(1);
+  // null hasta que se resuelve la semana actual (ver useSemanaActual) - evita
+  // mostrar el ranking de la semana 1 un instante para saltar despues al real.
+  const [currentWeek, setCurrentWeek] = useState<number | null>(null);
   const TOTAL_WEEKS = 18;
+
+  const semanaDetectada = useSemanaActual();
+  useEffect(() => {
+    if (currentWeek === null && semanaDetectada !== null) {
+      setCurrentWeek(semanaDetectada);
+    }
+  }, [currentWeek, semanaDetectada]);
 
   const addToComparison = (team: TeamRanking) => {
     if (comparisonTeams[0] === null) {
@@ -104,14 +114,15 @@ export function PowerRanking() {
   };
 
   useEffect(() => {
-    loadRankings();
+    if (currentWeek === null) return; // todavia no se resolvio la semana inicial
+    loadRankings(currentWeek);
   }, [currentWeek]);
 
 
-  const loadRankings = async () => {
+  const loadRankings = async (semana: number) => {
     try {
       setLoading(true);
-      const response = await fetch(`/api/power-ranking?week=${currentWeek}`);
+      const response = await fetch(`/api/power-ranking?week=${semana}`);
       if (response.ok) {
         const data = await response.json();
         setRankings(data);
@@ -124,11 +135,11 @@ export function PowerRanking() {
   };
 
   const handlePreviousWeek = () => {
-    setCurrentWeek(Math.max(1, currentWeek - 1));
+    setCurrentWeek(Math.max(1, (currentWeek ?? 1) - 1));
   };
 
   const handleNextWeek = () => {
-    setCurrentWeek(Math.min(TOTAL_WEEKS, currentWeek + 1));
+    setCurrentWeek(Math.min(TOTAL_WEEKS, (currentWeek ?? 1) + 1));
   };
 
   // Eliminar duplicados - mantener solo uno por equipo
@@ -178,9 +189,9 @@ export function PowerRanking() {
           <div className="flex items-center justify-center gap-4">
             <button
               onClick={handlePreviousWeek}
-              disabled={currentWeek === 1}
+              disabled={currentWeek === null || currentWeek === 1}
               className={`p-3 border-2 border-bauhaus-black font-black text-xl transition-all ${
-                currentWeek === 1
+                currentWeek === null || currentWeek === 1
                   ? "opacity-30"
                   : "hover:shadow-geo-md active:shadow-geo-sm"
               }`}
@@ -188,13 +199,13 @@ export function PowerRanking() {
               <ChevronLeft className="w-6 h-6" />
             </button>
             <div className="font-black text-xl uppercase">
-              SEMANA {currentWeek}
+              SEMANA {currentWeek ?? "—"}
             </div>
             <button
               onClick={handleNextWeek}
-              disabled={currentWeek === TOTAL_WEEKS}
+              disabled={currentWeek === null || currentWeek === TOTAL_WEEKS}
               className={`p-3 border-2 border-bauhaus-black font-black text-xl transition-all ${
-                currentWeek === TOTAL_WEEKS
+                currentWeek === null || currentWeek === TOTAL_WEEKS
                   ? "opacity-30"
                   : "hover:shadow-geo-md active:shadow-geo-sm"
               }`}
@@ -247,7 +258,7 @@ export function PowerRanking() {
             >
               <div style={{ color: "white" }}>
                 <p style={{ fontSize: "12px", fontWeight: "bold", marginBottom: "8px", textTransform: "uppercase" }}>
-                  SEMANA {currentWeek}
+                  SEMANA {currentWeek ?? "—"}
                 </p>
                 <h2 style={{ fontSize: "24px", fontWeight: "900", textTransform: "uppercase" }}>
                   {selectedTeam.name}

@@ -106,6 +106,16 @@ async function main() {
     const archivo = path.join(outDir, `scoreboard-week-${String(week).padStart(2, "0")}.json`);
     await fs.writeFile(archivo, JSON.stringify(scoreboardOut, null, 2));
     console.log(`[ESPN live] Guardado ${path.relative(projectRoot, archivo)}`);
+
+    // La app necesita saber cual semana mostrar por defecto sin que alguien
+    // tenga que clickear "Proxima" a mano cada vez que arranca una nueva.
+    // ESPN ya resuelve esto (week.number en el scoreboard sin parametros
+    // avanza solo cuando termina la ventana de la semana anterior), asi que
+    // se publica tal cual en vez de calcularlo con una tabla de fechas.
+    await fs.writeFile(
+      path.join(outDir, "current-week.json"),
+      JSON.stringify({ week, updatedAt: timestamp }, null, 2)
+    );
   } else {
     // Sin semana identificable (fuera de temporada, o formato inesperado) se
     // guarda igual bajo un nombre generico para poder inspeccionarlo.

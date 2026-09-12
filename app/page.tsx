@@ -6,7 +6,7 @@ import { Scoreboard } from "@/components/Scoreboard/Scoreboard";
 import { PowerRanking } from "@/components/PowerRanking/PowerRanking";
 import { XOs } from "@/components/XOs/XOs";
 import { Week } from "@/types";
-import { loadWeekData } from "@/lib/data";
+import { loadWeekData, useSemanaActual } from "@/lib/data";
 import { ArrowLeft } from "lucide-react";
 
 type Section = "scoreboard" | "power-ranking" | "xos";
@@ -14,15 +14,30 @@ type Section = "scoreboard" | "power-ranking" | "xos";
 export default function Home() {
   const [week, setWeek] = useState<Week | null>(null);
   const [loading, setLoading] = useState(true);
-  const [currentWeek, setCurrentWeek] = useState(1);
+  // null mientras no se determino que semana mostrar - ver useSemanaActual.
+  // Arrancar en null (no en 1) evita el parpadeo de cargar la semana 1 un
+  // instante y saltar despues a la real.
+  const [currentWeek, setCurrentWeek] = useState<number | null>(null);
   const [activeSection, setActiveSection] = useState<Section>("scoreboard");
   const [fumblesData, setFumblesData] = useState<any>(null);
   const [ultimaActualizacion, setUltimaActualizacion] = useState<Date | null>(null);
+
+  // Semana "actual" segun ESPN (la publica el mismo job que trae los
+  // marcadores en vivo). Sin esto, cualquiera que entrara a la app despues de
+  // la semana 1 tenia que clickear "Proxima" a mano hasta llegar a donde
+  // corresponde.
+  const semanaDetectada = useSemanaActual();
+  useEffect(() => {
+    if (currentWeek === null && semanaDetectada !== null) {
+      setCurrentWeek(semanaDetectada);
+    }
+  }, [currentWeek, semanaDetectada]);
 
   // Una sola funcion de carga. En modo silencioso no toca `loading`, para que el
   // refresco automatico no reemplace la grilla por el cartel de "Cargando...".
   const cargarSemana = useCallback(
     async (silencioso = false) => {
+      if (currentWeek === null) return; // todavia no se resolvio la semana inicial
       if (!silencioso) setLoading(true);
       const data = await loadWeekData(currentWeek);
       setWeek(data);
@@ -147,15 +162,15 @@ export default function Home() {
             {/* Week Controls - Geometric */}
             <div className="mb-8 flex flex-col sm:flex-row gap-4 items-center justify-center">
               <button
-                onClick={() => setCurrentWeek(Math.max(1, currentWeek - 1))}
-                disabled={currentWeek === 1}
+                onClick={() => setCurrentWeek(Math.max(1, (currentWeek ?? 1) - 1))}
+                disabled={currentWeek === null || currentWeek === 1}
                 className="btn-outline px-4 py-3 sm:px-6 text-sm sm:text-base disabled:opacity-30"
               >
                 ← ANTERIOR
               </button>
               <button
-                onClick={() => setCurrentWeek(Math.min(21, currentWeek + 1))}
-                disabled={currentWeek === 21}
+                onClick={() => setCurrentWeek(Math.min(21, (currentWeek ?? 1) + 1))}
+                disabled={currentWeek === null || currentWeek === 21}
                 className="btn-outline px-4 py-3 sm:px-6 text-sm sm:text-base disabled:opacity-30"
               >
                 PRÓXIMA →
