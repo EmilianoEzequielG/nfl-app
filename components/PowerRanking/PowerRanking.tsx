@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronDown, Trophy, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronDown, Trophy, ChevronLeft, ChevronRight, X, Search } from "lucide-react";
 import Image from "next/image";
 import { MetricsSingleTeamFull } from "@/components/GameModal/MetricsSingleTeamFull";
 import { TeamComparison } from "@/components/GameModal/TeamComparison";
@@ -92,6 +92,7 @@ export function PowerRanking() {
   // null hasta que se resuelve la semana actual (ver useSemanaActual) - evita
   // mostrar el ranking de la semana 1 un instante para saltar despues al real.
   const [currentWeek, setCurrentWeek] = useState<number | null>(null);
+  const [busqueda, setBusqueda] = useState("");
   const TOTAL_WEEKS = 18;
 
   const semanaDetectada = useSemanaActual();
@@ -153,6 +154,17 @@ export function PowerRanking() {
     return aRank - bRank;
   });
 
+  // Filtro por nombre o abreviatura. Sin esto, encontrar un equipo puntual
+  // entre los 32 significaba scrollear toda la lista.
+  const terminoBusqueda = busqueda.trim().toLowerCase();
+  const filteredRankings = terminoBusqueda
+    ? sortedRankings.filter(
+        (team) =>
+          team.name.toLowerCase().includes(terminoBusqueda) ||
+          team.abbr.toLowerCase().includes(terminoBusqueda)
+      )
+    : sortedRankings;
+
   if (loading) {
     return (
       <div className="section flex items-center justify-center">
@@ -179,6 +191,27 @@ export function PowerRanking() {
                 Ranking editorial de los 32 equipos
               </p>
             </div>
+          </div>
+
+          {/* Buscador: filtra por nombre o abreviatura */}
+          <div className="mt-4 relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-bauhaus-black/50 pointer-events-none" />
+            <input
+              type="text"
+              value={busqueda}
+              onChange={(e) => setBusqueda(e.target.value)}
+              placeholder="Buscar equipo..."
+              className="w-full border-2 border-bauhaus-black pl-11 pr-4 py-3 font-bold text-sm uppercase tracking-wide shadow-geo-sm focus:outline-none focus:shadow-geo-md transition-all"
+            />
+            {busqueda && (
+              <button
+                onClick={() => setBusqueda("")}
+                aria-label="Limpiar búsqueda"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-bauhaus-black/50 hover:text-bauhaus-black"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            )}
           </div>
         </div>
       </div>
@@ -406,7 +439,12 @@ export function PowerRanking() {
       {/* RANKINGS LIST - Bauhaus */}
       <div className="section">
         <div className="container-geo space-y-6 sm:space-y-8">
-          {sortedRankings.map((team, idx) => {
+          {filteredRankings.length === 0 && (
+            <div className="text-center py-12">
+              <p className="font-black uppercase text-lg">Sin resultados para &quot;{busqueda}&quot;</p>
+            </div>
+          )}
+          {filteredRankings.map((team, idx) => {
             return (
               <div key={`${team.id}-${currentWeek}`}>
                 <div
