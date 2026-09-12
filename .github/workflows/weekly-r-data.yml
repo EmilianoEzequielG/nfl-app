@@ -1,0 +1,102 @@
+name: Weekly R stats update
+
+# Corre los 4 scripts de R que generan las estadisticas acumuladas
+# (offense/defense por temporada y por semana, percentiles EPA, fumbles),
+# construye la app para confirmar que nada se rompe, y comitea los JSON
+# resultantes. Antes esto era 100% manual: alguien corria los scripts en su
+# maquina y copiaba los archivos a public/data/ a mano.
+#
+# Solo disparo manual por ahora (sin cron): es la primera vez que este
+# pipeline corre en CI en vez de en una maquina local, y el proximo corte de
+# temporada (2025 acumulado -> 2026 real) es una decision que se supervisa a
+# mano, no algo para que dispare un cron sin que nadie lo vea. Agregar un
+# cron semanal despues de confirmar que las primeras corridas manuales andan
+# bien es un cambio de una linea.
+#
+# Deliberadamente NO toca el fixture de partidos (games_by_week.json): ese se
+# genera una sola vez para toda la temporada y el merge con ESPN en vivo (via
+# el otro workflow, espn-live-poll.yml) es lo que lo mantiene con marcadores
+# reales - no hace falta re-generarlo cada semana.
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  update-stats:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: "4.4"
+
+      - name: Instalar paquetes de R (con cache)
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::nflreadr
+            any::nflfastR
+            any::dplyr
+            any::tidyr
+            any::jsonlite
+            any::stringr
+            any::rlang
+
+      # Orden: ofensiva y defensiva generan los acumulados base; percentiles
+      # y fumbles son independientes entre si, pero corren despues por
+      # prolijidad (si algo de la base fallara, se corta antes de gastar
+      # tiempo en los demas).
+      - name: Estadisticas ofensivas
+        run: Rscript nfl_offense_stats_2025.R
+
+      - name: Estadisticas defensivas
+        run: Rscript nfl_defense_stats_2025.R
+
+      - name: Percentiles EPA
+        run: Rscript percentil_rank_epa.R
+
+      - name: Contador de fumbles
+        run: Rscript contador_fumbles.R
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Instalar dependencias de Node
+        run: npm ci
+
+      # Si los JSON que acaban de generarse tienen una forma que rompe algo
+      # de la app, el build falla aca y el workflow no llega a comitear nada.
+      - name: Build de verificacion
+        run: npm run build
+
+      - name: Commit y push si hubo cambios
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Los primeros 6 son los que la app lee hoy. El resto (drive outcomes,
+          # distribucion de pases, two-minute drill) los generan los mismos
+          # scripts en la misma corrida sin costo extra; nada los consume
+          # todavia, pero quedan versionados por si se usan mas adelante en vez
+          # de perderse en nfl_json_2025/, que no se comitea.
+          git add \
+            public/data/offense_season.json public/data/offense_by_week.json \
+            public/data/defense_season.json public/data/defense_by_week.json \
+            public/data/epa_percentile_by_week.json public/data/fumbles_contador.json \
+            public/data/two_minute_drill_season.json public/data/two_minute_drill_games.json \
+            public/data/two_minute_drill_defense_season.json public/data/two_minute_drill_defense_games.json \
+            public/data/pass_distribution_season.json public/data/pass_distribution_by_week.json \
+            public/data/pass_distribution_defense_season.json public/data/pass_distribution_defense_by_week.json \
+            public/data/drive_outcomes_by_week.json public/data/drive_outcomes_detail.json \
+            public/data/drive_outcomes_defense_by_week.json public/data/drive_outcomes_defense_detail.json
+          if git diff --cached --quiet; then
+            echo "Sin cambios, nada que commitear."
+          else
+            git commit -m "Actualizar estadísticas semanales (R)"
+            git push
+          fi

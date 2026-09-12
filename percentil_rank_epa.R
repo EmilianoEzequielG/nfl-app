@@ -80,7 +80,7 @@ ranking_semanal %>%
 # ============================================================
 # EXPORTAR A JSON
 # ============================================================
-output_path <- "nfl-web/public/data/epa_percentile_by_week.json"
+output_path <- "public/data/epa_percentile_by_week.json"  # antes: "nfl-web/public/data/...", carpeta que no existe en este repo
 
 # Crear directorio si no existe
 dir.create(dirname(output_path), showWarnings = FALSE, recursive = TRUE)

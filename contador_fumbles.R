@@ -49,4 +49,4 @@ contador_fumbles <- list(
 print(contador_fumbles)
 
 # --- 4. Exportar a JSON para tu página ---
-write_json(contador_fumbles, "fumbles_contador.json", auto_unbox = TRUE, pretty = TRUE)
+write_json(contador_fumbles, "public/data/fumbles_contador.json", auto_unbox = TRUE, pretty = TRUE)  # antes escribia en el directorio de trabajo, no en public/data

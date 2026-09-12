@@ -13,9 +13,9 @@ library(jsonlite)
 library(stringr)
 library(rlang)
 
-# BUG FIX: ruta de salida parametrizada (antes hardcodeada a una ruta de Windows)
-# Cambiar OUTPUT_DIR según el proyecto.
-OUTPUT_DIR <- "nfl_json_2025"
+# Escribe directo a public/data, la carpeta que sirve la app (antes
+# apuntaba a "nfl_json_2025": alguien tenia que copiar los archivos a mano).
+OUTPUT_DIR <- "public/data"
 dir.create(OUTPUT_DIR, showWarnings = FALSE, recursive = TRUE)
 
 SEASON <- 2025
