@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ChevronDown, Lock, Unlock, Trophy, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronDown, Trophy, ChevronLeft, ChevronRight, X } from "lucide-react";
 import Image from "next/image";
 import { MetricsSingleTeamFull } from "@/components/GameModal/MetricsSingleTeamFull";
 import { TeamComparison } from "@/components/GameModal/TeamComparison";
@@ -83,18 +83,10 @@ interface TeamRanking {
   };
 }
 
-interface EditState {
-  teamId: string;
-  newRank: number;
-  newSummary: string;
-}
-
 export function PowerRanking() {
   const [rankings, setRankings] = useState<TeamRanking[]>([]);
   const [selectedTeam, setSelectedTeam] = useState<TeamRanking | null>(null);
   const [comparisonTeams, setComparisonTeams] = useState<[TeamRanking | null, TeamRanking | null]>([null, null]);
-  const [adminMode, setAdminMode] = useState(false);
-  const [editState, setEditState] = useState<EditState | null>(null);
   const [loading, setLoading] = useState(true);
   const [currentWeek, setCurrentWeek] = useState(1);
   const TOTAL_WEEKS = 18;
@@ -128,49 +120,6 @@ export function PowerRanking() {
       console.error("Error loading rankings:", error);
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleAdminToggle = () => {
-    if (!adminMode) {
-      const password = prompt("🔐 Contraseña de admin:");
-      if (password === "secret123") {
-        setAdminMode(true);
-      } else {
-        alert("❌ Contraseña incorrecta");
-      }
-    } else {
-      setAdminMode(false);
-    }
-  };
-
-  const handleEditClick = (team: TeamRanking) => {
-    setEditState({
-      teamId: team.id,
-      newRank: team.adjustedRank || team.calculatedRank,
-      newSummary: team.summary || "",
-    });
-  };
-
-  const handleSaveEdit = async () => {
-    if (!editState) return;
-    try {
-      const response = await fetch("/api/power-ranking", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          teamId: editState.teamId,
-          rankingPosition: editState.newRank,
-          summary: editState.newSummary,
-          week: currentWeek,
-        }),
-      });
-      if (response.ok) {
-        await loadRankings();
-        setEditState(null);
-      }
-    } catch (error) {
-      console.error("Error saving ranking:", error);
     }
   };
 
@@ -219,16 +168,6 @@ export function PowerRanking() {
                 Ranking editorial de los 32 equipos
               </p>
             </div>
-            <button
-              onClick={handleAdminToggle}
-              className={`p-4 border-2 border-bauhaus-black font-black text-xl transition-all ${
-                adminMode
-                  ? "bg-bauhaus-yellow shadow-geo-md"
-                  : "bg-white shadow-geo-sm hover:shadow-geo-md"
-              }`}
-            >
-              {adminMode ? <Unlock className="w-6 h-6" /> : <Lock className="w-6 h-6" />}
-            </button>
           </div>
         </div>
       </div>
@@ -453,59 +392,6 @@ export function PowerRanking() {
         </div>
       )}
 
-      {/* EDIT MODAL - Bauhaus */}
-      {editState && (
-        <div className="fixed inset-0 bg-black/80 flex items-end z-50">
-          <div className="bg-bauhaus-yellow w-full border-t-4 border-bauhaus-black p-6 sm:p-8 space-y-6">
-            <div>
-              <h2 className="h2 text-display-md mb-2">✏️ Editar</h2>
-              <p className="font-black text-xl uppercase">{editState.teamId}</p>
-            </div>
-
-            <div>
-              <label className="label block text-bauhaus-black mb-3">📍 Posición (1-32)</label>
-              <input
-                type="number"
-                min="1"
-                max="32"
-                value={editState.newRank}
-                onChange={(e) =>
-                  setEditState({ ...editState, newRank: parseInt(e.target.value) })
-                }
-                className="w-full border-2 border-bauhaus-black p-3 font-black text-lg shadow-geo-sm"
-              />
-            </div>
-
-            <div>
-              <label className="label block text-bauhaus-black mb-3">📝 Resumen Editorial</label>
-              <textarea
-                value={editState.newSummary}
-                onChange={(e) =>
-                  setEditState({ ...editState, newSummary: e.target.value })
-                }
-                placeholder="Escribe tu análisis..."
-                className="w-full border-2 border-bauhaus-black p-3 h-24 resize-none font-medium"
-              />
-            </div>
-
-            <div className="flex gap-3">
-              <button
-                onClick={handleSaveEdit}
-                className="flex-1 btn-primary py-3 text-lg shadow-geo-md"
-              >
-                ✅ GUARDAR
-              </button>
-              <button
-                onClick={() => setEditState(null)}
-                className="flex-1 btn-outline py-3 text-lg shadow-geo-md"
-              >
-                ❌ CANCELAR
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* RANKINGS LIST - Bauhaus */}
       <div className="section">
         <div className="container-geo space-y-6 sm:space-y-8">
@@ -564,17 +450,6 @@ export function PowerRanking() {
                       >
                         {comparisonTeams.some(t => t?.id === team.id) ? "✓" : "Comp."}
                       </button>
-                      {adminMode && (
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleEditClick(team);
-                          }}
-                          className="px-2 py-1 sm:px-3 sm:py-2 bg-white text-bauhaus-black border-2 border-current font-black text-xs uppercase shadow-geo-sm"
-                        >
-                          Editar
-                        </button>
-                      )}
                     </div>
                   </div>
                 </div>
