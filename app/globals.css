@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;900&display=swap');
+/* Tailwind v4 con el plugin de PostCSS no detecta tailwind.config.js solo -
+ * hay que declararlo explicito, o toda la seccion `theme.extend` (colores
+ * bauhaus-*, sombras shadow-geo-*, tamanos text-display-*) se ignora en
+ * silencio. Confirmado midiendo con Playwright: un boton con className
+ * "text-bauhaus-black" (deberia dar #121212) devolvia rgb(0,0,0), el negro
+ * por defecto del navegador - la clase no generaba ningun CSS. Sin esto, ~64
+ * usos de esas clases en toda la app no hacian nada. */
+@config "../tailwind.config.js";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -31,55 +39,71 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Display Headings - Bauhaus extreme */
-h1, .h1 {
-  font-size: clamp(2rem, 8vw, 8rem);
-  font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  margin: 0;
-}
+/* Display Headings - Bauhaus extreme
+ *
+ * Antes estaban fuera de @layer ("without @layer to avoid Tailwind 4
+ * conflicts", segun un comentario previo) - eso las dejaba ganar por orden de
+ * aparicion en el CSS compilado en vez de por el sistema de capas de
+ * Tailwind, y como el archivo las escribe DESPUES de @tailwind utilities,
+ * terminaban pisando cualquier clase de Tailwind (text-xs, text-sm, etc.) en
+ * cualquier <h1>-<h6>/<p>/<button> de la app. Ya nos mordio una vez: el
+ * tamano del marcador en GameCard tuvo que forzarse con estilos inline
+ * porque un <h3 className="text-xs"> se seguia viendo a 18px.
+ *
+ * @layer base hace que Tailwind v4 reordene esto ANTES de utilities en la
+ * hoja final, que es today el comportamiento esperado: una clase de utilidad
+ * puesta a mano en un elemento debe poder ganarle a un estilo base generico.
+ */
+@layer base {
+  h1, .h1 {
+    font-size: clamp(2rem, 8vw, 8rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin: 0;
+  }
 
-h2, .h2 {
-  font-size: clamp(1.5rem, 5vw, 4rem);
-  font-weight: 900;
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  margin: 0;
-}
+  h2, .h2 {
+    font-size: clamp(1.5rem, 5vw, 4rem);
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    margin: 0;
+  }
 
-h3, .h3 {
-  font-size: clamp(1.125rem, 3vw, 2.5rem);
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-  margin: 0;
-}
+  h3, .h3 {
+    font-size: clamp(1.125rem, 3vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    margin: 0;
+  }
 
-h4, h5, h6, .label {
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin: 0;
-}
+  h4, h5, h6, .label {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 0;
+  }
 
-p {
-  margin: 0;
-  font-weight: 500;
-}
+  p {
+    margin: 0;
+    font-weight: 500;
+  }
 
-/* Button base styles */
-button {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  transition: all 200ms ease-out;
-  border: none;
+  /* Button base styles */
+  button {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 200ms ease-out;
+    border: none;
+  }
 }
 
 /* Links */

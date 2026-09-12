@@ -10,14 +10,18 @@ export default {
         outfit: ['Outfit', 'sans-serif'],
       },
       fontSize: {
-        // Display scale (Bauhaus extreme contrast)
-        'display-xs': ['2rem', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
-        'display-sm': ['3rem', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
-        'display-md': ['4rem', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
-        'display-lg': ['5rem', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
-        'display-xl': ['6rem', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
-        'display-2xl': ['7rem', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
-        'display-3xl': ['8rem', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
+        // Display scale (Bauhaus extreme contrast). Con clamp() para que
+        // escale con el viewport, igual que .h1/.h2/.h3 en globals.css - esta
+        // escala nunca se aplicaba de verdad (ver @config en globals.css), asi
+        // que nadie habia notado que con un valor fijo "POWER RANKING" se veia
+        // desproporcionado en mobile.
+        'display-xs': ['clamp(1.25rem, 5vw, 2rem)', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
+        'display-sm': ['clamp(1.5rem, 6vw, 3rem)', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
+        'display-md': ['clamp(1.75rem, 7vw, 4rem)', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
+        'display-lg': ['clamp(2rem, 8vw, 5rem)', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
+        'display-xl': ['clamp(2.25rem, 9vw, 6rem)', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
+        'display-2xl': ['clamp(2.5rem, 10vw, 7rem)', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
+        'display-3xl': ['clamp(2.75rem, 11vw, 8rem)', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
       },
       colors: {
         // Bauhaus primaries
