@@ -19,7 +19,32 @@ const COLORS = { ink: "#121212", red: "#D02020", muted: "#666" };
 
 export function GameModal({ game, onClose }: GameModalProps) {
   const [isOpen, setIsOpen] = useState(true);
+  const [copiado, setCopiado] = useState(false);
   const { resumen, cargando } = useResumenPartido(game);
+
+  // navigator.share (mobile) abre el picker nativo de apps para compartir;
+  // sin eso (la mayoria de los navegadores de escritorio), se copia el link
+  // al portapapeles y se avisa con el mismo boton en vez de un alert().
+  const handleCompartir = async () => {
+    const url = `${window.location.origin}/partido/${game.id}`;
+    const titulo = `${game.awayTeam.abbr} @ ${game.homeTeam.abbr}`;
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: titulo, url });
+        return;
+      } catch {
+        // el usuario cancelo el picker nativo - no hace falta avisar nada
+        return;
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopiado(true);
+      setTimeout(() => setCopiado(false), 2000);
+    } catch {
+      // clipboard bloqueado (ej. sin HTTPS); no hay mucho mas que ofrecer aca
+    }
+  };
 
   // El partido decide que hay para ver, no solo el orden:
   //  - todavia no arranco: nada que resumir, directo a previa + metricas.
@@ -108,19 +133,40 @@ export function GameModal({ game, onClose }: GameModalProps) {
               {game.awayTeam.abbr} vs {game.homeTeam.abbr}
             </h2>
           </div>
-          <button
-            onClick={() => setIsOpen(false)}
-            style={{
-              padding: "8px",
-              backgroundColor: "white",
-              border: "2px solid #121212",
-              cursor: "pointer",
-              fontSize: "28px",
-              color: "#D02020",
-            }}
-          >
-            ✕
-          </button>
+          <div style={{ display: "flex", gap: "8px", flexShrink: 0 }}>
+            <button
+              onClick={handleCompartir}
+              aria-label="Compartir este partido"
+              style={{
+                padding: "8px 10px",
+                backgroundColor: "white",
+                border: "2px solid #121212",
+                cursor: "pointer",
+                fontSize: "13px",
+                fontWeight: 900,
+                textTransform: "uppercase",
+                color: COLORS.ink,
+                display: "flex",
+                alignItems: "center",
+                gap: "6px",
+              }}
+            >
+              {copiado ? "✓" : "↗"} <span className="hidden sm:inline">{copiado ? "Copiado" : "Compartir"}</span>
+            </button>
+            <button
+              onClick={() => setIsOpen(false)}
+              style={{
+                padding: "8px",
+                backgroundColor: "white",
+                border: "2px solid #121212",
+                cursor: "pointer",
+                fontSize: "28px",
+                color: "#D02020",
+              }}
+            >
+              ✕
+            </button>
+          </div>
         </div>
 
         {/* Content */}
