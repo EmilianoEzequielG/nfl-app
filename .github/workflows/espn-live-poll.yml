@@ -22,7 +22,7 @@ concurrency:
 jobs:
   poll:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,8 +32,23 @@ jobs:
         with:
           node-version: "20"
 
+      # El script ya reintenta el fetch en si mismo (hasta 4 veces, con
+      # backoff, ver scripts/fetch-espn-live.mjs) - pero las primeras 7
+      # corridas de este workflow fallaron las 7 pese a eso, mientras que el
+      # mismo script corrido a mano en otra maquina funciono al primer
+      # intento. El bloqueo intermitente de Akamai que ya se habia detectado
+      # parece pegarle mas duro al rango de IP de GitHub Actions que a otros
+      # origenes. Reintentar el STEP completo (no solo el fetch adentro del
+      # mismo proceso) relanza Node desde cero cada vez con mas espera entre
+      # intentos, dandole mas chances de caer en una ventana en la que
+      # Akamai no este bloqueando.
       - name: Traer datos de ESPN
-        run: node scripts/fetch-espn-live.mjs
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 2
+          max_attempts: 5
+          retry_wait_seconds: 30
+          command: node scripts/fetch-espn-live.mjs
 
       - name: Commit y push si hubo cambios
         run: |
