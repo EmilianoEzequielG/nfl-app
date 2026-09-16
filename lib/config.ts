@@ -1,5 +1,5 @@
 // Centralized configuration for NFL app
-export const CURRENT_STATS_SEASON = 2025;
+export const CURRENT_STATS_SEASON = 2026;
 
 // Temporada que se esta jugando. Distinta de CURRENT_STATS_SEASON, que apunta a
 // los acumulados historicos con los que se arma el ranking.
