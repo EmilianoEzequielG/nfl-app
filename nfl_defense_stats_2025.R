@@ -19,7 +19,7 @@ library(rlang)
 OUTPUT_DIR <- "public/data"
 dir.create(OUTPUT_DIR, showWarnings = FALSE, recursive = TRUE)
 
-SEASON <- 2025
+SEASON <- 2026
 
 cat("Descargando datos (defensiva)...\n")
 pbp       <- load_pbp(seasons = SEASON)

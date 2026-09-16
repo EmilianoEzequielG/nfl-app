@@ -6,16 +6,19 @@ library(stringr)
 library(rlang)
 
 # ---- Semana límite de la temporada actual (última con resultado) ----
-# Nota: Estos percentiles utilizan únicamente datos de la SEMANA 18 (última de la temporada 2025)
-topweek <- load_schedules(season = 2025) %>%
+# Corte 2025 -> 2026: la temporada 2025 ya esta completa (18 semanas), pero
+# 2026 recien jugo su semana 1. CURRENT_WEEK se actualiza a mano cada semana
+# en vez de calcularse de topweek, para que el corte quede explicito.
+topweek <- load_schedules(season = 2026) %>%
   filter(!is.na(result)) %>%
   summarise(week = max(week))
 
-# Usar semana 18 específicamente para los percentiles
-CURRENT_WEEK <- 18
+# Semana 1 de 2026 jugada (la 2 arranca esta semana)
+CURRENT_WEEK <- 1
 
-# ---- Datos base ----
-team_stats <- load_team_stats(2010:2025)
+# ---- Datos base ---- (el rango incluye 2026 para que el filtro de abajo
+# encuentre datos; 2010 como piso historico no cambia, no afecta el resultado)
+team_stats <- load_team_stats(2010:2026)
 
 # ============================================================
 # OFENSIVA
@@ -45,21 +48,21 @@ defensiva <- team_stats %>%
   filter(week <= CURRENT_WEEK)
 
 # ============================================================
-# PERCENTIL POR SEMANA - TEMPORADA ACTUAL (2025)
+# PERCENTIL POR SEMANA - TEMPORADA ACTUAL (2026)
 # ============================================================
 
 # Ofensiva: mayor EPA acumulado = mejor = percentil más alto
-percentil_ofensiva_semana <- ofensiva %>% 
-  filter(season == 2025) %>% 
-  group_by(season, week) %>% 
-  mutate(percentil_ofensivo = round(percent_rank(epa_total) * 100, 1)) %>% 
-  ungroup() %>% 
+percentil_ofensiva_semana <- ofensiva %>%
+  filter(season == 2026) %>%
+  group_by(season, week) %>%
+  mutate(percentil_ofensivo = round(percent_rank(epa_total) * 100, 1)) %>%
+  ungroup() %>%
   select(team, season, week, epa_total, percentil_ofensivo)
 
 # Defensiva: menor EPA permitido acumulado = mejor = percentil más alto (por eso el signo negativo)
-percentil_defensiva_semana <- defensiva %>% 
-  filter(season == 2025) %>% 
-  group_by(season, week) %>% 
+percentil_defensiva_semana <- defensiva %>%
+  filter(season == 2026) %>%
+  group_by(season, week) %>%
   mutate(percentil_defensivo = round(percent_rank(-epa_total_allowed) * 100, 1)) %>% 
   ungroup() %>% 
   select(team, season, week, epa_total_allowed, percentil_defensivo)
